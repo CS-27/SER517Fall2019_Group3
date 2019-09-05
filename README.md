@@ -1,6 +1,6 @@
 # SER517Fall2019_Group3
 # Project: Brew Day
-Brew Day! is an application that allows home brewers to maintain an organized database of their beer recipes. The application allows users to create, store and modify recipes, and later on delete them, if the user wishes to do so. The application is intended for "all-grain" brewers only, and thus all recipes are for this kind of brews (the "extract" brews are not supported).
+Brew Day! is an application that allows home brewers to maintain an organized database of their beer recipes. The application allows users to create, store and modify recipes, and later on delete them, if the user wishes to do so. The application is intended for "all-grain" brewers only, and thus all recipes are for this kind of brews (the "extract" brews are not supported).  The application maintains a list of available ingredients. This allows brewers to be notified about missing ingredients for the next brew.
 
 Technology Stack
 FrontEnd - Reactjs: React is a JavaScript library for building user interfaces.
