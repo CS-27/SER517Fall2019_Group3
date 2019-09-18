@@ -1,19 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './About.css';
 
-function App() {
+function About() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="About">
+      <header className="About-header">
         <img src={logo} className="App-logo" alt="logo" />
-        Welcome to Brew Day!
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        About Us!
       </header>
     </div>
   );
 }
 
-export default App;
+export default About;
