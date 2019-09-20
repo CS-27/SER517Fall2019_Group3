@@ -36,10 +36,6 @@ class MongoDB(AbstractDB):
 
     @property
     def is_connected(self):
-        """True, if practical connection has been achieved.
-
-        .. note:: MongoDB does not do this automatically when creating the client.
-        """
         try:
             self._db.command('ismaster')
         except (pymongo.errors.ConnectionFailure,
@@ -55,11 +51,7 @@ class MongoDB(AbstractDB):
         self._conn.close()
 
     def read(self, collection_name, query=None, selection=None):
-        """Read a collection and return a value according to the query.
-
-        .. seealso:: :meth:`AbstractDB.read` for argument documentation.
-
-        """
+        """Read a collection and return a value according to the query."""
         dbcollection = self._db[collection_name]
 
         cursor = dbcollection.find(query, selection)
@@ -70,14 +62,6 @@ class MongoDB(AbstractDB):
 
     @mongodb_exception_wrapper
     def read_and_write(self, collection_name, query, data, selection=None):
-        """Read a collection's document and update the found document.
-
-        Returns the updated document, or None if nothing found.
-
-        .. seealso:: :meth:`AbstractDB.read_and_write` for
-                     argument documentation.
-
-        """
         dbcollection = self._db[collection_name]
 
         update_data = {'$set': data}
@@ -90,11 +74,6 @@ class MongoDB(AbstractDB):
 
 
     def count(self, collection_name, query=None):
-        """Count the number of documents in a collection which match the `query`.
-
-        .. seealso:: :meth:`AbstractDB.count` for argument documentation.
-
-        """
         dbcollection = self._db[collection_name]
         if hasattr(dbcollection, 'count_documents'):
             return dbcollection.count_documents(filter=query if query else {})
@@ -103,11 +82,6 @@ class MongoDB(AbstractDB):
 
 
     def remove(self, collection_name, query):
-        """Delete from a collection document[s] which match the `query`.
-
-        .. seealso:: :meth:`AbstractDB.remove` for argument documentation.
-
-        """
         dbcollection = self._db[collection_name]
 
         result = dbcollection.delete_many(filter=query)
