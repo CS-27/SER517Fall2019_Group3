@@ -1,11 +1,14 @@
 import React from './node_modules/react';
 import './About.css';
 
+/*Author: Jahnavi Bantupalli
+Date added: Sep 18, 2019
+Date modified : Sept 20, 2019
+*/
 function About() {
   return (
-    <div className="About">
-      <header className="About-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="about">
+      <header className="about-header">
         About Us!
       </header>
       <h1>
