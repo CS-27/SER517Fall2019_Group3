@@ -3,6 +3,7 @@ Date added: Sep 18, 2019
 Date modified : 
 */
 .about-us{
+    margin: 1rem;
     font-family:"Comic Sans MS", cursive, sans-serif;
     font-size: 46px;
     text-align: center;
@@ -15,4 +16,23 @@ Date modified :
     height: 15rem;
     align-self: center;
 
+}
+
+.card-main-image{
+    width: 20rem;
+    height: 15rem;
+    align-self: center;
+    
+
+}
+.card-title{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 1rem;
+
+}
+
+.thumbnail  {
+    max-height: 100%;
+    max-width: 10px;
 }

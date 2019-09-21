@@ -20,7 +20,7 @@ function About() {
      <Container>
      <Card  className="card-main">
   <Card.Body>
-    <Card.Title>Brew More! Worry Less</Card.Title>
+    <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
     <Card.Text>
        We help home brewers to store their recipes and maintain logs to their recipes and ingredients. 
        We also recommend you the beers you can brew with the ingredients you have.
@@ -38,16 +38,16 @@ function About() {
   <Col xs={6} md={4}>
     <Card>
       <Card.Body>
-        <Image src="/images/logo.png" thumbnail/>
+        <Image src="/images/Jahnavi_Bantupalli.jpg" thumbnail/>
         <Card.Title>Jahnavi Bantupalli</Card.Title>
       </Card.Body>
     </Card>
   </Col>
 
   <Col xs={6} md={4}>
-    <Card>
+    <Card >
       <Card.Body>
-        <Image src="/images/logo.png" thumbnail/>
+        <Image class ="thumbnail" src="/images/Shalini_chittineni.jpg" fluid/>
         <Card.Title>Salini Chittineni</Card.Title>
       </Card.Body>
     </Card>
