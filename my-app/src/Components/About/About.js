@@ -21,8 +21,8 @@ function About() {
      <Card  className="card-main">
   <Card.Body>
     <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
-    <Card.Text>
-       We help home brewers to store their recipes and maintain logs to their recipes and ingredients. 
+    <Card.Text className ="card-body">
+       Our mission is to help home brewers to store their recipes and maintain logs to their recipes and ingredients. 
        We also recommend you the beers you can brew with the ingredients you have.
     </Card.Text>
   </Card.Body>

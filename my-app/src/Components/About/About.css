@@ -11,6 +11,7 @@ Date modified :
 
 }
 
+
 .card-main{
     width: 70rem;
     height: 15rem;
@@ -26,6 +27,13 @@ Date modified :
 
 }
 .card-title{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 1rem;
+
+}
+
+.card-body{
     font-family: 'Lucida Sans';
     text-align: center;
     margin: 1rem;
