@@ -17,8 +17,8 @@ function About() {
       <header className="about-us">
         About Us
       </header>
-     
-      <Card bg = "info" className="card-main">
+     <Container>
+     <Card  className="card-main">
   <Card.Body>
     <Card.Title>Brew More! Worry Less</Card.Title>
     <Card.Text>
@@ -27,6 +27,8 @@ function About() {
     </Card.Text>
   </Card.Body>
 </Card>
+     </Container>
+
 <div>
         <h1 className = "about-us"> <center>Meet the Team</center></h1>
         
