@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.Contact{
+    margin: 1rem;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size: 46px;
+    text-align: center;
+    color: blue;
+
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
