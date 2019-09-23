@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de42a868-b14e-47fa-b713-63d5e6488fe1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/LoaderButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/Signup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Signup.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +30,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Signup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1607">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+            <state relative-caret-position="329">
+              <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,6 +79,7 @@
       <find>ControlLabel</find>
       <find>Glyphicon</find>
       <find>HelpBlock</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>FormLabel</replace>
@@ -110,8 +108,8 @@
         <option value="$PROJECT_DIR$/my-app/src/components/Signup.css" />
         <option value="$PROJECT_DIR$/my-app/src/App.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/LoaderButton.css" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Signup.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/LoaderButton.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Signup.js" />
       </list>
     </option>
   </component>
@@ -220,7 +218,7 @@
       <workItem from="1568675632447" duration="6222000" />
       <workItem from="1568692010825" duration="839000" />
       <workItem from="1568857150033" duration="1880000" />
-      <workItem from="1568925391349" duration="662000" />
+      <workItem from="1568925391349" duration="2951000" />
     </task>
     <task id="LOCAL-00001" summary="Basic signup page updated.">
       <created>1568684442191</created>
@@ -240,17 +238,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9603000" />
+    <option name="totallyTimeSpent" value="11892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -337,8 +336,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/Signup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1607">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        <state relative-caret-position="329">
+          <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

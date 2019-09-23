@@ -14,6 +14,8 @@ export default class Signup extends Component {
         this.state = {
             isLoading: false,
             email: "",
+            firstname: "",
+            lastname: "",
             password: "",
             confirmPassword: "",
             confirmationCode: "",
@@ -24,6 +26,8 @@ export default class Signup extends Component {
     validateForm() {
         return (
             this.state.email.length > 0 &&
+            this.state.firstname.length > 0 &&
+            this.state.lastname.length > 0 &&
             this.state.password.length > 0 &&
             this.state.password === this.state.confirmPassword
         );
@@ -84,6 +88,24 @@ export default class Signup extends Component {
     renderForm() {
         return (
             <form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="firstname" bsSize="large">
+                    <FormLabel>Firstname</FormLabel>
+                    <FormControl
+                        autoFocus
+                        type="firstname"
+                        value={this.state.firstname}
+                        onChange={this.handleChange}
+                    />
+                </FormGroup>
+                    <FormGroup controlId="lastname" bsSize="large">
+                        <FormLabel>Lastname</FormLabel>
+                        <FormControl
+                            autoFocus
+                            type="lastname"
+                            value={this.state.lastname}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
                     <FormControl
