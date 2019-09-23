@@ -40,3 +40,73 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.card {
+  width: 20rem;
+}
+ 
+
+/*.card-body {
+  padding: 3rem 0 !important;
+}*/
+ 
+/*.card-text {
+  font-size: 0.9rem;
+  padding: 0.4rem 1.9rem;
+}*/
+
+.Contact{
+    margin: 1rem;
+    /*font-family:"Comic Sans MS", cursive, sans-serif;*/
+    font-size: 46px;
+    text-align: center;
+    color: maroon;
+}
+.card:hover {
+  box-shadow: 10px 10px 20px 5px rgba(1, 1, 1, 0.5);
+}
+
+
+body {
+  background: radial-gradient(#f8f8f8, #ffff, #e5e5e5);
+}
+
+
+/*.card-main{
+    width: 70rem;
+    height: 15rem;
+    align-self: center;
+
+}*/
+
+/*.card-main-image{
+    width: 20rem;
+    height: 15rem;
+    align-self: center;
+    
+
+}*/
+.card-title{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 1rem;
+
+}
+
+.card-body{
+   /* font-family: 'Lucida Sans';*/
+    text-align: center;
+    margin: 1rem;
+
+}
+
+.thumbnail  {
+    max-height: 100%;
+    max-width: 10px;
+}
+ 
+/*.card-img-top:hover {
+  transform: scale(1.8);
+}*/
