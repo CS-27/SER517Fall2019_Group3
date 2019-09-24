@@ -15,7 +15,7 @@ function About() {
   return (
     <div>
       <header className="about-us">
-        About Us
+        ABOUT
       </header>
      <Container>
      <Card  className="card-main">
@@ -30,7 +30,7 @@ function About() {
      </Container>
 
 <div>
-        <h1 className = "about-us"> <center>Meet the Team</center></h1>
+        <h1 className = "about-us"> <center>MEET THE TEAM</center></h1>
         
 </div>
 <Container>
@@ -47,7 +47,7 @@ function About() {
   <Col xs={6} md={4}>
     <Card >
       <Card.Body>
-        <Image class ="thumbnail" src="/images/Shalini_chittineni.jpg" fluid/>
+        <Image class ="thumbnail" src="/images/Shalini_chittineni.jpg" thumbnail/>
         <Card.Title>Salini Chittineni</Card.Title>
       </Card.Body>
     </Card>

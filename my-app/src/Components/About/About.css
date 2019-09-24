@@ -4,10 +4,10 @@ Date modified :
 */
 .about-us{
     margin: 1rem;
-    font-family:"Comic Sans MS", cursive, sans-serif;
-    font-size: 46px;
+    font-family:"Lucida Sans"    ;
+    font-size: 60px;
     text-align: center;
-    color: chocolate;
+    color: rgb(15, 81, 204);
 
 }
 
@@ -34,7 +34,7 @@ Date modified :
 }
 
 .card-body{
-    font-family: 'Lucida Sans';
+    font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;
 
