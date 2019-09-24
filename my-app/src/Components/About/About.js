@@ -13,7 +13,9 @@ Date modified : Sept 20, 2019
 */
 function About() {
   return (
+
     <div>
+
       <header className="about-us">
         ABOUT
       </header>

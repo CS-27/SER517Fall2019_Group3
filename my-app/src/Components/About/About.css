@@ -2,12 +2,21 @@
 Date added: Sep 18, 2019
 Date modified : 
 */
+body{
+    background-image: url("/images/background-beer.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+}
 .about-us{
     margin: 1rem;
     font-family:"Lucida Sans"    ;
     font-size: 60px;
     text-align: center;
-    color: rgb(15, 81, 204);
+    color: white
+    /* color: rgb(15, 81, 204); */
 
 }
 
