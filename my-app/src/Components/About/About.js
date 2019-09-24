@@ -1,24 +1,23 @@
 import React from 'react';
-// import './About.css';
+import './About.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';
-import logo from './logo.svg';
 
 
 import CardDeck from 'react-bootstrap/CardDeck';
 /*Author: Jahnavi Bantupalli
 Date added: Sep 18, 2019
-Date modified : Sept 20, 2019
+Date modified : Sept 23, 2019
 */
 function About() {
   return (
 
     <div>
 
-      <header className="about-us">
+      <div className="about-us">
         ABOUT
-      </header>
+      </div>
      <Container>
      <Card  className="card-main">
   <Card.Body>
