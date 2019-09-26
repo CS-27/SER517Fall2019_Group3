@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import Contact from './components/Contact';
+import Contact from './Components/Contact';
 
 class App extends Component {
   render(){ 
@@ -13,11 +13,11 @@ class App extends Component {
         <img src={logo} className="App-logo" alt="logo" />
         Welcome to Brew Day!
         <p>
-        <Link to={'/contact'} className="nav-link">Contact</Link>
+        <Link to={'/Contact'} className="nav-link">Contact</Link>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <Switch>
-              <Route path='/contact' component={Contact} />
+              <Route path='/Contact' component={Contact} />
           </Switch>
       </header>
     </div>

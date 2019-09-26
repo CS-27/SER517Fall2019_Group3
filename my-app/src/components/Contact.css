@@ -1,112 +1,38 @@
-.App {
-  text-align: center;
+body {
+  background: radial-gradient(#f8f8, #ffff, #e5e5e5);
 }
-
-.Contact{
-    margin: 1rem;
-    font-family:"Comic Sans MS", cursive, sans-serif;
-    font-size: 46px;
-    text-align: center;
-    color: blue;
-
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 
 .card {
+  margin-top: 8%;
   width: 20rem;
+  margin-left: 14.05%;
+}
+
+.card-body {
+  padding: 3rem 10rem;
+  padding-left: 10rem;
 }
  
-
-/*.card-body {
-  padding: 3rem 0 !important;
-}*/
- 
-/*.card-text {
-  font-size: 0.9rem;
-  padding: 0.4rem 1.9rem;
-}*/
-
-.Contact{
-    margin: 1rem;
-    /*font-family:"Comic Sans MS", cursive, sans-serif;*/
-    font-size: 46px;
-    text-align: center;
-    color: maroon;
-}
-.card:hover {
-  box-shadow: 10px 10px 20px 5px rgba(1, 1, 1, 0.5);
+ .overflow {
+  overflow: hidden;
 }
 
-
-body {
-  background: radial-gradient(#f8f8f8, #ffff, #e5e5e5);
+.card-content {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.2rem 1rem;
+  align-content: center;
 }
 
-
-/*.card-main{
-    width: 70rem;
-    height: 15rem;
-    align-self: center;
-
-}*/
-
-/*.card-main-image{
-    width: 20rem;
-    height: 15rem;
-    align-self: center;
-    
-
-}*/
-.card-title{
-    font-family: 'Lucida Sans';
-    text-align: center;
-    margin: 1rem;
-
-}
-
-.card-body{
-   /* font-family: 'Lucida Sans';*/
-    text-align: center;
-    margin: 1rem;
-
-}
-
-.thumbnail  {
-    max-height: 100%;
-    max-width: 10px;
+.card-content:hover{
+  transform: scale(1.6);
 }
  
-/*.card-img-top:hover {
-  transform: scale(1.8);
-}*/
+.card-img-top {
+  transition: transform 0.6s;
+}
+ 
+.card-img-top:hover {
+  transform: scale(1.6);
+  transition: transform 0.6s;
+}

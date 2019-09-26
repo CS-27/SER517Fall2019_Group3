@@ -4,10 +4,11 @@ Date modified : Sept 22, 2019
 */
 
   import React from "react";
-  import "./style-card.css";
+  import "./Contact.css";
   import {Row, Col } from 'react-bootstrap';
   import img1 from "./email.jpg";
   import img2 from "./Call.png";
+
 
   function Contact() {
     return (
@@ -17,24 +18,24 @@ Date modified : Sept 22, 2019
       <Col xs={6} md={4} sm={3}>
       <div className='card shadow'>
         <div className='overflow'>
-          <img src={img1} alt='Image 1' className='card-img-top' />
+          <img src={img1} className='card-img-top' />
         </div>
-        <div className='card-body text-dark'>
-          <h4 className='card-title' align='center'>Email US</h4>
-          <p className='card-content text-secondary'>
+        <div className='card-body'>
+          <h4 className='card-title text-secondary' align='center'>Email US</h4>
+          <p align='center' className='card-content'>
             beer_for_life@gmail.com
           </p>
         </div>
         </div>
         </Col>
-    <Col xs={6} md={4} sm={3}>
-    <div className='card shadow'>
+        <Col xs={6} md={4} sm={3}>
+        <div className='card shadow'>
         <div className='overflow'>
-          <img src={img2} alt='Image 1' className='card-img-top' />
+          <img className='card-img-top' src={img2} />
         </div>
-        <div className='card-body text-dark'>
-          <h3>Call US</h3>
-          <p className='card-content text-secondary'>
+        <div className='card-body'>
+          <h4 className='card-title text-secondary' align='center'>Call US</h4>
+          <p align='center' className='card-content'>
             Google Maps here
           </p>
         </div>
@@ -42,13 +43,13 @@ Date modified : Sept 22, 2019
         </Col>
 
         <Col xs={6} md={4} sm={3}>
-    <div className='card text-center shadow'>
+        <div className='card shadow'>
         <div className='overflow'>
           <img src={img1} className='card-img-top' />
         </div>
-        <div className='card-body text-dark'>
-          <h4 className='card-title'>Visit US</h4>
-          <p className='card-content text-secondary'>
+        <div className='card-body'>
+          <h4 className='card-title text-secondary' align='center'>Visit US</h4>
+          <p align='center' className='card-content'>
             Maps + Address coming soon
           </p>
         </div>
