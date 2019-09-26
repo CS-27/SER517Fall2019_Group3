@@ -12,8 +12,12 @@ def addRecipe(recipe):
 
 	recipe['Name'] = ''.join(e for e in recipe['Name'] if e.isalnum())
 	data.update(recipe_name = recipe)
+	result = collection.insert(recipe).inserted_id
+	if result:
+		return 'True'
+	else:
+		return 'Not inserted'
 
-	result = collection.insert(recipe)
 
 def showRecipeByName(name):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")

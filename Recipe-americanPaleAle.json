@@ -1,6 +1,6 @@
 {
-	"American-Pale-Ale":
-	{
+	
+	"Name" : "American-Pale-Ale",
 	"All-Grain" : {
 		"Batch size": "5 Gallons",
 		"Brewhouse efficiency": "72%",
@@ -24,5 +24,5 @@
 	},
 	"Yeast" : "Wyeast 1056",
 	"Directions" : "Mash at 150˚F for 60 minutes or until conversion is complete. Boil for 60 minutes. Add whirlpool hops after cooling 20 degrees following boil (to preserve aroma). Cool to 61˚F (16˚C) and pitch clean yeast. Allow fermentation to free rise to 66.2˚ (19˚C) for two days, then finish at 70˚ (21˚C). When fermentation reaches 1-2° Plato from final gravity (1.010–1.014), add the dry hop addition for two days before crashing and cold conditioning."
-	}
+	
 }
