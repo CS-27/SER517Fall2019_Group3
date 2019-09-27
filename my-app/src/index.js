@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Contact from './Components/Contact';
+import showMap from './Components/showMap';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
