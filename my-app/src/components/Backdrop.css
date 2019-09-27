@@ -2,18 +2,17 @@ body{
   background-image: url(/images/bg1.jpg);
   height: 100%;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
  }
 
 
 
-.card-main{
-  margin-top: 5rem !important;
-  margin-left: 12rem;
+.card-main-one{
+  /* margin-top: 5rem !important; */
+  /* margin-left: 12rem; */
 
   width: 70rem;
-  height: 40rem;
+  height: 20rem;
   align-self: center;
 
 }
