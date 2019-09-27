@@ -5,8 +5,10 @@ import {
     FormLabel
 } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import "./Signup.css";
-
+import './Signup.css';
+import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image'
+import { Container, Row, Col } from 'react-bootstrap';
 export default class Signup extends Component {
     constructor(props) {
         super(props);
@@ -87,7 +89,10 @@ export default class Signup extends Component {
 
     renderForm() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <Container>
+            <Card  className="cardMain">
+         <Card.Body>
+         <form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="firstname" bsSize="large">
                     <FormLabel>Firstname</FormLabel>
                     <FormControl
@@ -141,6 +146,12 @@ export default class Signup extends Component {
                     loadingText="Signing up…"
                 />
             </form>
+         </Card.Body>
+       </Card>
+            </Container>
+            
+            
+          
         );
     }
 
