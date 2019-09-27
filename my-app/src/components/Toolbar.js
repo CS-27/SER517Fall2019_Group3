@@ -53,35 +53,17 @@ export default function ButtonAppBar()  {
 
    
 
-    <div className={classes.root}>
+    <div className={classes.root} bg-dark>
      <Router>
 
-      <AppBar position="static" color = "primary">
+      <AppBar position="static" bg-dark >
         <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" className={classes.title}>
-            BrewDay
-          </Typography> */}
-
-          <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title}>BrewDay</Button>
-          <Switch>
-                  <Route exact path='/' component={Backdrop} />
-              </Switch>
-
-
+          <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title} >BrewDay</Button>
           <Button component = {Link} to = "/home" color="inherit">About</Button>
-          <Switch>
-                  <Route path='/home' component={Backdrop} />
-              </Switch>
-
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
-          <Switch>
-                <Route path='/contact' component={Backdrop} />
-            </Switch>
-
-          
         <div>
         
         <IconButton
@@ -115,6 +97,13 @@ export default function ButtonAppBar()  {
          
         </Toolbar>
       </AppBar>
+      <Switch>
+        <Route exact path='/' component={Backdrop} />
+
+             
+              <Route path='/contact' component={Backdrop} />
+                <Route path='/profile' component={Backdrop} />
+            </Switch>
        </Router>
       
     </div>
