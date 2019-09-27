@@ -57,7 +57,7 @@ function About() {
   <Col xs={6} md={4}>
     <Card>
       <Card.Body>
-        <Image src="/images/logo.png" thumbnail/>
+        <Image src="/images/harshita.jpeg" thumbnail/>
         <Card.Title>Harshita Kajal</Card.Title>
       </Card.Body>
     </Card>
@@ -77,8 +77,8 @@ function About() {
   <Col xs={6} md={4}>
     <Card>
       <Card.Body>
-        <Image src="/images/logo.png" thumbnail/>
-        <Card.Title>Rishab</Card.Title>
+        <Image src="/images/rishab.jpeg" thumbnail/>
+        <Card.Title>Rishab Mantri</Card.Title>
       </Card.Body>
     </Card>
   </Col>
