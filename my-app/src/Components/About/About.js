@@ -68,8 +68,8 @@ function About() {
   <Col xs={6} md={4}>
     <Card>
       <Card.Body>
-        <Image src="/images/logo.png" thumbnail/>
-        <Card.Title>Srajan</Card.Title>
+        <Image src="/images/srajan.jpeg" thumbnail/>
+        <Card.Title>Srajan Gupta</Card.Title>
       </Card.Body>
     </Card>
   </Col>
