@@ -16,6 +16,7 @@ class App extends Component {
         <img src={logo} className="App-logo" alt="logo" />
         Welcome to Brew Day!
       </header>
+      
     </div>
     </Router>
   );
@@ -24,22 +25,3 @@ class App extends Component {
 
 export default () => <Toolbar />;
 
-//export default () => <Backdrop />;
-
-
-//
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         Welcome to Brew Day!
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </header>
-//     </div>
-//   );
-// }
-//
-// export default App;

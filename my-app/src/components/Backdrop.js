@@ -1,22 +1,32 @@
 import React from 'react';
-// import logo from '../../public/images/bg1.jpg';
 import Toolbar from './Toolbar';
 import './Backdrop.css';
+import Card from 'react-bootstrap/Card';
+import { Container, Row, Col } from 'react-bootstrap';
+
+
+
 
 function Backdrop() {
 
-  var textStyle = {
-           position: 'absolute',
-           top: '50%',
-           left: '50%',
-           color: 'black',
-           backgroundColor: 'yellow'
-         };
-
+ 
   return (
-           <div className = 'bg-image' style={{width: 'auto'}}>
+    <div className='bg-image' style={{ width: 'auto' }}>
+      <Container>
+        <Card className="card-main-one">
+          <Card.Body>
+            <Card.Title className="card-title">Stop thinking! Start Brewing!</Card.Title>
+            <Card.Text className="card-body">
+             BREW. </Card.Text>
+             <Card.Text className="card-body"> SHARE.</Card.Text>
+             <Card.Text className="card-body"> HAVE FUN.</Card.Text>
 
-            </div>
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
+
+
         );
 
 }

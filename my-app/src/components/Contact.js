@@ -8,6 +8,7 @@ Date modified : Sept 22, 2019
   import {Row, Col } from 'react-bootstrap';
   import img1 from "./email.jpg";
   import img2 from "./Call.png";
+  import img3 from "./Maps.png";
  import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import showMap from './showMap';
 
@@ -49,12 +50,12 @@ import showMap from './showMap';
         <Col xs={6} md={4} sm={3}>
         <div className='card shadow'>
         <div className='overflow'>
-        <img className='card-img-top' src={img1} /> 
+        <img className='card-img-top' src={img3} /> 
       </div>
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Visit US</h4>
           <p align='center' className='card-content'>
-            Google Maps Coming Soon
+           Directions Coming Soon
           </p>
         </div>
         </div>
