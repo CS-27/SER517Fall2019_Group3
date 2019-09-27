@@ -2,9 +2,39 @@ body{
   background-image: url(/images/bg1.jpg);
   height: 100%;
   background-position: center;
-  
+  background-repeat: no-repeat;
   background-size: cover;
  }
 
 
- 
+
+.card-main{
+  margin-top: 5rem !important;
+  margin-left: 12rem;
+
+  width: 70rem;
+  height: 40rem;
+  align-self: center;
+
+}
+/* 
+.card-main:hover{
+  transform: scale(1.2);
+} */
+
+.card-title{
+  font-family: 'Lucida Sans';
+  text-align: center;
+  margin: 1rem;
+
+}
+
+.card-body{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  margin: 1rem;
+  background-color: rgb(255,255,224)
+
+  
+
+}
