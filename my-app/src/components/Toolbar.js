@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from './Backdrop';
 import Signup from './Signup';
+import Contact from './Contact';
 import About from './About/About';
 
 
@@ -103,10 +104,9 @@ export default function ButtonAppBar()  {
       </AppBar>
       <Switch>
         <Route exact path='/' component={Backdrop} />
-
-             
-              <Route path='/contact' component={Backdrop} />
+              <Route path='/contact' component={Contact} />
               <Route path='/signup' component={Signup} />
+
               <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
             </Switch>

@@ -2,11 +2,10 @@ import React, { Component} from 'react';
 import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Backdrop from './components/Backdrop';
 import Toolbar from './components/Toolbar';
+import Contact from './components/Contact';
 
 class App extends Component {
   render(){
@@ -16,7 +15,6 @@ class App extends Component {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         Welcome to Brew Day!
-
       </header>
       
     </div>
