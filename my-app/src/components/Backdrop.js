@@ -17,7 +17,6 @@ function Backdrop() {
 
   return (
            <div className = 'bg-image' style={{width: 'auto'}}>
-
             </div>
         );
 
