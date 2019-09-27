@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import Contact from './Components/Contact';
+import Contact from './components/Contact';
 
 class App extends Component {
   render(){ 
