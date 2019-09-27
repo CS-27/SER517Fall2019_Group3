@@ -4,11 +4,11 @@ Date modified : Sept 25, 2019
 */
 
 
-body {
+.ContactClass .body {
   background: radial-gradient(#f8f8, #ffff, #e5e5e5);
 }
 
-.card {
+.ContactClass .card {
   margin-top: 8%;
   width: 20rem;
   margin-left: 14.05%;
@@ -19,26 +19,27 @@ body {
   padding-left: 10rem;
 }
  
- .overflow {
+.overflow {
   overflow: hidden;
 }
 
-.card-content {
+ .card-content {
   font-size: 1.25rem;
   font-weight: 700;
   padding: 0.2rem 1rem;
   align-content: center;
+  color: black
 }
 
-.card-content:hover{
+.ContactClass .card-content:hover{
   transform: scale(1.6);
 }
  
-.card-img-top {
+.ContactClass .card-img-top {
   transition: transform 0.6s;
 }
  
-.card-img-top:hover {
+.Contact .card-img-top:hover {
   transform: scale(1.6);
   transition: transform 0.6s;
 }

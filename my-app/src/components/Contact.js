@@ -12,13 +12,14 @@ Date modified : Sept 22, 2019
 import showMap from './showMap';
 
 
-
  function Contact() {
       return (
       <div className= 'Contact'>
       <header align='center'><h1>Contact Us</h1></header>
+      <div className='ContactClass'>
       <Row>
       <Col xs={6} md={4} sm={3}>
+        
       <div className='card shadow'>
         <div className='overflow'>
           <img src={img1} className='card-img-top' />
@@ -39,7 +40,7 @@ import showMap from './showMap';
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Call US</h4>
           <p align='center' className='card-content'>
-            Google Maps here
+            +1 (951)-xxx-1234
           </p>
         </div>
         </div>
@@ -53,12 +54,13 @@ import showMap from './showMap';
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Visit US</h4>
           <p align='center' className='card-content'>
-            Maps + Address coming soon
+            Google Maps Coming Soon
           </p>
         </div>
         </div>
         </Col>
         </Row>
+        </div>
       </div>
     );
   };
