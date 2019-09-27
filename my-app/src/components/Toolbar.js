@@ -95,7 +95,7 @@ export default function ButtonAppBar()  {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Login</MenuItem>
-                <MenuItem component = {Link} to = "/signup" color="inherit" >Sign Up</MenuItem>
+                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handleClose} >Sign Up</MenuItem>
               </Menu>
               </div>
          
