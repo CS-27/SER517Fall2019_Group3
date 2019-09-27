@@ -13,7 +13,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-
+import Signup from './Signup';
 
 
 
@@ -64,6 +64,7 @@ export default function ButtonAppBar()  {
           <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title} >BrewDay</Button>
           <Button component = {Link} to = "/home" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
+            <Button component = {Link} to = "/signup" color="inherit">Sign up</Button>
         <div>
         
         <IconButton
@@ -103,6 +104,7 @@ export default function ButtonAppBar()  {
              
               <Route path='/contact' component={Backdrop} />
                 <Route path='/profile' component={Backdrop} />
+          <Route path='/signup' component={Signup} />
             </Switch>
        </Router>
       
