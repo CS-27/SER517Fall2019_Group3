@@ -92,7 +92,7 @@ export default class Signup extends Component {
                     <FormLabel>Firstname</FormLabel>
                     <FormControl
                         autoFocus
-                        type="firstname"
+                        type="Text"
                         value={this.state.firstname}
                         onChange={this.handleChange}
                     />
@@ -101,7 +101,7 @@ export default class Signup extends Component {
                         <FormLabel>Lastname</FormLabel>
                         <FormControl
                             autoFocus
-                            type="lastname"
+                            type="Text"
                             value={this.state.lastname}
                             onChange={this.handleChange}
                         />
@@ -110,7 +110,7 @@ export default class Signup extends Component {
                     <FormLabel>Email</FormLabel>
                     <FormControl
                         autoFocus
-                        type="email"
+                        type="Text"
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
