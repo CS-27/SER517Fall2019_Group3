@@ -16,4 +16,13 @@ Members:
 4. Harshita Kajal
 5. Jahnavi Bantupalli
 
+# Directions to run the project:
+
+#### Clone the project
+
+#### Go to the directory: my-app
+
+#### Run the command `npm start`
+
+The app runs in the following : [http://localhost:3000](http://localhost:3000)
 
