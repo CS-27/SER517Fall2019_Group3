@@ -25,6 +25,7 @@ export default class IngredientPage extends Component {
         return (
             <Container>
             <Card  className="cardMain">
+                <Card.Title className="card-title" >Add an ingredient </Card.Title>
          <Card.Body>
          <form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name" bsSize="large">
