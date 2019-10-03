@@ -3,7 +3,11 @@
   About:  This is to render equipment page to add equipment.
 */
 import React, { Component } from "react";
-
+import {
+    FormGroup,
+    FormControl,
+    FormLabel
+} from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import './Equipment.css';
 
