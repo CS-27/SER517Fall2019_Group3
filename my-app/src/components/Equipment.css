@@ -1,0 +1,13 @@
+.mainCard{
+    width: 70rem;
+    height: 15rem;
+    align-self: center;
+
+}
+
+.titleCard{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 2rem;
+
+}
