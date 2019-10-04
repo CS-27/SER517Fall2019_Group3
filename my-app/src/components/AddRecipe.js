@@ -22,21 +22,9 @@ export default class AddRecipe extends Component {
             Hops: "",
             Malt: "",
             Yeast: "",
-            IBU: "",
-            // confirmPassword: "",
-            // confirmationCode: "",
-            // newUser: null
+            IBU: ""  
         };
     }
-
-    validateForm() {
-        return (
-            this.state.Hops.length > 0 &&
-            this.state.Malt.length > 0 &&
-            this.state.Yeast.length > 0 &&
-            this.state.IBU.length > 0 &&
-            // this.state.password === this.state.confirmPassword
-        );
     }
   }
   
