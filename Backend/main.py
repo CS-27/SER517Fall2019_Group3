@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, request, Blueprint
 import recipeFunctions
 import equimentFunctions
+import ingredientFunctions
 
 
 brewDay_api = Flask(__name__)
@@ -25,6 +26,11 @@ def addRecipeInfo():
 def showEquiment():
 	userID = request.args.get('userID')
 	return jsonify({'equipmentList' : equimentFunctions.showEquipment(userID)})
+
+@brewDay_api.route('/showIngredient', methods = ['GET'])
+def showIngredient():
+	userID = request.args.get('userID')
+	return jsonify({'IngredientList' : ingredientFunctions.showIngredient(userID)})
 
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
