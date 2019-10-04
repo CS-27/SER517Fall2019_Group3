@@ -1,5 +1,8 @@
 
 from flask import Flask, jsonify, request, Blueprint
+import recipeFunctions
+import equimentFunctions
+import ingredientFunctions
 
 
 brewDay_api = Flask(__name__)
@@ -9,15 +12,25 @@ def indexPage():
 	return 'Hello, This is Brew Day'
 
 @brewDay_api.route('/showRecipe', methods = ['GET'])
-def showRecipe(name):
-	recipeName = request.args.get('name')
+def showRecipe():
+	recipeName = request.args.get('recipeName')
 	return jsonify({'RecipeInfo': recipeFunctions.showRecipeByName(recipeName)})
 
 
 @brewDay_api.route('/addRecipe', methods = ['POST'])
-def addRecipeInfo(recipeInfo):
+def addRecipeInfo():
 	recipeInfo = request.args.get('recipeInfo')
 	return jsonify({'recipeAdditionStatus' : recipeFunctions.addRecipe(recipeInfo)})
+
+@brewDay_api.route('/showEquipment', methods = ['GET'])
+def showEquiment():
+	userID = request.args.get('userID')
+	return jsonify({'equipmentList' : equimentFunctions.showEquipment(userID)})
+
+@brewDay_api.route('/showIngredient', methods = ['GET'])
+def showIngredient():
+	userID = request.args.get('userID')
+	return jsonify({'IngredientList' : ingredientFunctions.showIngredient(userID)})
 
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
