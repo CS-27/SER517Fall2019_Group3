@@ -63,9 +63,30 @@ export default function ButtonAppBar()  {
 
       <AppBar position="static" bg-dark >
         <Toolbar>
-        <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
+        <IconButton edge="start" className={classes.menuButton}  
+                         onClick={handleMenu}
+                         aria-controls="menu-bar"
+                         color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+
+          <Menu
+                id="menu-bar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handleClose} >Add Ingredient</MenuItem>
+              </Menu>
           <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title} >BrewDay</Button>
           <Button component = {Link} to = "/about" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
