@@ -15,29 +15,39 @@ def indexPage():
 @brewDay_api.route('/showRecipe', methods = ['GET'])
 def showRecipe():
 	recipeName = request.args.get('recipeName')
-	return jsonify({'RecipeInfo': recipeFunctions.showRecipeByName(recipeName)})
+	response = jsonify({'RecipeInfo': recipeFunctions.showRecipeByName(recipeName)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 
 @brewDay_api.route('/addRecipe', methods = ['POST'])
 def addRecipeInfo():
 	recipeInfo = request.args.get('recipeInfo')
-	return jsonify({'recipeAdditionStatus' : recipeFunctions.addRecipe(recipeInfo)})
+	response = jsonify({'recipeAdditionStatus' : recipeFunctions.addRecipe(recipeInfo)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 @brewDay_api.route('/showEquipment', methods = ['GET'])
 def showEquiment():
 	userID = request.args.get('userID')
-	return jsonify({'equipmentList' : equimentFunctions.showEquipment(userID)})
+	response = jsonify({'equipmentList' : equimentFunctions.showEquipment(userID)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 @brewDay_api.route('/showIngredient', methods = ['GET'])
 def showIngredient():
 	userID = request.args.get('userID')
-	return jsonify({'IngredientList' : ingredientFunctions.showIngredient(userID)})
+	response = jsonify({'IngredientList' : ingredientFunctions.showIngredient(userID)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 @brewDay_api.route('/userCheckLogin', methods = ['GET'])
 def checkUserLogin():
 	userID = request.args.get('userID')
 	password = request.args.get('password')
-	return jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
+	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
