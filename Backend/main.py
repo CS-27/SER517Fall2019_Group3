@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, Blueprint
 import recipeFunctions
 import equimentFunctions
 import ingredientFunctions
+import userLoginFunctions
 
 
 brewDay_api = Flask(__name__)
@@ -31,6 +32,12 @@ def showEquiment():
 def showIngredient():
 	userID = request.args.get('userID')
 	return jsonify({'IngredientList' : ingredientFunctions.showIngredient(userID)})
+
+@brewDay_api.route('/userCheckLogin', methods = ['GET'])
+def checkUserLogin():
+	userID = request.args.get('userID')
+	password = request.args.get('password')
+	return jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
 
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
