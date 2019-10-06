@@ -13,7 +13,7 @@ function Backdrop() {
   return (
     <div className='bg-image' style={{ width: 'auto' }}>
       <Container>
-        <Card className="card-main">
+        <Card className="card-main-one">
           <Card.Body>
             <Card.Title className="card-title">Stop thinking! Start Brewing!</Card.Title>
             <Card.Text className="card-body">

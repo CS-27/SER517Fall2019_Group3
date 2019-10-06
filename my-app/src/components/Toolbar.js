@@ -7,6 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from './Backdrop';
+import Signup from './Signup';
+import Contact from './Contact';
+import About from './About/About';
+
+
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -62,7 +67,7 @@ export default function ButtonAppBar()  {
             <MenuIcon />
           </IconButton>
           <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title} >BrewDay</Button>
-          <Button component = {Link} to = "/home" color="inherit">About</Button>
+          <Button component = {Link} to = "/about" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
         <div>
         
@@ -91,7 +96,7 @@ export default function ButtonAppBar()  {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Login</MenuItem>
-                <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handleClose} >Sign Up</MenuItem>
               </Menu>
               </div>
          
@@ -99,9 +104,10 @@ export default function ButtonAppBar()  {
       </AppBar>
       <Switch>
         <Route exact path='/' component={Backdrop} />
+              <Route path='/contact' component={Contact} />
+              <Route path='/signup' component={Signup} />
 
-             
-              <Route path='/contact' component={Backdrop} />
+              <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
             </Switch>
        </Router>
