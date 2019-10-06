@@ -6,30 +6,43 @@ import React, { Component } from "react";
 import {
     FormGroup,
     FormControl,
-    FormLabel
+    FormLabel,
+    Form,
+    Button
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import './Equipment.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
-export default class IngredientPage extends Component {
+export default class Equipment extends Component {
     constructor(props) {
         super(props);
 
+      
         this.state = {
-            isLoading: false,
             name:"",
             quantity:"",
-            newUser: null
+            user: null
         };
+
+        const handleChange = event => {
+            console.log("Done");
+            alert('Value submitted: ' + this.state.name);
+            event.preventDefault();
+          };
+
     }
+
+
+
+
     renderForm() {
         return (
             <Container>
             <Card  className="mainCard">
                 <Card.Title className="titleCard" >Add equipment</Card.Title>
          <Card.Body>
-         <form onSubmit={this.handleSubmit}>
+         <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name" bsSize="large">
                     <FormLabel>Name</FormLabel>
                     <FormControl
@@ -48,8 +61,8 @@ export default class IngredientPage extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-    
-            </form>
+                    <Button onClick ="this.handleSubmit()"variant="primary" type="submit" >Add Equipment</Button>
+            </Form>
          </Card.Body>
        </Card>
             </Container>
