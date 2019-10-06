@@ -10,6 +10,7 @@ import Backdrop from './Backdrop';
 import Signup from './Signup';
 import Contact from './Contact';
 import About from './About/About';
+import Equipment from './EquipmentPage/Equipment';
 
 
 import IconButton from '@material-ui/core/IconButton';
@@ -46,6 +47,10 @@ export default function ButtonAppBar()  {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const open2 = Boolean(anchorE2);
+
   const handleChange = event => {
     setAuth(event.target.checked);
   };
@@ -54,10 +59,18 @@ export default function ButtonAppBar()  {
     setAnchorEl(event.currentTarget);
   };
 
+  const handle_Menu = event => {
+    setAnchorE2(event.currentTarget);
+  };
+
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  const handle_Close = () => {
+    setAnchorE2(null);
+  };
     
   return (
 
@@ -68,12 +81,34 @@ export default function ButtonAppBar()  {
 
       <AppBar position="static" className = {classes.bgColor} >
         <Toolbar>
-        <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+        <div> 
+        <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-haspopup="true"  onClick={handle_Menu} aria-controls="menu-bar" aria-label="menu">
+        <MenuIcon />
+        </IconButton>
+        <Menu
+                id="menu-bar"
+                anchorE2={anchorE2}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open2={open2}
+                onClose={handle_Close}
+              >
+                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handle_Close} >Add Ingredient</MenuItem>
+                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handle_Close} >Add Equipment</MenuItem>
+              </Menu>
+           </div>
+          
           <Button component = {Link} to = "/" color="inherit" className={classes.title} >BrewDay</Button>
           <Button component = {Link} to = "/about" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
+          <Button component = {Link} to = "/equipment" color="inherit">Equipment</Button>
         <div>
         
         <IconButton
@@ -111,7 +146,7 @@ export default function ButtonAppBar()  {
         <Route exact path='/' component={Backdrop} />
               <Route path='/contact' component={Contact} />
               <Route path='/signup' component={Signup} />
-
+              <Route path='/equipment' component={Equipment} />
               <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
             </Switch>
