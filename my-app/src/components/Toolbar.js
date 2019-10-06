@@ -11,6 +11,7 @@ import Signup from './Signup/Signup';
 import Signin from './Signin/Signin';
 import Contact from './Contact';
 import About from './About/About';
+import Routes from ".././Routes";
 
 
 import IconButton from '@material-ui/core/IconButton';
@@ -19,6 +20,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+// import AppliedRoute from "./components/AppliedRoute";
 
 
 
@@ -35,7 +37,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ButtonAppBar()  {
+export default function ButtonAppBar({ childProps })  {
+
+
   
   const classes = useStyles();
   // const classes = theme();
@@ -104,13 +108,15 @@ export default function ButtonAppBar()  {
         </Toolbar>
       </AppBar>
       <Switch>
-        <Route exact path='/' component={Backdrop} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/signin' component={Signin} />
+          {/*<AppliedRoute path="/login" exact component={Signin} props={childProps} />*/}
+        {/*<Route exact path='/' component={Backdrop} />*/}
+              {/*<Route path='/contact' component={Contact} />*/}
+              {/*<Route path='/signup' component={Signup} />*/}
+              {/*<Route path='/signin' component={Signin} />*/}
 
-              <Route path='/about' component={About} />
-                <Route path='/profile' component={Backdrop} />
+              {/*<Route path='/about' component={About} />*/}
+                {/*<Route path='/profile' component={Backdrop} />*/}
+          <Routes childProps={childProps} />
             </Switch>
        </Router>
       

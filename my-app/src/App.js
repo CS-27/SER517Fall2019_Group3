@@ -6,22 +6,41 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Backdrop from './components/Backdrop';
 import Toolbar from './components/Toolbar';
 import Contact from './components/Contact';
+import Routes from "./Routes";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isAuthenticated: false
+    };
+  }
+
+  userHasAuthenticated = authenticated => {
+    this.setState({ isAuthenticated: authenticated });
+  }
   render(){
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated
+    };
   return (
-    <Router>
-    <div className="App">
+
+      <Router>
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         Welcome to Brew Day!
       </header>
-      
-    </div>
-    </Router>
+
+      </div>
+      </Router>
   );
+
 }
 }
 
 export default () => <Toolbar />;
+{/*<Routes childProps={childProps} />*/}
 
