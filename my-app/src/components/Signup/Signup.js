@@ -4,7 +4,7 @@ import {
     FormControl,
     FormLabel
 } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
+import LoaderButton from "./LoaderButton";
 import './Signup.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
