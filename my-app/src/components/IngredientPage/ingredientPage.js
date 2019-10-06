@@ -2,10 +2,10 @@
 Date added: Oct 2, 2019
 */
 import React, { Component } from "react";
-import {
+import {Form,
     FormGroup,
     FormControl,
-    FormLabel
+    FormLabel, Button
 } from "react-bootstrap";
 import './ingredientPage.css';
 import Card from 'react-bootstrap/Card';
@@ -15,19 +15,29 @@ export default class IngredientPage extends Component {
         super(props);
 
         this.state = {
-            isLoading: false,
+            // isLoading: false,
             name:"",
             quantity:"",
-            newUser: null
+            user: null
         };
+
+        
     }
+
+    handleSubmit(event) {
+        console.log("hey");
+        alert('A name was submitted: ' + this.state.name);
+        event.preventDefault();
+      }
+
+
     renderForm() {
         return (
             <Container>
             <Card  className="cardMain">
                 <Card.Title className="card-title" >Add an ingredient </Card.Title>
          <Card.Body>
-         <form onSubmit={this.handleSubmit}>
+         <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name" bsSize="large">
                     <FormLabel>Name</FormLabel>
                     <FormControl
@@ -46,8 +56,10 @@ export default class IngredientPage extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
+                    <Button onClick ="this.handleSubmit()"variant="primary" type="submit" >Add Ingredient</Button>
+
     
-            </form>
+            </Form>
          </Card.Body>
        </Card>
             </Container>
