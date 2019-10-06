@@ -31,6 +31,11 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    justifyContent: "left !important",
+  },
+  bgColor:
+  {
+    backgroundColor : "#5A3426 !important",
   },
 }));
 
@@ -58,15 +63,15 @@ export default function ButtonAppBar()  {
 
    
 
-    <div className={classes.root} bg-dark>
+    <div className={classes.root} >
      <Router>
 
-      <AppBar position="static" bg-dark >
+      <AppBar position="static" className = {classes.bgColor} >
         <Toolbar>
         <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Button component = {Link} to = "/" color="inherit" variant="h6" className={classes.title} >BrewDay</Button>
+          <Button component = {Link} to = "/" color="inherit" className={classes.title} >BrewDay</Button>
           <Button component = {Link} to = "/about" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
         <div>
