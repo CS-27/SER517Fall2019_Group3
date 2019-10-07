@@ -24,9 +24,15 @@ export default class IngredientPage extends Component {
         
     }
 
-    handleSubmit(event) {
-        console.log("hey");
-        alert('A name was submitted: ' + this.state.name);
+    handleChange = event => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    handleSubmit=(event)=> {
+        console.log(this.state);
+    
         event.preventDefault();
       }
 
@@ -56,7 +62,7 @@ export default class IngredientPage extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick ="this.handleSubmit()"variant="primary" type="submit" >Add Ingredient</Button>
+                    <Button onClick ={this.handleSubmit} variant="primary" type="submit" >Add Ingredient</Button>
 
     
             </Form>
