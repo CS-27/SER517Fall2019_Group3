@@ -13,7 +13,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default class IngredientPage extends Component {
     constructor(props) {
         super(props);
-
+        this.message = ""
         this.state = {
             // isLoading: false,
             name:"",
@@ -43,8 +43,9 @@ export default class IngredientPage extends Component {
             <Card  className="cardMain">
                 <Card.Title className="card-title" >Add an ingredient </Card.Title>
          <Card.Body>
+            <p>{this.message}</p>
          <Form onSubmit={this.handleSubmit}>
-                <FormGroup controlId="name" bsSize="large">
+                <FormGroup controlId="name"  >
                     <FormLabel>Name</FormLabel>
                     <FormControl
                         autoFocus
@@ -53,7 +54,7 @@ export default class IngredientPage extends Component {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-                    <FormGroup controlId="quantity" bsSize="large">
+                    <FormGroup controlId="quantity">
                         <FormLabel>Quantity</FormLabel>
                         <FormControl
                             autoFocus
