@@ -8,8 +8,9 @@ import * as serviceWorker from './serviceWorker';
 import About from './components/About/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Form from './components/AddRecipe';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Form />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
