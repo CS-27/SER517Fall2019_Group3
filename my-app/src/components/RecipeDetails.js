@@ -13,17 +13,14 @@ const RecipeDetails = (props) =>
       return (
         <div key={idx}>
         <FormGroup>
-        
-          <FormLabel htmlFor={id1}>{`Ingredient1${idx + 1}`}</FormLabel>
+          <FormLabel htmlFor={id1}>
+          {`Ingredient1${idx+1}`}
+          </FormLabel>
           <FormControl
               autoFocus
               type="text"
               className="name"
-              name={id1}
-              id={id1}
-              value={props.object1[idx].name} 
             />
-        
         </FormGroup>
         </div>
       )

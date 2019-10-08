@@ -7,7 +7,7 @@ import React, {Component} from "react"
 import Card from 'react-bootstrap/Card';
 import RecipeDetails from "./RecipeDetails"
 import {Container, FormLabel, FormControl, FormGroup } from "react-bootstrap"
-class Form extends Component {
+export default class Form extends Component {
     constructor(props) {
         super(props);
     this.state = {  
@@ -27,6 +27,7 @@ handleChange = (e) => {
   }
 
 handleSubmit = (e) => { e.preventDefault() }
+
 addValues = (e) => {
     this.setState((prevState) => ({
       object1: [...prevState.object1, {name:""}],
@@ -34,7 +35,7 @@ addValues = (e) => {
   }
 
 render() {
-    let {Hops, description, object1} = this.state
+    let {object1} = this.state
     return (
         <Container>
             <Card  className="cardMain">
@@ -45,20 +46,18 @@ render() {
                     <FormControl
                         autoFocus
                         type="text"
-                        value={Hops}
                         name="Hops" 
                         id="Hops"  
                     />
                 </FormGroup>  
-                <FormGroup>
-        <FormLabel color="white" htmlFor="description">Description</FormLabel>
-        <FormControl
+        <FormGroup>
+            <FormLabel color="white" htmlFor="description">Description</FormLabel>
+            <FormControl
                         autoFocus
                         type="text"
-                        value={description}
                         name="description" 
                         id="description"  
-                    />
+            />
         </FormGroup>
         <button onClick={this.addValues}>Add more</button>
         <RecipeDetails object1={object1} />
@@ -70,4 +69,3 @@ render() {
     )
   }
 }
-export default Form
