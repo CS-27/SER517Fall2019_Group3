@@ -4,17 +4,18 @@ Date modified : Sept 30, 2019
 */
 
 import React, {Component} from "react"
+import Card from 'react-bootstrap/Card';
 import RecipeDetails from "./RecipeDetails"
-import { FormLabel, FormControl, FormGroup } from "react-bootstrap"
+import {Container, FormLabel, FormControl, FormGroup } from "react-bootstrap"
 class Form extends Component {
     constructor(props) {
         super(props);
-    this.state = {
+    this.state = {  
     object1: [{name:""}],
-    HOV: "",
+    Hops: "",
     description: ""
   };
-}
+}   
 handleChange = (e) => {
     if (["name"].includes(e.target.className) ) {
       let object1 = [...this.state.object1]
@@ -24,7 +25,7 @@ handleChange = (e) => {
       this.setState({ [e.target.name]: e.target.value})
     }
   }
-  
+
 handleSubmit = (e) => { e.preventDefault() }
 addValues = (e) => {
     this.setState((prevState) => ({
@@ -33,25 +34,39 @@ addValues = (e) => {
   }
 
 render() {
-    let {HOV, description, object1} = this.state
+    let {Hops, description, object1} = this.state
     return (
+        <Container>
+            <Card  className="cardMain">
+         <Card.Body>
       <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
-        <FormGroup bsSize="large">
-                    <FormLabel color="white" htmlFor="name">HOV</FormLabel>
+        <FormGroup>
+                    <FormLabel color="white" htmlFor="name">Hops</FormLabel>
                     <FormControl
                         autoFocus
                         type="text"
-                        value={HOV}
-                        name="HOV" 
-                        id="HOV"  
+                        value={Hops}
+                        name="Hops" 
+                        id="Hops"  
                     />
                 </FormGroup>  
-        <FormLabel htmlFor="description">Description</FormLabel>
-        <input type="text" name="description" id="description" value={description} />
+                <FormGroup>
+        <FormLabel color="white" htmlFor="description">Description</FormLabel>
+        <FormControl
+                        autoFocus
+                        type="text"
+                        value={description}
+                        name="description" 
+                        id="description"  
+                    />
+        </FormGroup>
         <button onClick={this.addValues}>Add more</button>
         <RecipeDetails object1={object1} />
         <input type="submit" value="Submit" /> 
       </form>
+      </Card.Body>
+      </Card>
+      </Container>
     )
   }
 }
