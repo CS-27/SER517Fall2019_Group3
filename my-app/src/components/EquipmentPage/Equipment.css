@@ -1,7 +1,8 @@
 .mainCard{
 
     width: 35rem;
-    justify-content: center;    
+    margin: 0 auto;   
+    opacity: .;
 
 }
 
@@ -31,6 +32,11 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     margin: 1rem;
     background-color: rgb(255,255,224)   
 
+}
+
+#btn-color
+{
+    background-color: #5A3426 !important;
 }
 
 

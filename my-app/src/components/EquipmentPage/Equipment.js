@@ -21,14 +21,31 @@ export default class Equipment extends Component {
         this.state = {
             name:"",
             quantity:"",
-            user: null
+            user: "user1"
         };
+
+        var _this = this;
 
     }
 
+    onSetTitle(event) {
+        this.setState({
+          name: event.target.value          
+        });
+      }
+
+    onSetQuantity(event) {
+        this.setState({
+      quantity: event.target.value 
+    });
+}
+
         handleSubmit(event) {
             console.log("Done");
-            alert('value submitted: ' + this.state.name);
+            let req = {}
+            req.name = event.state.name
+            //console.log("Done "+ JSON.stringify(req));
+            alert('value submitted: ' + event.state.name);
             event.preventDefault();
           };
 
@@ -38,14 +55,15 @@ export default class Equipment extends Component {
             <Card  className="mainCard">
          <Card.Body>
          <Card.Title className="titleCard" >Add equipment</Card.Title>
-         <Form onSubmit={this.handleSubmit}>
+         <Form>
                 <FormGroup controlId="name" bsSize="large">
                     <FormLabel>Name</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"
-                        value={this.state.name}
-                        onChange={this.handleChange}
+                         value={this.state.name}
+                         onChange={this.onSetTitle.bind(this)}
+                      
                     />
                 </FormGroup>
                     <FormGroup controlId="quantity" bsSize="large">
@@ -54,10 +72,10 @@ export default class Equipment extends Component {
                             autoFocus
                             type="Text"
                             value={this.state.quantity}
-                            onChange={this.handleChange}
+                            onChange={this.onSetQuantity.bind(this)}
                         />
                     </FormGroup>
-                    <Button onClick ="this.handleSubmit()" variant="primary" type="submit" >Add Equipment</Button>
+                    <Button onClick ="this.handleSubmit(this)"  id = "btn-color" type="submit" >Add Equipment</Button>
             </Form>
          </Card.Body>
        </Card>
