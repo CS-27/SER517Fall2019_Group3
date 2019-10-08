@@ -78,8 +78,8 @@ export default function ButtonAppBar()  {
                 open2={open2}
                 onClose={handle_Close}
               >
-                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handle_Close} >Add Ingredient</MenuItem>
-                <MenuItem component = {Link} to = "/signup" color="inherit" onClick={handle_Close} >Add Equipment</MenuItem>
+                <MenuItem component = {Link} to = "/equipment"  onClick={handle_Close} >Add Ingredient</MenuItem>
+                <MenuItem component = {Link} to = "/equipment"  onClick={handle_Close} >Add Equipment</MenuItem>
               </Menu>
            </div>
           
