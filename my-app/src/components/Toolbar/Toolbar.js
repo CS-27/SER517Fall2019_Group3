@@ -1,3 +1,10 @@
+/*Author:             Salini Chittineni
+  Initial Creation:   September 5, 2019
+  Modified by:        Salini Chittineni
+  Modified date:      October 8,2019
+  About:  This page is to redner toolbar for the application
+  Updates to add functionality for MenuButton and other components
+*/
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
