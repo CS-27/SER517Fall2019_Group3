@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Backdrop from './components/Backdrop';
-import Toolbar from './components/Toolbar';
+import Toolbar from './components/Toolbar/Toolbar';
 import Contact from './components/Contact';
 
 class App extends Component {
