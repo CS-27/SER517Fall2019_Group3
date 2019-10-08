@@ -1,7 +1,7 @@
 .mainCard{
-    width: 70rem;
-    height: 15rem;
-    align-self: center;
+
+    width: 35rem;
+    justify-content: center;    
 
 }
 
@@ -9,7 +9,6 @@
     font-family: 'Lucida Sans';
     text-align: center;
     margin: 2rem;
-
 }
 
 input[type=text], input[type=password], input[type=email]:focus {
@@ -25,3 +24,14 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     background-color: #ddd;
     outline: none;
 }
+
+.card-body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
+
+}
+
+
+

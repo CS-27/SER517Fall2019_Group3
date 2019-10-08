@@ -151,6 +151,7 @@ export default function ButtonAppBar()  {
 
               <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
+                <Route path='/equipment' component={Equipment} />
             </Switch>
        </Router>
       

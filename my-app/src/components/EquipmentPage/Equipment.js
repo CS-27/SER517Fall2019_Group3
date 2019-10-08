@@ -12,7 +12,6 @@ import {
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import './Equipment.css';
-
 import { Container, Row, Col } from 'react-bootstrap';
 export default class Equipment extends Component {
     constructor(props) {
@@ -25,23 +24,20 @@ export default class Equipment extends Component {
             user: null
         };
 
-        const handleChange = event => {
-            console.log("Done");
-            alert('Value submitted: ' + this.state.name);
-            event.preventDefault();
-          };
-
     }
 
-
-
+        handleSubmit(event) {
+            console.log("Done");
+            alert('value submitted: ' + this.state.name);
+            event.preventDefault();
+          };
 
     renderForm() {
         return (
             <Container>
             <Card  className="mainCard">
-                <Card.Title className="titleCard" >Add equipment</Card.Title>
          <Card.Body>
+         <Card.Title className="titleCard" >Add equipment</Card.Title>
          <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name" bsSize="large">
                     <FormLabel>Name</FormLabel>
@@ -61,7 +57,7 @@ export default class Equipment extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick ="this.handleSubmit()"variant="primary" type="submit" >Add Equipment</Button>
+                    <Button onClick ="this.handleSubmit()" variant="primary" type="submit" >Add Equipment</Button>
             </Form>
          </Card.Body>
        </Card>
