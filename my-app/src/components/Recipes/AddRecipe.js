@@ -7,7 +7,7 @@ import React, {Component} from "react"
 import Card from 'react-bootstrap/Card';
 import RecipeDetails from "./RecipeDetails"
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
-export default class Form extends Component {
+export default class AddRecipe extends Component {
     constructor(props) {
         super(props);
     this.state = {  
