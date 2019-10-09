@@ -30,51 +30,53 @@ import './Toolbar.css';
 
 
 
-export default class ButtonAppBar extends Component{
-  
-    render(){
-  return (
-    <div className = "root" >
-     <Router>
+export default class ButtonAppBar extends Component {
 
-      <AppBar position="static" className = "bgColor" >
-        <Toolbar>
+  render() {
+    return (
+      <div>
+        <Router>
 
-              
-          <Button component = {Link} to = "/" color="inherit" className = "title" className ="text-capitalize">BrewDay</Button>
-          <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize">Recipe Kit</Button>
-          <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize">Ingredients</Button>
+          <AppBar position="static" className="bgColor" >
+            <Toolbar>
 
-          <div className ="dropdown">
-  <Button  className ="text-capitalize" color="inherit">Equipment</Button>
-  <div className = "dropdown-content">
-  <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize" >Add Equipment</Button>
-  <Button component = {Link} to = "/equipmentList" color="inherit" className ="text-capitalize" >Equipment List</Button>
-  </div>
-</div>
-         
-          <Button component = {Link} to = "/about" color="inherit" className ="text-capitalize">About</Button>
-          <Button component = {Link} to = "/contact" color="inherit" className ="text-capitalize">Contact Us</Button>
-          <Button component = {Link} to = "/signin" color="inherit" className ="text-capitalize">Login</Button>
-          
-        </Toolbar>
-      </AppBar>
-      <Switch>
-        <Route exact path='/' component={Backdrop} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/signin' component={Signin} />
+              <div className="root" >
+                <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
+              </div>
 
-              <Route path='/about' component={About} />
-                <Route path='/profile' component={Backdrop} />
-                <Route path='/equipment' component={Equipment} />
-                <Route path='/equipmentList' component={equipmentList} />
-            </Switch>
-       </Router>
-      
-    </div>
-  
+              <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Recipe Kit</Button>
+              <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Ingredients</Button>
 
-  );
-}
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">Equipment</Button>
+                <div className="dropdown-content">
+                  <Button component={Link} to="/equipment" color="inherit" className="text-capitalize" >Add Equipment</Button>
+                  <Button component={Link} to="/equipmentList" color="inherit" className="text-capitalize" >Equipment List</Button>
+                </div>
+              </div>
+
+              <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
+              <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
+              <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
+
+            </Toolbar>
+          </AppBar>
+          <Switch>
+            <Route exact path='/' component={Backdrop} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/signin' component={Signin} />
+
+            <Route path='/about' component={About} />
+            <Route path='/profile' component={Backdrop} />
+            <Route path='/equipment' component={Equipment} />
+            <Route path='/equipmentList' component={equipmentList} />
+          </Switch>
+        </Router>
+
+      </div>
+
+
+    );
+  }
 }
