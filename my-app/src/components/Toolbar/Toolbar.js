@@ -45,16 +45,13 @@ export default class ButtonAppBar extends Component{
           <Button component = {Link} to = "/equipment" color="inherit">Ingredients</Button>
 
           <div class="dropdown">
-              <Button class="dropbtn">Equipment 
-              
-                 <div class="dropdown-content">
-                 <Button component = {Link} to = "/about" color="inherit">About</Button>
-                 <Button component = {Link} to = "/about" color="inherit">About</Button>
-                </div>
-              </Button>
-             
-            
-          </div>
+  <Button   color="inherit">Equipment</Button>
+  <div class="dropdown-content">
+  <Button component = {Link} to = "/equipment" color="inherit" class="text-capitalize" >Add Equipment</Button>
+  <Button component = {Link} to = "/equipment" color="inherit" class="text-capitalize" >Equipment List</Button>
+  </div>
+</div>
+         
           <Button component = {Link} to = "/about" color="inherit">About</Button>
           <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
           <Button component = {Link} to = "/signin" color="inherit">Login</Button>
