@@ -46,7 +46,7 @@ export default class Equipment extends Component {
             req.name = event.state.name
             console.log("Done "+ JSON.stringify(req));
             //alert('value submitted: ' + event.state.name);
-            event.preventDefault();
+            //event.preventDefault();
           };
 
     renderForm() {
