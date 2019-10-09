@@ -12,6 +12,7 @@ export default class Signin extends Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
             isLoading: false,
             email: "",
@@ -45,6 +46,9 @@ export default class Signin extends Component {
                 if(response.data.Status == "True"){
                     console.log("Login successfull");
                     alert("Logged in");
+                    sessionStorage.setItem('username', "abc");
+                    console.log(sessionStorage.getItem("username"));
+                    // setValue(this.state.email);
                     this.props.userHasAuthenticated(true);
                     // var uploadScreen=[];
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
