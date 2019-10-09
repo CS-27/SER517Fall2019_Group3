@@ -44,8 +44,8 @@ export default class Equipment extends Component {
             console.log("Done");
             let req = {}
             req.name = event.state.name
-            //console.log("Done "+ JSON.stringify(req));
-            alert('value submitted: ' + event.state.name);
+            console.log("Done "+ JSON.stringify(req));
+            //alert('value submitted: ' + event.state.name);
             event.preventDefault();
           };
 
@@ -56,7 +56,7 @@ export default class Equipment extends Component {
          <Card.Body>
          <Card.Title className="titleCard" >Add equipment</Card.Title>
          <Form>
-                <FormGroup controlId="name" bsSize="large">
+                <FormGroup controlId="name" bssize="large">
                     <FormLabel>Name</FormLabel>
                     <FormControl
                         autoFocus
@@ -66,7 +66,7 @@ export default class Equipment extends Component {
                       
                     />
                 </FormGroup>
-                    <FormGroup controlId="quantity" bsSize="large">
+                    <FormGroup controlId="quantity" bssize="large">
                         <FormLabel>Quantity</FormLabel>
                         <FormControl
                             autoFocus
@@ -75,7 +75,7 @@ export default class Equipment extends Component {
                             onChange={this.onSetQuantity.bind(this)}
                         />
                     </FormGroup>
-                    <Button onClick ="this.handleSubmit(this)"  id = "btn-color" type="submit" >Add Equipment</Button>
+                    <Button onClick = {this.handleSubmit(this)}  id = "btn-color" type="submit" >Add Equipment</Button>
             </Form>
          </Card.Body>
        </Card>
