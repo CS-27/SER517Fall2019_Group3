@@ -41,21 +41,21 @@ export default class ButtonAppBar extends Component{
         <Toolbar>
 
               
-          <Button component = {Link} to = "/" color="inherit" className = "title">BrewDay</Button>
-          <Button component = {Link} to = "/equipment" color="inherit">Recipe Kit</Button>
-          <Button component = {Link} to = "/equipment" color="inherit">Ingredients</Button>
+          <Button component = {Link} to = "/" color="inherit" className = "title" className ="text-capitalize">BrewDay</Button>
+          <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize">Recipe Kit</Button>
+          <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize">Ingredients</Button>
 
-          <div class="dropdown">
-  <Button   color="inherit">Equipment</Button>
-  <div class="dropdown-content">
-  <Button component = {Link} to = "/equipment" color="inherit" class="text-capitalize" >Add Equipment</Button>
-  <Button component = {Link} to = "/equipmentList" color="inherit" class="text-capitalize" >Equipment List</Button>
+          <div className ="dropdown">
+  <Button  className ="text-capitalize" color="inherit">Equipment</Button>
+  <div className = "dropdown-content">
+  <Button component = {Link} to = "/equipment" color="inherit" className ="text-capitalize" >Add Equipment</Button>
+  <Button component = {Link} to = "/equipmentList" color="inherit" className ="text-capitalize" >Equipment List</Button>
   </div>
 </div>
          
-          <Button component = {Link} to = "/about" color="inherit">About</Button>
-          <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
-          <Button component = {Link} to = "/signin" color="inherit">Login</Button>
+          <Button component = {Link} to = "/about" color="inherit" className ="text-capitalize">About</Button>
+          <Button component = {Link} to = "/contact" color="inherit" className ="text-capitalize">Contact Us</Button>
+          <Button component = {Link} to = "/signin" color="inherit" className ="text-capitalize">Login</Button>
           
         </Toolbar>
       </AppBar>
