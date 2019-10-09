@@ -37,8 +37,8 @@ def addIngredient(userIngList):
 	else:
 		return False
 
-	
+#c = {'userID' : 'user1', 'ingredient1':'x', 'ingredient2' : 'y', 'ingredient3':'t'}
 #addRecipe(c)
-#showIngredient('user1')
+#addIngredient(c)
 
 
