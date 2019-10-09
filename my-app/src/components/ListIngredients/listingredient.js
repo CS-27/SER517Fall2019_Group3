@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import './listingredient.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col } from 'react-bootstrap';
-export default class IngredientPage extends Component {
+export default class ListIngredient extends Component {
     constructor(props) {
         super(props);
         this.message = ""
