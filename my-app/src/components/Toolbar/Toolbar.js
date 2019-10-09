@@ -19,6 +19,7 @@ import Signin from '../Signin/Signin';
 import Contact from '../Contact';
 import About from '../About/About';
 import Equipment from '../EquipmentPage/Equipment';
+import equipmentList from '../EquipmentPage/equipmentList';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -31,44 +32,54 @@ import IngredientPage from '../IngredientPage/ingredientPage';
 
 
 
-export default class ButtonAppBar extends Component{
-  
-    render(){
-  return (
-    <div className = "root" >
-     <Router>
+export default class ButtonAppBar extends Component {
 
-      <AppBar position="static" className = "bgColor" >
-        <Toolbar>
+  render() {
+    return (
+      <div>
+        <Router>
 
-              
-          <Button component = {Link} to = "/" color="inherit" className = "title">BrewDay</Button>
-          <Button component = {Link} to = "/equipment" color="inherit">Recipe Kit</Button>
-          <Button component = {Link} to = "/equipment" color="inherit">Equipment</Button>
-          <Button component = {Link} to = "/ingredient" color="inherit">Ingredient</Button>
-          <div class="dropdown">
-              <Button class="dropbtn">Equipment 
-              
-                 <div class="dropdown-content">
-                 <Button component = {Link} to = "/about" color="inherit">About</Button>
-                 <Button component = {Link} to = "/about" color="inherit">About</Button>
+          <AppBar position="static" className="bgColor" >
+            <Toolbar>
+
+              <div className="root" >
+                <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
+              </div>
+
+              <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Recipe Kit</Button>
+              <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Ingredients</Button>
+
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">Equipment</Button>
+                <div className="dropdown-content">
+                  <Button component={Link} to="/equipment" color="inherit" className="text-capitalize" >Add Equipment</Button>
+                  <Button component={Link} to="/equipmentList" color="inherit" className="text-capitalize" >Equipment List</Button>
                 </div>
-              </Button>
-             
-            
-          </div>
-          <Button component = {Link} to = "/about" color="inherit">About</Button>
-          <Button component = {Link} to = "/contact" color="inherit">Contact Us</Button>
-          <Button component = {Link} to = "/signin" color="inherit">Login</Button>
-          
-        </Toolbar>
-      </AppBar>
-      <Switch>
-        <Route exact path='/' component={Backdrop} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/signin' component={Signin} />
+              </div>
 
+              <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
+              <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
+              <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
+
+            </Toolbar>
+          </AppBar>
+          <Switch>
+            <Route exact path='/' component={Backdrop} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/signin' component={Signin} />
+
+            <Route path='/about' component={About} />
+            <Route path='/profile' component={Backdrop} />
+            <Route path='/equipment' component={Equipment} />
+            <Route path='/equipmentList' component={equipmentList} />
+          </Switch>
+        </Router>
+
+      </div>
+
+<<<<<<< HEAD
+=======
               <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
                 <Route path='/equipment' component={Equipment} />
@@ -78,7 +89,8 @@ export default class ButtonAppBar extends Component{
       
     </div>
   
+>>>>>>> 22e62426cf0489b4ef71070b8ba2dec3a3babce7
 
-  );
-}
+    );
+  }
 }
