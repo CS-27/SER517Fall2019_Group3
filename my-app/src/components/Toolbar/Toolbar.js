@@ -30,6 +30,7 @@ import Menu from '@material-ui/core/Menu';
 import './Toolbar.css';
 import IngredientPage from '../IngredientPage/ingredientPage';
 import ListIngredient from '../ListIngredients/listingredient'
+import AddRecipe from '../Recipes/AddRecipe';
 
 
 export default class ButtonAppBar extends Component {
@@ -62,9 +63,11 @@ export default class ButtonAppBar extends Component {
                 </div>
               </div>
 
+              <Button component={Link} to="/recipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
+              
 
             </Toolbar>
           </AppBar>
@@ -76,6 +79,7 @@ export default class ButtonAppBar extends Component {
 
             <Route path='/about' component={About} />
             <Route path='/profile' component={Backdrop} />
+            <Route path='/recipe' component={AddRecipe} />
             <Route path='/addingredient' component={IngredientPage} />
             <Route path='/ingredientList' component={ListIngredient} />
 
