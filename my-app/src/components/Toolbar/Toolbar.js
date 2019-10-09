@@ -32,32 +32,12 @@ import IngredientPage from '../IngredientPage/ingredientPage';
 import ListIngredient from '../ListIngredients/listingredient';
 import Routes from "../../Routes"
 import { useState } from "react";
+import AddRecipe from '../Recipes/AddRecipe';
 
 
 export default class ButtonAppBar extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isAuthenticated: false
-    };
-  }
-
-  userHasAuthenticated = authenticated => {
-    this.setState({ isAuthenticated: authenticated });
-  }
-
-  handleLogout() {
-    sessionStorage.setItem("username","NULL");
-    alert("logged out");
-  }
-
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
     return (
       <div>
         <Router>
@@ -84,6 +64,8 @@ export default class ButtonAppBar extends Component {
                   <Button component={Link} to="/equipmentList" color="inherit" className="text-capitalize" >Equipment List</Button>
                 </div>
               </div>
+
+              <Button component={Link} to="/recipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
@@ -96,10 +78,11 @@ export default class ButtonAppBar extends Component {
             {/*<Route path='/signup' component={Signup} />*/}
             {/*<Route path='/signin' component={Signin} />*/}
 
-            {/*<Route path='/about' component={About} />*/}
-            {/*<Route path='/profile' component={Backdrop} />*/}
-            {/*<Route path='/addingredient' component={IngredientPage} />*/}
-            {/*<Route path='/ingredientList' component={ListIngredient} />*/}
+            <Route path='/about' component={About} />
+            <Route path='/profile' component={Backdrop} />
+            <Route path='/recipe' component={AddRecipe} />
+            <Route path='/addingredient' component={IngredientPage} />
+            <Route path='/ingredientList' component={ListIngredient} />
 
             {/*<Route path='/equipmentList' component={equipmentList} />*/}
             {/*<Route path='/equipment' component={Equipment} />*/}
