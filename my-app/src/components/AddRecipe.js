@@ -6,18 +6,18 @@ Date modified : Sept 30, 2019
 import React, {Component} from "react"
 import Card from 'react-bootstrap/Card';
 import RecipeDetails from "./RecipeDetails"
-import {Container, FormLabel, FormControl, FormGroup } from "react-bootstrap"
+import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 export default class Form extends Component {
     constructor(props) {
         super(props);
     this.state = {  
-    object1: [{name:""}],
+    object1: [{name:"", quantity:""}],
     Hops: "",
-    description: ""
+    malt: ""
   };
 }   
 handleChange = (e) => {
-    if (["name"].includes(e.target.className) ) {
+    if (["name", "quantity"].includes(e.target.className) ) {
       let object1 = [...this.state.object1]
       object1[e.target.dataset.id][e.target.className] = e.target.value
       this.setState({ object1 }, () => console.log(this.state.object1))
@@ -30,37 +30,56 @@ handleSubmit = (e) => { e.preventDefault() }
 
 addValues = (e) => {
     this.setState((prevState) => ({
-      object1: [...prevState.object1, {name:""}],
+      object1: [...prevState.object1, {name:"", quantity:""}],
     }));
   }
 
 render() {
-    let {object1} = this.state
+    let {object1, Hops, malt} = this.state
     return (
         <Container>
             <Card  className="cardMain">
          <Card.Body>
       <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
+          <Row>
+          <Col>
         <FormGroup>
-                    <FormLabel color="white" htmlFor="name">Hops</FormLabel>
+                    <FormLabel color="white" htmlFor="name">Recipe Name</FormLabel>
                     <FormControl
                         autoFocus
                         type="text"
-                        name="Hops" 
-                        id="Hops"  
+                        name="name" 
+                        id="name" 
+                        placeholder="e.g: AmericanPaleAle" 
                     />
-                </FormGroup>  
+                </FormGroup>
+                </Col>
+                <Col> 
         <FormGroup>
-            <FormLabel color="white" htmlFor="description">Description</FormLabel>
+            <FormLabel color="white" htmlFor="malt">Malt</FormLabel>
             <FormControl
                         autoFocus
                         type="text"
-                        name="description" 
-                        id="description"  
+                        name="malt" 
+                        id="malt"  
+                        placeholder="in lbs"
             />
         </FormGroup>
+        </Col> 
+        </Row>
         <button onClick={this.addValues}>Add more</button>
+        <div>Hops</div>
         <RecipeDetails object1={object1} />
+        <FormGroup>
+            <FormLabel color="white" htmlFor="directions">Directions</FormLabel>
+            <FormControl
+                        autoFocus
+                        type="text"
+                        name="directions" 
+                        id="directions"  
+                        placeholder="e.g: Mash at 150˚F for 60 minutes or until conversion is complete. Boil for..."
+            />
+        </FormGroup>
         <input type="submit" value="Submit" /> 
       </form>
       </Card.Body>

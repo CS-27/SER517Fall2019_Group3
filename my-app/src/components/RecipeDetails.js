@@ -22,6 +22,7 @@ const RecipeDetails = (props) =>
               autoFocus
               type="text"
               className="name"
+              placeholder="e.g: Cascade, Simcoe etc."
             />
         </FormGroup>
         </Col>
@@ -34,6 +35,7 @@ const RecipeDetails = (props) =>
               autoFocus
               type="text"
               className="quantity"
+              placeholder="in Ounces"
             />
         </FormGroup>
         </Col>
