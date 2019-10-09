@@ -54,7 +54,7 @@ export default class Equipment extends Component {
             <Container>
             <Card  className="mainCard">
          <Card.Body>
-         <Card.Title className="titleCard" >Add equipment</Card.Title>
+         <Card.Title className="titleCard" >List of Equipment</Card.Title>
          <Form>
                 <FormGroup controlId="name" bssize="large">
                     <FormLabel>Name</FormLabel>
