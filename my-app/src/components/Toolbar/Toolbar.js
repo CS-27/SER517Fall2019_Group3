@@ -19,6 +19,7 @@ import Signin from '../Signin/Signin';
 import Contact from '../Contact';
 import About from '../About/About';
 import Equipment from '../EquipmentPage/Equipment';
+import equipmentList from '../EquipmentPage/equipmentList';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -48,7 +49,7 @@ export default class ButtonAppBar extends Component{
   <Button   color="inherit">Equipment</Button>
   <div class="dropdown-content">
   <Button component = {Link} to = "/equipment" color="inherit" class="text-capitalize" >Add Equipment</Button>
-  <Button component = {Link} to = "/equipment" color="inherit" class="text-capitalize" >Equipment List</Button>
+  <Button component = {Link} to = "/equipmentList" color="inherit" class="text-capitalize" >Equipment List</Button>
   </div>
 </div>
          
@@ -67,6 +68,7 @@ export default class ButtonAppBar extends Component{
               <Route path='/about' component={About} />
                 <Route path='/profile' component={Backdrop} />
                 <Route path='/equipment' component={Equipment} />
+                <Route path='/equipmentList' component={equipmentList} />
             </Switch>
        </Router>
       
