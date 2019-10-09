@@ -29,7 +29,7 @@ import Menu from '@material-ui/core/Menu';
 
 import './Toolbar.css';
 import IngredientPage from '../IngredientPage/ingredientPage';
-
+import ListIngredient from '../ListIngredients/listingredient'
 
 
 export default class ButtonAppBar extends Component {
@@ -47,8 +47,13 @@ export default class ButtonAppBar extends Component {
               </div>
 
               <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Recipe Kit</Button>
-              <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Ingredients</Button>
-
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">Ingredients</Button>
+                <div className="dropdown-content">
+                  <Button component={Link} to="/addingredient" color="inherit" className="text-capitalize" >Add Ingredient</Button>
+                  <Button component={Link} to="/ingredientList" color="inherit" className="text-capitalize" >Ingredient List</Button>
+                </div>
+              </div>
               <div className="dropdown">
                 <Button className="text-capitalize" color="inherit">Equipment</Button>
                 <div className="dropdown-content">
@@ -71,6 +76,10 @@ export default class ButtonAppBar extends Component {
 
             <Route path='/about' component={About} />
             <Route path='/profile' component={Backdrop} />
+            <Route path='/addingredient' component={IngredientPage} />
+            <Route path='/ingredientList' component={ListIngredient} />
+
+            <Route path='/equipmentList' component={equipmentList} />
             <Route path='/equipment' component={Equipment} />
             <Route path='/equipmentList' component={equipmentList} />
           </Switch>
@@ -78,18 +87,6 @@ export default class ButtonAppBar extends Component {
 
       </div>
 
-<<<<<<< HEAD
-=======
-              <Route path='/about' component={About} />
-                <Route path='/profile' component={Backdrop} />
-                <Route path='/equipment' component={Equipment} />
-                <Route path='/ingredient' component={IngredientPage} />
-            </Switch>
-       </Router>
-      
-    </div>
-  
->>>>>>> 22e62426cf0489b4ef71070b8ba2dec3a3babce7
 
     );
   }
