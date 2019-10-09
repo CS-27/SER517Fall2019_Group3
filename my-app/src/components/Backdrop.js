@@ -1,15 +1,12 @@
 import React from 'react';
-import Toolbar from './Toolbar';
 import './Backdrop.css';
 import Card from 'react-bootstrap/Card';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 
 
 
 function Backdrop() {
-
- 
   return (
     <div className='bg-image' style={{ width: 'auto' }}>
       <Container>

@@ -32,7 +32,9 @@ export default class IngredientPage extends Component {
 
     handleSubmit=(event)=> {
         console.log(this.state);
-    
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'https://example.com')
+
         event.preventDefault();
       }
 
