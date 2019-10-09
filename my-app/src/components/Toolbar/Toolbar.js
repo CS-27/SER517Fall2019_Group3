@@ -26,7 +26,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+
 import './Toolbar.css';
+import IngredientPage from '../IngredientPage/ingredientPage';
 
 
 
@@ -76,6 +78,18 @@ export default class ButtonAppBar extends Component {
 
       </div>
 
+<<<<<<< HEAD
+=======
+              <Route path='/about' component={About} />
+                <Route path='/profile' component={Backdrop} />
+                <Route path='/equipment' component={Equipment} />
+                <Route path='/ingredient' component={IngredientPage} />
+            </Switch>
+       </Router>
+      
+    </div>
+  
+>>>>>>> 22e62426cf0489b4ef71070b8ba2dec3a3babce7
 
     );
   }
