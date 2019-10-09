@@ -1,4 +1,5 @@
 import React from 'react';
+import Toolbar from './Toolbar/Toolbar';
 import './Backdrop.css';
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';

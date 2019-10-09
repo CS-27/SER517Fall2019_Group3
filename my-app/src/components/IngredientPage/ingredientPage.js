@@ -33,7 +33,7 @@ export default class IngredientPage extends Component {
     handleSubmit=(event)=> {
         console.log(this.state);
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'https://example.com')
+        xhr.open('POST', 'http://127.0.0.1:5000/')
 
         event.preventDefault();
       }
@@ -42,9 +42,10 @@ export default class IngredientPage extends Component {
     renderForm() {
         return (
             <Container>
-            <Card  className="cardMain">
-                <Card.Title className="card-title" >Add an ingredient </Card.Title>
-         <Card.Body>
+            <Card  className="mainCard">
+         <Card.Body className = "card-body">
+         <Card.Title className="titleCard" >Add an ingredient </Card.Title>
+
             <p>{this.message}</p>
          <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name"  >
@@ -65,7 +66,7 @@ export default class IngredientPage extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick ={this.handleSubmit} variant="primary" type="submit" >Add Ingredient</Button>
+                    <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Ingredient</Button>
 
     
             </Form>
