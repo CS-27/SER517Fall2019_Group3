@@ -67,7 +67,7 @@ render() {
         </FormGroup>
         </Col> 
         </Row>
-        <button onClick={this.addValues}>Add more</button>
+        <button onClick={this.addValues}>Add more Hops</button>
         <div>Hops</div>
         <RecipeDetails object1={object1} />
         <FormGroup>
