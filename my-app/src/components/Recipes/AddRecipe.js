@@ -99,8 +99,18 @@ render() {
                     <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="e.g: AmericanPaleAle"
+                        placeholder="e.g: hop1 qty1, hop2 qty2 .."
                         value={this.state.Hops1} 
+                        onChange={this.handleChange}
+                    />
+                </FormGroup>
+                <FormGroup controlId="schedule">
+                    <FormLabel color="white" >Hops Schedule</FormLabel>
+                    <FormControl
+                        autoFocus
+                        type="text" 
+                        placeholder="e.g: hop1 qty1, hop2 qty2 .."
+                        value={this.state.schedule} 
                         onChange={this.handleChange}
                     />
                 </FormGroup>
