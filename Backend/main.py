@@ -49,5 +49,15 @@ def checkUserLogin():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addIngredient', methods= ['POST'])
+def addIngredient():
+	req_data = request.get_json()
+	ingList = {}
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 if __name__ == '__main__':
     brewDay_api.run(debug=True)

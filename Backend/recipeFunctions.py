@@ -8,10 +8,10 @@ def addRecipe(recipe):
 	db = client.recipe
 
 	collection = db.recipe_info
-	data = {}
+	#data = {}
 
 	recipe['Name'] = ''.join(e for e in recipe['Name'] if e.isalnum())
-	data.update(recipe_name = recipe)
+	#data.update(recipe_name = recipe)
 	result = collection.insert(recipe).inserted_id
 	if result:
 		return 'True'

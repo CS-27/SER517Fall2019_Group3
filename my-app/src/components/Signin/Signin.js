@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import {
     FormGroup,
     FormControl,
-    FormLabel
+    FormLabel,
+    Container
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import './Signin.css';
-import { Container, Row, Col } from 'react-bootstrap';
 import axios from "axios";
 export default class Signin extends Component {
     constructor(props) {
         super(props);
+
 
         this.state = {
             isLoading: false,
@@ -26,9 +27,6 @@ export default class Signin extends Component {
         );
     }
 
-    validateConfirmationForm() {
-        return this.state.confirmationCode.length > 0;
-    }
 
     handleChange = event => {
         this.setState({
@@ -41,20 +39,17 @@ export default class Signin extends Component {
 
         this.setState({ isLoading: true });
         var apiBaseUrl = "http://localhost:5000";
-        // var self = this;
-        // var payload={
-        //     "userID":this.state.username,
-        //     "password":this.state.password
-        // }
+
         axios.get(apiBaseUrl+"/userCheckLogin?"+"userID="+ this.state.email+ "&password="+ this.state.password)
-        // fetch("http://localhost:5000/userCheckLogin?userID=user1&password=pass123_", {method: 'GET'})
-        //     .then(res => {
-        //         console.log(res.data.Status);
-        //     })
             .then(function (response) {
                 console.log(response);
                 if(response.data.Status == "True"){
                     console.log("Login successfull");
+                    alert("Logged in");
+                    sessionStorage.setItem('username', "user1");
+                    console.log(sessionStorage.getItem("username"));
+                    // setValue(this.state.email);
+                    this.props.userHasAuthenticated(true);
                     // var uploadScreen=[];
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
                     // self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
