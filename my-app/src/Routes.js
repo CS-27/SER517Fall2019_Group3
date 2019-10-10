@@ -11,6 +11,8 @@ import equipmentList from './components/EquipmentPage/equipmentList';
 import IngredientPage from './components/IngredientPage/ingredientPage';
 import ListIngredient from './components/ListIngredients/listingredient';
 import AddRecipe from './components/Recipes/AddRecipe';
+import ShoppingPage from './components/ShoppingPage/shoppingPage';
+import ListShopping from './components/ListShopping/listShopping';
 
 export default({ childProps }) =>
     <Switch>
@@ -27,6 +29,8 @@ export default({ childProps }) =>
             <AppliedRoute path="/equipmentList" exact component={equipmentList} props={childProps} />
             <AppliedRoute path="/addingredient" exact component={IngredientPage} props={childProps} />
             <AppliedRoute path="/ingredientList" exact component={ListIngredient} props={childProps} />
+            <AppliedRoute path="/addShoppingItem" exact component={ShoppingPage} props={childProps} />
+            <AppliedRoute path="/shoppingList" exact component={ListShopping} props={childProps} />
             <AppliedRoute path="/recipe" exact component={AddRecipe} props={childProps} />
 
             {/*<AppliedRoute path="/" exact component={Backdrop} props={childProps} />*/}
