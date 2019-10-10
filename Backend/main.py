@@ -59,5 +59,15 @@ def addIngredient():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addEquipment', methods = ['POST'])
+def addEquipment():
+	req_data = request.get_json()
+	equipmeneList = {}
+	for key,value in req_data.items():
+		equipmeneList.__setitem__(key,value)
+	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(equipmeneList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 if __name__ == '__main__':
     brewDay_api.run(debug=True)

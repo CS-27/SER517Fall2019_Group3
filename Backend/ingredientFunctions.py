@@ -25,7 +25,7 @@ def addIngredient(userIngList):
 		#data.update(ingredientList = userIngList)
 		result = collection.insert(userIngList).inserted_id
 	else:
-		update(userIngList)
+		#update(userIngList)
 		search_query = { "userID": userIngList['userID'] }
 
 		for key,value in userIngList.items():
