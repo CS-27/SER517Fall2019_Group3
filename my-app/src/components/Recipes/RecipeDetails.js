@@ -14,16 +14,16 @@ const RecipeDetails = (props) =>
         <div key={idx}>
           <Row>
             <Col>
-        <FormGroup>
+        <FormGroup >
           <FormLabel htmlFor={id1}>
           Name
           </FormLabel>
           <FormControl
               autoFocus
               type="text"
-              className="name"
+              className= "name"
               placeholder="e.g: Cascade, Simcoe etc."
-              // onChange={this.handleChange}
+              
             />
         </FormGroup>
         </Col>

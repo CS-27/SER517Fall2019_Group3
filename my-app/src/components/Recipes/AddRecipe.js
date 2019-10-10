@@ -9,13 +9,14 @@ import RecipeDetails from "./RecipeDetails";
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row, Button } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
+import "./HopsSchedule";
 export default class AddRecipe extends Component {
     constructor(props) {
         super(props);
         this.message = ""
     this.state = {  
     object1: [{name:"", quantity:""}],
-    name: "",
+    recipename: "",
     malt: "",
     directions: ""
   };
@@ -25,15 +26,20 @@ export default class AddRecipe extends Component {
 //       let object1 = [...this.state.object1]
 //       object1[e.target.dataset.id][e.target.className] = e.target.value
 //       this.setState({ object1 }, () => console.log(this.state.object1))
-//     } else { this.setState({ [e.target.name]: e.target.value
+//     } else { this.setState({ [e.target.id]: e.target.value
 //     })
 //     }
+
 //   }
 handleChange = event => {
   this.setState({
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
+      // // object1[event.target.name]: 
+      //   let object1 = [...this.state.object1]
+      //   object1[event.target.dataset.id][event.target.className] = event.target.value
   });
 }
+
 
 
 handleSubmit=(event) => {
@@ -50,7 +56,7 @@ addValues = (e) => {
   }
 
 render() {
-    let {object1, Hops, malt} = this.state
+    let {object1} = this.state
     return (
         <Container>
             <Card  className="cardMain">
@@ -60,13 +66,13 @@ render() {
       <Form onSubmit={this.handleSubmit} >
           <Row>
           <Col>
-        <FormGroup controlId="name">
+        <FormGroup controlId="recipename">
                     <FormLabel color="white" >Recipe Name</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
                         placeholder="e.g: AmericanPaleAle"
-                        value={this.state.name} 
+                        value={this.state.recipename} 
                         onChange={this.handleChange}
                     />
                 </FormGroup>
