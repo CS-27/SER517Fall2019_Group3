@@ -65,7 +65,7 @@ def addEquipment():
 	equipmeneList = {}
 	for key,value in req_data.items():
 		equipmeneList.__setitem__(key,value)
-	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(equipmeneList)})
+	response = jsonify({'Equipment Status': equipmentFunctions.addEquipment(equipmeneList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
