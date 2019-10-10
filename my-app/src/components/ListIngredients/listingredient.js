@@ -5,7 +5,8 @@ import React, { Component } from "react";
 import { Button} from "react-bootstrap";
 import './listingredient.css';
 import Card from 'react-bootstrap/Card';
-import axios from "axios";
+import TableRow from './TableRow';
+
 
 import { Container, Row, Col } from 'react-bootstrap';
 export default class ListIngredient extends Component {
@@ -16,35 +17,26 @@ export default class ListIngredient extends Component {
       ingredients: [],
       response: {}
     }
+    this.getIngredients();
+
 
         
     }
 
-    handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
+ 
 
     handleSubmit=(event)=> {
         console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-
+        
         event.preventDefault();
       }
 
-      getIngredients(){
-            console.log("ingredients")
+      getIngredients=()=>{
+          console.log("hi");
             var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=user1'
-            axios.get('http://127.0.0.1:5000/showIngredient?userID=user1').
-            then(response=> {
-            //    var data = response.json()
-            //   console.log(response);
-
-            
-            
-            });
+          
 
             fetch(apiUrl)
             .then(res => res.json())
@@ -53,21 +45,19 @@ export default class ListIngredient extends Component {
                   var data =JSON.parse(result['IngredientList']);
 
                var ingredients =[];
-               console.log(data);
+               
                Object.keys(data).forEach(function(key) {
                    if(key!="userID" && key!="_id")
-                        ingredients.push(data[key]);
+                        ingredients.push({
+                           key: data[key]
+                        });
               });
-            //    for (let i = 1; i <=3; i++) {
-            //         var key = 'ingredient'+i;
-            //        ingredients.push({
-            //            key: data[key]
-            //        });
-            //     //    this.setState({
-            //     //     ingredients: ingredients
-            //     //   });
-            //    }
-               console.log(ingredients)
+             
+                   this.setState({
+                    ingredients: ingredients
+                  });
+               
+               console.log(this.state.ingredients);
 
               },
               (error) => {
@@ -78,7 +68,13 @@ export default class ListIngredient extends Component {
 
       }
 
+      
 
+      tabRow(){
+        return this.state.ingredients.map(function(object, i){
+            return (<TableRow obj={object} key={i} />);
+        });
+      }
 
 
     renderList() {
@@ -88,7 +84,8 @@ export default class ListIngredient extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCard">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" >List ingredient </Card.Title>
+         <Card.Title className="titleCard" >List of ingredients</Card.Title>
+       
         <Button onClick ={this.getIngredients} ></Button>
       
          </Card.Body>
