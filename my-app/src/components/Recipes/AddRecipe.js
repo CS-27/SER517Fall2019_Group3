@@ -18,32 +18,21 @@ export default class AddRecipe extends Component {
         super(props);
         this.message = ""
     this.state = {  
-    object1: [{name:"", quantity:""}],
+    // object1: [{name:"", quantity:""}],
     recipename: "",
     malt: "",
     directions: "",
-    Hops1:""
+    Hops1:"",
+    schedule:"",
+    grain:""
   };
 }   
-// handleChange = (e) => {
-//     if (["name", "quantity"].includes(e.target.className) ) {
-//       let object1 = [...this.state.object1]
-//       object1[e.target.dataset.id][e.target.className] = e.target.value
-//       this.setState({ object1 }, () => console.log(this.state.object1))
-//     } else { this.setState({ [e.target.id]: e.target.value
-//     })
-//     }
 
-//   }
 handleChange = event => {
   this.setState({
       [event.target.id]: event.target.value,
-      // // object1[event.target.name]: 
-      //   let object1 = [...this.state.object1]
-      //   object1[event.target.dataset.id][event.target.className] = event.target.value
   });
 }
-
 
 
 handleSubmit=(event) => {
@@ -53,11 +42,11 @@ handleSubmit=(event) => {
   event.preventDefault();           
 }
 
-addValues = (e) => {
-    this.setState((prevState) => ({
-      object1: [...prevState.object1, {name:"", quantity:""}],
-    }));
-  }
+// addValues = (e) => {
+//     this.setState((prevState) => ({
+//       object1: [...prevState.object1, {name:"", quantity:""}],
+//     }));
+//   }
 
 render() {
     let {object1} = this.state
@@ -94,6 +83,16 @@ render() {
         </FormGroup>
         </Col> 
         </Row>
+        <FormGroup controlId="directions">
+            <FormLabel color="white" >Directions</FormLabel>
+            <FormControl
+                        autoFocus
+                        type="text" 
+                        placeholder="e.g: Mash at 150˚F for 60 minutes or until conversion is complete. Boil for..."
+                        value={this.state.directions}
+                        onChange={this.handleChange}
+            />
+            <div>Please Enter comma separated values for below fields: </div>
         <FormGroup controlId="Hops1">
                     <FormLabel color="white" >Add Hops</FormLabel>
                     <FormControl
@@ -109,28 +108,28 @@ render() {
                     <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="e.g: hop1 qty1, hop2 qty2 .."
+                        placeholder="e.g: Cascade at knockout, Simcoe at 30mins"
                         value={this.state.schedule} 
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-        <FormGroup controlId="directions">
-            <FormLabel color="white" >Directions</FormLabel>
-            <FormControl
+        
+            <FormGroup controlId="grain">
+                    <FormLabel color="white" >All Grain</FormLabel>
+                    <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="e.g: Mash at 150˚F for 60 minutes or until conversion is complete. Boil for..."
-                        value={this.state.directions}
+                        placeholder="grain1 qty1, grain2 qty2.."
+                        value={this.state.grain} 
                         onChange={this.handleChange}
-            />
+                    />
+                </FormGroup>
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>
       </Card.Body>
       </Card>
 </Container>
-
-      
     )
   }
 }
