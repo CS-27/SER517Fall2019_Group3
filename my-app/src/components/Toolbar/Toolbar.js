@@ -29,11 +29,18 @@ import Menu from '@material-ui/core/Menu';
 
 import './Toolbar.css';
 import IngredientPage from '../IngredientPage/ingredientPage';
-import ListIngredient from '../ListIngredients/listingredient'
+import ListIngredient from '../ListIngredients/listingredient';
+import Routes from "../../Routes"
+import { useState } from "react";
+import AddRecipe from '../Recipes/AddRecipe';
 
 
 export default class ButtonAppBar extends Component {
 
+  handleLogout() {
+  alert("Logged out");
+  sessionStorage.setItem("username","NULL");
+  }
   render() {
     return (
       <div>
@@ -62,26 +69,37 @@ export default class ButtonAppBar extends Component {
                 </div>
               </div>
 
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">Shopping</Button>
+                <div className="dropdown-content">
+                  <Button component={Link} to="/addShoppingItem" color="inherit" className="text-capitalize" >Add Item</Button>
+                  <Button component={Link} to="/shoppingList" color="inherit" className="text-capitalize" > List</Button>
+                </div>
+              </div>
+
+              <Button component={Link} to="/recipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
-
+              <Button onClick={this.handleLogout()} color="inherit" className="text-capitalize">Logout</Button>
             </Toolbar>
           </AppBar>
           <Switch>
-            <Route exact path='/' component={Backdrop} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/signup' component={Signup} />
-            <Route path='/signin' component={Signin} />
+            {/*<Route exact path='/' component={Backdrop} />*/}
+            {/*<Route path='/contact' component={Contact} />*/}
+            {/*<Route path='/signup' component={Signup} />*/}
+            {/*<Route path='/signin' component={Signin} />*/}
 
-            <Route path='/about' component={About} />
-            <Route path='/profile' component={Backdrop} />
-            <Route path='/addingredient' component={IngredientPage} />
-            <Route path='/ingredientList' component={ListIngredient} />
+            {/*<Route path='/about' component={About} />*/}
+            {/*<Route path='/profile' component={Backdrop} />*/}
+            {/*<Route path='/recipe' component={AddRecipe} />*/}
+            {/*<Route path='/addingredient' component={IngredientPage} />*/}
+            {/*<Route path='/ingredientList' component={ListIngredient} />*/}
 
-            <Route path='/equipmentList' component={equipmentList} />
-            <Route path='/equipment' component={Equipment} />
-            <Route path='/equipmentList' component={equipmentList} />
+            {/*<Route path='/equipmentList' component={equipmentList} />*/}
+            {/*<Route path='/equipment' component={Equipment} />*/}
+            {/*<Route path='/equipmentList' component={equipmentList} />*/}
+            <Routes/>
           </Switch>
         </Router>
 
