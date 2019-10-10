@@ -34,13 +34,22 @@ import Routes from "../../Routes"
 import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
 
-
 export default class ButtonAppBar extends Component {
 
-  handleLogout() {
-  alert("Logged out");
-  sessionStorage.setItem("username","NULL");
-  }
+  handleLogout = async event  => {
+    // event.preventDefault();
+    // console.log("handle logout");
+    // if (sessionStorage.getItem("username")!= "NULL") {
+      sessionStorage.removeItem("username");
+      console.log(sessionStorage.getItem("username"));
+      alert("Logged out");
+    }
+    // else{
+    //   alert("Already Logged out");
+    // }
+
+  // }
+
   render() {
     return (
       <div>
@@ -81,25 +90,11 @@ export default class ButtonAppBar extends Component {
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
-              <Button onClick={this.handleLogout()} color="inherit" className="text-capitalize">Logout</Button>
+              <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
             </Toolbar>
           </AppBar>
           <Switch>
-            {/*<Route exact path='/' component={Backdrop} />*/}
-            {/*<Route path='/contact' component={Contact} />*/}
-            {/*<Route path='/signup' component={Signup} />*/}
-            {/*<Route path='/signin' component={Signin} />*/}
-
-            {/*<Route path='/about' component={About} />*/}
-            {/*<Route path='/profile' component={Backdrop} />*/}
-            {/*<Route path='/recipe' component={AddRecipe} />*/}
-            {/*<Route path='/addingredient' component={IngredientPage} />*/}
-            {/*<Route path='/ingredientList' component={ListIngredient} />*/}
-
-            {/*<Route path='/equipmentList' component={equipmentList} />*/}
-            {/*<Route path='/equipment' component={Equipment} />*/}
-            {/*<Route path='/equipmentList' component={equipmentList} />*/}
-            <Routes/>
+            <Routes />
           </Switch>
         </Router>
 
