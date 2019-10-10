@@ -21,7 +21,7 @@ export default class Equipment extends Component {
         this.state = {
             name:"",
             quantity:"",
-            user: "user1"
+            userID: "user1"
         };
 
     }
