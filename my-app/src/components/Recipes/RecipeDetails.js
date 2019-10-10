@@ -23,6 +23,7 @@ const RecipeDetails = (props) =>
               type="text"
               className="name"
               placeholder="e.g: Cascade, Simcoe etc."
+              // onChange={this.handleChange}
             />
         </FormGroup>
         </Col>
