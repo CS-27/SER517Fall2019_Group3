@@ -1,0 +1,26 @@
+.card-body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
+
+}
+
+#button
+{
+    background-color: #5A3426 !important;
+}
+
+.cardMain{
+
+    width: 60rem;
+    margin: 0 auto;   
+    opacity: .9;
+
+}
+
+.titleCard{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 2rem;
+}

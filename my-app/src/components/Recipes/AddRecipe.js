@@ -3,9 +3,10 @@ Date added: Sep 29, 2019
 Date modified : Sept 30, 2019
 */
 
-import React, {Component} from "react"
+import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import RecipeDetails from "./RecipeDetails"
+import RecipeDetails from "./RecipeDetails";
+import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 export default class AddRecipe extends Component {
     constructor(props) {
@@ -40,6 +41,7 @@ render() {
         <Container>
             <Card  className="cardMain">
          <Card.Body>
+         <Card.Title className="titleCard" >Make your beer!</Card.Title>
       <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
           <Row>
           <Col>
@@ -67,9 +69,10 @@ render() {
         </FormGroup>
         </Col> 
         </Row>
-        <button onClick={this.addValues}>Add more Hops</button>
+        
         <div>Hops</div>
         <RecipeDetails object1={object1} />
+        <button id="button" onClick={this.addValues}>Add more Hops</button>
         <FormGroup>
             <FormLabel color="white" htmlFor="directions">Directions</FormLabel>
             <FormControl
@@ -80,7 +83,7 @@ render() {
                         placeholder="e.g: Mash at 150˚F for 60 minutes or until conversion is complete. Boil for..."
             />
         </FormGroup>
-        <input type="submit" value="Submit" /> 
+        <input id="button" type="submit" value="Submit" /> 
       </form>
       </Card.Body>
       </Card>

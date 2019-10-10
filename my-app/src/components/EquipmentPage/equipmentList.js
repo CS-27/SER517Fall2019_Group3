@@ -1,92 +1,64 @@
 /*Author: Salini Chittineni
   Date:   Oct 2, 2019
-  About:  This is to render equipment page to add equipment.
+  About:  This is to render list of equipment oage.
 */
 import React, { Component } from "react";
-import {
-    FormGroup,
-    FormControl,
-    FormLabel,
-    Form,
-    Button
-} from "react-bootstrap";
+
+// import './equipmentList.css';
 import Card from 'react-bootstrap/Card';
-import './Equipment.css';
 import { Container, Row, Col } from 'react-bootstrap';
-export default class Equipment extends Component {
+export default class equipmentList extends Component {
     constructor(props) {
         super(props);
-
-      
+        this.message = ""
         this.state = {
+            // isLoading: false,
             name:"",
             quantity:"",
-            user: "user1"
+            user: null
         };
 
-        var _this = this;
-
+        
     }
 
-    onSetTitle(event) {
+    handleChange = event => {
         this.setState({
-          name: event.target.value          
+            [event.target.id]: event.target.value
         });
+    }
+
+    handleSubmit=(event)=> {
+        console.log(this.state);
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'http://127.0.0.1:5000/')
+
+        event.preventDefault();
       }
 
-    onSetQuantity(event) {
-        this.setState({
-      quantity: event.target.value 
-    });
-}
 
-        handleSubmit(event) {
-            console.log("Done");
-            let req = {}
-            req.name = event.state.name
-            console.log("Done "+ JSON.stringify(req));
-            //alert('value submitted: ' + event.state.name);
-            //event.preventDefault();
-          };
-
-    renderForm() {
+    renderList() {
         return (
+            
             <Container>
+                <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCard">
-         <Card.Body>
-         <Card.Title className="titleCard" >List of Equipment</Card.Title>
-         <Form>
-                <FormGroup controlId="name" bssize="large">
-                    <FormLabel>Name</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="Text"
-                         value={this.state.name}
-                         onChange={this.onSetTitle.bind(this)}
-                      
-                    />
-                </FormGroup>
-                    <FormGroup controlId="quantity" bssize="large">
-                        <FormLabel>Quantity</FormLabel>
-                        <FormControl
-                            autoFocus
-                            type="Text"
-                            value={this.state.quantity}
-                            onChange={this.onSetQuantity.bind(this)}
-                        />
-                    </FormGroup>
-                    <Button onClick = {this.handleSubmit(this)}  id = "btn-color" type="submit" >Add Equipment</Button>
-            </Form>
+         <Card.Body className = "card-body">
+         <Card.Title className="titleCard" >List ingredient </Card.Title>
+
+      
          </Card.Body>
        </Card>
             </Container>
+            
+            
+          
         );
     }
 
     render() {
         return (
             <div>
-                { this.renderForm()}
+                { this.renderList()}
             </div>
         );
     }
