@@ -37,6 +37,10 @@ import AddRecipe from '../Recipes/AddRecipe';
 
 export default class ButtonAppBar extends Component {
 
+  handleLogout() {
+  alert("Logged out");
+  sessionStorage.setItem("username","NULL");
+  }
   render() {
     return (
       <div>
@@ -78,11 +82,11 @@ export default class ButtonAppBar extends Component {
             {/*<Route path='/signup' component={Signup} />*/}
             {/*<Route path='/signin' component={Signin} />*/}
 
-            <Route path='/about' component={About} />
-            <Route path='/profile' component={Backdrop} />
-            <Route path='/recipe' component={AddRecipe} />
-            <Route path='/addingredient' component={IngredientPage} />
-            <Route path='/ingredientList' component={ListIngredient} />
+            {/*<Route path='/about' component={About} />*/}
+            {/*<Route path='/profile' component={Backdrop} />*/}
+            {/*<Route path='/recipe' component={AddRecipe} />*/}
+            {/*<Route path='/addingredient' component={IngredientPage} />*/}
+            {/*<Route path='/ingredientList' component={ListIngredient} />*/}
 
             {/*<Route path='/equipmentList' component={equipmentList} />*/}
             {/*<Route path='/equipment' component={Equipment} />*/}

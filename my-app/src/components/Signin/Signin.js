@@ -46,7 +46,7 @@ export default class Signin extends Component {
                 if(response.data.Status == "True"){
                     console.log("Login successfull");
                     alert("Logged in");
-                    sessionStorage.setItem('username', "abc");
+                    sessionStorage.setItem('username', "user1");
                     console.log(sessionStorage.getItem("username"));
                     // setValue(this.state.email);
                     this.props.userHasAuthenticated(true);

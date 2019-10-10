@@ -10,6 +10,7 @@ import IngredientPage from './components/IngredientPage/ingredientPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Toolbar from "./components/Toolbar/Toolbar"
 
 
 ReactDOM.render(<Toolbar />, document.getElementById('root'));
