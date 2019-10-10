@@ -52,7 +52,7 @@ def checkUserLogin():
 
 @brewDay_api.route('/addIngredient', methods= ['POST'])
 def addIngredient():
-	req_data = request.get_json()
+	req_data = request.get_json(force=True)
 	ingList = {}
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
@@ -62,29 +62,29 @@ def addIngredient():
 
 @brewDay_api.route('/addEquipment', methods = ['POST'])
 def addEquipment():
-	req_data = request.get_json()
+	req_data = request.get_json(force=True)
 	equipmentList = {}
 	for key,value in req_data.items():
 		equipmentList.__setitem__(key,value)
-	response = jsonify({'Equipment Status': json.loads(equipmentFunctions.addEquipment(equipmentList))})
+	response = jsonify({'Equipment Status': equimentFunctions.addEquipment(equipmentList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
 
 @brewDay_api.route('/addShoppingList', methods = ['POST'])
 def addShoppingList():
-	req_data = request.get_json()
+	req_data = request.get_json(force=True)
 	shoppingList = {}
 	for key,value in req_data.items():
 		shoppingList.__setitem__(key,value)
-	response = jsonify({'Shopping List Status': json.loads(shoppingListFunctionc.addShoppingList(shoppingList))})
+	response = jsonify({'Shopping List Status': shoppingListFunctionc.addShoppingList(shoppingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
 @brewDay_api.route('/showShoppingList', methods = ['GET'])
 def showShoppingList():
 	userID = request.args.get('userID')
-	response = jsonify({'ShoppingList' : json.loads(shoppingListFunctions.showShoppingList(userID))})
+	response = jsonify({'ShoppingList' : shoppingListFunctions.showShoppingList(userID)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
