@@ -6,10 +6,13 @@ Date modified : Sept 30, 2019
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
 import RecipeDetails from "./RecipeDetails";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
-import {Container, FormLabel, FormControl, FormGroup, Col, Row, Button } from "react-bootstrap"
+import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
-import "./HopsSchedule";
+import HopsList from "./HopsSchedule";
+import Button from '@material-ui/core/Button';
+
 export default class AddRecipe extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +21,8 @@ export default class AddRecipe extends Component {
     object1: [{name:"", quantity:""}],
     recipename: "",
     malt: "",
-    directions: ""
+    directions: "",
+    Hops1:""
   };
 }   
 // handleChange = (e) => {
@@ -90,10 +94,16 @@ render() {
         </FormGroup>
         </Col> 
         </Row>
-        
-        <div>Hops</div>
-        <RecipeDetails object1={object1} />
-        <button id="button" onClick={this.addValues}>Add more Hops</button>
+        <FormGroup controlId="Hops1">
+                    <FormLabel color="white" >Add Hops</FormLabel>
+                    <FormControl
+                        autoFocus
+                        type="text" 
+                        placeholder="e.g: AmericanPaleAle"
+                        value={this.state.Hops1} 
+                        onChange={this.handleChange}
+                    />
+                </FormGroup>
         <FormGroup controlId="directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl
@@ -108,7 +118,9 @@ render() {
       </Form>
       </Card.Body>
       </Card>
-      </Container>
+</Container>
+
+      
     )
   }
 }
