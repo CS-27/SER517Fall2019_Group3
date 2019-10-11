@@ -1,28 +1,8 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
-
+import './datatable.css'
 class DataTable extends Component {
 
-  deleteItem = id => {
-    let confirmDelete = window.confirm('Delete item forever?')
-    if(confirmDelete){
-      fetch('http://localhost:3000/crud', {
-      method: 'delete',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id
-      })
-    })
-      .then(response => response.json())
-      .then(item => {
-        this.props.deleteItemFromState(id)
-      })
-      .catch(err => console.log(err))
-    }
-
-  }
 
   render() {
 
@@ -32,6 +12,13 @@ class DataTable extends Component {
           
           <td>{item[0]}</td>
           <td>{item[1]}</td>
+          <td>
+            <div style={{width:"110px"}}>
+            <Button id = "btn-color" >Edit</Button>
+            
+              <Button id = "btn1-color" >Del</Button>
+            </div>
+          </td>
         </tr>
         )
       })
@@ -42,6 +29,7 @@ class DataTable extends Component {
           <tr>
             <th>Ingredient Name</th>
             <th>Quantity</th>
+            <th>Edit/ Delete</th>
           </tr>
         </thead>
         <tbody>

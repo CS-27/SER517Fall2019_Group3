@@ -93,7 +93,7 @@ export default class ListIngredient extends Component {
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >List of ingredients</Card.Title>
          {this.loading ?       <Loader
-         type="Puff"
+         type="Circles"
          color="#00BFFF"
          height={100}
          width={100}
