@@ -20,14 +20,21 @@ export default class AddRecipe extends Component {
         this.message = ""
     this.state = {  
     // object1: [{name:"", quantity:""}],
-    recipename: "",
+    name: "",
     Malt: "",
     Directions: "",
     Hops1:"",
     schedule:"",
-    grain:""
+    grain:"",
+    Hops:[],
+    Grains:[],
+    HopsSchedule:[]
   };
+  this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleChange = this.handleChange.bind(this);
 }   
+
+   
 
 handleChange = event => {
   this.setState({
@@ -37,11 +44,49 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
-  console.log(this.state);
-  var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://127.0.0.1:5000/addRecipe')
+  //var try=this.state;
+  const hopsArray = this.state.Hops1.split(',');
+    this.setState({
+      Hops: hopsArray
+    });
+    const grainArray = this.state.grain.split(',');
+    this.setState({
+      Grains: grainArray
+    });
+    const sArray = this.state.schedule.split(',');
+    this.setState({
+      HopsSchedule: sArray
+    });
+    console.log(this.state);
+    var data = this.state;
+    //console.log(data);
+  
+    
+    fetch('http://127.0.0.1:5000/addRecipe', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({
+        name: data.name,
+        Directions: data.Directions,
+        Malt: data.Malt,
+        Hops: data.Hops,
+        Grains: data.Grains,
+        HopsSchedule: data.HopsSchedule    
+          }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+  
+        }
+    }).then(res => {
+        if(res.status===200)
+           this.message = 'Recipe added successfully'
+        console.log(res.status) ;
+    }).catch(err => console.log(err));
   event.preventDefault();           
 }
+
 
 // addValues = (e) => {
 //     this.setState((prevState) => ({
@@ -50,7 +95,7 @@ handleSubmit=(event) => {
 //   }
 
 render() {
-    let {object1} = this.state
+  //const items = this.state.Hops.map(item => <li>{item}</li> );
     return (
         <Container>
             <Card  className="cardMain">
@@ -60,13 +105,13 @@ render() {
       <Form onSubmit={this.handleSubmit} >
           <Row>
           <Col>
-        <FormGroup controlId="recipename">
+        <FormGroup controlId="name">
                     <FormLabel color="white" >Recipe Name</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
                         placeholder="e.g: AmericanPaleAle"
-                        value={this.state.recipename} 
+                        value={this.state.name} 
                         onChange={this.handleChange}
                     />
                 </FormGroup>
