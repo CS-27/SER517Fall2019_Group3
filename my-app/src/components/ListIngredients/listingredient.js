@@ -6,10 +6,11 @@ import { Button} from "react-bootstrap";
 import './listingredient.css';
 import Card from 'react-bootstrap/Card';
 import TableRow from './TableRow';
-
-
+import DataTable from './datatable';
+import Loader from 'react-loader-spinner';
 import { Container, Row, Col } from 'react-bootstrap';
 export default class ListIngredient extends Component {
+   
     constructor(props) {
         super(props);
     this.state = {
@@ -17,7 +18,11 @@ export default class ListIngredient extends Component {
       ingredients: [],
       response: {}
     }
+    this.ingredients = null;
+    this.loading = true;
     this.getIngredients();
+    
+
 
 
         
@@ -26,7 +31,6 @@ export default class ListIngredient extends Component {
  
 
     handleSubmit=(event)=> {
-        console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
         
@@ -34,7 +38,6 @@ export default class ListIngredient extends Component {
       }
 
       getIngredients=()=>{
-          console.log("hi");
             var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=user1'
           
 
@@ -43,22 +46,26 @@ export default class ListIngredient extends Component {
             .then(
               (result) => {
                   var data =JSON.parse(result['IngredientList']);
-
+                this.loading = false;
                var ingredients =[];
                
                Object.keys(data).forEach(function(key) {
-                   if(key!="userID" && key!="_id")
-                        ingredients.push({
-                           key: data[key]
-                        });
+                   if(key!="userID" && key!="_id"){
+                    ingredients.push([
+                      key,data[key]
+                   ]);
+                   }
+                       
               });
              
                    this.setState({
                     ingredients: ingredients
                   });
                
-               console.log(this.state.ingredients);
-
+           
+               const peopleArray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
+               this.ingredients = peopleArray;
+               console.log(this.ingredients[0]);
               },
               (error) => {
                 this.setState({ error });
@@ -85,8 +92,16 @@ export default class ListIngredient extends Component {
             <Card  className="mainCard">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >List of ingredients</Card.Title>
-       
-        <Button onClick ={this.getIngredients} ></Button>
+         {this.loading ?       <Loader
+         type="Puff"
+         color="#00BFFF"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+
+      />: <DataTable items={this.state.ingredients}></DataTable>}
+
+
       
          </Card.Body>
        </Card>
