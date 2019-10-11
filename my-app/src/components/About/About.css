@@ -21,7 +21,7 @@ body{
 }
 
 
-.cardMain{
+.cardMainOne{
     width: 70rem;
     height: 15rem;
     align-self: center;
@@ -43,7 +43,7 @@ body{
 
 }
 
-.card-body{
+.card-body-one{
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;

@@ -83,8 +83,8 @@ export default class Signin extends Component {
     render() {
         return (
             <Container>
-            <Card  className="cardMain">
-         <Card.Body>
+            <Card  className="cardMainOne">
+         <Card.Body className = "card-body-one">
          <form>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Username</FormLabel>

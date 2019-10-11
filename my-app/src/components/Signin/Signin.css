@@ -3,8 +3,8 @@
   Last Modified:  Rishab Mantri
   Modified date:  October 10,2019
 */
-mainCard{
-
+.cardMainOne{
+    
     width: 30rem;
     margin: 0 auto;
     opacity: .9;
@@ -32,7 +32,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     outline: none;
 }
 
-.card-body{
+.card-body-one{
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;
