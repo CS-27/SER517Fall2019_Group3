@@ -1,3 +1,9 @@
+/*Author:             Rishab Mantri
+  Initial Creation:   September 21, 2019
+  Modified date:      October 10,2019
+  About:  This Signin page for user to login to the application
+*/
+
 import React, { Component } from "react";
 import {
     FormGroup,
@@ -12,8 +18,6 @@ import axios from "axios";
 export default class Signin extends Component {
     constructor(props) {
         super(props);
-
-
         this.state = {
             isLoading: false,
             email: "",
