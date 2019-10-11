@@ -42,8 +42,8 @@ export default class IngredientPage extends Component {
             mode: 'cors',
             body: JSON.stringify({
                 userID: data.userID,
-                name : data.name,
-                quantity :data.quantity
+                [data.name] : data.quantity
+                
               }),
             headers: {
                 'Content-Type': 'application/json',
