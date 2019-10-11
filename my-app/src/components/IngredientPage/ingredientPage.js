@@ -52,7 +52,9 @@ export default class IngredientPage extends Component {
 
             }
         }).then(res => {
-            console.log(res) ;
+            if(res.status===200)
+               this.message = 'Ingredient added successfully'
+            console.log(res.status) ;
         }).catch(err => console.log(err));
         // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
         // then(response=> {
