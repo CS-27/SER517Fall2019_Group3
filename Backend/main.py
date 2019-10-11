@@ -5,9 +5,11 @@ import equimentFunctions
 import ingredientFunctions
 import userLoginFunctions
 import shoppingListFunctions
+from flask_cors import CORS, cross_origin
 
 
 brewDay_api = Flask(__name__)
+cors = CORS(brewDay_api)
 
 @brewDay_api.route('/')
 def indexPage():
@@ -21,10 +23,20 @@ def showRecipe():
 	return response
 
 
-@brewDay_api.route('/addRecipe', methods = ['POST'])
+"""@brewDay_api.route('/addRecipe', methods = ['POST'])
 def addRecipeInfo():
 	recipeInfo = request.args.get('recipeInfo')
 	response = jsonify({'recipeAdditionStatus' : json.loads(recipeFunctions.addRecipe(recipeInfo))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response"""
+
+@brewDay_api.route('/addRecipe', methods = ['POST'])
+def addRecipeInfo():
+	req_data = request.get_json(force=True)
+	recipeList = {}
+	for key,value in req_data.items():
+		recipeList.__setitem__(key,value)
+	response = jsonify({'Recipe Status': recipeFunctions.addRecipe(recipeList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 

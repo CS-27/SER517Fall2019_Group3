@@ -10,9 +10,12 @@ def addRecipe(recipe):
 	collection = db.recipe_info
 	#data = {}
 
-	recipe['Name'] = ''.join(e for e in recipe['Name'] if e.isalnum())
+	recipe['name'] = ''.join(e for e in recipe['name'] if e.isalnum())
 	#data.update(recipe_name = recipe)
-	result = collection.insert(recipe).inserted_id
+	
+	if not collection.find_one({'name' : recipe['name']}):
+		result = collection.insert(recipe).inserted_id
+
 	if result:
 		return 'True'
 	else:
@@ -33,6 +36,6 @@ c = {'Name': 'American-Pale-Ale', 'Yeast': 'Wyeast 1056', 'Hops': {'Cascade': '1
 
 
 #addRecipe(c)
-showRecipeByName('AmericanPaleAle')
+#showRecipeByName('AmericanPaleAle')
 
 
