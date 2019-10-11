@@ -1,3 +1,9 @@
+/*Author:  Rishab Mantri
+  Initial Creation:  September 21, 2019
+  Last Modified:  Rishab Mantri
+  Modified date:  October 10,2019
+  About:  This routes the link to following required pages
+*/
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Backdrop from "./components/Backdrop";

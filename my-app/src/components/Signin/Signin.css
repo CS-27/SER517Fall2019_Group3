@@ -1,8 +1,14 @@
+/*Author:  Rishab Mantri
+  Initial Creation:  September 21, 2019
+  Last Modified:  Rishab Mantri
+  Modified date:  October 10,2019
+*/
 mainCard{
 
     width: 30rem;
     margin: 0 auto;
     opacity: .9;
+    height: 30rem;
 
 }
 
