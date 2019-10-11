@@ -1,10 +1,16 @@
+/*Author:  Rishab Mantri
+  Initial Creation:  September 5, 2019
+  Last Modified:  Rishab Mantri
+  Modified date:  October 10,2019
+  About:  This Signup page for user registeration
+*/
 import React, { Component } from "react";
 import {
     FormGroup,
     FormControl,
     FormLabel
 } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
+import LoaderButton from "./LoaderButton";
 import './Signup.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
@@ -112,7 +118,7 @@ export default class Signup extends Component {
                         />
                     </FormGroup>
                 <FormGroup controlId="email" bsSize="large">
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"

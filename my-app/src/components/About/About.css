@@ -21,10 +21,11 @@ body{
 }
 
 
-.cardMain{
+.cardMainOne{
     width: 70rem;
     height: 15rem;
     align-self: center;
+    opacity: .8;
 
 }
 
@@ -32,7 +33,7 @@ body{
     width: 20rem;
     height: 15rem;
     align-self: center;
-    
+    opacity: .8;
 
 }
 .card-title{
@@ -42,12 +43,12 @@ body{
 
 }
 
-.card-body{
+.card-body-one{
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;
-    background-color: rgb(255,255,224)
-
+    background-color: rgb(255,255,224);
+    opacity: .8;
     
 
 }

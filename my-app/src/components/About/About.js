@@ -19,10 +19,10 @@ function About() {
         ABOUT
       </div>
      <Container>
-     <Card  className="cardMain">
-  <Card.Body>
+     <Card  className="cardMainOne">
+  <Card.Body className ="card-body-one">
     <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
-    <Card.Text className ="card-body">
+    <Card.Text >
        Our mission is to help home brewers to store their recipes and maintain logs to their recipes and ingredients. 
        We also recommend you the beers you can brew with the ingredients you have.
     </Card.Text>
