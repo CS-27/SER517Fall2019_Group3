@@ -1,5 +1,6 @@
 
 from flask import Flask, jsonify, request, Blueprint,json
+from flask_cors import CORS, cross_origin
 import recipeFunctions
 import equipmentFunctions
 import ingredientFunctions
@@ -8,6 +9,7 @@ import shoppingListFunctions
 
 
 brewDay_api = Flask(__name__)
+cors = CORS(brewDay_api)
 
 @brewDay_api.route('/')
 def indexPage():
@@ -56,6 +58,7 @@ def addIngredient():
 	ingList = {}
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
+	print(ingList)
 	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(ingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response

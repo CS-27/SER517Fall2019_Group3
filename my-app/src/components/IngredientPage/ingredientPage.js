@@ -41,13 +41,13 @@ export default class IngredientPage extends Component {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
-                userID: this.state.userID,
-                name : this.state.name,
-                quantity :this.state.quantity
+                userID: data.userID,
+                name : data.name,
+                quantity :data.quantity
               }),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
             }
