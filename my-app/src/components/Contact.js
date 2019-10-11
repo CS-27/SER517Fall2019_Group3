@@ -28,7 +28,7 @@ import showMap from './showMap';
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Email US</h4>
           <p align='center' className='card-content'>
-            beer_for_life@gmail.com
+            beerLife@gmail.com
           </p>
         </div>
         </div>
@@ -41,7 +41,7 @@ import showMap from './showMap';
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Call US</h4>
           <p align='center' className='card-content'>
-            +1 (951)-xxx-1234
+            +1 (951)-555-1234
           </p>
         </div>
         </div>
@@ -55,7 +55,7 @@ import showMap from './showMap';
         <div className='card-body'>
           <h4 className='card-title text-secondary' align='center'>Visit US</h4>
           <p align='center' className='card-content'>
-           Directions Coming Soon
+           ASU Polytechnic!
           </p>
         </div>
         </div>

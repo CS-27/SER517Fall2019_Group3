@@ -37,7 +37,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/ingredientList" exact component={ListIngredient} props={childProps} />
             <AppliedRoute path="/addShoppingItem" exact component={ShoppingPage} props={childProps} />
             <AppliedRoute path="/shoppingList" exact component={ListShopping} props={childProps} />
-            <AppliedRoute path="/recipe" exact component={AddRecipe} props={childProps} />
+            <AppliedRoute path="/addRecipe" exact component={AddRecipe} props={childProps} />
 
             {/*<AppliedRoute path="/" exact component={Backdrop} props={childProps} />*/}
             {/*<Route exact path='/' component={Backdrop} />*/}
