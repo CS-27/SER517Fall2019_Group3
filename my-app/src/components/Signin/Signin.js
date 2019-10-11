@@ -3,7 +3,8 @@ import {
     FormGroup,
     FormControl,
     FormLabel,
-    Container
+    Container,
+    Button
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import './Signin.css';
@@ -17,6 +18,7 @@ export default class Signin extends Component {
             isLoading: false,
             email: "",
             password: "",
+            authenticated:"",
         };
     }
 
@@ -34,25 +36,20 @@ export default class Signin extends Component {
         });
     }
 
-    handleSubmit = async event => {
+    handleSubmit = event => {
         event.preventDefault();
-
         this.setState({ isLoading: true });
         var apiBaseUrl = "http://localhost:5000";
-
         axios.get(apiBaseUrl+"/userCheckLogin?"+"userID="+ this.state.email+ "&password="+ this.state.password)
-            .then(function (response) {
+            .then(response => {
                 console.log(response);
                 if(response.data.Status == "True"){
+
                     console.log("Login successfull");
                     alert("Logged in");
-                    sessionStorage.setItem('username', "user1");
+                    sessionStorage.setItem('username',this.state.email);
                     console.log(sessionStorage.getItem("username"));
-                    // setValue(this.state.email);
-                    this.props.userHasAuthenticated(true);
-                    // var uploadScreen=[];
-                    // uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-                    // self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
+
                 }
                 else if(response.data.Status == "False"){
                     console.log("Username password do not match");
@@ -84,9 +81,9 @@ export default class Signin extends Component {
             <Container>
             <Card  className="cardMain">
          <Card.Body>
-         <form onSubmit={this.handleSubmit}>
+         <form>
                 <FormGroup controlId="email" bsSize="large">
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"
@@ -102,7 +99,7 @@ export default class Signin extends Component {
                         type="password"
                     />
                 </FormGroup>
-             <input type="submit" value="Login" />
+             <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Login</Button>
             </form>
          </Card.Body>
        </Card>

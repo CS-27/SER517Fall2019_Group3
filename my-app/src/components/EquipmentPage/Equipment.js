@@ -16,7 +16,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default class Equipment extends Component {
     constructor(props) {
         super(props);
-
+        this.message = ""
       
         this.state = {
             name:"",
@@ -24,30 +24,20 @@ export default class Equipment extends Component {
             user: "user1"
         };
 
-        var _this = this;
-
     }
 
-    onSetTitle(event) {
-        this.setState({
-          name: event.target.value          
-        });
-      }
-
-    onSetQuantity(event) {
-        this.setState({
-      quantity: event.target.value 
+handleChange = event => {
+    this.setState({
+        [event.target.id]: event.target.value
     });
 }
 
-        handleSubmit(event) {
-            console.log("Done");
-            let req = {}
-            req.name = event.state.name
-            console.log("Done "+ JSON.stringify(req));
-            //alert('value submitted: ' + event.state.name);
-            //event.preventDefault();
-          };
+        handleSubmit=(event) => {
+            console.log(this.state);
+            var xhr = new XMLHttpRequest()
+            xhr.open('POST', 'http://127.0.0.1:5000/')
+            event.preventDefault();           
+          }
 
     renderForm() {
         return (
@@ -55,27 +45,28 @@ export default class Equipment extends Component {
             <Card  className="mainCard">
          <Card.Body>
          <Card.Title className="titleCard" >Add equipment</Card.Title>
-         <Form>
-                <FormGroup controlId="name" bssize="large">
+         <p>{this.message}</p>
+         <Form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="name" >
                     <FormLabel>Name</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"
                          value={this.state.name}
-                         onChange={this.onSetTitle.bind(this)}
+                         onChange={this.handleChange}
                       
                     />
                 </FormGroup>
-                    <FormGroup controlId="quantity" bssize="large">
+                    <FormGroup controlId="quantity">
                         <FormLabel>Quantity</FormLabel>
                         <FormControl
                             autoFocus
                             type="Text"
                             value={this.state.quantity}
-                            onChange={this.onSetQuantity.bind(this)}
+                            onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick = {this.handleSubmit(this)}  id = "btn-color" type="submit" >Add Equipment</Button>
+                    <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Equipment</Button>
             </Form>
          </Card.Body>
        </Card>

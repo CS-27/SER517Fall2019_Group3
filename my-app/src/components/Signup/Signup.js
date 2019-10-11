@@ -112,7 +112,7 @@ export default class Signup extends Component {
                         />
                     </FormGroup>
                 <FormGroup controlId="email" bsSize="large">
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"

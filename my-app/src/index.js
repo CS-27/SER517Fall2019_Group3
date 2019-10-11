@@ -5,7 +5,7 @@ import Contact from './components/Contact';
 import showMap from './components/showMap';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import About from './components/About/About';
+import HopsList from './components/Recipes/HopsSchedule';
 import IngredientPage from './components/IngredientPage/ingredientPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

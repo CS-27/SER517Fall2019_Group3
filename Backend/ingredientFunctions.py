@@ -5,7 +5,7 @@ from bson import json_util
 
 
 def showIngredient(userID):
-	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingrdient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.ingredient
 
 	collection = db.userIngredient
@@ -15,7 +15,7 @@ def showIngredient(userID):
 	return json.dumps(result, default=json_util.default)
 
 def addIngredient(userIngList):
-	client = mongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingrdient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.ingredient
 
 	collection = db.userIngredient
@@ -25,7 +25,7 @@ def addIngredient(userIngList):
 		#data.update(ingredientList = userIngList)
 		result = collection.insert(userIngList).inserted_id
 	else:
-		update(userIngList)
+		#update(userIngList)
 		search_query = { "userID": userIngList['userID'] }
 
 		for key,value in userIngList.items():
