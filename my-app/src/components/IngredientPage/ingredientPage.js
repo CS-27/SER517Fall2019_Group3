@@ -9,6 +9,8 @@ import {Form,
 } from "react-bootstrap";
 import './ingredientPage.css';
 import Card from 'react-bootstrap/Card';
+import axios from "axios";
+
 import { Container, Row, Col } from 'react-bootstrap';
 export default class IngredientPage extends Component {
     constructor(props) {
@@ -18,7 +20,7 @@ export default class IngredientPage extends Component {
             // isLoading: false,
             name:"",
             quantity:"",
-            user: null
+            userID: "user1"
         };
 
         
@@ -31,9 +33,27 @@ export default class IngredientPage extends Component {
     }
 
     handleSubmit=(event)=> {
-        console.log(this.state);
-        var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        var data = this.state;
+        console.log(data);
+      
+        // fetch('http://127.0.0.1:5000/addIngredient', {
+        //     method: 'POST',
+        //     mode: 'CORS',
+        //     body: data,
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }).then(res => {
+        //     console.log(res) ;
+        // }).catch(err => console.log(err));
+        axios.post('http://127.0.0.1:5000/addIngredient', this.state).
+        then(response=> {
+        
+        console.log(response);
+
+        
+        
+        });
 
         event.preventDefault();
       }

@@ -63,7 +63,6 @@ def addIngredient():
 @brewDay_api.route('/addEquipment', methods = ['POST'])
 def addEquipment():
 	req_data = request.get_json(force=True)
-	print req_data
 	equipmentList = {}
 	for key,value in req_data.items():
 		equipmentList.__setitem__(key,value)
@@ -75,11 +74,7 @@ def addEquipment():
 @brewDay_api.route('/addShoppingList', methods = ['POST'])
 def addShoppingList():
 	req_data = request.get_json(force=True)
-	#print request.get_json(force=True)
-	#print request.values
 	shoppingList = {}
-	#print req_data
-	#print type(req_data)
 	for key,value in req_data.items():
 		shoppingList.__setitem__(key,value)
 	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(shoppingList)})
