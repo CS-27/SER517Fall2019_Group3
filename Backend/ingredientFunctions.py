@@ -15,6 +15,7 @@ def showIngredient(userID):
 	return json.dumps(result, default=json_util.default)
 
 def addIngredient(userIngList):
+	print(userIngList)
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.ingredient
 
