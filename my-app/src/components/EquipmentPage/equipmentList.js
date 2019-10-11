@@ -10,6 +10,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 export default class equipmentList extends Component {
      constructor(props) {
         super(props);
+        this.getEquipment = this.getEquipment.bind(this);
         this.message = ""
       
         this.state = {
@@ -38,20 +39,20 @@ export default class equipmentList extends Component {
       getEquipment(){
             console.log("equipment")
             var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID=user1'
-            axios.get('http://127.0.0.1:5000/showEquipment?userID=user1').
-            then(response=> {
-            //    var data = response.json()
-            //   console.log(response);
+            // axios.get('http://127.0.0.1:5000/showEquipment?userID=user1').
+            // then(response=> {
+            // //    var data = response.json()
+            // //   console.log(response);
 
             
             
-            });
+            // });
 
             fetch(apiUrl)
             .then(res => res.json())
             .then(
               (result) => {
-                  var data =JSON.parse(result['equipmentList']);
+                  var data =JSON.parse(result['equipmeneList']);
 
                console.log(data['equip1']);
                var equipment =[];
@@ -63,7 +64,7 @@ export default class equipmentList extends Component {
 
               },
               (error) => {
-                this.setState({ error });
+                this.setState(error);
               }
             )
       }
