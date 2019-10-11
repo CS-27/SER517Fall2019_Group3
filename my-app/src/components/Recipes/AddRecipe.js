@@ -13,6 +13,7 @@ import Form from "react-bootstrap/FormGroup";
 import HopsList from "./HopsSchedule";
 import Button from '@material-ui/core/Button';
 
+
 export default class AddRecipe extends Component {
     constructor(props) {
         super(props);
@@ -20,8 +21,8 @@ export default class AddRecipe extends Component {
     this.state = {  
     // object1: [{name:"", quantity:""}],
     recipename: "",
-    malt: "",
-    directions: "",
+    Malt: "",
+    Directions: "",
     Hops1:"",
     schedule:"",
     grain:""
@@ -38,7 +39,7 @@ handleChange = event => {
 handleSubmit=(event) => {
   console.log(this.state);
   var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://127.0.0.1:5000/')
+  xhr.open('POST', 'http://127.0.0.1:5000/addRecipe')
   event.preventDefault();           
 }
 
@@ -71,25 +72,25 @@ render() {
                 </FormGroup>
                 </Col>
                 <Col> 
-        <FormGroup controlId="malt">
+        <FormGroup controlId="Malt">
             <FormLabel color="white" >Malt</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
                         placeholder="in lbs"
-                        value={this.state.malt}
+                        value={this.state.Malt}
                         onChange={this.handleChange}
             />
         </FormGroup>
         </Col> 
         </Row>
-        <FormGroup controlId="directions">
+        <FormGroup controlId="Directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
                         placeholder="e.g: Mash at 150˚F for 60 minutes or until conversion is complete. Boil for..."
-                        value={this.state.directions}
+                        value={this.state.Directions}
                         onChange={this.handleChange}
             />
             <div>Please Enter comma separated values for below fields: </div>
