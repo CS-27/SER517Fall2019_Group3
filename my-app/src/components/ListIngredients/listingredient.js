@@ -45,7 +45,9 @@ export default class ListIngredient extends Component {
             .then(res => res.json())
             .then(
               (result) => {
-                  var data =JSON.parse(result['IngredientList']);
+                console.log(result['IngredientList']);
+                  var data =result['IngredientList'];
+                  
                 this.loading = false;
                var ingredients =[];
                

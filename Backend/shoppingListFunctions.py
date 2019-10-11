@@ -11,7 +11,7 @@ def showShoppingList(userID):
 	collection = db.userShoppingList
 
 	result = collection.find_one({'userID' : userID})
-	print json.dumps(result, default=json_util.default)
+	print (json.dumps(result, default=json_util.default))
 	return json.dumps(result, default=json_util.default)
 
 def addShoppingList(userShopList):
