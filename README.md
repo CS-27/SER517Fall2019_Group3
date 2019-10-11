@@ -24,5 +24,9 @@ Members:
 
 #### Run the command `npm start`
 
+#### Open another terminal and go to the directory: Backend
+
+#### Run command "python main.py"
+
 The app runs in the following : [http://localhost:3000](http://localhost:3000)
 
