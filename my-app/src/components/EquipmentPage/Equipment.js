@@ -13,6 +13,7 @@ import {
 import Card from 'react-bootstrap/Card';
 import './Equipment.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 export default class Equipment extends Component {
     constructor(props) {
         super(props);
@@ -33,11 +34,22 @@ handleChange = event => {
 }
 
         handleSubmit=(event) => {
-            console.log(this.state);
-            var xhr = new XMLHttpRequest()
-            xhr.open('POST', 'http://127.0.0.1:5000/addEquipment')
-            event.preventDefault();           
-          }
+            var data = this.state;
+            console.log(data);
+
+            axios.post('http://127.0.0.1:5000/addEquipment',{"userID":"user1","euipnew":"4"}).
+            then(response=> {            
+            console.log(response);            
+            
+            });
+    
+         event.preventDefault();
+        }
+        //   }
+        //     var xhr = new XMLHttpRequest()
+        //     xhr.open('POST', 'http://127.0.0.1:5000/addEquipment/')
+        //     event.preventDefault();           
+          
 
     renderForm() {
         return (
