@@ -1,3 +1,9 @@
+/*Author:  Rishab Mantri
+  Initial Creation:  September 5, 2019
+  Last Modified:  Rishab Mantri
+  Modified date:  October 10,2019
+  About:  This Signup page for user registeration
+*/
 import React, { Component } from "react";
 import {
     FormGroup,
