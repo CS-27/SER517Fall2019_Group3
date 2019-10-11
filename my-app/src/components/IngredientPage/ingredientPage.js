@@ -36,24 +36,31 @@ export default class IngredientPage extends Component {
         var data = this.state;
         console.log(data);
       
-        // fetch('http://127.0.0.1:5000/addIngredient', {
-        //     method: 'POST',
-        //     mode: 'CORS',
-        //     body: data,
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // }).then(res => {
-        //     console.log(res) ;
-        // }).catch(err => console.log(err));
-        axios.post('http://127.0.0.1:5000/addIngredient', this.state).
-        then(response=> {
         
-        console.log(response);
+        fetch('http://127.0.0.1:5000/addIngredient', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                userID: this.state.userID,
+                name : this.state.name,
+                quantity :this.state.quantity
+              }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+
+            }
+        }).then(res => {
+            console.log(res) ;
+        }).catch(err => console.log(err));
+        // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
+        // then(response=> {
+        
+        // console.log(response);
 
         
-        
-        });
+      
 
         event.preventDefault();
       }
