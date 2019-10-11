@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de42a868-b14e-47fa-b713-63d5e6488fe1" name="Default Changelist" comment="Basic signup page updated.">
-      <change beforePath="$PROJECT_DIR$/my-app/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Signin/Signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Signin/Signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Signin/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Signin/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Signup/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Signup/Signup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -17,54 +19,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/IngredientPage/ingredientPage.js">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-64">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="-773">
+              <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="27" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/IngredientPage/ingredientPage.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-215" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="75" column="60" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="60" />
+            <state relative-caret-position="301">
+              <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#288#329#0" expanded="true" />
@@ -74,37 +44,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="33" column="8" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="33" selection-end-column="8" />
-              <folding>
-                <element signature="e#56#97#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="150">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.css">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/Signup/Signup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1340">
+              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="40" lean-forward="true" selection-start-column="1" selection-end-line="40" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -120,15 +98,15 @@
       <find>ControlLabel</find>
       <find>Glyphicon</find>
       <find>HelpBlock</find>
-      <find>email</find>
       <find>signup</find>
       <find>export</find>
       <find>back</find>
       <find>class</find>
       <find>button</find>
       <find>app</find>
-      <find>ingredient</find>
       <find>ingre</find>
+      <find>ingredient</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>FormLabel</replace>
@@ -159,8 +137,6 @@
         <option value="$PROJECT_DIR$/my-app/src/components/LoaderButton.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Signup.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Signup.css" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Signin/Signin.css" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Signup/Signup.js" />
         <option value="$PROJECT_DIR$/my-app/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/my-app/src/components/AppliedRoute.js" />
@@ -169,12 +145,14 @@
         <option value="$PROJECT_DIR$/my-app/src/components/Toolbar.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/About/About.js" />
         <option value="$PROJECT_DIR$/my-app/src/index.js" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Signin/Signin.js" />
         <option value="$PROJECT_DIR$/my-app/src/App.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" />
         <option value="$PROJECT_DIR$/my-app/src/Routes.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Signin/Signin.css" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Signin/Signin.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Signup/Signup.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" />
       </list>
     </option>
   </component>
@@ -228,7 +206,7 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ListShopping" type="462c0819:PsiDirectoryNode" />
+              <item name="EquipmentPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
@@ -236,15 +214,7 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ShoppingPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SER517Fall2019_Group3" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Signin" type="462c0819:PsiDirectoryNode" />
+              <item name="Signup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
@@ -350,7 +320,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31156000" />
+    <option name="totallyTimeSpent" value="40036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -451,16 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signup/Signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -511,13 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-101" />
@@ -530,13 +483,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -563,18 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/equipmentList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-141">
@@ -586,16 +520,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="33" column="8" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="33" selection-end-column="8" />
-          <folding>
-            <element signature="e#56#97#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/IngredientPage/ingredientPage.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -612,19 +536,6 @@
         <state relative-caret-position="-215" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -634,23 +545,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="75" column="60" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="60" />
+        <state relative-caret-position="45">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#288#329#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="208">
+          <caret line="33" column="8" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="33" selection-end-column="8" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#56#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="40" lean-forward="true" selection-start-column="1" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signup/Signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1340">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Signin/Signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-773">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#288#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
