@@ -3,7 +3,6 @@
   About:  This is to render list of equipment oage.
 */
 import React, { Component } from "react";
-import axios from 'axios';
 // import './equipmentList.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -26,11 +25,6 @@ export default class equipmentList extends Component {
         
     }
 
-    // handleChange = event => {
-    //     this.setState({
-    //         [event.target.id]: event.target.value
-    //     });
-    // }
 
     handleSubmit=(event)=> {
         //console.log(this.state);
@@ -47,7 +41,7 @@ export default class equipmentList extends Component {
             .then(res => res.json())
             .then(
               (result) => {
-                  var data =JSON.parse(result['equipmentList']);
+                  var data =result['equipmentList'];
                this.loading = false;
                var equipment =[];
                
