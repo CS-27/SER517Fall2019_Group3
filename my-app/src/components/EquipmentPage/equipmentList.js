@@ -4,7 +4,7 @@
 */
 import React, { Component } from "react";
 import axios from 'axios';
-import './equipmentList.css';
+// import './equipmentList.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import DataTable from '../ListIngredients/datatable';
