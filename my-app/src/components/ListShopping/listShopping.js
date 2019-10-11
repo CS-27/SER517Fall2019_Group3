@@ -11,12 +11,12 @@ export default class ListShopping extends Component {
         super(props);
         this.state = {
             error: null,
-            ingredients: [],
+            items: [],
             response: {}
         }
-        this.ingredients = null;
+        this.items = null;
         this.loading = true;
-        this.getIngredients();
+        this.getItems();
 
 
 
@@ -36,7 +36,7 @@ export default class ListShopping extends Component {
         event.preventDefault();
       }
 
-    getIngredients=()=> {
+    getItems=()=> {
         var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=user1'
 
         fetch(apiUrl)
@@ -47,11 +47,11 @@ export default class ListShopping extends Component {
                     var data = result['ShoppingList'];
 
                     this.loading = false;
-                    var ingredients = [];
+                    var items = [];
 
                     Object.keys(data).forEach(function (key) {
                         if (key != "userID" && key != "_id") {
-                            ingredients.push([
+                            items.push([
                                 key, data[key]
                             ]);
                         }
@@ -59,13 +59,13 @@ export default class ListShopping extends Component {
                     });
 
                     this.setState({
-                        ingredients: ingredients
+                        items: items
                     });
 
 
-                    const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
-                    this.ingredients = ingrarray;
-                    console.log(this.ingredients[0]);
+                    const ingrarray = Object.keys(this.state.items).map(i => this.state.items[i])
+                    this.items = ingrarray;
+                    console.log(this.items[0]);
                 },
                 (error) => {
                     this.setState({error});
@@ -90,7 +90,7 @@ export default class ListShopping extends Component {
                  width={100}
                  timeout={3000} //3 secs
 
-             />: <DataTable items={this.state.ingredients}></DataTable>}
+             />: <DataTable items={this.state.items}></DataTable>}
 
 
 

@@ -47,7 +47,7 @@ export default class equipmentList extends Component {
             .then(res => res.json())
             .then(
               (result) => {
-                  var data =JSON.parse(result['equipmentList']);
+                  var data =result['equipmentList'];
                this.loading = false;
                var equipment =[];
                
