@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*Author: Harshita Kajal
 Date added: Sep 17, 2019
 Date modified : Sept 22, 2019
@@ -68,27 +67,4 @@ import showMap from './showMap';
   };
    
   export default Contact
-=======
-import React from 'react';
-import { Component } from 'react';
 
-class ContactUs extends Component {
-  render() {
-    return (
-        <div>
-          <h2>Contact</h2>
-        </div>
-    );
-  }
-}
-
-function Contact() {
-  return (
-    <div className="Contact">
-    Contact us here
-    </div>
-  );
-}
-
-export default Contact;
->>>>>>> US:7 Task:68 Adding routing option to visit and test the landing page
