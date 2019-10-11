@@ -23,12 +23,24 @@ def showRecipe():
 	return response
 
 
-@brewDay_api.route('/addRecipe', methods = ['POST'])
+"""@brewDay_api.route('/addRecipe', methods = ['POST'])
 def addRecipeInfo():
 	recipeInfo = request.args.get('recipeInfo')
 	response = jsonify({'recipeAdditionStatus' : json.loads(recipeFunctions.addRecipe(recipeInfo))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response
+	return response"""
+
+@brewDay_api.route('/addRecipe', methods = ['POST'])
+def addRecipeInfo():
+    req_data = request.get_json(force=True)
+    recipeList = {}
+    for key,value in req_data.items():
+    	recipeList.__setitem__(key,value)
+    #print(ingList)
+    response = jsonify({'Recipe Status': recipeFunctions.addRecipe(recipeList)})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 
 @brewDay_api.route('/showEquipment', methods = ['GET'])
 def showEquiment():
@@ -58,7 +70,7 @@ def addIngredient():
 	ingList = {}
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
-	print(ingList)
+	#print(ingList)
 	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(ingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
