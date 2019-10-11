@@ -2,13 +2,11 @@
 Date added: Oct 9, 2019
 */
 import React, { Component } from "react";
-import { Button} from "react-bootstrap";
 import './listingredient.css';
 import Card from 'react-bootstrap/Card';
-import TableRow from './TableRow';
 import DataTable from './datatable';
 import Loader from 'react-loader-spinner';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 export default class ListIngredient extends Component {
    
     constructor(props) {
@@ -39,7 +37,6 @@ export default class ListIngredient extends Component {
 
       getIngredients=()=>{
             var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=user1'
-          
 
             fetch(apiUrl)
             .then(res => res.json())
@@ -65,8 +62,8 @@ export default class ListIngredient extends Component {
                   });
                
            
-               const peopleArray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
-               this.ingredients = peopleArray;
+               const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
+               this.ingredients = ingrarray;
                console.log(this.ingredients[0]);
               },
               (error) => {
@@ -76,15 +73,6 @@ export default class ListIngredient extends Component {
            
 
       }
-
-      
-
-      tabRow(){
-        return this.state.ingredients.map(function(object, i){
-            return (<TableRow obj={object} key={i} />);
-        });
-      }
-
 
     renderList() {
         return (
