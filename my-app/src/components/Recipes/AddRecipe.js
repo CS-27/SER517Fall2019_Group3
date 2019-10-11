@@ -25,9 +25,16 @@ export default class AddRecipe extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    grain:""
+    grain:"",
+    Hops:[],
+    Grains:[],
+    HopsSchedule:[]
   };
+  this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleChange = this.handleChange.bind(this);
 }   
+
+   
 
 handleChange = event => {
   this.setState({
@@ -37,9 +44,22 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
-  console.log(this.state);
-  var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://127.0.0.1:5000/addRecipe')
+  //var try=this.state;
+  const hopsArray = this.state.Hops1.split(',');
+    this.setState({
+      Hops: hopsArray
+    });
+    const grainArray = this.state.grain.split(',');
+    this.setState({
+      Grains: grainArray
+    });
+    const sArray = this.state.schedule.split(',');
+    this.setState({
+      HopsSchedule: sArray
+    });
+    console.log(this.state);
+  // var xhr = new XMLHttpRequest()
+  // xhr.open('POST', 'http://127.0.0.1:5000/addRecipe')
   event.preventDefault();           
 }
 
@@ -50,7 +70,7 @@ handleSubmit=(event) => {
 //   }
 
 render() {
-    let {object1} = this.state
+  //const items = this.state.Hops.map(item => <li>{item}</li> );
     return (
         <Container>
             <Card  className="cardMain">
