@@ -16,10 +16,10 @@ export default class ShoppingPage extends Component {
             // isLoading: false,
             name:"",
             quantity:"",
-            user: null
+            userID: "user1"
         };
 
-        
+
     }
 
     handleChange = event => {
@@ -29,51 +29,79 @@ export default class ShoppingPage extends Component {
     }
 
     handleSubmit=(event)=> {
-        console.log(this.state);
-        // var xhr = new XMLHttpRequest()
-        // xhr.open('POST', 'http://127.0.0.1:5000/')
+        var data = this.state;
+        console.log(data);
+
+
+        fetch('http://127.0.0.1:5000/addShoppingList', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                userID: data.userID,
+                [data.name] : data.quantity
+
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+
+            }
+        }).then(res => {
+            if(res.status===200)
+                this.message = 'Item added successfully'
+            console.log(res.status) ;
+        }).catch(err => console.log(err));
+        // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
+        // then(response=> {
+
+        // console.log(response);
+
+
+
 
         event.preventDefault();
-      }
+    }
+
 
 
     renderForm() {
         return (
             <Container>
-            <Card  className="mainCard">
-         <Card.Body className = "card-body">
-         <Card.Title className="titleCard" >Add an Item </Card.Title>
+                <Card  className="mainCard">
+                    <Card.Body className = "card-body">
+                        <Card.Title className="titleCard" >Add an Item </Card.Title>
 
-            <p>{this.message}</p>
-         <Form onSubmit={this.handleSubmit}>
-                <FormGroup controlId="name"  >
-                    <FormLabel>Name</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="Text"
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
-                    <FormGroup controlId="quantity">
-                        <FormLabel>Quantity</FormLabel>
-                        <FormControl
-                            autoFocus
-                            type="Text"
-                            value={this.state.quantity}
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Item</Button>
+                        <p>{this.message}</p>
+                        <Form onSubmit={this.handleSubmit}>
+                            <FormGroup controlId="name"  >
+                                <FormLabel>Name</FormLabel>
+                                <FormControl
+                                    autoFocus
+                                    type="Text"
+                                    value={this.state.name}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <FormGroup controlId="quantity">
+                                <FormLabel>Quantity</FormLabel>
+                                <FormControl
+                                    autoFocus
+                                    type="Text"
+                                    value={this.state.quantity}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Item</Button>
 
-    
-            </Form>
-         </Card.Body>
-       </Card>
+
+                        </Form>
+                    </Card.Body>
+                </Card>
             </Container>
-            
-            
-          
+
+
+
         );
     }
 

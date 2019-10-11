@@ -35,21 +35,32 @@ handleChange = event => {
 
         handleSubmit=(event) => {
             var data = this.state;
-            console.log(data);
+        console.log(data);
+      
+        
+        fetch('http://127.0.0.1:5000/addEquipment', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                userID: data.userID,
+                [data.name] : data.quantity
+                
+              }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
-            axios.post('http://127.0.0.1:5000/addEquipment',{"userID":"user1","euipnew":"4"}).
-            then(response=> {            
-            console.log(response);            
-            
-            });
-    
-         event.preventDefault();
-        }
-        //   }
-        //     var xhr = new XMLHttpRequest()
-        //     xhr.open('POST', 'http://127.0.0.1:5000/addEquipment/')
-        //     event.preventDefault();           
-          
+            }
+        }).then(res => {
+            if(res.status=="200")
+               this.message = 'Equipment added successfully'
+            console.log(res.status) ;
+        }).catch(err => console.log(err));
+
+
+        event.preventDefault();
+      }
 
     renderForm() {
         return (
