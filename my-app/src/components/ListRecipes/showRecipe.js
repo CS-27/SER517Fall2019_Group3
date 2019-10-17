@@ -1,11 +1,16 @@
 /*
   Author: Harshita Kajal
-  Date:   Oct 16, 2019
+  Date Created:   Oct 16, 2019
   About:  View the recipe details.
+  Date Updated: ...
 */
+
 import React, { Component } from "react";
+import DataTable from '../ListIngredients/datatable';
+import Loader from 'react-loader-spinner';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+
 export default class recipeList extends Component {
      constructor(props) {
         super(props);
@@ -35,7 +40,7 @@ export default class recipeList extends Component {
                 <Card  className="mainCard">
              <Card.Body className = "card-body">
              <Card.Title className="titleCard" >List of Equipment</Card.Title>
-             {this.loading ?       <Loader
+             {this.loading ? <Loader
              type="Circles"
              color="#00BFFF"
              height={100}
