@@ -103,5 +103,15 @@ def showShoppingList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/userRegister', methods = ['POST'])
+def userRegister():
+	req_data = request.get_json(force=True)
+	userInfo = {}
+	for key,value in req_data.items():
+		userInfo.__setitem__(key,value)
+	response = jsonify({'User registeration status' : userLoginFunctions.userRegister(userInfo)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
