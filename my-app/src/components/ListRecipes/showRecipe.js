@@ -19,10 +19,10 @@ export default class recipeList extends Component {
       
         this.state = {
           error: null,
-          equipment: [],
+          recipe: [],
           response: {}
         }
-        this.equipment = null;
+        this.recipe = null;
         this.loading = true;
         this.getRecipe();
         
@@ -35,7 +35,6 @@ export default class recipeList extends Component {
         event.preventDefault();
       }
 
-
       getRecipe=()=>{
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=CustomAle'
         
@@ -45,57 +44,49 @@ export default class recipeList extends Component {
             (result) => {
                 var data =result['recipeList'];
              this.loading = false;
-             var equipment =[];
+             var recipe =[];
              
              Object.keys(data).forEach(function(key) {
                  if(key!="_id"){
-                  equipment.push([
+                  recipe.push([
                     key,data[key]
                  ]);
-                 }
-                     
+                 }               
             });
            
                  this.setState({
-                  equipment: equipment
+                  recipe: recipe
                 });
 
-                const dataArray = Object.keys(this.state.equipment).map(i => this.state.equipment[i])
-                this.equipment = dataArray;
-                console.log(this.equipment[0]);
+                const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
+                this.recipe = dataArray;
+                console.log(this.recipe[0]);
                },
                (error) => {
                  this.setState({ error });
                }
              )
-            
- 
        }
    
          renderList() {
             return (
                 
                 <Container>
-                    <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-                <Card  className="mainCard">
-             <Card.Body className = "card-body">
-             <Card.Title className="titleCard" >List of Recipe</Card.Title>
-             {this.loading ? <Loader
-             type="Circles"
-             color="#00BFFF"
-             height={100}
-             width={100}
-             timeout={3000} //3 secs
-    
-          />: <DataTable items={this.state.equipment}></DataTable>}
-    
-    
-          
-             </Card.Body>
-           </Card>
+                        <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
+                    <Card  className="mainCard">
+                <Card.Body className = "card-body">
+                <Card.Title className="titleCard" >List of Recipe</Card.Title>
+                {this.loading ? <Loader
+                type="Circles"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={3000} //3 secs
+        
+            />: <DataTable items={this.state.recipe}></DataTable>}
+                </Card.Body>
+            </Card>
                 </Container>
-                
-    
                 
             );
         }
