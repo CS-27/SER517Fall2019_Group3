@@ -2,7 +2,7 @@
   Date:   Oct 2, 2019
   About:  This is to render list of equipment oage.
 */
-import React, { Component } from "react";
+import React, { Component, useReducer } from "react";
 import './Equipment.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -15,6 +15,7 @@ export default class equipmentList extends Component {
         this.message = ""
       
         this.state = {
+          userID:"",
           error: null,
           equipment: [],
           response: {}
@@ -44,8 +45,11 @@ export default class equipmentList extends Component {
                   var data =result['equipmentList'];
                this.loading = false;
                var equipment =[];
-               
+               var userID = "";
                Object.keys(data).forEach(function(key) {
+                if(key=="userID"){
+                  userID = data[key];
+                }
                    if(key!="userID" && key!="_id"){
                     equipment.push([
                       key,data[key]
@@ -55,6 +59,7 @@ export default class equipmentList extends Component {
               });
              
                    this.setState({
+                    userID : userID,
                     equipment: equipment
                   });
 
@@ -85,7 +90,7 @@ export default class equipmentList extends Component {
              width={100}
              timeout={3000} //3 secs
     
-          />: <DataTable items={this.state.equipment}></DataTable>}
+          />: <DataTable userID={this.state.userID} items={this.state.equipment}></DataTable>}
     
     
           

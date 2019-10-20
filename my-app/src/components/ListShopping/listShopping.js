@@ -48,8 +48,11 @@ export default class ListShopping extends Component {
 
                     this.loading = false;
                     var items = [];
-
+                    var userID = ""
                     Object.keys(data).forEach(function (key) {
+                        if(key=="userID"){
+                            userID = data[key];
+                          }
                         if (key != "userID" && key != "_id") {
                             items.push([
                                 key, data[key]
@@ -59,6 +62,7 @@ export default class ListShopping extends Component {
                     });
 
                     this.setState({
+                        userID : userID,
                         items: items
                     });
 
@@ -90,7 +94,7 @@ export default class ListShopping extends Component {
                  width={100}
                  timeout={3000} //3 secs
 
-             />: <DataTable items={this.state.items}></DataTable>}
+             />: <DataTable userID={this.state.userID} items={this.state.items}></DataTable>}
 
 
 
