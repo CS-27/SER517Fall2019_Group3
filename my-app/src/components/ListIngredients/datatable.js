@@ -6,6 +6,7 @@ class DataTable extends Component {
 
 
   render() {
+    const userID = this.props.userID;
 
     const items = this.props.items.map(item => {
       return (
@@ -15,7 +16,7 @@ class DataTable extends Component {
           <td>{item[1]}</td>
           <td>
             <div >
-              <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
+              <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
               
               <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
             </div>

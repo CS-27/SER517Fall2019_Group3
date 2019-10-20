@@ -19,7 +19,7 @@ class ModalForm extends Component {
 
   render() {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
-
+      const userID = this.props.userID
       const label = this.props.buttonLabel
 
       let button = ''
@@ -49,6 +49,7 @@ class ModalForm extends Component {
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
             <AddEditForm
+              userID = {this.props.userID}
               addItemToState={this.props.addItemToState}
               updateState={this.props.updateState}
               toggle={this.toggle}

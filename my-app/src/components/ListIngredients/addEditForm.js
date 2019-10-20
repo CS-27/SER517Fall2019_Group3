@@ -7,7 +7,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 class AddEditForm extends React.Component {
   state = {
     name:'',
-    quantity:''
+    quantity:'',
+    userID:''
   }
 
   onChange = e => {
@@ -17,29 +18,31 @@ class AddEditForm extends React.Component {
 
 
   submitFormEdit = e => {
+    console.log(this.props.userID);
     e.preventDefault()
-    fetch('http://127.0.0.1:5000/showIngredient?userID=user1', {
-      method: 'put',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        quantity: this.state.quantity,
+    // fetch('http://127.0.0.1:5000/showIngredient?userID=user1', {
+    //   method: 'put',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
         
-      })
-    })
-      .then(response => response.json())
-      .then(item => {
-        if(Array.isArray(item)) {
+    //     [this.state.name]: this.state.quantity,
+    //     userID : this.props.userID
         
-          this.props.updateState(item[0])
-          this.props.toggle()
-        } else {
-          console.log('failure')
-        }
-      })
-      .catch(err => console.log(err))
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(item => {
+    //     if(Array.isArray(item)) {
+        
+    //       this.props.updateState(item[0])
+    //       this.props.toggle()
+    //     } else {
+    //       console.log('failure')
+    //     }
+    //   })
+    //   .catch(err => console.log(err))
   }
 
   componentDidMount(){
@@ -53,6 +56,7 @@ class AddEditForm extends React.Component {
   }
 
   render() {
+ 
     return (
       <Container>
       <Card  className="mainCardIn">

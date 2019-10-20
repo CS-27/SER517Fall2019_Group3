@@ -13,6 +13,7 @@ export default class ListIngredient extends Component {
         super(props);
     this.state = {
       error: null,
+      userID: "",
       ingredients: [],
       response: {}
     }
@@ -47,8 +48,11 @@ export default class ListIngredient extends Component {
                   
                 this.loading = false;
                var ingredients =[];
-               
+               var userID =""
                Object.keys(data).forEach(function(key) {
+                 if(key=="userID"){
+                   userID = data[key];
+                 }
                    if(key!="userID" && key!="_id"){
                     ingredients.push([
                       key,data[key]
@@ -58,6 +62,7 @@ export default class ListIngredient extends Component {
               });
              
                    this.setState({
+                     userID : userID,
                     ingredients: ingredients
                   });
                
@@ -102,7 +107,7 @@ export default class ListIngredient extends Component {
          width={100}
          timeout={3000} //3 secs
 
-      />: <DataTable items={this.state.ingredients} updateState={this.updateState}></DataTable>}
+      />: <DataTable userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState}></DataTable>}
 
 
       
