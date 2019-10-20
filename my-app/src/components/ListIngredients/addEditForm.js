@@ -18,7 +18,6 @@ class AddEditForm extends React.Component {
 
 
   submitFormEdit = e => {
-    console.log(this.props.userID);
     e.preventDefault()
     // fetch('http://127.0.0.1:5000/showIngredient?userID=user1', {
     //   method: 'put',
