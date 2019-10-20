@@ -10,16 +10,21 @@ class DataTable extends Component {
 
     const items = this.props.items.map(item => {
       return (
-        <tr >
+        <tr  >
           
           <td>{item[0]}</td>
           <td>{item[1]}</td>
           <td>
-            <div >
+          
               <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
               
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
-            </div>
+          
+          </td>
+          <td>
+          <Button id ="btn1-color" >Del</Button>
+          </td>
+          <td>
+          <Button id ="btn1-color" >Add One</Button>
           </td>
         </tr>
         )
@@ -31,7 +36,9 @@ class DataTable extends Component {
           <tr>
             <th>Ingredient Name</th>
             <th>Quantity</th>
-            <th>Edit/ Delete</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Add One More</th>
           </tr>
         </thead>
         <tbody>

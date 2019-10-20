@@ -32,14 +32,7 @@ class ModalForm extends Component {
                   >{label}
                 </Button>
         title = 'Edit'
-      } else {
-        button = <Button
-                  color="success"
-                  onClick={this.toggle}
-                  style={{float: "left", marginRight:"10px"}}>{label}
-                </Button>
-        title = 'Add New'
-      }
+      } 
 
 
       return (

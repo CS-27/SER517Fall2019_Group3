@@ -65,7 +65,7 @@ export default class IngredientPage extends Component {
     renderForm() {
         return (
             <Container>
-            <Card  className="mainCard">
+            <Card  className="mainCardOne">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >Add an ingredient </Card.Title>
 
