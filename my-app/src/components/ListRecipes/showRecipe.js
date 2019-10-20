@@ -43,7 +43,7 @@ export default class recipeList extends Component {
       getRecipe2=()=>{
         var convention= this.props.value;
         console.log(convention)
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=IPA'
+        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=CustomAle'
         
           fetch(apiUrl)
           .then(res => res.json())
@@ -135,23 +135,23 @@ export default class recipeList extends Component {
                 {/* </Container>
 
 <Container> */}
-<span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-<Card  className="mainCard">
-<Card.Body className = "card-body">
-<Card.Title className="titleCard" >List of Recipe</Card.Title>
-{this.loading ? <Loader
-type="Circles"
-color="#00BFFF"
-height={100}
-width={100}
-timeout={3000} //3 secs
+      <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
+      <Card  className="mainCard">
+      <Card.Body className = "card-body">
+      <Card.Title className="titleCard" >List of Recipe</Card.Title>
+      {this.loading ? <Loader
+      type="Circles"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} //3 secs
 
-/>: <DataTable items={this.state.recipe2}></DataTable>}
-<p>
-I am {this.props.value};
-</p>
-</Card.Body>
-</Card>
+      />: <DataTable items={this.state.recipe2}></DataTable>}
+      <p>
+      I am {this.props.value};
+      </p>
+      </Card.Body>
+      </Card>
 </Container>
                 
             );
