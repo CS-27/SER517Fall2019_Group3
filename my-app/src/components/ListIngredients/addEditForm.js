@@ -14,29 +14,7 @@ class AddEditForm extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  submitFormAdd = e => {
-    e.preventDefault()
-    fetch('http://localhost:3000/crud', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        quantity: this.state.quantity
-      })
-    })
-      .then(response => response.json())
-      .then(item => {
-        if(Array.isArray(item)) {
-          this.props.addItemToState(item[0])
-          this.props.toggle()
-        } else {
-          console.log('failure')
-        }
-      })
-      .catch(err => console.log(err))
-  }
+
 
   submitFormEdit = e => {
     e.preventDefault()
@@ -79,7 +57,7 @@ class AddEditForm extends React.Component {
       <Container>
       <Card  className="mainCardIn">
    <Card.Body className = "card-body">
-      <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
+      <Form onSubmit={this.submitFormEdit}>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input type="text" name="name" id="name" onChange={this.onChange} value={this.state.name === null ? '' : this.state.name} />
