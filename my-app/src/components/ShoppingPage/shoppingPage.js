@@ -68,7 +68,7 @@ export default class ShoppingPage extends Component {
     renderForm() {
         return (
             <Container>
-                <Card  className="mainCard">
+                <Card  className="mainCardOne">
                     <Card.Body className = "card-body">
                         <Card.Title className="titleCard" >Add an Item </Card.Title>
 

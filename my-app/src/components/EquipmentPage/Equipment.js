@@ -65,7 +65,7 @@ handleChange = event => {
     renderForm() {
         return (
             <Container>
-            <Card  className="mainCard">
+            <Card  className="mainCardOne">
          <Card.Body>
          <Card.Title className="titleCard" >Add equipment</Card.Title>
          <p>{this.message}</p>
