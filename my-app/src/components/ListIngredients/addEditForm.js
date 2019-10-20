@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './addEdit.css'
+import Card from 'react-bootstrap/Card';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class AddEditForm extends React.Component {
   state = {
@@ -73,6 +76,9 @@ class AddEditForm extends React.Component {
 
   render() {
     return (
+      <Container>
+      <Card  className="mainCardIn">
+   <Card.Body className = "card-body">
       <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
         <FormGroup>
           <Label for="name">Name</Label>
@@ -82,8 +88,11 @@ class AddEditForm extends React.Component {
           <Label for="last">Quantity</Label>
           <Input type="text" name="quantity" id="quantity" onChange={this.onChange} value={this.state.quantity === null ? '' : this.state.quantity}  />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button id ="btn-color">Edit</Button>
       </Form>
+      </Card.Body>
+       </Card>
+            </Container>
     );
   }
 }
