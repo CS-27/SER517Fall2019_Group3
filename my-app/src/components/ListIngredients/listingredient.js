@@ -42,7 +42,7 @@ export default class ListIngredient extends Component {
             .then(res => res.json())
             .then(
               (result) => {
-                console.log(result['IngredientList']);
+                
                   var data =result['IngredientList'];
                   
                 this.loading = false;
@@ -64,7 +64,7 @@ export default class ListIngredient extends Component {
            
                const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
                this.ingredients = ingrarray;
-               console.log(this.ingredients[0]);
+            
               },
               (error) => {
                 this.setState({ error });

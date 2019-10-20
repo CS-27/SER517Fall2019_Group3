@@ -51,7 +51,7 @@ class AddEditForm extends React.Component {
       .then(response => response.json())
       .then(item => {
         if(Array.isArray(item)) {
-          // console.log(item[0])
+        
           this.props.updateState(item[0])
           this.props.toggle()
         } else {
@@ -64,7 +64,9 @@ class AddEditForm extends React.Component {
   componentDidMount(){
     // if item exists, populate the state with proper data
     if(this.props.item){
-      const { name, quantity } = this.props.item
+      console.log(this.props.item)
+      const name = this.props.item[0];
+      const quantity = this.props.item[1];
       this.setState({ name, quantity})
     }
   }
