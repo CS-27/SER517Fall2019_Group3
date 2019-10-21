@@ -4,7 +4,10 @@ import React, { Component } from "react";
 import './listUser.css';
 import Card from 'react-bootstrap/Card';
 import DataTable from '../ListIngredients/datatable';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button,Form,
+    FormGroup,
+    FormControl,
+    FormLabel, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 export default class ListUser extends Component {
     constructor(props) {
@@ -12,11 +15,12 @@ export default class ListUser extends Component {
         this.state = {
             error: null,
             items: [],
-            response: {}
+            response: {},
+            name:""
         }
         this.items = null;
         this.loading = true;
-        this.getItems();
+        // this.getItems();
 
 
 
@@ -36,8 +40,8 @@ export default class ListUser extends Component {
         event.preventDefault();
       }
 
-    getItems=()=> {
-        var apiUrl = 'http://127.0.0.1:5000/showUserList?'
+    getItems=(name)=> {
+        var apiUrl = 'http://127.0.0.1:5000/showUserList?name='+name
 
         fetch(apiUrl)
             .then(res => res.json())
@@ -83,6 +87,18 @@ export default class ListUser extends Component {
             <Card  className="mainCard">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >User List </Card.Title>
+             <Form onSubmit={this.handleSubmit}>
+                 <FormGroup controlId="name"  >
+                     <FormLabel>Name</FormLabel>
+                     <FormControl
+                         autoFocus
+                         type="Text"
+                         value={this.state.name}
+                         onChange={this.handleChange}
+                     />
+                 </FormGroup>
+                 <Button onClick ={this.getItems(this.state.name)} id = "btn-color" variant="primary" type="submit" >Search</Button>
+             </Form>
              {this.loading ?       <Loader
                  type="Circles"
                  color="#00BFFF"
