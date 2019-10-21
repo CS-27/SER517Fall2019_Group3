@@ -11,7 +11,7 @@ def showIngredient(userID):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID' : userID})
-	#print json.dumps(result, default=json_util.default)
+	print (json.dumps(result, default=json_util.default))
 	return json.dumps(result, default=json_util.default)
 
 def addIngredient(userIngList):
@@ -37,6 +37,25 @@ def addIngredient(userIngList):
 		return True
 	else:
 		return False
+
+def updateIngredientQuantity(userID, ingList):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.ingredient
+
+	collection = db.userIngredient
+
+	result = collection.find_one({'userID': userID})
+	#search_query = { "userID": userIngList['userID'] }
+	search_query = { "userID": userID }
+	if result:
+		for key,value in ingList.items():
+			new_value = {"$set" : {key:int(value)+int(result[key])}}
+			updateCollection = collection.update(search_query, new_value, upsert=True)
+		return True
+	else:
+		return False
+
+
 
 #c = {'userID' : 'user1', 'ingredient1':'x', 'ingredient2' : 'y', 'ingredient3':'t'}
 #addRecipe(c)

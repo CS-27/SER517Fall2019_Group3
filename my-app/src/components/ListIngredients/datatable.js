@@ -1,23 +1,30 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './datatable.css'
+import ModalForm from './modalForm'
 class DataTable extends Component {
 
 
   render() {
+    const userID = this.props.userID;
 
     const items = this.props.items.map(item => {
       return (
-        <tr >
+        <tr  >
           
           <td>{item[0]}</td>
           <td>{item[1]}</td>
           <td>
-            <div style={{width:"110px"}}>
-            <Button id = "btn-color" >Edit</Button>
-            
-              <Button id = "btn1-color" >Del</Button>
-            </div>
+          
+              <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
+              
+          
+          </td>
+          <td>
+          <Button id ="btn1-color" >Del</Button>
+          </td>
+          <td>
+          <Button id ="btn1-color" >Add One</Button>
           </td>
         </tr>
         )
@@ -29,7 +36,9 @@ class DataTable extends Component {
           <tr>
             <th>Ingredient Name</th>
             <th>Quantity</th>
-            <th>Edit/ Delete</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Add One More</th>
           </tr>
         </thead>
         <tbody>
