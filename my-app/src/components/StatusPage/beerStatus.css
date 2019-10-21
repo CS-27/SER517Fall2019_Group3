@@ -1,0 +1,54 @@
+/*Author: Salini Chittineni
+Date added: Oct 15, 2019
+Modified By: Salini Chittineni
+Date modified : Oct 21,2019
+*/
+body{
+    background-image: url("/images/background-beer.jpeg");
+    background-position:unset; 
+   
+    height: 100%;
+    width: 100%
+    
+}
+.status{
+    margin: 1rem;
+    font-family:"Lucida Sans"    ;
+    font-size: 60px;
+    text-align: center;
+    color:white
+    /* color: rgb(15, 81, 204); */
+
+}
+
+
+.mainCardOne{
+    width: 70rem;
+    height: 15rem;
+    align-self: center;
+    opacity: .8;
+
+}
+
+.titleCardOne{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 1rem;
+
+}
+
+.bodyCardOne{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224);
+    opacity: .8;
+    
+
+}
+
+.thumbnail  {
+    max-height: 100%;
+    max-width: 10px;
+    color: rgb(250,250,210)
+}

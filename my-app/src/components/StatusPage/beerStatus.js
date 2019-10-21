@@ -14,12 +14,12 @@ function beerStatus() {
     <div>
 
       <div className="status">
-        ABOUT
+
       </div>
      <Container>
      <Card  className="mainCardOne">
   <Card.Body className ="bodyCardOne">
-    <Card.Title className="titleCard">Brew More! Worry Less!</Card.Title>
+
     <Card.Text >
       Beer Brewing Status
     </Card.Text>
