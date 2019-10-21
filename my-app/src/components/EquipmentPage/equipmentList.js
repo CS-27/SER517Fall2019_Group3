@@ -3,7 +3,7 @@
   About:  This is to render list of equipment oage.
 */
 import React, { Component } from "react";
-// import './equipmentList.css';
+import './Equipment.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import DataTable from '../ListIngredients/datatable';
@@ -75,7 +75,7 @@ export default class equipmentList extends Component {
                 
                 <Container>
                     <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-                <Card  className="mainCard">
+                <Card  className="mainCardOne">
              <Card.Body className = "card-body">
              <Card.Title className="titleCard" >List of Equipment</Card.Title>
              {this.loading ?       <Loader

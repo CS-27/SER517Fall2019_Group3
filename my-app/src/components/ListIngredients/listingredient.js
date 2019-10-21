@@ -13,6 +13,7 @@ export default class ListIngredient extends Component {
         super(props);
     this.state = {
       error: null,
+      userID: "",
       ingredients: [],
       response: {}
     }
@@ -42,13 +43,16 @@ export default class ListIngredient extends Component {
             .then(res => res.json())
             .then(
               (result) => {
-                console.log(result['IngredientList']);
+                
                   var data =result['IngredientList'];
                   
                 this.loading = false;
                var ingredients =[];
-               
+               var userID =""
                Object.keys(data).forEach(function(key) {
+                 if(key=="userID"){
+                   userID = data[key];
+                 }
                    if(key!="userID" && key!="_id"){
                     ingredients.push([
                       key,data[key]
@@ -58,13 +62,14 @@ export default class ListIngredient extends Component {
               });
              
                    this.setState({
+                     userID : userID,
                     ingredients: ingredients
                   });
                
            
                const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
                this.ingredients = ingrarray;
-               console.log(this.ingredients[0]);
+            
               },
               (error) => {
                 this.setState({ error });
@@ -74,12 +79,25 @@ export default class ListIngredient extends Component {
 
       }
 
+      updateState = (item) => {
+        const itemIndex = this.state.items.findIndex(data => data.id === item.id)
+        const newArray = [
+        // destructure all items from beginning to the indexed item
+          ...this.state.items.slice(0, itemIndex),
+        // add the updated item to the array
+          item,
+        // add the rest of the items to the array from the index after the replaced item
+          ...this.state.items.slice(itemIndex + 1)
+        ]
+        this.setState({ items: newArray })
+      }
+
     renderList() {
         return (
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCard">
+            <Card  className="mainCardOne">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >List of ingredients</Card.Title>
          {this.loading ?       <Loader
@@ -89,7 +107,7 @@ export default class ListIngredient extends Component {
          width={100}
          timeout={3000} //3 secs
 
-      />: <DataTable items={this.state.ingredients}></DataTable>}
+      />: <DataTable userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState}></DataTable>}
 
 
       
