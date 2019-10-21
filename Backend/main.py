@@ -18,7 +18,7 @@ def indexPage():
 @brewDay_api.route('/showRecipe', methods = ['GET'])
 def showRecipe():
 	recipeName = request.args.get('recipeName')
-	response = jsonify({'RecipeInfo': json.loads(recipeFunctions.showRecipeByName(recipeName))})
+	response = jsonify({'recipeList': json.loads(recipeFunctions.showRecipeByName(recipeName))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
