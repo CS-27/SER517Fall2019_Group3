@@ -21,6 +21,11 @@ import ShoppingPage from './components/ShoppingPage/shoppingPage';
 import ListShopping from './components/ListShopping/listShopping';
 import ListUser from './components/ListUser/listUser';
 
+import recipeList from './components/ListRecipes/showRecipe';
+
+import BeerStatus from "./components/StatusPage/beerStatus";
+
+
 export default({ childProps }) =>
     <Switch>
 
@@ -40,6 +45,12 @@ export default({ childProps }) =>
             <AppliedRoute path="/shoppingList" exact component={ListShopping} props={childProps} />
             <AppliedRoute path="/addRecipe" exact component={AddRecipe} props={childProps} />
             <AppliedRoute path="/userList" exact component={ListUser} props={childProps} />
+
+            <AppliedRoute path="/showRecipe" exact component={recipeList} props={childProps} />
+            
+
+            <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
+
 
             {/*<AppliedRoute path="/" exact component={Backdrop} props={childProps} />*/}
             {/*<Route exact path='/' component={Backdrop} />*/}
