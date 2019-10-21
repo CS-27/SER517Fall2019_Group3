@@ -14,7 +14,7 @@ function beerStatus() {
     <div>
 
       <div className="status">
-        Brewing Status
+
       </div>
      <Container>
      <Card  className="mainCardOne">
