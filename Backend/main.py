@@ -103,5 +103,28 @@ def showShoppingList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/userRegister', methods = ['POST'])
+def userRegister():
+	req_data = request.get_json(force=True)
+	userInfo = {}
+	for key,value in req_data.items():
+		userInfo.__setitem__(key,value)
+	response = jsonify({'User registeration status' : userLoginFunctions.userRegister(userInfo)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+@brewDay_api.route('/updateIngredient', methods = ['POST'])
+def updateIngredient():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Ingredient Update status' : ingredientFunctions.updateIngredientQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 if __name__ == '__main__':
     brewDay_api.run(debug=True)
