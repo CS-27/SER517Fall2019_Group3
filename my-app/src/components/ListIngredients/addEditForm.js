@@ -19,29 +19,24 @@ class AddEditForm extends React.Component {
 
   submitFormEdit = e => {
     e.preventDefault()
-    // fetch('http://127.0.0.1:5000/showIngredient?userID=user1', {
-    //   method: 'put',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
+    fetch('http://127.0.0.1:5000/updateIngredient', {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
         
-    //     [this.state.name]: this.state.quantity,
-    //     userID : this.props.userID
+        [this.state.name]: this.state.quantity,
+        userID : this.props.userID
         
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(item => {
-    //     if(Array.isArray(item)) {
-        
-    //       this.props.updateState(item[0])
-    //       this.props.toggle()
-    //     } else {
-    //       console.log('failure')
-    //     }
-    //   })
-    //   .catch(err => console.log(err))
+      })
+    })
+      .then(response => {
+        this.props.toggle();
+        this.props.updateState([this.state.name,this.state.quantity]);
+      })
+      
+      .catch(err => console.log(err))
   }
 
   componentDidMount(){
