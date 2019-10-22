@@ -10,11 +10,11 @@ import {
     FormControl,
     FormLabel
 } from "react-bootstrap";
-import LoaderButton from "./LoaderButton";
+// import LoaderButton from "./LoaderButton";
 import './Signup.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col,Button } from 'react-bootstrap';
 export default class Signup extends Component {
     constructor(props) {
         super(props);
@@ -51,15 +51,51 @@ export default class Signup extends Component {
         });
     }
 
-    handleSubmit = async event => {
+    // handleSubmit = async event => {
+    //     event.preventDefault();
+    //
+    //     this.setState({ isLoading: true });
+    //
+    //     this.setState({ newUser: "test" });
+    //
+    //     this.setState({ isLoading: false });
+    // }
+
+    handleSubmit=(event)=> {
+        var data = this.state;
+        console.log(data);
+
+
+        fetch('http://127.0.0.1:5000/addUser', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                userID: data.userID,
+                [data.name] : data.quantity
+
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+
+            }
+        }).then(res => {
+            if(res.status===200)
+                this.message = 'User added successfully'
+            console.log(res.status) ;
+        }).catch(err => console.log(err));
+        // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
+        // then(response=> {
+
+        // console.log(response);
+
+
+
+
         event.preventDefault();
-
-        this.setState({ isLoading: true });
-
-        this.setState({ newUser: "test" });
-
-        this.setState({ isLoading: false });
     }
+
 
     handleConfirmationSubmit = async event => {
         event.preventDefault();
@@ -67,31 +103,31 @@ export default class Signup extends Component {
         this.setState({ isLoading: true });
     }
 
-    renderConfirmationForm() {
-        return (
-            <form onSubmit={this.handleConfirmationSubmit}>
-                <FormGroup controlId="confirmationCode" bsSize="large">
-                    <FormLabel>Confirmation Code</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="tel"
-                        value={this.state.confirmationCode}
-                        onChange={this.handleChange}
-                    />
-                    {/*<HelpBlock>Please check your email for the code.</HelpBlock>*/}
-                </FormGroup>
-                <LoaderButton
-                    block
-                    bsSize="large"
-                    disabled={!this.validateConfirmationForm()}
-                    type="submit"
-                    isLoading={this.state.isLoading}
-                    text="Verify"
-                    loadingText="Verifying…"
-                />
-            </form>
-        );
-    }
+    // renderConfirmationForm() {
+    //     return (
+    //         <form onSubmit={this.handleConfirmationSubmit}>
+    //             <FormGroup controlId="confirmationCode" bsSize="large">
+    //                 <FormLabel>Confirmation Code</FormLabel>
+    //                 <FormControl
+    //                     autoFocus
+    //                     type="tel"
+    //                     value={this.state.confirmationCode}
+    //                     onChange={this.handleChange}
+    //                 />
+    //                 {/*<HelpBlock>Please check your email for the code.</HelpBlock>*/}
+    //             </FormGroup>
+    //             <LoaderButton
+    //                 block
+    //                 bsSize="large"
+    //                 disabled={!this.validateConfirmationForm()}
+    //                 type="submit"
+    //                 isLoading={this.state.isLoading}
+    //                 text="Verify"
+    //                 loadingText="Verifying…"
+    //             />
+    //         </form>
+    //     );
+    // }
 
     renderForm() {
         return (
@@ -100,7 +136,7 @@ export default class Signup extends Component {
          <Card.Body>
          <form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="firstname" bsSize="large">
-                    <FormLabel>Firstname</FormLabel>
+                    <FormLabel>First name</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"
@@ -109,7 +145,7 @@ export default class Signup extends Component {
                     />
                 </FormGroup>
                     <FormGroup controlId="lastname" bsSize="large">
-                        <FormLabel>Lastname</FormLabel>
+                        <FormLabel>Last name</FormLabel>
                         <FormControl
                             autoFocus
                             type="Text"
@@ -142,15 +178,17 @@ export default class Signup extends Component {
                         type="password"
                     />
                 </FormGroup>
-                <LoaderButton
-                    block
-                    bsSize="large"
-                    disabled={!this.validateForm()}
-                    type="submit"
-                    isLoading={this.state.isLoading}
-                    text="Signup"
-                    loadingText="Signing up…"
-                />
+             <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Sign up</Button>
+
+             {/*<LoaderButton*/}
+                    {/*block*/}
+                    {/*bsSize="large"*/}
+                    {/*disabled={!this.validateForm()}*/}
+                    {/*type="submit"*/}
+                    {/*isLoading={this.state.isLoading}*/}
+                    {/*text="Signup"*/}
+                    {/*loadingText="Signing up…"*/}
+                {/*/>*/}
             </form>
          </Card.Body>
        </Card>

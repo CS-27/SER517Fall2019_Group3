@@ -33,6 +33,7 @@ import ListIngredient from '../ListIngredients/listingredient';
 import Routes from "../../Routes"
 import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
+import recipeList from '../ListRecipes/showRecipe';
 
 export default class ButtonAppBar extends Component {
 
@@ -86,7 +87,20 @@ export default class ButtonAppBar extends Component {
                 </div>
               </div>
 
-              <Button component={Link} to="/addRecipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
+
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">Recipes</Button>
+                <div className="dropdown-content">
+                <Button component={Link} to="/addRecipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
+                  <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >View Recipe</Button>
+                </div>
+              </div>
+
+              
+
+              
+              <Button component={Link} to="/beerStatus" color="inherit" className="text-capitalize">Brewing Status</Button>
+
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
