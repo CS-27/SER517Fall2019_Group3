@@ -47,7 +47,7 @@ def updateEquipmentQuantity(userID, equipList):
 	search_query = { "userID": userID }
 	if result:
 		for key,value in equipList.items():
-			new_value = {"$set" : {key:int(value)+int(result[key])}}
+			new_value = {"$set" : {key:str(int(value)+int(result[key]))}}
 			updateCollection = collection.update(search_query, new_value, upsert=True)
 		return True
 	else:
