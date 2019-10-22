@@ -225,6 +225,13 @@ def checkUserLogin():
 	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
 
 
+@brewDay_api.route('/userProfile', methods = ['POST'])
+def userProfile():
+	req_data= request.get_json(force = True)
+	userID = req_data['userID']
+	response = jsonify({'User Details' : json.loads(userLoginFunctions.userProfile(userID))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 
 
