@@ -69,8 +69,10 @@ def deleteIngredient(userID, ingList):
 			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
 			#print collection.find_one(search_query)
 			updateCollection = collection.update(search_query, {'$unset' : {key:1}})
-			#print updateCollection
+			#print updateCollection['updatedExisting']
+			if not updateCollection['updatedExisting']:
+				return False
+			
 		return True
 	return False
-
 

@@ -130,12 +130,39 @@ def updateIngredient():
 def deleteIngredient():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	print req_data
+	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
 	del ingList['userID']
 	response = jsonify({'Ingredient delete status' : ingredientFunctions.deleteIngredient(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+@brewDay_api.route('/updateEquipment', methods = ['POST'])
+def updateEquipment():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Equipment Update status' : equipmentFunctions.updateEquipmentQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+@brewDay_api.route('/deleteEquipment', methods = ['POST'])
+def deleteEquipment():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Equipment delete status' : equipmentFunctions.deleteEquipment(userID,ingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
