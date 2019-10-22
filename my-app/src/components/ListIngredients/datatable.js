@@ -4,7 +4,27 @@ import './datatable.css'
 import ModalForm from './modalForm'
 class DataTable extends Component {
 
+  deleteItem = (item) => {
+    let confirmDelete = window.confirm('Delete item forever?')
+    if(confirmDelete){
+      fetch('http://127.0.0.1:5000/deleteIngredient', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userID: this.props.userID,
+        [item[0]]:item[1]
+      })
+    })
+      .then(response => response.json())
+      .then(item => {
+        this.props.deleteItem(item)
+      })
+      .catch(err => console.log(err))
+    }
 
+  }
   render() {
     const userID = this.props.userID;
 
@@ -20,7 +40,7 @@ class DataTable extends Component {
           
           </td>
           <td>
-          <Button id ="btn1-color" onClick={() => this.props.deleteItem(item)}>Del</Button>
+          <Button id ="btn1-color" onClick={() => this.deleteItem(item)}>Del</Button>
           </td>
         
         </tr>

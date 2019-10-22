@@ -96,9 +96,7 @@ export default class ListIngredient extends Component {
 
       deleteItem = (item) => {
         console.log(item);
-        let confirmDelete = window.confirm('Delete item forever?')
-       
-    
+
       }
 
     renderList() {
