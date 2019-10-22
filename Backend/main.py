@@ -192,6 +192,19 @@ def updateShopList():
 	return response
 
 
+@brewDay_api.route('/deleteShopListItems', methods = ['POST'])
+def deleteShopListItems():
+	req_data = request.get_json(force = True)
+	shopList = {}
+	for key,value in req_data.items():
+		shopList.__setitem__(key,value)
+	userID = shopList['userID']
+	del shopList['userID']
+	response = jsonify({'Shopping List Item delete status' : shoppingListFunctions.deleteShoppingListItems(userID,shopList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 # # # # user registeration/login/session Functions # # # # 
 
 @brewDay_api.route('/userRegister', methods = ['POST'])
