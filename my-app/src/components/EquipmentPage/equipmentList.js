@@ -34,7 +34,20 @@ export default class equipmentList extends Component {
 
         event.preventDefault();
       }
-
+      updateState = (item) => {
+        
+        const itemIndex = this.state.equipment.findIndex(data => data[0] === item[0])
+        console.log(itemIndex);
+        console.log(item);
+ 
+        const newArray = [
+          ...this.state.equipment.slice(0, itemIndex),
+          item,
+          ...this.state.equipment.slice(itemIndex + 1)
+        ]
+        console.log(newArray);
+        this.setState({ equipment: newArray })
+      }
       getEquipment=()=>{
           var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID=user1'
           
@@ -90,7 +103,7 @@ export default class equipmentList extends Component {
              width={100}
              timeout={3000} //3 secs
     
-          />: <DataTable userID={this.state.userID} items={this.state.equipment}></DataTable>}
+          />: <DataTable userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState}></DataTable>}
     
     
           
