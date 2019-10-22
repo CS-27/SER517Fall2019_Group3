@@ -49,7 +49,8 @@ def updateIngredientQuantity(userID, ingList):
 	search_query = { "userID": userID }
 	if result:
 		for key,value in ingList.items():
-			new_value = {"$set" : {key:int(value)+int(result[key])}}
+			# new_value = {"$set" : {key:int(value)+int(result[key])}}
+			new_value = {"$set" : {key:int(value)}}
 			updateCollection = collection.update(search_query, new_value, upsert=True)
 		return True
 	else:

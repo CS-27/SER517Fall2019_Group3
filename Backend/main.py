@@ -21,7 +21,7 @@ def indexPage():
 @brewDay_api.route('/showRecipe', methods = ['GET'])
 def showRecipe():
 	recipeName = request.args.get('recipeName')
-	response = jsonify({'RecipeInfo': json.loads(recipeFunctions.showRecipeByName(recipeName))})
+	response = jsonify({'recipeList': json.loads(recipeFunctions.showRecipeByName(recipeName))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -190,12 +190,24 @@ def userRegister():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+<<<<<<< HEAD
 
 @brewDay_api.route('/userCheckLogin', methods = ['GET'])
 def checkUserLogin():
 	userID = request.args.get('userID')
 	password = request.args.get('password')
 	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
+=======
+@brewDay_api.route('/updateIngredient', methods = ['POST','PUT'])
+def updateIngredient():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Ingredient Update status' : ingredientFunctions.updateIngredientQuantity(userID,ingList)})
+>>>>>>> master
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 

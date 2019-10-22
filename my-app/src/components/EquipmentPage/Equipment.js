@@ -26,6 +26,7 @@ export default class Equipment extends Component {
         };
 
     }
+    
 
 handleChange = event => {
     this.setState({
