@@ -178,6 +178,20 @@ def showShoppingList():
 	return response
 
 
+@brewDay_api.route('/updateShoppingList', methods = ['POST'])
+def updateShopList():
+	req_data = request.get_json(force = True)
+	shopList = {}
+	#print req_data
+	for key,value in req_data.items():
+		shopList.__setitem__(key,value)
+	userID = shopList['userID']
+	del shopList['userID']
+	response = jsonify({'Shop List Update status' : shoppingListFunctions.updateShoppingList(userID,shopList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 # # # # user registeration/login/session Functions # # # # 
 
 @brewDay_api.route('/userRegister', methods = ['POST'])
@@ -190,26 +204,13 @@ def userRegister():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
-<<<<<<< HEAD
 
 @brewDay_api.route('/userCheckLogin', methods = ['GET'])
 def checkUserLogin():
 	userID = request.args.get('userID')
 	password = request.args.get('password')
 	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
-=======
-@brewDay_api.route('/updateIngredient', methods = ['POST','PUT'])
-def updateIngredient():
-	req_data = request.get_json(force = True)
-	ingList = {}
-	for key,value in req_data.items():
-		ingList.__setitem__(key,value)
-	userID = ingList['userID']
-	del ingList['userID']
-	response = jsonify({'Ingredient Update status' : ingredientFunctions.updateIngredientQuantity(userID,ingList)})
->>>>>>> master
-	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response
+
 
 
 
