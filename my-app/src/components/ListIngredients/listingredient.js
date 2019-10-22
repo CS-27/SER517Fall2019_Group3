@@ -94,6 +94,13 @@ export default class ListIngredient extends Component {
         this.setState({ ingredients: newArray })
       }
 
+      deleteItem = (item) => {
+        console.log(item);
+        let confirmDelete = window.confirm('Delete item forever?')
+       
+    
+      }
+
     renderList() {
         return (
             
@@ -109,7 +116,7 @@ export default class ListIngredient extends Component {
          width={100}
          timeout={3000} //3 secs
 
-      />: <DataTable userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState}></DataTable>}
+      />: <DataTable userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState} deleteItem = {this.deleteItem}></DataTable>}
 
 
       

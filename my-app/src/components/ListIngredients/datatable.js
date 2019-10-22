@@ -15,12 +15,12 @@ class DataTable extends Component {
           <td>{item[1]}</td>
           <td>
           
-              <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
+              <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
               
           
           </td>
           <td>
-          <Button id ="btn1-color" >Del</Button>
+          <Button id ="btn1-color" onClick={() => this.props.deleteItem(item)}>Del</Button>
           </td>
         
         </tr>
