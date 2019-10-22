@@ -31,17 +31,12 @@ class AddEditForm extends React.Component {
         
       })
     })
-    //   .then(response => response.json())
-    //   .then(item => {
-    //     if(Array.isArray(item)) {
-        
-    //       this.props.updateState(item[0])
-    //       this.props.toggle()
-    //     } else {
-    //       console.log('failure')
-    //     }
-    //   })
-    //   .catch(err => console.log(err))
+      .then(response => {
+        this.props.toggle();
+        this.props.updateState([this.state.name,this.state.quantity]);
+      })
+      
+      .catch(err => console.log(err))
   }
 
   componentDidMount(){

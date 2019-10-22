@@ -80,16 +80,18 @@ export default class ListIngredient extends Component {
       }
 
       updateState = (item) => {
-        const itemIndex = this.state.items.findIndex(data => data.id === item.id)
+        
+        const itemIndex = this.state.ingredients.findIndex(data => data[0] === item[0])
+        console.log(itemIndex);
+        console.log(item);
+ 
         const newArray = [
-        // destructure all items from beginning to the indexed item
-          ...this.state.items.slice(0, itemIndex),
-        // add the updated item to the array
+          ...this.state.ingredients.slice(0, itemIndex),
           item,
-        // add the rest of the items to the array from the index after the replaced item
-          ...this.state.items.slice(itemIndex + 1)
+          ...this.state.ingredients.slice(itemIndex + 1)
         ]
-        this.setState({ items: newArray })
+        console.log(newArray);
+        this.setState({ ingredients: newArray })
       }
 
     renderList() {
