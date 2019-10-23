@@ -25,9 +25,14 @@ function beerStatus() {
     <Card.Text className = "titleCardOne">
       Breweing Status for Pale Lager
     </Card.Text>
-    <ProgressBar animated now={65} label={`65%`}/>
+    {/* <ProgressBar animated now={65} label={`65%`}/> */}
     <br/>
-   
+    <ProgressBar>
+        <ProgressBar variant="success"   now={25} key={1} />
+        <ProgressBar variant="success" now={25} key={2} />
+        <ProgressBar variant="warning" animated striped  now={25} key={3} />
+        <ProgressBar  now={0} key={3} />
+    </ProgressBar>
     <br/>
     <p>Day-4: Fermentation</p>
   </Card.Body>
