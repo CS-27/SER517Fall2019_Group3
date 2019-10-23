@@ -3,10 +3,12 @@ import './beerStatus.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 /*Author: Salini Chittineni
 Date added: Oct 16, 2019
-Date modified : 
+Modified By: Salini Chittineni
+Date modified : Oct 21,2019
 */
 function beerStatus() {
   return (
@@ -20,9 +22,14 @@ function beerStatus() {
      <Card  className="mainCardOne">
   <Card.Body className ="bodyCardOne">
 
-    <Card.Text >
-      Beer Brewing Status
+    <Card.Text className = "titleCardOne">
+      Breweing Status for Pale Lager
     </Card.Text>
+    <ProgressBar animated now={65} label={`65%`}/>
+    <br/>
+   
+    <br/>
+    <p>Day-4: Fermentation</p>
   </Card.Body>
 </Card>
      </Container>
