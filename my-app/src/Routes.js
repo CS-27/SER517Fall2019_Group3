@@ -20,7 +20,7 @@ import AddRecipe from './components/Recipes/AddRecipe';
 import ShoppingPage from './components/ShoppingPage/shoppingPage';
 import ListShopping from './components/ListShopping/listShopping';
 
-import recipeList from './components/ListRecipes/showRecipe';
+import recipeList from './components/ListRecipes/showRecipeAmerican';
 
 import BeerStatus from "./components/StatusPage/beerStatus";
 

@@ -1,5 +1,6 @@
 .mainCard {
- width: 70rem;
+ width: 46rem;
  margin-top: 0.75rem;
  opacity: 0.86;
+ align-content: left;
 }
