@@ -6,7 +6,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import RecipeList from './showRecipeAmerican';
 import Button from '@material-ui/core/Button';
 import ModalForm from './Modals/modalFormAM';
-import ModalFormWD from './Modals/modalFormWD'
+import ModalFormWD from './Modals/modalFormWD';
+import ModalFormWW from './Modals/modalFormWW';
 
 
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -51,25 +52,35 @@ export default class RecipeHome extends Component {
   <Col xs={6} md={4}>
     <Card className='card-image'>
       <Card.Body>
-        <Image src="/images/americanPaleAle.jpg" thumbnail/>
+        <Image className='card-image2' src="/images/americanPaleAle.jpg" thumbnail/>
         <Card.Title>American Pale Ale</Card.Title>
         <ModalForm buttonLabel="view" />
       </Card.Body>
     </Card>
   </Col>
-
   <Col xs={6} md={4}>
-    <Card >
+    <Card className='card-image'>
       <Card.Body>
-        <Image class ="thumbnail" src="/images/smashPaleAle.png" thumbnail/>
+        <Image className='card-image2' src="/images/winterWarmer.jpeg" thumbnail/>
         <Card.Title>Winter Warmer</Card.Title>
-        <ModalFormWD buttonLabel="view" />
+        <ModalFormWW buttonLabel="view" />
       </Card.Body>
     </Card>
   </Col>
 
-  
-  
+  </Row>
+  <Row>
+    <div className='alignment'>
+    <Col xs={6} md={4}>
+    <Card className='card-image' >
+      <Card.Body>
+        <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
+        <Card.Title>White Dog IPA</Card.Title>
+        <ModalFormWD buttonLabel="view" />
+      </Card.Body>
+    </Card>
+  </Col>
+  </div>
   </Row>
 </Container>
     </div>
