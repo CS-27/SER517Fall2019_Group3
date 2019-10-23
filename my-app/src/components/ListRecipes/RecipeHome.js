@@ -11,7 +11,7 @@ import ModalFormWD from './Modals/modalFormWD'
 
 import CardDeck from 'react-bootstrap/CardDeck';
 
-export default class About extends Component {
+export default class RecipeHome extends Component {
 
   constructor(props) {
     super(props);
