@@ -103,7 +103,5 @@ def createAutoShopList(userID):
 		for key,value in dic.items():
 			new_values = {"$set" : {key:value}}
 			updateCollection = collection_asl.update(search_query, new_values, upsert=True)
-	if updateCollection:
-		return True
-	else:
-		return False
+	
+	return json.dumps(collection.find_one({'userID' : userID}), default=json_util.default)

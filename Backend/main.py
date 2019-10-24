@@ -205,6 +205,13 @@ def deleteShopListItems():
 	return response
 
 
+@brewDay_api.route('/createAutoShopList', methods= ['GET'])
+def createASL():
+	userID = request.args.get('userID')
+	response = jsonify({'Auto ShoppingList' : json.loads(shoppingListFunctions.createAutoShopList(userID))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 
 # # # # user registeration/login/session Functions # # # # 
 
