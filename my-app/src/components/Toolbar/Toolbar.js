@@ -33,7 +33,7 @@ import ListIngredient from '../ListIngredients/listingredient';
 import Routes from "../../Routes"
 import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
-import recipeList from '../ListRecipes/showRecipe';
+import RecipeHome from '../ListRecipes/RecipeHome';
 
 export default class ButtonAppBar extends Component {
 
