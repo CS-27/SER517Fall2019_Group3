@@ -24,9 +24,9 @@ export default class Signup extends Component {
             email: "",
             firstname: "",
             lastname: "",
+            userID:"",
             password: "",
             confirmPassword: "",
-            confirmationCode: "",
             newUser: null
         };
     }
@@ -35,15 +35,13 @@ export default class Signup extends Component {
         return (
             this.state.email.length > 0 &&
             this.state.firstname.length > 0 &&
+            this.state.userID.length > 0 &&
             this.state.lastname.length > 0 &&
             this.state.password.length > 0 &&
             this.state.password === this.state.confirmPassword
         );
     }
 
-    validateConfirmationForm() {
-        return this.state.confirmationCode.length > 0;
-    }
 
     handleChange = event => {
         this.setState({
@@ -66,13 +64,15 @@ export default class Signup extends Component {
         console.log(data);
 
 
-        fetch('http://127.0.0.1:5000/addUser', {
+        fetch('http://127.0.0.1:5000/userRegister', {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
                 userID: data.userID,
-                [data.name] : data.quantity
-
+                firstName: data.firstname,
+                lastName: data.lastname,
+                email: data.email,
+                password: data.password
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -153,15 +153,24 @@ export default class Signup extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                <FormGroup controlId="email" bsSize="large">
+                <FormGroup controlId="userID" bsSize="large">
                     <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
                         type="Text"
-                        value={this.state.email}
+                        value={this.state.userID}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+             <FormGroup controlId="email" bsSize="large">
+                 <FormLabel>Email</FormLabel>
+                 <FormControl
+                     autoFocus
+                     type="Text"
+                     value={this.state.email}
+                     onChange={this.handleChange}
+                 />
+             </FormGroup>
                 <FormGroup controlId="password" bsSize="large">
                     <FormLabel>Password</FormLabel>
                     <FormControl
@@ -180,15 +189,6 @@ export default class Signup extends Component {
                 </FormGroup>
              <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Sign up</Button>
 
-             {/*<LoaderButton*/}
-                    {/*block*/}
-                    {/*bsSize="large"*/}
-                    {/*disabled={!this.validateForm()}*/}
-                    {/*type="submit"*/}
-                    {/*isLoading={this.state.isLoading}*/}
-                    {/*text="Signup"*/}
-                    {/*loadingText="Signing up…"*/}
-                {/*/>*/}
             </form>
          </Card.Body>
        </Card>
