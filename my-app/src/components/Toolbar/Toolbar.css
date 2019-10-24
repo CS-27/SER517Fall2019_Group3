@@ -7,7 +7,7 @@
 */
 
 .root {
-  font-size: xx-large !important;
+  
     flex-grow: 1;
   }
 
@@ -19,6 +19,7 @@
  
     flex-grow : 1;
     justify-content: left !important;
+  
   }
 
 .bgColor
