@@ -22,7 +22,7 @@ def addEquipment(userEquipList):
 	if not collection.find_one({'userID' : userEquipList['userID']}):
 		#data = {}
 		#data.update(ingredientList = userIngList)
-		result = collection.insert(userEquipList).inserted_id
+		result = collection.insert_one(userEquipList).inserted_id
 	else:
 		#update(userIngList)
 		search_query = { "userID": userEquipList['userID'] }

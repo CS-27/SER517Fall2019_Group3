@@ -24,7 +24,7 @@ def addIngredient(userIngList):
 	if not collection.find_one({'userID' : userIngList['userID']}):
 		#data = {}
 		#data.update(ingredientList = userIngList)
-		result = collection.insert(userIngList).inserted_id
+		result = collection.insert_one(userIngList).inserted_id
 	else:
 		#update(userIngList)
 		search_query = { "userID": userIngList['userID'] }
