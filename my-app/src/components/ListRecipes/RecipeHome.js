@@ -70,8 +70,7 @@ export default class RecipeHome extends Component {
   </Col>
 
   </Row>
-  <Row >
-    {/* <div className='alignment'> */}
+  <Row className='alignment'>
     <Col xs={6} md={4}>
     <Card className='card-image' >
       <Card.Body>
@@ -91,7 +90,6 @@ export default class RecipeHome extends Component {
       </Card.Body>
     </Card>
   </Col>
-  {/* </div> */}
   
   </Row>
 </Container>
