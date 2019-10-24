@@ -36,7 +36,7 @@ def userRegister(userInfo):
 
 	collection = db.userInfo
 	if not collection.find_one({'userID' : userInfo['userID']}):
-		result = collection.insert(userShopList).inserted_id
+		result = collection.insert_one(userInfo).inserted_id
 	else:
 		return False
 	return True
