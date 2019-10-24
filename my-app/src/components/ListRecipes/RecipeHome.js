@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './About.css';
+import './RecipeHome.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';

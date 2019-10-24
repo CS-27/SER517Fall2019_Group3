@@ -81,7 +81,7 @@ export default class recipeList extends Component {
                         <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
                     <Card  className="mainCard">
                 <Card.Body className = "card-body">
-                <Card.Title className="titleCard" >Winter Warmer</Card.Title>
+                <Card.Title className="titleCard" >Smash Pale Ale</Card.Title>
                 {this.loading ? <Loader
                 type="Circles"
                 color="#00BFFF"
