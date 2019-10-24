@@ -14,13 +14,13 @@ class UserListDatatable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr  >
-          <td>{item[0]}</td>
-          <td>{item[1]}</td>
-            <td>{item[2]}</td>
-            <td>{item[3]}</td>
+          <td>{item.userID}</td>
+          <td>{item.firstName}</td>
+            <td>{item.lastName}</td>
+            <td>{item.email}</td>
           <td>
           
-              <UserModalForm userID = {userID} buttonLabel="View" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
+              {/*<UserModalForm userID = {userID} buttonLabel="View" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>*/}
               
           
           </td>

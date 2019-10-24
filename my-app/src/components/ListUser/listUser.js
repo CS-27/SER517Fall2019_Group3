@@ -58,31 +58,21 @@ export default class ListUser extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
-                    console.log(result['User Details']);
                     var data = result['User Details'];
 
                     this.loading = false;
-                    var items = [];
+                    this.items = [result['User Details']];
 
                     Object.keys(data).forEach(function (key) {
-                        if (key != "userID" && key != "_id") {
-                            items.push([
-                                key, data[key]
-                            ]);
-                        }
 
                     });
 
                     this.setState({
-                        items: items
+                        items: this.items
                     });
 
 
-                    const ingrarray = Object.keys(this.state.items).map(i => this.state.items[i])
-                    this.items = ingrarray;
-                    console.log(this.items[0]);
-                },
+                    },
                 (error) => {
                     this.setState({error});
                 }
