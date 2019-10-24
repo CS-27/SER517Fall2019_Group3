@@ -2,7 +2,7 @@
   Date:   Oct 2, 2019
   About:  This is to render list of equipment oage.
 */
-import React, { Component } from "react";
+import React, { Component, useReducer } from "react";
 import './Equipment.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -15,6 +15,7 @@ export default class equipmentList extends Component {
         this.message = ""
       
         this.state = {
+          userID:"",
           error: null,
           equipment: [],
           response: {}
@@ -33,7 +34,20 @@ export default class equipmentList extends Component {
 
         event.preventDefault();
       }
-
+      updateState = (item) => {
+        
+        const itemIndex = this.state.equipment.findIndex(data => data[0] === item[0])
+        console.log(itemIndex);
+        console.log(item);
+ 
+        const newArray = [
+          ...this.state.equipment.slice(0, itemIndex),
+          item,
+          ...this.state.equipment.slice(itemIndex + 1)
+        ]
+        console.log(newArray);
+        this.setState({ equipment: newArray })
+      }
       getEquipment=()=>{
           var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID=user1'
           
@@ -44,8 +58,11 @@ export default class equipmentList extends Component {
                   var data =result['equipmentList'];
                this.loading = false;
                var equipment =[];
-               
+               var userID = "";
                Object.keys(data).forEach(function(key) {
+                if(key=="userID"){
+                  userID = data[key];
+                }
                    if(key!="userID" && key!="_id"){
                     equipment.push([
                       key,data[key]
@@ -55,6 +72,7 @@ export default class equipmentList extends Component {
               });
              
                    this.setState({
+                    userID : userID,
                     equipment: equipment
                   });
 
@@ -85,7 +103,7 @@ export default class equipmentList extends Component {
              width={100}
              timeout={3000} //3 secs
     
-          />: <DataTable items={this.state.equipment}></DataTable>}
+          />: <DataTable userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState}></DataTable>}
     
     
           

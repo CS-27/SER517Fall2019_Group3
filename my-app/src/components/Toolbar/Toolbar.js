@@ -61,7 +61,7 @@ export default class ButtonAppBar extends Component {
 
               <div className="root" >
                 <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
-              </div>
+              
 
               <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Recipe Kit</Button>
               <div className="dropdown">
@@ -100,9 +100,10 @@ export default class ButtonAppBar extends Component {
 
               
               <Button component={Link} to="/beerStatus" color="inherit" className="text-capitalize">Brewing Status</Button>
-
+              </div>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
+
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
               <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
             </Toolbar>

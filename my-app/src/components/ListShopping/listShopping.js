@@ -35,6 +35,21 @@ export default class ListShopping extends Component {
 
         event.preventDefault();
       }
+      
+      updateState = (item) => {
+        
+        const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
+        console.log(itemIndex);
+        console.log(item);
+ 
+        const newArray = [
+          ...this.state.items.slice(0, itemIndex),
+          item,
+          ...this.state.items.slice(itemIndex + 1)
+        ]
+        console.log(newArray);
+        this.setState({ items: newArray })
+      }
 
     getItems=()=> {
         var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=user1'
@@ -48,8 +63,11 @@ export default class ListShopping extends Component {
 
                     this.loading = false;
                     var items = [];
-
+                    var userID = ""
                     Object.keys(data).forEach(function (key) {
+                        if(key=="userID"){
+                            userID = data[key];
+                          }
                         if (key != "userID" && key != "_id") {
                             items.push([
                                 key, data[key]
@@ -59,6 +77,7 @@ export default class ListShopping extends Component {
                     });
 
                     this.setState({
+                        userID : userID,
                         items: items
                     });
 
@@ -90,7 +109,7 @@ export default class ListShopping extends Component {
                  width={100}
                  timeout={3000} //3 secs
 
-             />: <DataTable items={this.state.items}></DataTable>}
+             />: <DataTable userID={this.state.userID} items={this.state.items}  updateState={this.updateState}></DataTable>}
 
 
 
