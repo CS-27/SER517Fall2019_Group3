@@ -12,7 +12,8 @@ export default class ListShopping extends Component {
         this.state = {
             error: null,
             items: [],
-            response: {}
+            response: {},
+            userID:sessionStorage.getItem("username")
         }
         this.items = null;
         this.loading = true;
@@ -52,8 +53,10 @@ export default class ListShopping extends Component {
       }
 
     getItems=()=> {
-        var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=user1'
 
+        var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID='+sessionStorage.getItem("username")
+            // +this.state.userID
+        // console.log(sessionStorage.getItem("username"));
         fetch(apiUrl)
             .then(res => res.json())
             .then(

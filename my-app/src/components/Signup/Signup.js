@@ -31,16 +31,7 @@ export default class Signup extends Component {
         };
     }
 
-    validateForm() {
-        return (
-            this.state.email.length > 0 &&
-            this.state.firstname.length > 0 &&
-            this.state.userID.length > 0 &&
-            this.state.lastname.length > 0 &&
-            this.state.password.length > 0 &&
-            this.state.password === this.state.confirmPassword
-        );
-    }
+
 
 
     handleChange = event => {
@@ -84,6 +75,7 @@ export default class Signup extends Component {
             if(res.status===200)
                 this.message = 'User added successfully'
             console.log(res.status) ;
+            this.props.history.push('/')
         }).catch(err => console.log(err));
         // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
         // then(response=> {
@@ -130,6 +122,17 @@ export default class Signup extends Component {
     // }
 
     renderForm() {
+        // function validateForm()
+        // {
+        //     return this.state.email.length > 0 &&
+        //         this.state.firstname.length > 0 &&
+        //         this.state.userID.length > 0 &&
+        //         this.state.lastname.length > 0 &&
+        //         this.state.password.length > 0 &&
+        //         this.state.password === this.state.confirmPassword;
+        //
+        // }
+
         return (
             <Container>
             <Card  className="cardMain">
@@ -187,7 +190,7 @@ export default class Signup extends Component {
                         type="password"
                     />
                 </FormGroup>
-             <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Sign up</Button>
+             <Button onClick ={this.handleSubmit} id = "btn-color"  variant="primary" type="submit" >Sign up</Button>
 
             </form>
          </Card.Body>

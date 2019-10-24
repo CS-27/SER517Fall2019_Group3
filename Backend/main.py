@@ -223,6 +223,7 @@ def checkUserLogin():
 	userID = request.args.get('userID')
 	password = request.args.get('password')
 	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
+	return response
 
 
 @brewDay_api.route('/userProfile', methods = ['POST'])
