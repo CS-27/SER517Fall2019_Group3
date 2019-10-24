@@ -11,6 +11,7 @@ def showIngredient(userID):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID' : userID})
+	#print result
 	#print (json.dumps(result, default=json_util.default))
 	return json.dumps(result, default=json_util.default)
 
