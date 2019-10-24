@@ -117,7 +117,7 @@ def userRegister():
 def updateIngredient():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	print req_data
+	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
