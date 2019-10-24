@@ -11,6 +11,7 @@ import ModalFormWW from './Modals/modalFormWW';
 
 
 import CardDeck from 'react-bootstrap/CardDeck';
+import ModalFormSP from './Modals/modalFormSP';
 
 export default class RecipeHome extends Component {
 
@@ -69,18 +70,29 @@ export default class RecipeHome extends Component {
   </Col>
 
   </Row>
-  <Row>
-    <div className='alignment'>
+  <Row >
+    {/* <div className='alignment'> */}
     <Col xs={6} md={4}>
     <Card className='card-image' >
       <Card.Body>
-        <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
+        <Image  className='card-image2' src="/images/whitedogIPA.jpg" thumbnail/>
         <Card.Title>White Dog IPA</Card.Title>
         <ModalFormWD buttonLabel="view" />
       </Card.Body>
     </Card>
   </Col>
-  </div>
+  
+  <Col xs={6} md={4}>
+    <Card className='card-image' >
+      <Card.Body>
+        <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
+        <Card.Title>Smash Pale Ale</Card.Title>
+        <ModalFormSP buttonLabel="view" />
+      </Card.Body>
+    </Card>
+  </Col>
+  {/* </div> */}
+  
   </Row>
 </Container>
     </div>
