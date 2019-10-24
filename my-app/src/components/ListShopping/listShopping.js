@@ -12,13 +12,13 @@ export default class ListShopping extends Component {
         this.state = {
             error: null,
             items: [],
+            autoItems: [],
             response: {},
-            userID:sessionStorage.getItem("username")
+            userID: sessionStorage.getItem("username")
         }
         this.items = null;
         this.loading = true;
         this.getItems();
-
 
 
     }
@@ -29,39 +29,35 @@ export default class ListShopping extends Component {
         });
     }
 
-    handleSubmit=(event)=> {
+    handleSubmit = (event) => {
         console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
         event.preventDefault();
-      }
-      
-      updateState = (item) => {
-        
+    }
+
+    updateState = (item) => {
+
         const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
         console.log(itemIndex);
         console.log(item);
- 
+
         const newArray = [
-          ...this.state.items.slice(0, itemIndex),
-          item,
-          ...this.state.items.slice(itemIndex + 1)
+            ...this.state.items.slice(0, itemIndex),
+            item,
+            ...this.state.items.slice(itemIndex + 1)
         ]
         console.log(newArray);
-        this.setState({ items: newArray })
-      }
+        this.setState({items: newArray})
+    }
 
-    getItems=()=> {
-        var uname= sessionStorage.getItem("username");
-        if(uname==null)
-        {
+    getItems = () => {
+        var uname = sessionStorage.getItem("username");
+        if (uname == null) {
             this.props.history.push('/signin')
-        }
-        else {
+        } else {
             var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=' + sessionStorage.getItem("username")
-            // +this.state.userID
-            // console.log(sessionStorage.getItem("username"));
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(
@@ -98,44 +94,97 @@ export default class ListShopping extends Component {
                         this.setState({error});
                     }
                 )
+
+            var apiUrl = 'http://127.0.0.1:5000/createAutoShopList?userID=' + sessionStorage.getItem("username")
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(
+                    (result) => {
+                        console.log(result['Auto ShoppingList']);
+                        var data = result['Auto ShoppingList'];
+
+                        this.loading = false;
+                        // var items = [];
+                        var autoItems = [];
+                        var userID = ""
+                        Object.keys(data).forEach(function (key) {
+                            if (key == "userID") {
+                                userID = data[key];
+                            }
+                            if (key != "userID" && key != "_id") {
+                                autoItems.push([
+                                    key, data[key]
+                                ]);
+                            }
+
+                        });
+
+                        this.setState({
+                            userID: userID,
+                            autoItems: autoItems
+                        });
+
+
+                        const ingrarray = Object.keys(this.state.autoItems).map(i => this.state.autoItems[i])
+                        this.autoItems = ingrarray;
+                        // console.log(this.items[0]);
+                    },
+                    (error) => {
+                        this.setState({error});
+                    }
+                )
         }
+
 
     }
 
 
     renderList() {
         return (
-            
+
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCardOne">
-         <Card.Body className = "card-body">
-         <Card.Title className="titleCard" >Shopping List </Card.Title>
-             {this.loading ?       <Loader
-                 type="Circles"
-                 color="#00BFFF"
-                 height={100}
-                 width={100}
-                 timeout={3000} //3 secs
+                <Card className="mainCardOne">
+                    <Card.Body className="card-body">
+                        <Card.Title className="titleCard">Shopping List </Card.Title>
+                        {this.loading ? <Loader
+                            type="Circles"
+                            color="#00BFFF"
+                            height={100}
+                            width={100}
+                            timeout={3000} //3 secs
 
-             />: <DataTable userID={this.state.userID} items={this.state.items}  updateState={this.updateState}></DataTable>}
+                        /> : <DataTable userID={this.state.userID} items={this.state.items}
+                                        updateState={this.updateState}></DataTable>}
+
+                        <Card.Title className="titleCard" >Auto-Shopping List </Card.Title>
+                        {this.loading ?       <Loader
+                        type="Circles"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000} //3 secs
+
+                        />: <DataTable userID={this.state.userID} items={this.state.autoItems}  updateState={this.updateState}></DataTable>
+                        }
 
 
-
-         </Card.Body>
-       </Card>
+                    </Card.Body>
+                </Card>
             </Container>
-            
-            
-          
+
+
         );
     }
 
     render() {
         return (
             <div>
-                { this.renderList()}
+                {this.renderList()}
             </div>
         );
     }
 }
+
+
+
