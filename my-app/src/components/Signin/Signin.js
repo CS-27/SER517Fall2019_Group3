@@ -13,6 +13,7 @@ import {
     Button
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
+import { Redirect } from 'react-router-dom';
 import './Signin.css';
 import axios from "axios";
 export default class Signin extends Component {
@@ -43,6 +44,7 @@ export default class Signin extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.setState({ isLoading: true });
+        // this.props.history.push('/')
         var apiBaseUrl = "http://localhost:5000";
         axios.get(apiBaseUrl+"/userCheckLogin?"+"userID="+ this.state.email+ "&password="+ this.state.password)
             .then(response => {
@@ -53,6 +55,7 @@ export default class Signin extends Component {
                     alert("Logged in");
                     sessionStorage.setItem('username',this.state.email);
                     console.log(sessionStorage.getItem("username"));
+                    this.props.history.push('/')
 
                 }
                 else if(response.data.Status == "False"){

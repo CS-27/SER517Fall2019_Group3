@@ -12,7 +12,8 @@ export default class ListShopping extends Component {
         this.state = {
             error: null,
             items: [],
-            response: {}
+            response: {},
+            userID:sessionStorage.getItem("username")
         }
         this.items = null;
         this.loading = true;
@@ -52,44 +53,52 @@ export default class ListShopping extends Component {
       }
 
     getItems=()=> {
-        var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=user1'
+        var uname= sessionStorage.getItem("username");
+        if(uname==null)
+        {
+            this.props.history.push('/signin')
+        }
+        else {
+            var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=' + sessionStorage.getItem("username")
+            // +this.state.userID
+            // console.log(sessionStorage.getItem("username"));
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(
+                    (result) => {
+                        console.log(result['ShoppingList']);
+                        var data = result['ShoppingList'];
 
-        fetch(apiUrl)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log(result['ShoppingList']);
-                    var data = result['ShoppingList'];
+                        this.loading = false;
+                        var items = [];
+                        var userID = ""
+                        Object.keys(data).forEach(function (key) {
+                            if (key == "userID") {
+                                userID = data[key];
+                            }
+                            if (key != "userID" && key != "_id") {
+                                items.push([
+                                    key, data[key]
+                                ]);
+                            }
 
-                    this.loading = false;
-                    var items = [];
-                    var userID = ""
-                    Object.keys(data).forEach(function (key) {
-                        if(key=="userID"){
-                            userID = data[key];
-                          }
-                        if (key != "userID" && key != "_id") {
-                            items.push([
-                                key, data[key]
-                            ]);
-                        }
+                        });
 
-                    });
-
-                    this.setState({
-                        userID : userID,
-                        items: items
-                    });
+                        this.setState({
+                            userID: userID,
+                            items: items
+                        });
 
 
-                    const ingrarray = Object.keys(this.state.items).map(i => this.state.items[i])
-                    this.items = ingrarray;
-                    console.log(this.items[0]);
-                },
-                (error) => {
-                    this.setState({error});
-                }
-            )
+                        const ingrarray = Object.keys(this.state.items).map(i => this.state.items[i])
+                        this.items = ingrarray;
+                        console.log(this.items[0]);
+                    },
+                    (error) => {
+                        this.setState({error});
+                    }
+                )
+        }
 
     }
 
