@@ -47,7 +47,11 @@ def userProfile(userID):
 	db = client.users
 
 	collection = db.userInfo
-	return json.dumps(collection.find_one({'userID' : userID}), default= json_util.default)
+	#dic = json.dumps(collection.find_one({'userID' : userID}), default= json_util.default)
+	dic = collection.find_one({'userID' : userID})
+	#print type(dic)
+	del dic['password']
+	return json.dumps(dic, default= json_util.default)
 
 
 
