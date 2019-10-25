@@ -38,18 +38,10 @@ import RecipeHome from '../ListRecipes/RecipeHome';
 export default class ButtonAppBar extends Component {
 
   handleLogout = async event  => {
-    // event.preventDefault();
-    // console.log("handle logout");
-    // if (sessionStorage.getItem("username")!= "NULL") {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
       alert("Logged out");
     }
-    // else{
-    //   alert("Already Logged out");
-    // }
-
-  // }
 
   render() {
     return (
@@ -61,7 +53,12 @@ export default class ButtonAppBar extends Component {
 
               <div className="root" >
                 <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
-              
+                <div className="dropdown">
+                  <Button className="text-capitalize" color="inherit">Users</Button>
+                  <div className="dropdown-content">
+                    <Button component={Link} to="/userList" color="inherit" className="text-capitalize" >Search</Button>
+                  </div>
+                </div>
 
               <Button component={Link} to="/equipment" color="inherit" className="text-capitalize">Recipe Kit</Button>
               <div className="dropdown">
@@ -93,6 +90,7 @@ export default class ButtonAppBar extends Component {
                 <div className="dropdown-content">
                 <Button component={Link} to="/addRecipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
                   <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >View Recipe</Button>
+                  <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
                 </div>
               </div>
 
