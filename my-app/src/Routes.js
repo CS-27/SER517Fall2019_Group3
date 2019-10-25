@@ -20,6 +20,7 @@ import AddRecipe from './components/Recipes/AddRecipe';
 import ShoppingPage from './components/ShoppingPage/shoppingPage';
 import ListShopping from './components/ListShopping/listShopping';
 import ListUser from './components/ListUser/listUser';
+import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
 
 import RecipeHome from './components/ListRecipes/RecipeHome';
 
@@ -47,6 +48,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/showRecipe" exact component={RecipeHome} props={childProps} />
  
             <AppliedRoute path="/userList" exact component={ListUser} props={childProps} />
+        <AppliedRoute path="/recipeList" exact component={listRecipe} props={childProps} />
 
             <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
 

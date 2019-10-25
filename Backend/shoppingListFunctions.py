@@ -93,6 +93,7 @@ def createAutoShopList(userID):
 	for key,value in result.items():
 		if int(value) < 2:
 			dic.__setitem__(key,value)
+	#print dic
 	result_asl = collection_asl.find_one({'userID': userID})
 	if not result_asl:
 		dic.__setitem__('userID',userID)
@@ -104,4 +105,4 @@ def createAutoShopList(userID):
 			new_values = {"$set" : {key:value}}
 			updateCollection = collection_asl.update(search_query, new_values, upsert=True)
 	
-	return json.dumps(collection.find_one({'userID' : userID}), default=json_util.default)
+	return json.dumps(collection_asl.find_one({'userID' : userID}), default=json_util.default)
