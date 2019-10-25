@@ -31,27 +31,38 @@ export default class Profile extends Component {
 
 
       getProfile=()=>{
-            var apiUrl = 'http://127.0.0.1:5000/userProfile'
-            fetch(apiUrl, {
-                method: 'post',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  
-                  userID : this.state.userID
-                  
-                })
+        var uname = sessionStorage.getItem("username");
+        if (uname == null) {
+            this.props.history.push('/signin')
+        }
+        else{
+          var apiUrl = 'http://127.0.0.1:5000/userProfile'
+          fetch(apiUrl, {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                
+                userID : this.state.userID
+                
               })
-                .then(response => response.json())
-                .then(res => {
-                    this.loading = false;
-                    var person =res['User Details'];
-                    console.log(person.email)
-                    this.setState({user:person})
-                    console.log(this.state.user)
-                    
-                });
+            })
+              .then(response => response.json())
+              .then(res => {
+                  this.loading = false;
+                  var person =res['User Details'];
+                  console.log(person.email)
+                  this.setState({user:person})
+                  console.log(this.state.user)
+                  
+              });
+
+
+
+
+        }
+    
 
 
         
