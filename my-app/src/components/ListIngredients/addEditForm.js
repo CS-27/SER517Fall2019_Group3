@@ -29,8 +29,10 @@ class AddEditForm extends React.Component {
     }
 
     if(itemType === "shoppinglist"){
+      
       url = 'http://127.0.0.1:5000/updateShoppingList';
     }
+    console.log(url)
     
     e.preventDefault()
     fetch(url, {
