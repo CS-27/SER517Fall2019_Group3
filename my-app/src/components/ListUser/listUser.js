@@ -86,8 +86,8 @@ export default class ListUser extends Component {
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCard">
-         <Card.Body className = "card-body">
+            <Card  className="mainCardOneMain">
+         <Card.Body >
          <Card.Title className="titleCard" >User List </Card.Title>
              <Form onSubmit={this.handleSubmit}>
                  <FormGroup controlId="name"  >
