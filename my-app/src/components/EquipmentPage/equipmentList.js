@@ -48,6 +48,30 @@ export default class equipmentList extends Component {
         console.log(newArray);
         this.setState({ equipment: newArray })
       }
+
+      deleteItem = (item) => {
+        console.log(item);
+        const updatedItems = this.state.equipment.filter(i => i[0] !== item[0]);
+        this.setState({ equipment: updatedItems })
+
+      }
+
+      deleteIngredient =(item)=>{
+        fetch('http://127.0.0.1:5000/deleteEquipment', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userID: this.state.userID,
+            [item[0]]:item[1]
+          })
+        })
+          .then(() => {
+            this.deleteItem([item[0],item[1]])
+          })
+          .catch(err => console.log(err))
+      }
       getEquipment=()=>{
           var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID=user1'
           
@@ -103,7 +127,7 @@ export default class equipmentList extends Component {
              width={100}
              timeout={3000} //3 secs
     
-          />: <DataTable itemType="equipment" userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState}></DataTable>}
+          />: <DataTable itemType="equipment" userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState} deleteItem = {this.deleteItem} deleteIngredient = {this.deleteIngredient}></DataTable>}
     
     
           
