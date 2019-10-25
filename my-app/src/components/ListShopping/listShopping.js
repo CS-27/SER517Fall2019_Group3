@@ -19,6 +19,9 @@ export default class ListShopping extends Component {
         this.items = null;
         this.loading = true;
         this.getItems();
+        if(this.state.userID == null)
+
+        this.state.userID = 'user1';
 
 
     }
@@ -37,6 +40,37 @@ export default class ListShopping extends Component {
         event.preventDefault();
     }
 
+    deleteAutoItem = (item) => {
+        console.log(item);
+        const updatedItems = this.state.autoItems.filter(i => i[0] !== item[0]);
+        this.setState({ autoItems: updatedItems })
+
+      }
+
+      deleteItem = (item) => {
+        console.log(item);
+        const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
+        this.setState({ items: updatedItems })
+
+      }
+
+      deleteIngredient =(item)=>{
+        fetch('http://127.0.0.1:5000/deleteShopListItems', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userID: this.state.userID,
+            [item[0]]:item[1]
+          })
+        })
+          .then(() => {
+            this.deleteItem([item[0],item[1]])
+          })
+          .catch(err => console.log(err))
+      }
+
     updateState = (item) => {
 
         const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
@@ -50,6 +84,20 @@ export default class ListShopping extends Component {
         ]
         console.log(newArray);
         this.setState({items: newArray})
+    }
+
+    updateStateAuto = (item) => {
+
+        const itemIndex = this.state.autoItems.findIndex(data => data[0] === item[0])
+      
+
+        const newArray = [
+            ...this.state.autoItems.slice(0, itemIndex),
+            item,
+            ...this.state.autoItems.slice(itemIndex + 1)
+        ]
+     
+        this.setState({autoItems: newArray})
     }
 
     getItems = () => {
@@ -154,8 +202,11 @@ export default class ListShopping extends Component {
                             width={100}
                             timeout={3000} //3 secs
 
-                        /> : <DataTable userID={this.state.userID} items={this.state.items}
-                                        updateState={this.updateState}></DataTable>}
+                        /> : <DataTable itemType ="shoppinglist" userID={this.state.userID} userID={this.state.userID}
+                                        items={this.state.items}
+                                        updateState={this.updateState}
+                                        deleteItem = {this.deleteItem} 
+                                        deleteIngredient = {this.deleteIngredient}></DataTable>}
 
                         <Card.Title className="titleCard" >Auto-Shopping List </Card.Title>
                         {this.loading ?       <Loader
@@ -165,7 +216,10 @@ export default class ListShopping extends Component {
                         width={100}
                         timeout={3000} //3 secs
 
-                        />: <DataTable userID={this.state.userID} items={this.state.autoItems}  updateState={this.updateState}></DataTable>
+                        />: 
+                        <DataTable itemType ="shoppinglist"  userID={this.state.userID} items={this.state.autoItems}  
+                        updateState={this.updateStateAuto}
+                        deleteItem = {this.deleteAutoItem} deleteIngredient = {this.deleteIngredient}></DataTable>
                         }
 
 

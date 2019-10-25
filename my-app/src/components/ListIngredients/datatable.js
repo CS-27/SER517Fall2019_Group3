@@ -7,20 +7,7 @@ class DataTable extends Component {
   deleteItem = (item) => {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
-      fetch('http://127.0.0.1:5000/deleteIngredient', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        userID: this.props.userID,
-        [item[0]]:item[1]
-      })
-    })
-      .then(() => {
-        this.props.deleteItem([item[0],item[1]])
-      })
-      .catch(err => console.log(err))
+     this.props.deleteIngredient(item);
     }
 
   }
@@ -34,7 +21,7 @@ class DataTable extends Component {
           <td>{item[1]}</td>
           <td>
           
-              <ModalForm userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
+              <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
               
           
           </td>
