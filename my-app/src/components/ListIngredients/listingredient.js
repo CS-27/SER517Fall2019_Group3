@@ -96,7 +96,26 @@ export default class ListIngredient extends Component {
 
       deleteItem = (item) => {
         console.log(item);
+        const updatedItems = this.state.ingredients.filter(i => i[0] !== item[0]);
+        this.setState({ ingredients: updatedItems })
 
+      }
+
+      deleteIngredient =(item)=>{
+        fetch('http://127.0.0.1:5000/deleteIngredient', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userID: this.state.userID,
+            [item[0]]:item[1]
+          })
+        })
+          .then(() => {
+            this.deleteItem([item[0],item[1]])
+          })
+          .catch(err => console.log(err))
       }
 
     renderList() {
@@ -114,7 +133,7 @@ export default class ListIngredient extends Component {
          width={100}
          timeout={3000} //3 secs
 
-      />: <DataTable userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState} deleteItem = {this.deleteItem}></DataTable>}
+      />: <DataTable itemType="ingredient" userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState} deleteItem = {this.deleteItem} deleteIngredient = {this.deleteIngredient}></DataTable>}
 
 
       
