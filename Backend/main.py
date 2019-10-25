@@ -57,6 +57,13 @@ def deleteRecipeAdmin():
 	return response
 
 
+@brewDay_api.route('/showRecipeIngredients', methods = ['GET'])
+def showRecipeingredients():
+	recipeName = request.args.get('recipeName')
+	response = jsonify({'Recipe Ingredient List': json.loads(recipeFunctions.recipeIngredients(recipeName))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 # # # # Equipment Functions # # # # 
 
 @brewDay_api.route('/showEquipment', methods = ['GET'])

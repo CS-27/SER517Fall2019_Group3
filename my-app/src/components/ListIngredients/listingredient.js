@@ -96,6 +96,8 @@ export default class ListIngredient extends Component {
 
       deleteItem = (item) => {
         console.log(item);
+        const updatedItems = this.state.ingredients.filter(i => i[0] !== item[0]);
+        this.setState({ ingredients: updatedItems })
 
       }
 
