@@ -50,8 +50,11 @@ def userProfile(userID):
 	#dic = json.dumps(collection.find_one({'userID' : userID}), default= json_util.default)
 	dic = collection.find_one({'userID' : userID})
 	#print type(dic)
-	del dic['password']
-	return json.dumps(dic, default= json_util.default)
+	if dic: 
+		del dic['password']
+		return json.dumps(dic, default= json_util.default)
+	else:
+		return "User Does not exists"
 
 
 
