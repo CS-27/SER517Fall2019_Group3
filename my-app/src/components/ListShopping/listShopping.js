@@ -116,7 +116,9 @@ export default class ListShopping extends Component {
                         this.loading = false;
                         var items = [];
                         var userID = ""
+                        console.log(data);
                         Object.keys(data).forEach(function (key) {
+
                             if (key == "userID") {
                                 userID = data[key];
                             }

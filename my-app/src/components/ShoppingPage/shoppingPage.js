@@ -16,8 +16,13 @@ export default class ShoppingPage extends Component {
             // isLoading: false,
             name:"",
             quantity:"",
-            userID: "user1"
+            userID: sessionStorage.getItem("username")
         };
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
+        }
 
 
     }

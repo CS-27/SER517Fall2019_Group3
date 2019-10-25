@@ -9,6 +9,7 @@ class userModalForm extends Component {
     this.state = {
       modal: false
     }
+
   }
 
   toggle = () => {

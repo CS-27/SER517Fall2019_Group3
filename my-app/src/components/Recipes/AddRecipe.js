@@ -30,6 +30,12 @@ export default class AddRecipe extends Component {
     Grains:[],
     HopsSchedule:[]
   };
+
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
+        }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.handleChange = this.handleChange.bind(this);
 }   
@@ -150,7 +156,7 @@ render() {
                     />
                 </FormGroup>
                 <FormGroup controlId="schedule">
-                    <FormLabel color="white" >Hops Schedule</FormLabel>
+                    <FormLabel color="white">Hops Schedule</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 

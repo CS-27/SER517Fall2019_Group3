@@ -37,7 +37,7 @@ class DataTable extends Component {
       <Table responsive hover>
         <thead>
           <tr>
-            <th>Ingredient Name</th>
+            <th>Name</th>
             <th>Quantity</th>
             <th>Edit</th>
             <th>Delete</th>

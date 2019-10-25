@@ -74,7 +74,8 @@ export default class Signup extends Component {
         }).then(res => {
             if(res.status===200)
                 this.message = 'User added successfully'
-            console.log(res.status) ;
+            // console.log(res.status) ;
+            alert("User created");
             this.props.history.push('/')
         }).catch(err => console.log(err));
         // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
@@ -196,9 +197,6 @@ export default class Signup extends Component {
          </Card.Body>
        </Card>
             </Container>
-            
-            
-          
         );
     }
 

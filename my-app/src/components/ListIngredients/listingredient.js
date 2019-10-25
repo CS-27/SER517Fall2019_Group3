@@ -17,6 +17,12 @@ export default class ListIngredient extends Component {
       ingredients: [],
       response: {}
     }
+
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
+        }
     this.ingredients = null;
     this.loading = true;
     this.getIngredients();
@@ -37,45 +43,51 @@ export default class ListIngredient extends Component {
       }
 
       getIngredients=()=>{
-            var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=user1'
+          var user= sessionStorage.getItem("username");
+          if(user==null)
+          {
+              this.props.history.push('/signin')
+          }
+          else {
+              var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=' + user
 
-            fetch(apiUrl)
-            .then(res => res.json())
-            .then(
-              (result) => {
-                
-                  var data =result['IngredientList'];
-                  
-                this.loading = false;
-               var ingredients =[];
-               var userID =""
-               Object.keys(data).forEach(function(key) {
-                 if(key=="userID"){
-                   userID = data[key];
-                 }
-                   if(key!="userID" && key!="_id"){
-                    ingredients.push([
-                      key,data[key]
-                   ]);
-                   }
-                       
-              });
-             
-                   this.setState({
-                     userID : userID,
-                    ingredients: ingredients
-                  });
-               
-           
-               const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
-               this.ingredients = ingrarray;
-            
-              },
-              (error) => {
-                this.setState({ error });
-              }
-            )
-           
+              fetch(apiUrl)
+                  .then(res => res.json())
+                  .then(
+                      (result) => {
+
+                          var data = result['IngredientList'];
+
+                          this.loading = false;
+                          var ingredients = [];
+                          var userID = ""
+                          Object.keys(data).forEach(function (key) {
+                              if (key == "userID") {
+                                  userID = data[key];
+                              }
+                              if (key != "userID" && key != "_id") {
+                                  ingredients.push([
+                                      key, data[key]
+                                  ]);
+                              }
+
+                          });
+
+                          this.setState({
+                              userID: userID,
+                              ingredients: ingredients
+                          });
+
+
+                          const ingrarray = Object.keys(this.state.ingredients).map(i => this.state.ingredients[i])
+                          this.ingredients = ingrarray;
+
+                      },
+                      (error) => {
+                          this.setState({error});
+                      }
+                  )
+          }
 
       }
 

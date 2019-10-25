@@ -107,6 +107,9 @@ export default class Signin extends Component {
                     />
                 </FormGroup>
              <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Login</Button>
+             <br>
+             </br>
+             <a href="http://localhost:3000/signup">Register here</a>
             </form>
          </Card.Body>
        </Card>
