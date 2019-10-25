@@ -104,6 +104,8 @@ export default class ButtonAppBar extends Component {
 
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
               <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
+              <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
+
             </Toolbar>
           </AppBar>
           <Switch>

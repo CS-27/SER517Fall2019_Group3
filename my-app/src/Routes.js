@@ -21,7 +21,7 @@ import ShoppingPage from './components/ShoppingPage/shoppingPage';
 import ListShopping from './components/ListShopping/listShopping';
 import ListUser from './components/ListUser/listUser';
 import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
-
+import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
 
 import BeerStatus from "./components/StatusPage/beerStatus";
@@ -43,7 +43,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/addShoppingItem" exact component={ShoppingPage} props={childProps} />
             <AppliedRoute path="/shoppinglist" exact component={ListShopping} props={childProps} />
             <AppliedRoute path="/addRecipe" exact component={AddRecipe} props={childProps} />
-            <AppliedRoute path="/profile" exact component={AddRecipe} props={childProps} />
+            <AppliedRoute path="/profile" exact component={Profile} props={childProps} />
 
             <AppliedRoute path="/showRecipe" exact component={RecipeHome} props={childProps} />
  
