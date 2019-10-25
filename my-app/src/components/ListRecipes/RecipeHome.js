@@ -56,6 +56,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/americanPaleAle.jpg" thumbnail/>
         <Card.Title>American Pale Ale</Card.Title>
         <ModalForm buttonLabel="view" />
+        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -65,6 +66,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/winterWarmer.jpeg" thumbnail/>
         <Card.Title>Winter Warmer</Card.Title>
         <ModalFormWW buttonLabel="view" />
+        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -77,6 +79,7 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/whitedogIPA.jpg" thumbnail/>
         <Card.Title>White Dog IPA</Card.Title>
         <ModalFormWD buttonLabel="view" />
+        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -87,6 +90,7 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
         <Card.Title>Smash Pale Ale</Card.Title>
         <ModalFormSP buttonLabel="view" />
+        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
