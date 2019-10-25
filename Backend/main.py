@@ -245,7 +245,7 @@ def checkUserLogin():
 def userProfile():
 	req_data= request.get_json(force = True)
 	userID = req_data['userID']
-	response = jsonify({'User Details' : userLoginFunctions.userProfile(userID)})
+	response = jsonify({'User Details' : json.loads(userLoginFunctions.userProfile(userID))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 

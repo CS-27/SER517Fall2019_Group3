@@ -196,9 +196,6 @@ export default class Signup extends Component {
          </Card.Body>
        </Card>
             </Container>
-            
-            
-          
         );
     }
 
