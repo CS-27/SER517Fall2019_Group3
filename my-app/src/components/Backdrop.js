@@ -6,7 +6,6 @@ import { Container } from 'react-bootstrap';
 
 
 
-
 function Backdrop() {
   return (
     <div className='bg-image' style={{ width: 'auto' }}>

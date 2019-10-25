@@ -73,42 +73,48 @@ export default class equipmentList extends Component {
           .catch(err => console.log(err))
       }
       getEquipment=()=>{
-          var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID=user1'
-          
-            fetch(apiUrl)
-            .then(res => res.json())
-            .then(
-              (result) => {
-                  var data =result['equipmentList'];
-               this.loading = false;
-               var equipment =[];
-               var userID = "";
-               Object.keys(data).forEach(function(key) {
-                if(key=="userID"){
-                  userID = data[key];
-                }
-                   if(key!="userID" && key!="_id"){
-                    equipment.push([
-                      key,data[key]
-                   ]);
-                   }
-                       
-              });
-             
-                   this.setState({
-                    userID : userID,
-                    equipment: equipment
-                  });
+         var user= sessionStorage.getItem("username");
+         if(user==null)
+         {
+             this.props.history.push('/signin')
+         }
+         else {
+             var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID='+user
 
-                  const dataArray = Object.keys(this.state.equipment).map(i => this.state.equipment[i])
-                  this.equipment = dataArray;
-                  console.log(this.equipment[0]);
-                 },
-                 (error) => {
-                   this.setState({ error });
-                 }
-               )
-              
+             fetch(apiUrl)
+                 .then(res => res.json())
+                 .then(
+                     (result) => {
+                         var data = result['equipmentList'];
+                         this.loading = false;
+                         var equipment = [];
+                         var userID = "";
+                         Object.keys(data).forEach(function (key) {
+                             if (key == "userID") {
+                                 userID = data[key];
+                             }
+                             if (key != "userID" && key != "_id") {
+                                 equipment.push([
+                                     key, data[key]
+                                 ]);
+                             }
+
+                         });
+
+                         this.setState({
+                             userID: userID,
+                             equipment: equipment
+                         });
+
+                         const dataArray = Object.keys(this.state.equipment).map(i => this.state.equipment[i])
+                         this.equipment = dataArray;
+                         console.log(this.equipment[0]);
+                     },
+                     (error) => {
+                         this.setState({error});
+                     }
+                 )
+         }
    
          }
    
