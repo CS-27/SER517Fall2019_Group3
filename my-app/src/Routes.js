@@ -34,7 +34,6 @@ export default({ childProps }) =>
             <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
             <AppliedRoute path="/signin" exact component={Signin} props={childProps} />
             <AppliedRoute path="/about" exact component={About} props={childProps} />
-            <AppliedRoute path="/profile" exact component={Backdrop} props={childProps} />
             <AppliedRoute path="/" exact component={Backdrop} props={childProps} />
             <AppliedRoute path="/equipmentList" exact component={equipmentList} props={childProps} />
             <AppliedRoute path="/equipment" exact component={Equipment} props={childProps} />
@@ -44,6 +43,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/addShoppingItem" exact component={ShoppingPage} props={childProps} />
             <AppliedRoute path="/shoppinglist" exact component={ListShopping} props={childProps} />
             <AppliedRoute path="/addRecipe" exact component={AddRecipe} props={childProps} />
+            <AppliedRoute path="/profile" exact component={AddRecipe} props={childProps} />
 
             <AppliedRoute path="/showRecipe" exact component={RecipeHome} props={childProps} />
  
