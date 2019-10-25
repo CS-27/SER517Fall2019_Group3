@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import { Table, Button } from 'reactstrap';
 import Loader from 'react-loader-spinner';
 
+
 import { Container } from 'react-bootstrap';
 export default class Profile extends Component {
    
@@ -44,10 +45,12 @@ export default class Profile extends Component {
               })
                 .then(response => response.json())
                 .then(res => {
+                    this.loading = false;
                     var person =res['User Details'];
                     console.log(person.email)
                     this.setState({user:person})
                     console.log(this.state.user)
+                    
                 });
 
 
@@ -64,14 +67,14 @@ export default class Profile extends Component {
          <Card.Body className = "card-body">
          
          <Card.Title className="card-title">Profile</Card.Title>
-         {this.loading ?       <Loader
-                        type="Circles"
-                        color="#00BFFF"
-                        height={100}
-                        width={100}
-                        timeout={3000} //3 secs
+         {this.loading ? <Loader
+                            type="Circles"
+                            color="#00BFFF"
+                            height={100}
+                            width={100}
+                            timeout={3000} //3 secs
 
-                        />: 
+                        />:(
          <Table responsive hover>
         <thead>
           <tr>
@@ -95,7 +98,7 @@ export default class Profile extends Component {
           
         </tbody>
       </Table>
-         }
+                        )}
       
          </Card.Body>
        </Card>
