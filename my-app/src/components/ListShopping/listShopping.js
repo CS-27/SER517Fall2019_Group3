@@ -118,7 +118,7 @@ export default class ListShopping extends Component {
                  width={100}
                  timeout={3000} //3 secs
 
-             />: <DataTable userID={this.state.userID} items={this.state.items}  updateState={this.updateState}></DataTable>}
+             />: <DataTable  itemType="shoppinglist" userID={this.state.userID} items={this.state.items}  updateState={this.updateState}></DataTable>}
 
 
 

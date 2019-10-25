@@ -103,7 +103,7 @@ export default class equipmentList extends Component {
              width={100}
              timeout={3000} //3 secs
     
-          />: <DataTable userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState}></DataTable>}
+          />: <DataTable itemType="equipment" userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState}></DataTable>}
     
     
           

@@ -18,9 +18,23 @@ class AddEditForm extends React.Component {
 
 
   submitFormEdit = e => {
+    var itemType = this.props.itemType;
+    var url = "";
+    if(itemType === "ingredient"){
+      url = 'http://127.0.0.1:5000/updateIngredient';
+    }
+
+    if(itemType === "equipment"){
+      url = 'http://127.0.0.1:5000/updateEquipment';
+    }
+
+    if(itemType === "shoppinglist"){
+      url = 'http://127.0.0.1:5000/updateShoppingList';
+    }
+    
     e.preventDefault()
-    fetch('http://127.0.0.1:5000/updateIngredient', {
-      method: 'put',
+    fetch(url, {
+      method: 'post',
       headers: {
         'Content-Type': 'application/json'
       },
