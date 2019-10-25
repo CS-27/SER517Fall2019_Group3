@@ -48,7 +48,7 @@ def updateShoppingList(userID, shopList):
 	search_query = { "userID": userID }
 	if result:
 		for key,value in shopList.items():
-			new_value = {"$set" : {key:str(int(value)+int(result[key]))}}
+			new_value = {"$set" : {key:str(int(value))}}
 			updateCollection = collection.update(search_query, new_value, upsert=True)
 		return True
 	else:

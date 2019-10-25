@@ -21,7 +21,7 @@ import ShoppingPage from './components/ShoppingPage/shoppingPage';
 import ListShopping from './components/ListShopping/listShopping';
 import ListUser from './components/ListUser/listUser';
 import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
-
+import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
 
 import BeerStatus from "./components/StatusPage/beerStatus";
@@ -34,7 +34,6 @@ export default({ childProps }) =>
             <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
             <AppliedRoute path="/signin" exact component={Signin} props={childProps} />
             <AppliedRoute path="/about" exact component={About} props={childProps} />
-            <AppliedRoute path="/profile" exact component={Backdrop} props={childProps} />
             <AppliedRoute path="/" exact component={Backdrop} props={childProps} />
             <AppliedRoute path="/equipmentList" exact component={equipmentList} props={childProps} />
             <AppliedRoute path="/equipment" exact component={Equipment} props={childProps} />
@@ -42,8 +41,9 @@ export default({ childProps }) =>
             <AppliedRoute path="/addingredient" exact component={IngredientPage} props={childProps} />
             <AppliedRoute path="/ingredientList" exact component={ListIngredient} props={childProps} />
             <AppliedRoute path="/addShoppingItem" exact component={ShoppingPage} props={childProps} />
-            <AppliedRoute path="/shoppingList" exact component={ListShopping} props={childProps} />
+            <AppliedRoute path="/shoppinglist" exact component={ListShopping} props={childProps} />
             <AppliedRoute path="/addRecipe" exact component={AddRecipe} props={childProps} />
+            <AppliedRoute path="/profile" exact component={Profile} props={childProps} />
 
             <AppliedRoute path="/showRecipe" exact component={RecipeHome} props={childProps} />
  
