@@ -29,6 +29,7 @@ def showRecipeByName(name):
 	collection = db.recipe_info
 
 	result = collection.find_one({'name' : name})
+	#print result
 	return json.dumps(result, default=json_util.default)
 
 
