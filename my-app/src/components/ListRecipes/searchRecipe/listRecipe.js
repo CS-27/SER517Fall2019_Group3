@@ -75,7 +75,7 @@ export default class ListRecipe extends Component {
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCard">
+            <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >Recipe List </Card.Title>
              <Form onSubmit={this.handleSubmit}>
