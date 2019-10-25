@@ -30,10 +30,31 @@ export default class RecipeHome extends Component {
     });
   }
 
-  deleteItem = () => {
+  deleteItemAM = () => {
     let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
     if(confirmDelete){
-     this.deleteIngredient();
+     this.deleteIngredientAM();
+    }
+  }
+
+  deleteItemWW = () => {
+    let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
+    if(confirmDelete){
+     this.deleteIngredientWW();
+    }
+  }
+
+  deleteItemWD = () => {
+    let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
+    if(confirmDelete){
+     this.deleteIngredientWD();
+    }
+  }
+
+  deleteItemSP = () => {
+    let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
+    if(confirmDelete){
+     this.deleteIngredientSP();
     }
   }
 
@@ -56,7 +77,7 @@ export default class RecipeHome extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: "AmericanPaleAleCustom"
+        name: "AmericanPaleAle"
       })
     })
   }
@@ -114,7 +135,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/americanPaleAle.jpg" thumbnail/>
         <Card.Title>American Pale Ale</Card.Title>
         <ModalForm buttonLabel="view" />
-        <Button id = "btn" type="submit" >Delete</Button>
+        <Button id = "btn" type="submit" onClick={this.deleteItemAM}>Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -124,7 +145,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/winterWarmer.jpeg" thumbnail/>
         <Card.Title>Winter Warmer</Card.Title>
         <ModalFormWW buttonLabel="view" />
-        <Button id = "btn" type="submit" onClick={this.deleteItem} >Delete</Button>
+        <Button id = "btn" type="submit" onClick={this.deleteItemWW} >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -137,7 +158,7 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/whitedogIPA.jpg" thumbnail/>
         <Card.Title>White Dog IPA</Card.Title>
         <ModalFormWD buttonLabel="view" />
-        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
+        <Button id = "btn" variant="primary" type="submit" onClick={this.deleteItemWD}>Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -148,7 +169,7 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
         <Card.Title>Smash Pale Ale</Card.Title>
         <ModalFormSP buttonLabel="view" />
-        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
+        <Button id = "btn" variant="primary" type="submit" onClick={this.deleteItemSP}>Delete</Button>
       </Card.Body>
     </Card>
   </Col>

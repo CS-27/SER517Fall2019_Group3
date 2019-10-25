@@ -41,7 +41,7 @@ export default class recipeList extends Component {
        getRecipe=()=>{
         var convention= this.props.value;
         console.log(convention)
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=AmericanPaleAleCustom'
+        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=AmericanPaleAle'
         
           fetch(apiUrl)
           .then(res => res.json())

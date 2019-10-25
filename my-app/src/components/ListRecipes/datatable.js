@@ -18,7 +18,6 @@ class DataTable extends Component {
 
     const items = this.props.items.map(item => {
       return (
-        <div>
         
         
         <tr >
@@ -27,7 +26,6 @@ class DataTable extends Component {
           <td>{item[1]}</td>
           </tr>
        
-          </div>
       
         )
       })
