@@ -79,7 +79,8 @@ def allRecipes():
 
 	collection = db.recipe_info
 	result = list(collection.find({}))
-	print result
+	# print result
+
 	return json.dumps(result, default=json_util.default)
 
 
