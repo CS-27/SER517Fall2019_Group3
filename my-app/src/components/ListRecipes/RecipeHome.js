@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import ModalForm from './Modals/modalFormAM';
 import ModalFormWD from './Modals/modalFormWD';
 import ModalFormWW from './Modals/modalFormWW';
+import showRecipeWinterWarmer from './showRecipeWinterWarmer';
 
 
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -18,7 +19,7 @@ export default class RecipeHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false,
+      showComponent: false
     };
     this._onButtonClick = this._onButtonClick.bind(this);
   }
@@ -28,6 +29,63 @@ export default class RecipeHome extends Component {
       showComponent: true,
     });
   }
+
+  deleteItem = () => {
+    let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
+    if(confirmDelete){
+     this.deleteIngredient();
+    }
+  }
+
+  deleteIngredientWW =()=>{
+    fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "WinterWarmer"
+      })
+    })
+  }
+
+  deleteIngredientAM =()=>{
+    fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "AmericanPaleAleCustom"
+      })
+    })
+  }
+
+  deleteIngredientSP =()=>{
+    fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "SmashPaleAle"
+      })
+    })
+  }
+
+
+  deleteIngredientWD =()=>{
+    fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "WhiteDogIPA"
+      })
+    })
+  }
+
 
   render(){
   return (
@@ -56,7 +114,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/americanPaleAle.jpg" thumbnail/>
         <Card.Title>American Pale Ale</Card.Title>
         <ModalForm buttonLabel="view" />
-        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
+        <Button id = "btn" type="submit" >Delete</Button>
       </Card.Body>
     </Card>
   </Col>
@@ -66,7 +124,7 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/winterWarmer.jpeg" thumbnail/>
         <Card.Title>Winter Warmer</Card.Title>
         <ModalFormWW buttonLabel="view" />
-        <Button id = "btn" variant="primary" type="submit" >Delete</Button>
+        <Button id = "btn" type="submit" onClick={this.deleteItem} >Delete</Button>
       </Card.Body>
     </Card>
   </Col>

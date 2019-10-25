@@ -21,7 +21,7 @@ export default class recipeList extends Component {
       
         this.state = {
           error: null,
-          name:"",
+          name:"WinterWarmer2",
           recipe: [],
           response: {}
         }
@@ -39,32 +39,15 @@ export default class recipeList extends Component {
         event.preventDefault();
       }
 
-      deleteItem = (item) => {
-        console.log(item);
-        const updatedItems = this.state.recipe.filter(i => i[0] !== item[0]);
-        this.setState({ recipe: updatedItems })
+      // deleteItem = (item) => {
+      //   console.log(item);
+      //   const updatedItems = this.state.recipe.filter(i => i[0] !== item[0]);
+      //   this.setState({ recipe: updatedItems })
 
-      }
-
-
+      // }
 
 
-      deleteRecipe =(name)=>{
-        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: this.state.name
-            //[item[0]]:item[1]
-          })
-        })
-          .then(() => {
-            this.deleteItem(name)
-          })
-          .catch(err => console.log(err))
-      }
+     
 
 
 
@@ -124,7 +107,7 @@ export default class recipeList extends Component {
                 width={100}
                 timeout={3000} //3 secs
         
-            />: <DataTable items={this.state.recipe} ></DataTable>}
+            />: <DataTable items={this.state.recipe} deleteIngredient = {this.deleteIngredient}></DataTable>}
 
                 </Card.Body>
             </Card>

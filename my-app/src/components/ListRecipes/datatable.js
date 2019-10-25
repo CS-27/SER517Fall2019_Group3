@@ -2,19 +2,24 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './datatable.css'
 import ModalFormWW from './Modals/modalFormWW'
+import showRecipe from './showRecipeWinterWarmer'
 class DataTable extends Component {
 
-  deleteItem = (item) => {
-    let confirmDelete = window.confirm('Delete item forever?')
-    if(confirmDelete){
-     this.props.deleteIngredient(item);
-    }
+  // deleteItem = (item) => {
+  //   let confirmDelete = window.confirm('Delete item forever?')
+  //   if(confirmDelete){
+  //    this.props.deleteIngredient(item);
+  //   }
 
-  }
+  // }
+
+
   render() {
 
     const items = this.props.items.map(item => {
       return (
+        <div>
+        
         
         <tr >
           
@@ -22,7 +27,7 @@ class DataTable extends Component {
           <td>{item[1]}</td>
           </tr>
        
-        
+          </div>
       
         )
       })
