@@ -1,4 +1,4 @@
-import AddEditForm from './addEditForm'
+import AddMoreForm from './addMoreForm'
 
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
@@ -41,7 +41,7 @@ class ModalFormAddMore extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
-            <AddEditForm
+            <AddMoreForm
             itemType = {this.props.itemType}
               userID = {this.props.userID}
               addItemToState={this.props.addItemToState}
