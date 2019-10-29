@@ -70,6 +70,19 @@ def showAllRecipes():
 	response = jsonify({'All Recipes' : json.loads(recipeFunctions.allRecipes())})
 	return response
 
+
+@brewDay_api.route('/myRecipes', methods = ['POST'])
+def myRecipes():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key, value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe addition status' : recipeFunctions.createUserRecipes(userID, recipeList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 # # # # Equipment Functions # # # # 
 
 @brewDay_api.route('/showEquipment', methods = ['GET'])

@@ -84,4 +84,16 @@ def allRecipes():
 	return json.dumps(result, default=json_util.default)
 
 
+def createUserRecipes(userID, recipeInfo):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+
+	collection = db[userID]
+	if not collection.find_one({'name': recipeInfo['name']}):
+		result = collection.insert_one(recipeInfo)
+		return True
+	else:
+		return False
+		
+
 
