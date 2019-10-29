@@ -11,3 +11,18 @@
     background-color: #5A3426 !important;
 }
 
+.cardMain{
+
+    width: 60rem;
+    margin: 0 auto;   
+    opacity: 0.9;
+    height: 50rem;
+    
+
+}
+
+.titleCard{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 2rem;
+}
