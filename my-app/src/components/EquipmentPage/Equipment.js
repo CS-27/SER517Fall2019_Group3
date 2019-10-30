@@ -62,6 +62,7 @@ handleChange = event => {
             if(res.status=="200")
                this.message = 'Equipment added successfully'
             console.log(res.status) ;
+            this.props.history.push('/equipmentList')
         }).catch(err => console.log(err));
 
 

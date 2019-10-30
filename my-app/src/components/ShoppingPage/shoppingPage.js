@@ -56,6 +56,7 @@ export default class ShoppingPage extends Component {
             if(res.status===200)
                 this.message = 'Item added successfully'
             console.log(res.status) ;
+            this.props.history.push('/shoppinglist')
         }).catch(err => console.log(err));
         // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
         // then(response=> {

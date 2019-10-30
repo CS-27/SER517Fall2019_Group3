@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import './listShopping.css';
 import Card from 'react-bootstrap/Card';
 import DataTable from '../ListIngredients/datatable';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 export default class ListShopping extends Component {
     constructor(props) {
@@ -32,13 +32,18 @@ export default class ListShopping extends Component {
         });
     }
 
-    handleSubmit = (event) => {
-        console.log(this.state);
-        var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+    // handleSubmit = (event) => {
+    //     console.log(this.state);
+    //     var xhr = new XMLHttpRequest()
+    //     xhr.open('POST', 'http://127.0.0.1:5000/')
+    //
+    //     event.preventDefault();
+    // }
 
-        event.preventDefault();
+    handleSubmit = event => {
+        this.props.history.push('/addShoppingItem')
     }
+
 
     deleteAutoItem = (item) => {
         console.log(item);
@@ -209,7 +214,7 @@ export default class ListShopping extends Component {
                                         updateState={this.updateState}
                                         deleteItem = {this.deleteItem} 
                                         deleteIngredient = {this.deleteIngredient}></DataTable>}
-
+                        <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
                         <Card.Title className="titleCard" >Auto-Shopping List </Card.Title>
                         {this.loading ?       <Loader
                         type="Circles"
@@ -223,6 +228,8 @@ export default class ListShopping extends Component {
                         updateState={this.updateStateAuto}
                         deleteItem = {this.deleteAutoItem} deleteIngredient = {this.deleteIngredient}></DataTable>
                         }
+
+
 
 
                     </Card.Body>

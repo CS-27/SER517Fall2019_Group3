@@ -89,6 +89,7 @@ handleSubmit=(event) => {
         if(res.status===200)
            this.message = 'Recipe added successfully'
         console.log(res.status) ;
+        // this.props.history.push('/')
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
