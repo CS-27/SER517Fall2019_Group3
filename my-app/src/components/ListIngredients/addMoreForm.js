@@ -4,33 +4,37 @@ import './addEdit.css'
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col } from 'react-bootstrap';
 
-class AddEditForm extends React.Component {
+class AddMoreForm extends React.Component {
   state = {
     name:'',
     quantity:'',
     userID:''
   }
-
+  currItem = {
+    name:'',
+    quantity:'',
+    userID:''
+  }
   onChange = e => {
     this.setState({[e.target.name]: e.target.value})
   }
 
 
 
-  submitFormEdit = e => {
+  submitForm = e => {
     var itemType = this.props.itemType;
     var url = "";
     if(itemType === "ingredient"){
-      url = 'http://127.0.0.1:5000/updateIngredient';
+      url = 'http://127.0.0.1:5000/addMoreIngredient';
     }
 
     if(itemType === "equipment"){
-      url = 'http://127.0.0.1:5000/updateEquipment';
+      url = 'http://127.0.0.1:5000/addMoreEquipment';
     }
 
     if(itemType === "shoppinglist"){
       
-      url = 'http://127.0.0.1:5000/updateShoppingList';
+      url = 'http://127.0.0.1:5000/addMoreShoppingList';
     }
     console.log(url)
     
@@ -49,7 +53,11 @@ class AddEditForm extends React.Component {
     })
       .then(response => {
         this.props.toggle();
-        this.props.updateState([this.state.name,this.state.quantity ]);
+        var i1 = parseInt(this.state.quantity,10);
+        var i2 = parseInt(this.props.item[1]);
+        var c= i1+i2;
+        console.log(i1+i2);
+        this.props.updateState([this.state.name,c]);
       })
       
       .catch(err => console.log(err))
@@ -61,7 +69,12 @@ class AddEditForm extends React.Component {
       console.log(this.props.item)
       const name = this.props.item[0];
       const quantity = this.props.item[1];
-      this.setState({ name, quantity})
+      const q ='';
+      this.currItem = {[name]:quantity};
+      console.log(this.currItem)
+      this.setState({ name,q })
+
+      
     }
   }
 
@@ -71,16 +84,16 @@ class AddEditForm extends React.Component {
       <Container>
       <Card  className="mainCardIn">
    <Card.Body className = "card-body">
-      <Form onSubmit={this.submitFormEdit}>
+      <Form onSubmit={this.submitForm}>
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input type="text" name="name" id="name" disabled = "disabled" onChange={this.onChange} value={this.state.name === null ? '' : this.state.name} />
+          <Input disabled = "disabled" type="text" name="name" id="name" onChange={this.onChange} value={this.state.name} />
         </FormGroup>
         <FormGroup>
           <Label for="last">Quantity</Label>
-          <Input type="text" name="quantity" id="quantity" onChange={this.onChange} value={this.state.quantity === null ? '' : this.state.quantity}  />
+          <Input type="text" name="quantity" id="quantity" onChange={this.onChange} value={this.state.quantity}  />
         </FormGroup>
-        <Button id ="btn-color">Edit</Button>
+        <Button id ="btn-color">Add More</Button>
       </Form>
       </Card.Body>
        </Card>
@@ -89,4 +102,4 @@ class AddEditForm extends React.Component {
   }
 }
 
-export default AddEditForm
+export default AddMoreForm
