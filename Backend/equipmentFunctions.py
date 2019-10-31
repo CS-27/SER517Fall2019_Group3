@@ -53,6 +53,23 @@ def updateEquipmentQuantity(userID, equipList):
 	else:
 		return False
 
+def addMoreEquipmentQuantity(userID, equipList):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/equipment?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.equipment
+
+	collection = db.userEquipment
+
+	result = collection.find_one({'userID': userID})
+	#search_query = { "userID": userIngList['userID'] }
+	search_query = { "userID": userID }
+	if result:
+		for key,value in equipList.items():
+			new_value = {"$set" : {key:int(value)+int(result[key])}}
+			updateCollection = collection.update(search_query, new_value, upsert=True)
+		return True
+	else:
+		return False
+
 def deleteEquipment(userID, equipList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.equipment

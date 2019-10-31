@@ -104,6 +104,19 @@ def updateEquipment():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addMoreEquipment', methods = ['POST'])
+def addMoreEquipment():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Equipment Update status' : equipmentFunctions.addMoreEquipmentQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 
 @brewDay_api.route('/deleteEquipment', methods = ['POST'])
 def deleteEquipment():
@@ -139,6 +152,20 @@ def updateIngredient():
 	userID = ingList['userID']
 	del ingList['userID']
 	response = jsonify({'Ingredient Update status' : ingredientFunctions.updateIngredientQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+@brewDay_api.route('/addMoreIngredient', methods = ['POST'])
+def addMoreIngredient():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Ingredient Update status' : ingredientFunctions.addMoreIngredientQuantity(userID,ingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -204,6 +231,18 @@ def updateShopList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addMoreShoppingList', methods = ['POST'])
+def addMoreShopList():
+	req_data = request.get_json(force = True)
+	shopList = {}
+	#print req_data
+	for key,value in req_data.items():
+		shopList.__setitem__(key,value)
+	userID = shopList['userID']
+	del shopList['userID']
+	response = jsonify({'Shop List Update status' : shoppingListFunctions.addMoreShoppingList(userID,shopList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 @brewDay_api.route('/deleteShopListItems', methods = ['POST'])
 def deleteShopListItems():

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './datatable.css'
+import ModalFormAddMore from './modalFormAddMore'
 import ModalForm from './modalForm'
 class DataTable extends Component {
 
@@ -22,8 +23,12 @@ class DataTable extends Component {
           <td>
           
               <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
-              
+
           
+          </td>
+          <td>
+          <ModalFormAddMore itemType={this.props.itemType} userID = {userID} buttonLabel="Add More" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
+
           </td>
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item)}>Del</Button>
@@ -40,6 +45,7 @@ class DataTable extends Component {
             <th>Name</th>
             <th>Quantity</th>
             <th>Edit</th>
+            <th>Add More</th>
             <th>Delete</th>
         
           </tr>
