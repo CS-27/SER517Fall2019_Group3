@@ -92,8 +92,18 @@ export default class ButtonAppBar extends Component {
                   <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >View Recipe</Button>
                   <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
                 </div>
+
+                
               </div>
 
+              <div className="dropdown">
+                <Button className="text-capitalize" color="inherit">My Recipes</Button>
+                <div className="dropdown-content">
+                <Button component={Link} to="/addRecipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
+                  <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >View Recipe</Button>
+                  <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
+                </div>
+              </div>
               
 
               
