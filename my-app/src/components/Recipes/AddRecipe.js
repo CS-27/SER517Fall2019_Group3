@@ -28,6 +28,7 @@ export default class AddRecipe extends Component {
     grain:"",
     Hops:[],
     Grains:[],
+    Grains2:[],
     HopsSchedule:[]
   };
 
@@ -50,22 +51,18 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
-  //var try=this.state;
   const hopsArray = this.state.Hops1.split(',');
-    this.setState({
-      Hops: hopsArray
-    });
-    const grainArray = this.state.grain.split(',');
-    this.setState({
-      Grains: grainArray
-    });
+  // console.log("hopsarray")
+  // console.log(hopsArray)
+
+    this.state.Hops= hopsArray
+    this.state.Grains= this.state.grain.split(',')
+
     const sArray = this.state.schedule.split(',');
-    this.setState({
-      HopsSchedule: sArray
-    });
+    this.state.HopsSchedule= sArray 
+
     console.log(this.state);
     var data = this.state;
-    //console.log(data);
   
     
     fetch('http://127.0.0.1:5000/addRecipe', {
@@ -108,7 +105,7 @@ render() {
          <Card.Body>
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
          <p>{this.message}</p>
-      <Form onSubmit={this.handleSubmit} >
+      <Form >
           <Row>
           <Col>
         <FormGroup controlId="name">
@@ -124,11 +121,11 @@ render() {
                 </Col>
                 <Col> 
         <FormGroup controlId="Malt">
-            <FormLabel color="white" >Malt</FormLabel>
+            <FormLabel color="white" >Batch Size</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="in lbs"
+                        placeholder="in gallons"
                         value={this.state.Malt}
                         onChange={this.handleChange}
             />
@@ -167,13 +164,14 @@ render() {
                 </FormGroup>
         
             <FormGroup controlId="grain">
-                    <FormLabel color="white" >All Grain</FormLabel>
+                    <FormLabel color="white" >Grains/Malt</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
                         placeholder="grain1 qty1, grain2 qty2.."
                         value={this.state.grain} 
                         onChange={this.handleChange}
+                        
                     />
                 </FormGroup>
         </FormGroup>
