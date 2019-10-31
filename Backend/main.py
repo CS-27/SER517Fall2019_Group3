@@ -143,6 +143,20 @@ def updateIngredient():
 	return response
 
 
+@brewDay_api.route('/addMoreIngredient', methods = ['POST'])
+def addMoreIngredient():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Ingredient Update status' : ingredientFunctions.addMoreIngredientQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 @brewDay_api.route('/deleteIngredient', methods = ['POST'])
 def deleteIngredient():
 	req_data = request.get_json(force = True)

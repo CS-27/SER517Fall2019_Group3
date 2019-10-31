@@ -21,11 +21,11 @@ class AddMoreForm extends React.Component {
 
 
 
-  submitFormEdit = e => {
+  submitForm = e => {
     var itemType = this.props.itemType;
     var url = "";
     if(itemType === "ingredient"){
-      url = 'http://127.0.0.1:5000/updateIngredient';
+      url = 'http://127.0.0.1:5000/addMoreIngredient';
     }
 
     if(itemType === "equipment"){
@@ -53,7 +53,11 @@ class AddMoreForm extends React.Component {
     })
       .then(response => {
         this.props.toggle();
-        this.props.updateState([this.state.name,this.state.quantity]);
+        var i1 = parseInt(this.state.quantity,10);
+        var i2 = parseInt(this.props.item[1]);
+        var c= i1+i2;
+        console.log(i1+i2);
+        this.props.updateState([this.state.name,c]);
       })
       
       .catch(err => console.log(err))
@@ -80,7 +84,7 @@ class AddMoreForm extends React.Component {
       <Container>
       <Card  className="mainCardIn">
    <Card.Body className = "card-body">
-      <Form onSubmit={this.submitFormEdit}>
+      <Form onSubmit={this.submitForm}>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input disabled = "disabled" type="text" name="name" id="name" onChange={this.onChange} value={this.state.name} />
@@ -89,7 +93,7 @@ class AddMoreForm extends React.Component {
           <Label for="last">Quantity</Label>
           <Input type="text" name="quantity" id="quantity" onChange={this.onChange} value={this.state.quantity}  />
         </FormGroup>
-        <Button id ="btn-color">Edit</Button>
+        <Button id ="btn-color">Add More</Button>
       </Form>
       </Card.Body>
        </Card>

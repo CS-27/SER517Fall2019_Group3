@@ -49,7 +49,7 @@ class AddEditForm extends React.Component {
     })
       .then(response => {
         this.props.toggle();
-        this.props.updateState([this.state.name,this.state.quantity]);
+        this.props.updateState([this.state.name,this.state.quantity ]);
       })
       
       .catch(err => console.log(err))
