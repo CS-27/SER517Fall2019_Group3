@@ -6,7 +6,7 @@ import './listingredient.css';
 import Card from 'react-bootstrap/Card';
 import DataTable from './datatable';
 import Loader from 'react-loader-spinner';
-import { Container } from 'react-bootstrap';
+import {Button, Container} from 'react-bootstrap';
 export default class ListIngredient extends Component {
    
     constructor(props) {
@@ -36,10 +36,7 @@ export default class ListIngredient extends Component {
  
 
     handleSubmit=(event)=> {
-        var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
-        
-        event.preventDefault();
+        this.props.history.push('/addingredient')
       }
 
       getIngredients=()=>{
@@ -146,6 +143,7 @@ export default class ListIngredient extends Component {
          timeout={3000} //3 secs
 
       />: <DataTable itemType="ingredient" userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState} deleteItem = {this.deleteItem} deleteIngredient = {this.deleteIngredient}></DataTable>}
+             <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
 
 
       

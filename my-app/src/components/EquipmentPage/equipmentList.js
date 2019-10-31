@@ -20,19 +20,21 @@ export default class equipmentList extends Component {
           equipment: [],
           response: {}
         }
+         this.uname=sessionStorage.getItem("username")
+         if(this.uname==null)
+         {
+             this.props.history.push('/signin')
+         }
         this.equipment = null;
         this.loading = true;
+
         this.getEquipment();
         
     }
 
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
-        var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
-
-        event.preventDefault();
+        this.props.history.push('/equipment')
       }
       updateState = (item) => {
         
@@ -134,9 +136,10 @@ export default class equipmentList extends Component {
              timeout={3000} //3 secs
     
           />: <DataTable itemType="equipment" userID={this.state.userID} items={this.state.equipment}  updateState={this.updateState} deleteItem = {this.deleteItem} deleteIngredient = {this.deleteIngredient}></DataTable>}
-    
-    
-          
+                 <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
+
+
+
              </Card.Body>
            </Card>
                 </Container>
