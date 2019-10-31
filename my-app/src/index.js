@@ -11,10 +11,10 @@ import IngredientPage from './components/IngredientPage/ingredientPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Toolbar from "./components/Toolbar/Toolbar";
-import ListRecipe from "./components/AllRecipes/listRecipe";
+import ListRecipe from "./components/AllRecipes/listRecipeAll";
 
 
-ReactDOM.render(<ListRecipe />, document.getElementById('root'));
+ReactDOM.render(<Toolbar />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
