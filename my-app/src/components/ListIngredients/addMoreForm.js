@@ -34,7 +34,7 @@ class AddMoreForm extends React.Component {
 
     if(itemType === "shoppinglist"){
       
-      url = 'http://127.0.0.1:5000/updateShoppingList';
+      url = 'http://127.0.0.1:5000/addMoreShoppingList';
     }
     console.log(url)
     
