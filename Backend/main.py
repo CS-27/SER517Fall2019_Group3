@@ -104,6 +104,19 @@ def updateEquipment():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addMoreEquipment', methods = ['POST'])
+def addMoreEquipment():
+	req_data = request.get_json(force = True)
+	ingList = {}
+	#print req_data
+	for key,value in req_data.items():
+		ingList.__setitem__(key,value)
+	userID = ingList['userID']
+	del ingList['userID']
+	response = jsonify({'Equipment Update status' : equipmentFunctions.addMoreEquipmentQuantity(userID,ingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 
 @brewDay_api.route('/deleteEquipment', methods = ['POST'])
 def deleteEquipment():

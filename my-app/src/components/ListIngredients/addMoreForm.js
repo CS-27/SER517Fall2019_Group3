@@ -29,7 +29,7 @@ class AddMoreForm extends React.Component {
     }
 
     if(itemType === "equipment"){
-      url = 'http://127.0.0.1:5000/updateEquipment';
+      url = 'http://127.0.0.1:5000/addMoreEquipment';
     }
 
     if(itemType === "shoppinglist"){
