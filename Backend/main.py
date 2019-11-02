@@ -319,6 +319,14 @@ def userProfile():
 	return response
 
 
+@brewDay_api.route('/userSearch', methods = ['GET'])
+def userSearch():
+	req_data = request.args.get('user')
+	response = jsonify({'User Details' : json.loads(userLoginFunctions.searchUser(req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response	
+
+
 
 
 if __name__ == '__main__':
