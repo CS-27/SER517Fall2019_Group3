@@ -5,12 +5,11 @@ Date modified : Sept 30, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import RecipeDetails from "./RecipeDetails";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
-import HopsList from "./HopsSchedule";
+
 import Button from '@material-ui/core/Button';
 
 
@@ -28,7 +27,6 @@ export default class AddRecipe extends Component {
     grain:"",
     Hops:[],
     Grains:[],
-    Grains2:[],
     HopsSchedule:[]
   };
 
@@ -51,18 +49,22 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
+  //var try=this.state;
   const hopsArray = this.state.Hops1.split(',');
-  // console.log("hopsarray")
-  // console.log(hopsArray)
-
-    this.state.Hops= hopsArray
-    this.state.Grains= this.state.grain.split(',')
-
+    this.setState({
+      Hops: hopsArray
+    });
+    const grainArray = this.state.grain.split(',');
+    this.setState({
+      Grains: grainArray
+    });
     const sArray = this.state.schedule.split(',');
-    this.state.HopsSchedule= sArray 
-
+    this.setState({
+      HopsSchedule: sArray
+    });
     console.log(this.state);
     var data = this.state;
+    //console.log(data);
   
     
     fetch('http://127.0.0.1:5000/addRecipe', {
@@ -86,7 +88,6 @@ handleSubmit=(event) => {
         if(res.status===200)
            this.message = 'Recipe added successfully'
         console.log(res.status) ;
-        // this.props.history.push('/')
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
@@ -106,7 +107,7 @@ render() {
          <Card.Body>
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
          <p>{this.message}</p>
-      <Form >
+      <Form onSubmit={this.handleSubmit} >
           <Row>
           <Col>
         <FormGroup controlId="name">
@@ -122,11 +123,11 @@ render() {
                 </Col>
                 <Col> 
         <FormGroup controlId="Malt">
-            <FormLabel color="white" >Batch Size</FormLabel>
+            <FormLabel color="white" >Malt</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="in gallons"
+                        placeholder="in lbs"
                         value={this.state.Malt}
                         onChange={this.handleChange}
             />
@@ -165,14 +166,13 @@ render() {
                 </FormGroup>
         
             <FormGroup controlId="grain">
-                    <FormLabel color="white" >Grains/Malt</FormLabel>
+                    <FormLabel color="white" >All Grain</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
                         placeholder="grain1 qty1, grain2 qty2.."
                         value={this.state.grain} 
                         onChange={this.handleChange}
-                        
                     />
                 </FormGroup>
         </FormGroup>
