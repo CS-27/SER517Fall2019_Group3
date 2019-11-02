@@ -83,7 +83,18 @@ def myRecipes():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+@brewDay_api.route('/recipeSearch', methods = ['GET'])
+def recipeSearch():
+	req_data = request.args.get('recipeName')
+	response = jsonify({'Recipe List' : json.loads(recipeFunctions.searchRecipe(req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 # # # # Equipment Functions # # # # 
+
+
 
 @brewDay_api.route('/showEquipment', methods = ['GET'])
 def showEquiment():
