@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de42a868-b14e-47fa-b713-63d5e6488fe1" name="Default Changelist" comment="Basic signup page updated.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/EquipmentPage/equipmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/EquipmentPage/equipmentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="160" column="35" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+            <state relative-caret-position="306">
+              <caret line="120" column="35" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
               <folding>
                 <element signature="e#1#42#0" expanded="true" />
               </folding>
@@ -33,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
+            <state relative-caret-position="333">
               <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
               <folding>
                 <element signature="e#1#42#0" expanded="true" />
@@ -90,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
+            <state relative-caret-position="385">
               <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="8" />
             </state>
           </provider>
@@ -294,6 +291,14 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ShoppingPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SER517Fall2019_Group3" type="462c0819:PsiDirectoryNode" />
+              <item name="my-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Signin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -377,7 +382,7 @@
       <workItem from="1571537337134" duration="19000" />
       <workItem from="1571543359217" duration="505000" />
       <workItem from="1572395675259" duration="1419000" />
-      <workItem from="1572721663670" duration="1192000" />
+      <workItem from="1572721663670" duration="1438000" />
     </task>
     <task id="LOCAL-00001" summary="Basic signup page updated.">
       <created>1568684442191</created>
@@ -397,7 +402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73094000" />
+    <option name="totallyTimeSpent" value="73340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -768,16 +773,6 @@
     <entry file="file://$PROJECT_DIR$/my-app/src/App.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
-          <folding>
-            <element signature="e#1#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/IngredientPage/ingredientPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
@@ -785,13 +780,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -845,10 +833,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/EquipmentPage/Equipment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="64" selection-start-line="64" selection-end-line="65" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ShoppingPage/shoppingPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="160" column="35" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+        <state relative-caret-position="306">
+          <caret line="120" column="35" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
           <folding>
             <element signature="e#1#42#0" expanded="true" />
           </folding>
