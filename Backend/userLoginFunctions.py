@@ -65,7 +65,7 @@ def searchUser(userRegx):
 	#userRegx = userRegx.lower()
 	#print userRegx
 	#db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } )
-	result = list(collection.find({'firstName': {'$regex': userRegx, '$options':'i'}}))
+	result = list(collection.find({'$or' : [{'firstName': {'$regex': userRegx, '$options':'i'}},{'lastName':{'$regex': userRegx}}]}))
 	print result
 	return json.dumps(result, default=json_util.default)
 
