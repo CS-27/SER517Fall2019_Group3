@@ -18,7 +18,6 @@ export default class AddRecipe extends Component {
         super(props);
         this.message = ""
     this.state = {  
-    // object1: [{name:"", quantity:""}],
     name: "",
     Malt: "",
     Directions: "",
@@ -28,14 +27,13 @@ export default class AddRecipe extends Component {
     Hops:[],
     Grains:[],
     HopsSchedule:[],
-    userID: "user2"
+    userID: sessionStorage.getItem("username")
   };
-
-        // this.uname=sessionStorage.getItem("username")
-        // if(this.uname==null)
-        // {
-        //     this.props.history.push('/signin')
-        // }
+  this.uname=sessionStorage.getItem("username")
+  if(this.uname==null)
+  {
+      this.props.history.push('/signin')
+  }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.handleChange = this.handleChange.bind(this);
 }   
