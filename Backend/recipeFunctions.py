@@ -2,7 +2,7 @@ import json
 import pymongo
 from flask import jsonify
 from bson import json_util
-
+import ingredientFunctions
 def addRecipe(recipe):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -96,9 +96,23 @@ def createUserRecipes(userID, recipeInfo):
 		return False
 
 def whatiCanBrewToday(userID):
-	result = allRecipes()
-	print(result)
-	return json.dumps(result, default=json_util.default)
+	recipes  = json.loads(allRecipes())
+	recipeList =[]
+	ingredients = json.loads(ingredientFunctions.showIngredient(userID))
+	ingredientList = []
+	
+	for recipe in recipes:
+		if 'Hops' in recipe:
+			hops = recipe["Hops"]
+			for hop in hops:
+				print(hop)
+				hopArr = hop.split()
+				print(hopArr)
+				
+				
+		
+	output = recipes
+	return json.dumps(output, default=json_util.default)
 	
 
 
