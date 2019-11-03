@@ -1,6 +1,6 @@
 /*Author: Harshita Kajal
-Date added: Sep 29, 2019
-Date modified : Sept 30, 2019
+Date added: Oct 29, 2019
+Date modified : Nov 2, 2019
 */
 
 import React, {Component} from "react";
@@ -27,14 +27,15 @@ export default class AddRecipe extends Component {
     grain:"",
     Hops:[],
     Grains:[],
-    HopsSchedule:[]
+    HopsSchedule:[],
+    userID: "user2"
   };
 
-        this.uname=sessionStorage.getItem("username")
-        if(this.uname==null)
-        {
-            this.props.history.push('/signin')
-        }
+        // this.uname=sessionStorage.getItem("username")
+        // if(this.uname==null)
+        // {
+        //     this.props.history.push('/signin')
+        // }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.handleChange = this.handleChange.bind(this);
 }   
@@ -51,26 +52,24 @@ handleChange = event => {
 handleSubmit=(event) => {
   //var try=this.state;
   const hopsArray = this.state.Hops1.split(',');
-    this.setState({
-      Hops: hopsArray
-    });
+  this.state.Hops=hopsArray
+
     const grainArray = this.state.grain.split(',');
-    this.setState({
-      Grains: grainArray
-    });
+    this.state.Grains= grainArray
+  
     const sArray = this.state.schedule.split(',');
-    this.setState({
-      HopsSchedule: sArray
-    });
+    this.state.HopsSchedule=sArray
+
     console.log(this.state);
     var data = this.state;
     //console.log(data);
   
     
-    fetch('http://127.0.0.1:5000/addRecipe', {
+    fetch('http://127.0.0.1:5000/myRecipes', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({
+        userID: data.userID,  
         name: data.name,
         Directions: data.Directions,
         Malt: data.Malt,
@@ -93,11 +92,6 @@ handleSubmit=(event) => {
 }
 
 
-// addValues = (e) => {
-//     this.setState((prevState) => ({
-//       object1: [...prevState.object1, {name:"", quantity:""}],
-//     }));
-//   }
 
 render() {
   //const items = this.state.Hops.map(item => <li>{item}</li> );

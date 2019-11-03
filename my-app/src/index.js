@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Toolbar from "./components/Toolbar/Toolbar";
 import ListRecipe from "./components/AllRecipes/listRecipeAll";
+import AddRecipe from "./components/UserRecipes/AddRecipe";
 
 
 ReactDOM.render(<Toolbar />, document.getElementById('root'));
