@@ -25,7 +25,7 @@ export default class WhatICanBrew extends Component {
     this.ingredients = null;
     this.loading = true;
     this.getRecipes();
-    
+    this.userID = sessionStorage.getItem("username")
 
 
 
@@ -40,25 +40,33 @@ export default class WhatICanBrew extends Component {
 
       getRecipes=()=>{
           var user= sessionStorage.getItem("username");
+          console.log(user)
+          this.userID = user
+          console.log(this.userID)
           if(user==null)
           {
               this.props.history.push('/signin')
           }
           else {
-              var apiUrl = 'http://127.0.0.1:5000/whatICanBrew=' + user
+              var apiUrl = 'http://127.0.0.1:5000/whatCanIBrewToday'
 
-              fetch(apiUrl)
-                  .then(res => res.json())
-                  .then(
-                      (result) => {
-
-                        this.loading = false;
-
-                      },
-                      (error) => {
-                          this.setState({error});
-                      }
-                  )
+              fetch(apiUrl, {
+                method: 'post',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  
+                  userID : this.userID
+                  
+                })
+              })
+                .then(response => response.json())
+                .then((result)=>{
+                  console.log(result)
+                })
+                
+                .catch(err => console.log(err))
           }
 
       }

@@ -94,6 +94,14 @@ def createUserRecipes(userID, recipeInfo):
 		return True
 	else:
 		return False
+
+def whatiCanBrewToday(userID):
+	result = allRecipes()
+	print(result)
+	return json.dumps(result, default=json_util.default)
+	
+
+
 		
 
 
