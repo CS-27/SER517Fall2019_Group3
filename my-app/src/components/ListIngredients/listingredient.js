@@ -55,6 +55,8 @@ export default class ListIngredient extends Component {
 
                           var data = result['IngredientList'];
 
+                          if (data==null)
+                              return;
                           this.loading = false;
                           var ingredients = [];
                           var userID = ""
