@@ -23,7 +23,7 @@ import ListUser from './components/ListUser/listUser';
 import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
 import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
-import WhatCanIBrew from './components/WhatICanBrewToday';
+import WhatCanIBrew from './components/WhatICanBrewToday/whatIcanBrew';
 import BeerStatus from "./components/StatusPage/beerStatus";
 
 
