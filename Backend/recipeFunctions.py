@@ -111,7 +111,7 @@ def whatiCanBrewToday(userID):
 			for hop in hops:
 				hopArr = hop.strip().split()
 				if len(hopArr) == 2:
-					for ingredient in ingredientList:])
+					for ingredient in ingredientList:
 						if(hopArr[1].isdigit() and ingredient[1].isdigit):
 							intHop = int(hopArr[1])
 							intIngr = int( ingredient[1])
