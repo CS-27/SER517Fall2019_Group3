@@ -105,33 +105,27 @@ def whatiCanBrewToday(userID):
 			ingr = [key,ingredients[key]]
 			ingredientList.append(ingr)
 	flag = False
-	print(ingredientList)
 	for recipe in recipes:
 		if 'Hops' in recipe:
 			hops = recipe["Hops"]
 			for hop in hops:
 				hopArr = hop.strip().split()
 				if len(hopArr) == 2:
-					for ingredient in ingredientList:
-						print(hopArr[0] +" "+ingredient[0]+" ")
-						print(hopArr[1]+" "+ ingredient[1])
+					for ingredient in ingredientList:])
 						if(hopArr[1].isdigit() and ingredient[1].isdigit):
 							intHop = int(hopArr[1])
 							intIngr = int( ingredient[1])
 							if hopArr[0] == ingredient[0] and intHop <= intIngr: 
-								print("here")
 								flag = True
 								break
 							else:
 								flag = False
-		print(flag)
 		if(flag):
 			recipeList.append(recipe)
-		print("end of recipe")
 		flag = False
 
 				
-		
+	
 	output = recipeList
 	print(output)
 	return json.dumps(output, default=json_util.default)
