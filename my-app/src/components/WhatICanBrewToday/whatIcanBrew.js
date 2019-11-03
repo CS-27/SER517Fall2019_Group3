@@ -11,10 +11,8 @@ export default class WhatICanBrew extends Component {
     constructor(props) {
         super(props);
     this.state = {
-      error: null,
       userID: "",
-      ingredients: [],
-      response: {}
+      recipes: [],
     }
 
         this.uname=sessionStorage.getItem("username")
@@ -63,7 +61,12 @@ export default class WhatICanBrew extends Component {
               })
                 .then(response => response.json())
                 .then((result)=>{
-                  console.log(result)
+                  this.setState({
+                    userID: this.userID,
+                    recipes: result['Recipe addition status']
+                });
+                console.log(this.state.recipes)
+                this.loading = false
                 })
                 
                 .catch(err => console.log(err))
@@ -79,7 +82,7 @@ export default class WhatICanBrew extends Component {
             <Card  className="mainCardOne">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >List of Recipes you can Brew</Card.Title>
-  
+          
 
 
       
