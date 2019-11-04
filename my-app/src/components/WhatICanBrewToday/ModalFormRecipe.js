@@ -55,6 +55,24 @@ class ModalFormRecipe extends Component {
        { this.props.item.Malt}
       </td>
     </tr>
+    <tr>
+        <td>Grains</td>
+      <td>
+       { this.props.item.Grains}
+      </td>
+    </tr>
+    <tr>
+        <td>Hops</td>
+      <td>
+       { this.props.item.Hops}
+      </td>
+    </tr>
+    <tr>
+        <td>HopsSchedule</td>
+      <td>
+       { this.props.item.HopsSchedule}
+      </td>
+    </tr>
   </tbody>
 </Table>
           </ModalBody>
