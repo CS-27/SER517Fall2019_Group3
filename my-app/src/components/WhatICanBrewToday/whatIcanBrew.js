@@ -1,11 +1,12 @@
 /*Author: Jahnavi Bantupalli
-Date added: Oct 9, 2019
+Date added: Oct 25 2019
 */
 import React, { Component } from "react";
 import './whatICanBrew.css';
 import Card from 'react-bootstrap/Card';
 import Loader from 'react-loader-spinner';
 import {Button, Container} from 'react-bootstrap';
+import DataTableRecipe from "./DatatableRecipe";
 export default class WhatICanBrew extends Component {
    
     constructor(props) {
@@ -14,17 +15,16 @@ export default class WhatICanBrew extends Component {
       userID: "",
       recipes: [],
     }
+    this.recipes= []
 
         this.uname=sessionStorage.getItem("username")
         if(this.uname==null)
         {
             this.props.history.push('/signin')
         }
-    this.ingredients = null;
     this.loading = true;
     this.getRecipes();
     this.userID = sessionStorage.getItem("username")
-
 
 
         
@@ -38,9 +38,7 @@ export default class WhatICanBrew extends Component {
 
       getRecipes=()=>{
           var user= sessionStorage.getItem("username");
-          console.log(user)
           this.userID = user
-          console.log(this.userID)
           if(user==null)
           {
               this.props.history.push('/signin')
@@ -61,15 +59,20 @@ export default class WhatICanBrew extends Component {
               })
                 .then(response => response.json())
                 .then((result)=>{
-                  this.setState({
-                    userID: this.userID,
-                    recipes: result['Recipe addition status']
-                });
-                console.log(this.state.recipes)
-                this.loading = false
+             
+                  this.loading = false;
+                  var array = JSON.parse(result['Recipe addition status']);
+                this.recipes = array;
+                this.setState({
+                  userID: this.userID,
+                  recipes: array
+              });
+              console.log(this.state.recipes);
                 })
-                
                 .catch(err => console.log(err))
+
+
+                
           }
 
       }
@@ -82,7 +85,17 @@ export default class WhatICanBrew extends Component {
             <Card  className="mainCardOne">
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" >List of Recipes you can Brew</Card.Title>
-          
+         {this.loading ?       <Loader
+         type="Circles"
+         color="#00BFFF"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+
+      />: 
+      <DataTableRecipe items={this.recipes} />
+      }
+           
 
 
       

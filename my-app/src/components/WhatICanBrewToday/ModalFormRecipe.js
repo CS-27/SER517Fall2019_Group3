@@ -1,9 +1,8 @@
-import AddEditForm from './addEditForm'
 
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-import './datatable.css'
-class ModalForm extends Component {
+import { Button, Modal, ModalHeader, ModalBody,Table } from 'reactstrap'
+
+class ModalFormRecipe extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,14 +23,14 @@ class ModalForm extends Component {
 
       let button = ''
       let title = ''
-
-      if(label === 'Edit'){
+    console.log(this.props.item)
+      if(label === 'View'){
         button = <Button
                   id ="btn-color"
                   onClick={this.toggle}
                   >{label}
                 </Button>
-        title = 'Edit'
+        title = 'View'
       } 
 
 
@@ -41,7 +40,23 @@ class ModalForm extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
-
+          <Table responsive hover>
+  
+  <tbody>
+    <tr>
+        <td>Directions</td>
+      <td>
+       { this.props.item.Directions}
+      </td>
+    </tr>
+    <tr>
+        <td>Malt</td>
+      <td>
+       { this.props.item.Malt}
+      </td>
+    </tr>
+  </tbody>
+</Table>
           </ModalBody>
         </Modal>
       </div>
@@ -49,4 +64,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm
+export default ModalFormRecipe
