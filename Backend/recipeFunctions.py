@@ -3,6 +3,8 @@ import pymongo
 from flask import jsonify
 from bson import json_util
 import ingredientFunctions
+import re
+
 def addRecipe(recipe):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -10,10 +12,10 @@ def addRecipe(recipe):
 	collection = db.recipe_info
 	#data = {}
 
-	recipe['name'] = ''.join(e for e in recipe['name'] if e.isalnum())
 	#recipe['name'] = ''.join(e for e in recipe['name'] if e.isalnum())
 	if not collection.find_one({'name':recipe['name']}):
-	    result = collection.insert(recipe)
+		recipe['name'] = recipe['name'].lower()
+		result = collection.insert(recipe)
 	else:
 	    result = False
 	if result:
@@ -131,6 +133,17 @@ def whatiCanBrewToday(userID):
 	return json.dumps(output, default=json_util.default)
 	
 
+
+def searchRecipe(recipeRegx):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+
+	collection = db.recipe_info
+	#recipeRegx = recipeRegx.lower()
+	#print recipeRegx
+	result = list(collection.find({'name': {'$regex': recipeRegx, '$options':'i'}}))
+	#print result
+	return json.dumps(result, default=json_util.default)
 
 		
 

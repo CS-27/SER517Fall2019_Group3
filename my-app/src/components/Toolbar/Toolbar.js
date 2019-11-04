@@ -6,7 +6,7 @@
   Updates to add functionality for MenuButton and other components
 */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,12 +35,18 @@ import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
 import RecipeHome from '../ListRecipes/RecipeHome';
 
-export default class ButtonAppBar extends Component {
+class ButtonAppBar extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+    
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
+    this.props.history.push('/signin')
       alert("Logged out");
+
     }
 
   render() {
@@ -86,11 +92,12 @@ export default class ButtonAppBar extends Component {
 
 
               <div className="dropdown">
-                <Button className="text-capitalize" color="inherit">Recipes</Button>
+                <Button className="text-capitalize" color="inherit">All Recipes</Button>
                 <div className="dropdown-content">
                 <Button component={Link} to="/addRecipe" color="inherit" className="text-capitalize">Make a Recipe</Button>
-                  <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >View Recipe</Button>
+                  <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >Default Recipes</Button>
                   <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
+                  <Button component={Link} to="/ListRecipe" color="inherit" className="text-capitalize" >All Recipes</Button>
                 </div>
               </div>
 
@@ -119,3 +126,7 @@ export default class ButtonAppBar extends Component {
     );
   }
 }
+
+
+export default withRouter(ButtonAppBar);
+// export default withRouter(App);
