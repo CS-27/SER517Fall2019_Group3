@@ -104,6 +104,15 @@ def recipeSearch():
 	return response
 
 
+@brewDay_api.route('/viewMyRecipes', methods = ['GET'])
+def viewMyRecipes():
+	req_data = request.args.get('userID')
+	response = jsonify({'My Recipe List' : json.loads(recipeFunctions.viewUserRecipe(req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+
 # # # # Equipment Functions # # # # 
 
 
