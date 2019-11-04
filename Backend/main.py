@@ -83,6 +83,18 @@ def myRecipes():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/whatCanIBrewToday', methods = ['POST','GET'])
+def whatCanIBrewToday():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key, value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe addition status' : recipeFunctions.whatiCanBrewToday(userID)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 
 @brewDay_api.route('/recipeSearch', methods = ['GET'])
 def recipeSearch():

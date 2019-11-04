@@ -2,6 +2,7 @@ import json
 import pymongo
 from flask import jsonify
 from bson import json_util
+import ingredientFunctions
 import re
 
 def addRecipe(recipe):
@@ -95,6 +96,42 @@ def createUserRecipes(userID, recipeInfo):
 		return True
 	else:
 		return False
+
+def whatiCanBrewToday(userID):
+	recipes  = json.loads(allRecipes())
+	recipeList =[]
+	ingredients = json.loads(ingredientFunctions.showIngredient(userID))
+	ingredientList = []
+	for key in ingredients:
+		if key!='userID' and key!='_id':
+			ingr = [key,ingredients[key]]
+			ingredientList.append(ingr)
+	flag = False
+	for recipe in recipes:
+		if 'Hops' in recipe:
+			hops = recipe["Hops"]
+			for hop in hops:
+				hopArr = hop.strip().split()
+				if len(hopArr) == 2:
+					for ingredient in ingredientList:
+						if(hopArr[1].isdigit() and ingredient[1].isdigit):
+							intHop = int(hopArr[1])
+							intIngr = int( ingredient[1])
+							if hopArr[0] == ingredient[0] and intHop <= intIngr: 
+								flag = True
+								break
+							else:
+								flag = False
+		if(flag):
+			recipeList.append(recipe)
+		flag = False
+
+				
+	
+	output = recipeList
+	print(output)
+	return json.dumps(output, default=json_util.default)
+	
 
 
 def searchRecipe(recipeRegx):
