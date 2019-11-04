@@ -21,10 +21,30 @@ class ModalFormRecipe extends Component {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
       const userID = this.props.userID
       const label = this.props.buttonLabel
+      const result = Object.values(this.props.item.Hops);
+      var arrHops = [];
+      
+for (var key in this.props.item.Hops) {
+  var arrKeys = this.props.item.Hops[key].trim().split(" ");
+    arrHops.push(arrKeys)
+}
+console.log(arrHops)
 
+var arrGrains = [];
+      
+for (var key in this.props.item.Grains) {
+  var arrKeys = this.props.item.Grains[key].trim().split(" ");
+  arrGrains.push(arrKeys)
+}
+
+      const listHops =  arrHops.map((link) =>
+      <li >{link[0]} - {link[1]}</li> 
+  );
+  const listGrains =  arrGrains.map((link) =>
+  <li >{link[0]} - {link[1]}</li> 
+);
       let button = ''
       let title = ''
-    console.log(this.props.item)
       if(label === 'View'){
         button = <Button
                   id ="btn-color"
@@ -61,13 +81,18 @@ class ModalFormRecipe extends Component {
     <tr>
         <td>Grains</td>
       <td>
-       { this.props.item.Grains}
+        <ul>
+            {listGrains}
+        </ul>
       </td>
     </tr>
     <tr>
         <td>Hops</td>
       <td>
-       { this.props.item.Hops}
+          <ul>
+            {listHops}
+          </ul>
+       
       </td>
     </tr>
     <tr>

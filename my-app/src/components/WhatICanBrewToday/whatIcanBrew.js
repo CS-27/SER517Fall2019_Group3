@@ -67,7 +67,6 @@ export default class WhatICanBrew extends Component {
                   userID: this.userID,
                   recipes: array
               });
-              console.log(this.state.recipes);
                 })
                 .catch(err => console.log(err))
 
