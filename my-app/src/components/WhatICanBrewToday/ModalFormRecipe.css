@@ -1,0 +1,29 @@
+/*Author: Jahnavi Bantupalli
+Date added: Oct 25 2019
+*/
+.mainCardOneRecipe{
+
+    width: 20rem;
+    margin: 0 auto;   
+    opacity: .8;
+
+}
+
+.titleCard{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 2rem;
+}
+
+
+
+.card-body-recipe{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
+
+}
+
+
+

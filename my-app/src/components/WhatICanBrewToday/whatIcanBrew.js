@@ -82,8 +82,8 @@ export default class WhatICanBrew extends Component {
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCardOne">
-         <Card.Body className = "card-body">
+            <Card  className="mainCardOneBrew">
+         <Card.Body className = "card-body-brew">
          <Card.Title className="titleCard" >List of Recipes you can Brew</Card.Title>
          {this.loading ?       <Loader
          type="Circles"

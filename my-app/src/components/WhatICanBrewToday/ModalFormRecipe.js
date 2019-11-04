@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody,Table } from 'reactstrap'
-
+import Card from 'react-bootstrap/Card';
+import './ModalFormRecipe.css'
 class ModalFormRecipe extends Component {
   constructor(props) {
     super(props)
@@ -39,8 +40,10 @@ class ModalFormRecipe extends Component {
         {button}
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
-          <ModalBody>
-          <Table responsive hover>
+          <ModalBody>            <Card  className="mainCardOneRecipe">
+         <Card.Body className = "card-body-recipe">
+         <Card.Title className="titleCard" >{this.props.item.name}</Card.Title>
+         <Table responsive hover>
   
   <tbody>
     <tr>
@@ -75,6 +78,10 @@ class ModalFormRecipe extends Component {
     </tr>
   </tbody>
 </Table>
+      
+         </Card.Body>
+       </Card>
+
           </ModalBody>
         </Modal>
       </div>
