@@ -16,10 +16,13 @@ export default class ListUser extends Component {
             error: null,
             items: [],
             response: {},
-            name:""
+            name:"",
+            names:[]
         }
         this.items = null;
         this.loading = true;
+        this.names=null;
+        this.name=null;
 
 
 
@@ -32,7 +35,7 @@ export default class ListUser extends Component {
     }
 
     handleSubmit=(event)=> {
-        console.log(this.state);
+        // console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -40,50 +43,122 @@ export default class ListUser extends Component {
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/userProfile'
+        var apiUrl = 'http://127.0.0.1:5000/userSearch?user='
 
-        fetch(apiUrl,{
-            method: 'POST',
-                mode: 'cors',
-                body: JSON.stringify({
-                userID: this.state.name,
-            }),
-                headers: {
-                'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
-                    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-
-            }
-        })
+        fetch(apiUrl+this.state.name)
+        //     // {
+        //     // method: 'POST',
+        //     //     mode: 'cors',
+        //     //     body: JSON.stringify({
+        //     //     userID: this.state.name,
+        //     // }),
+        //     //     headers: {
+        //     //     'Content-Type': 'application/json',
+        //     //         'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+        //     //         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+        //     //
+        //     // }
+        // // }
+        // )
+        //     .then(res => res.json())
+        //     .then(
+        //         (result) => {
+        //             var data = result['User Details'];
+        //             // console.log(data);
+        //
+        //             this.loading = false;
+        //             this.items = [result['User Details']];
+        //             var names=[];
+        //             var users = [];
+        //
+        //             console.log(this.items);
+        //             console.log(data.length);
+        //
+        //             // Object.keys(data).forEach(function (key) {
+        //             //     users.push()
+        //             // });
+        //
+        //
+        //             for(var i=0;i<this.items.length;i++)
+        //             {
+        //
+        //                 this.items[i].map((values)=>{
+        //
+        //                     names.push([
+        //                         values.firstName
+        //                     ]);
+        //
+        //
+        //                 })
+        //
+        //             }
+        //
+        //
+        //             this.setState({
+        //                 items: this.items,
+        //                 names: names
+        //             });
+        //
+        //             // this.setState({
+        //             //     items: this.items
+        //             // });
+        //
+        //
+        //
+        //             },
+        //         (error) => {
+        //             this.setState({error});
+        //         }
+        //     )
             .then(res => res.json())
             .then(
                 (result) => {
                     var data = result['User Details'];
+                    var names=[];
 
                     this.loading = false;
                     this.items = [result['User Details']];
 
-                    Object.keys(data).forEach(function (key) {
+                    console.log(this.items);
+                    console.log(data.length);
 
-                    });
+
+                    for(var i=0;i<this.items.length;i++)
+                    {
+
+                        this.items[i].map((values)=>{
+
+                            names.push([
+                                values.firstName, values.lastName, values.email
+                            ]);
+
+
+                        })
+
+                    }
+
 
                     this.setState({
-                        items: this.items
+                        items: this.items,
+                        names: names
                     });
 
+                    //console.log(names);
 
-                    },
+
+                },
                 (error) => {
                     this.setState({error});
                 }
             )
+
 
     }
 
 
     renderList() {
         return (
-            
+
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
@@ -108,7 +183,7 @@ export default class ListUser extends Component {
                  width={100}
                  timeout={3000} //3 secs
 
-             />: <UserListDatatable items={this.state.items}></UserListDatatable>}
+             />: <UserListDatatable items={this.state.names}></UserListDatatable>}
 
 
 

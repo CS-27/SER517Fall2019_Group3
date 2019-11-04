@@ -12,13 +12,21 @@ class UserListDatatable extends Component {
     const userID = this.props.userID;
 
     const items = this.props.items.map(item => {
+    // for (items:this.pros.item){
       return (
         <tr  >
-          <td>{item.userID}</td>
-          <td>{item.firstName}</td>
-            <td>{item.lastName}</td>
-            <td>{item.email}</td>
-          <td>
+            {/*{for(items:item)}*/}
+          {/*<td>{item.userID}</td>*/}
+          {/*<td>{item.firstName}</td>*/}
+            {/*<td>{item.lastName}</td>*/}
+            {/*<td>{item.email}</td>*/}
+
+            <td>{item[0]}</td>
+            <td>{item[1]}</td>
+            <td>{item[2]}</td>
+
+            <td>
+
           
               {/*<UserModalForm userID = {userID} buttonLabel="View" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>*/}
               
@@ -31,12 +39,13 @@ class UserListDatatable extends Component {
         </tr>
         )
       })
+      // console.log(items);
 
     return (
       <Table responsive hover>
         <thead>
           <tr>
-            <th>Username</th>
+            {/*<th>Username</th>*/}
             <th>First Name</th>
             <th>Last Name</th>
               <th>Email</th>
