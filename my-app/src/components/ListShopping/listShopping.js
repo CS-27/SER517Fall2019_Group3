@@ -117,7 +117,8 @@ export default class ListShopping extends Component {
                     (result) => {
                         console.log(result['ShoppingList']);
                         var data = result['ShoppingList'];
-
+                        if (data==null)
+                            return;
                         this.loading = false;
                         var items = [];
                         var userID = ""
@@ -157,7 +158,8 @@ export default class ListShopping extends Component {
                     (result) => {
                         console.log(result['Auto ShoppingList']);
                         var data = result['Auto ShoppingList'];
-
+                        if (data==null)
+                            return;
                         this.loading = false;
                         // var items = [];
                         var autoItems = [];

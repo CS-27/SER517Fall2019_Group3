@@ -6,7 +6,7 @@
   Updates to add functionality for MenuButton and other components
 */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,12 +35,18 @@ import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
 import RecipeHome from '../ListRecipes/RecipeHome';
 
-export default class ButtonAppBar extends Component {
+class ButtonAppBar extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+    
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
+    this.props.history.push('/signin')
       alert("Logged out");
+
     }
 
   render() {
@@ -130,3 +136,7 @@ export default class ButtonAppBar extends Component {
     );
   }
 }
+
+
+export default withRouter(ButtonAppBar);
+// export default withRouter(App);
