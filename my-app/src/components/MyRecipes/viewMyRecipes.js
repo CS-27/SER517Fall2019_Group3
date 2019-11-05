@@ -1,109 +1,154 @@
-/*
-  Author: Harshita Kajal
-  Date Created:   Oct 16, 2019
-  About:  View the recipe details.
-  Date Updated: ...
-*/
 
 import React, { Component } from "react";
-import DataTable from './myRecipeListDatatable';
-import Loader from 'react-loader-spinner';
+
 import './viewMyRecipes.css';
 import Card from 'react-bootstrap/Card';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-
-export default class viewMyRecipes extends Component {
-     constructor(props) {
+import { Container, Row, Col, Button,Form,
+    FormGroup,
+    FormControl,
+    FormLabel, } from 'react-bootstrap';
+import Loader from 'react-loader-spinner';
+import ListRecipeDatatable from "./myRecipeListDatatable";
+export default class ViewMyRecipe extends Component {
+    constructor(props) {
         super(props);
-        this.getRecipe = this.getRecipe.bind(this);
-        this.message = ""
-      
         this.state = {
-          error: null,
-          recipe: [],
-          response: {},
-          items: []
+            error: null,
+            items: [],
+            response: {},
+            name:"",
+            names:[]
         }
-        this.recipe = null;
+        this.items = null;
         this.loading = true;
-        this.items=null;
-        this.getRecipe();
+        this.names=null;
+        this.name=null;
 
-        
+    }
+
+    handleChange = event => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
     }
 
     handleSubmit=(event)=> {
+        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-    
+
         event.preventDefault();
       }
 
-
-       getRecipe=()=>{
-        var convention= this.props.value;
-        console.log("inside rec")
-     
-        //console.log(convention)
+    getItems=(event)=> {
         var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID='+sessionStorage.getItem("username");
-       
+
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    var data = result['My Recipe List'];
+                    var names=[];
+
+                    this.loading = false;
+                    this.items = [result['My Recipe List']];
+                    
+                    console.log(this.items);
+                    console.log(data.length);
+
+                    
+            for(var i=0;i<this.items.length;i++)
+            {
+
+                                this.items[i].map((values)=>{
+                                
+                                        names.push([
+                                        values.name
+                                            ]);
+                                        
+                                            
+                                })
+                                
+            }
+                    
+
+                    this.setState({
+                        items: this.items,
+                        names: names
+                    });
+
+                    //console.log(names);
+
+
+                    },
+                (error) => {
+                    this.setState({error});
+                }
+            )
+
+    }
+
+    deleteItem = (name) => {
+         const updatedItems = this.state.names.filter(i => i[0] !== name[0]);
+         this.setState({ names: updatedItems })
+        }
+      
+    
+      deleteRecipe =(name)=>{
+        console.log("in delRecipe")
+        console.log(name)
+        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name.toString()
+          })
+          
+        })
         
-          fetch(apiUrl)
-          .then(res => res.json())
-          .then(
-            (result) => {
-                var data =result['My Recipe List'];
-             this.loading = false;
-             var recipe =[];
-             
-             data.forEach(function(key) {
-                
-                  recipe.push(
-                    key
-                 );
-                               
-            });
-           
-                 this.setState({
-                  recipe: recipe
-                });
-                  this.recipe = recipe;
-                // const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
-                // this.recipe = dataArray;
-                // console.log(this.recipe[0]);
-                console.log(data);
-               },
-               (error) => {
-                 this.setState({ error });
-               }
-             )
-       }
+        .then(() => {
+            this.deleteItem(name)
+          })
+          .catch(err => console.log(err))
+
+      }
 
 
-       render() {
+    renderList() {
+        return (
+            
+            <Container>
+                <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
+            <Card  className="mainCardOneMain">
+         <Card.Body className = "card-body">
+         <Card.Title className="titleCard" > My Recipes below</Card.Title>
+             <Form onSubmit={this.handleSubmit}>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
+             </Form>
+             {this.loading ?       <Loader
+                 type="Circles"
+                 color="#00BFFF"
+                 height={100}
+                 width={100}
+                 timeout={2000} //2 secs
+
+             /> :
+              <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
+
+         </Card.Body>
+       </Card>
+            </Container>
+          
+        );
+    }
+
+    render() {
         return (
             <div>
                 { this.renderList()}
             </div>
         );
     }
-         renderList() {
-            var convention= this.props.value;
-            return (
-                
-                <Container>
-                        <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-                    <Card  className="mainCard">
-                <Card.Body className = "card-body">
-                  Helooooo
-                <Card.Title className="titleCard" >{this.props.name}</Card.Title>
-                <DataTable items={this.state.recipe}></DataTable>
-                </Card.Body>
-            </Card>
-</Container>
-                
-            );
-        }
-    
-       
-    }
+}
