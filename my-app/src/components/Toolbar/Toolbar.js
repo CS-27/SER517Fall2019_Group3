@@ -1,7 +1,7 @@
 /*Author:             Salini Chittineni
   Initial Creation:   September 5, 2019
-  Modified by:        Salini Chittineni
-  Modified date:      October 8,2019
+  Modified by:        Harshita Kajal
+  Modified date:      November 4,2019
   About:  This page is to redner toolbar for the application
   Updates to add functionality for MenuButton and other components
 */
@@ -104,13 +104,15 @@ class ButtonAppBar extends Component {
               </div>
 
               <div className="dropdown">
-                <Button className="text-capitalize" color="inherit">My Recipes</Button>
+
+                <Button className="text-capitalize" color="inherit">My Beers</Button>
                 <div className="dropdown-content">
-                <Button component={Link} to="/addMyRecipe" color="inherit" className="text-capitalize">Make My Recipe</Button>
-                  <Button component={Link} to="/viewMyRecipes" color="inherit" className="text-capitalize" >View My Recipe</Button>
-                  <Button component={Link} to="/myRecipeList" color="inherit" className="text-capitalize" >Search My Recipe</Button>
+                <Button component={Link} to="/addRecipeUser" color="inherit" className="text-capitalize">Make a Beer</Button>
+                <Button component={Link} to="/viewMyRecipes" color="inherit" className="text-capitalize" >View My Recipe</Button>
                 </div>
               </div>
+
+
               
 
               
