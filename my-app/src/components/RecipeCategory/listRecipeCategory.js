@@ -39,6 +39,56 @@ export default class ListRecipe extends Component {
         event.preventDefault();
       }
 
+      getItems=(event)=> {
+        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
+
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    var data = result['All Recipes'];
+                    var names=[];
+
+                    this.loading = false;
+                    this.items = [result['All Recipes']];
+                    
+                    console.log(this.items);
+                    console.log(data.length);
+
+                    
+            for(var i=0;i<this.items.length;i++)
+            {
+
+                                this.items[i].map((values)=>{
+                                    if (values.Category=="2") {
+                                
+                                        names.push([
+                                        values.name
+                                            ]);
+                                        }
+                                        
+                                            
+                                })
+                                
+            }
+                    
+
+                    this.setState({
+                        items: this.items,
+                        names: names
+                    });
+
+                    //console.log(names);
+
+
+                    },
+                (error) => {
+                    this.setState({error});
+                }
+            )
+
+    }
+
       deleteItem = (name) => {
         const updatedItems = this.state.names.filter(i => i[0] !== name[0]);
         this.setState({ names: updatedItems })
