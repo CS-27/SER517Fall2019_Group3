@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './myRecipeListDatatable.css'
-import ModalForm from '../AllRecipes/modalFormAM'
+import ModalForm from '../ListUser/userModalForm'
 
 
-class ListRecipeDatatable extends Component {
+class myRecipeListDatatable extends Component {
 
   constructor(props) {
     super(props)
@@ -19,7 +19,7 @@ class ListRecipeDatatable extends Component {
   render() { 
     console.log('hgjjgjh')
     console.log(this)
-    //const names = this.props.names.map(item =>
+    const names = this.props.names.map(item =>
       {
         //console.log(props)
       return (
@@ -29,13 +29,14 @@ class ListRecipeDatatable extends Component {
         <td>
 
         <ModalForm name={item} buttonLabel="view" />
-          {/* {getRecipe={this.getRecipe(item)} } */}
+          {/* getRecipe={this.getRecipe(item)} */}
         </td>
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
         </tr>
         )
+       })
       
       
 
@@ -56,4 +57,4 @@ class ListRecipeDatatable extends Component {
   }
 }
 
-export default ListRecipeDatatable
+export default myRecipeListDatatable
