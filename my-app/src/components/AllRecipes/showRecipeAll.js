@@ -78,7 +78,10 @@ export default class recipeList extends Component {
                }
              )
        }
-
+       addtoShopList=()=>{
+          console.log(this.state.recipe[2][1][1])
+          var hops = this.state.recipe[2][1]
+       }
 
         
          renderList() {
@@ -91,7 +94,7 @@ export default class recipeList extends Component {
                 <Card.Body className = "card-body">
                 <Card.Title className="titleCard" >{this.props.name}</Card.Title>
                 <DataTable items={this.state.recipe}></DataTable>
-                <Button id ="btn-color">Add ingredients to shopping list</Button>
+                <Button id ="btn-color" onClick = {this.addtoShopList}>Add ingredients to shopping list</Button>
                 </Card.Body>
             </Card>
 </Container>
