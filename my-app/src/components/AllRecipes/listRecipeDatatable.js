@@ -16,6 +16,10 @@ class ListRecipeDatatable extends Component {
 
   }
 
+    shareItem = (item) => {
+
+    }
+
   // getRecipe=(item)=>
   // {
   //   const names = this.props.names.map(item =>
@@ -47,6 +51,9 @@ class ListRecipeDatatable extends Component {
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
+            <td>
+                <Button id ="btn2-color" onClick={() => this.shareItem(item) }>Share </Button>
+            </td>
         </tr>
         )
       })
