@@ -40,13 +40,13 @@ export default class ListRecipe extends Component {
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+this.state.name;
+        var apiUrl = 'http://localhost:5000/recipeSearch?recipeName'+this.state.name;
 
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result['Auto ShoppingList']);
+                    // console.log(result['Auto ShoppingList']);
                     var data = result['recipeList'];
 
                     this.loading = false;

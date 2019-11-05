@@ -54,7 +54,7 @@ export default class ListIngredient extends Component {
                       (result) => {
 
                           var data = result['IngredientList'];
-
+                            console.log(data);
                           if (data==null)
                               return;
                           this.loading = false;

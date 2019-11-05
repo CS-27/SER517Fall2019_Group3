@@ -42,7 +42,7 @@ export default class ListRecipe extends Component {
 
     getItems=(event)=> {
         var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-
+        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
             .then(
