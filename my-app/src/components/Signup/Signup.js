@@ -123,7 +123,7 @@ export default class Signup extends Component {
     // }
 
     renderForm() {
-        // function validateForm()
+        // function validateForm(){}
         // {
         //     return this.state.email.length > 0 &&
         //         this.state.firstname.length > 0 &&
@@ -198,6 +198,11 @@ export default class Signup extends Component {
        </Card>
             </Container>
         );
+
+        // function validateForm(){
+        //     // return this.state.firstname.length > 0
+        //     // return true;
+        // }
     }
 
     render() {

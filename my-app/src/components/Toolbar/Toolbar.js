@@ -6,7 +6,7 @@
   Updates to add functionality for MenuButton and other components
 */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,12 +35,18 @@ import { useState } from "react";
 import AddRecipe from '../Recipes/AddRecipe';
 import RecipeHome from '../ListRecipes/RecipeHome';
 
-export default class ButtonAppBar extends Component {
+class ButtonAppBar extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+    
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
+    this.props.history.push('/signin')
       alert("Logged out");
+
     }
 
   render() {
@@ -110,7 +116,7 @@ export default class ButtonAppBar extends Component {
               </div>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
-
+              <Button component={Link} to="/whatcanIbrew" color="inherit" className="text-capitalize">What Can I Brew Today</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
               <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
               <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
@@ -128,3 +134,7 @@ export default class ButtonAppBar extends Component {
     );
   }
 }
+
+
+export default withRouter(ButtonAppBar);
+// export default withRouter(App);

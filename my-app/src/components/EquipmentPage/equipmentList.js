@@ -88,6 +88,8 @@ export default class equipmentList extends Component {
                  .then(
                      (result) => {
                          var data = result['equipmentList'];
+                         if (data==null)
+                             return;
                          this.loading = false;
                          var equipment = [];
                          var userID = "";
