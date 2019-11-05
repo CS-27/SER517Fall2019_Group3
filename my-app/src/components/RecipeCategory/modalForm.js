@@ -1,14 +1,17 @@
-import AddEditForm from './addEditForm'
+import RecipeList from './showRecipeAll'
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-import './datatable.css'
+//import Modal from 'react-bootstrap/Modal';
+import './modal.css'
 class ModalForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
       modal: false
     }
+   
+    console.log(this.props.name)
   }
 
   toggle = () => {
@@ -19,29 +22,30 @@ class ModalForm extends Component {
 
   render() {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
-      const userID = this.props.userID
       const label = this.props.buttonLabel
 
       let button = ''
       let title = ''
 
-      if(label === 'Edit'){
+      if(label === 'view'){
         button = <Button
-                  id ="btn-color"
                   onClick={this.toggle}
                   >{label}
                 </Button>
-        title = 'Edit'
+        title = 'Recipe View'
       } 
 
 
       return (
       <div>
         {button}
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        
+        <Modal  isOpen={this.state.modal} toggle={this.toggle} className='custom' size='lg' >
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
-
+            <RecipeList name={this.props.name}
+              toggle={this.toggle}
+               />
           </ModalBody>
         </Modal>
       </div>

@@ -1,7 +1,7 @@
 /*Author:             Salini Chittineni
   Initial Creation:   September 5, 2019
-  Modified by:        Salini Chittineni
-  Modified date:      October 8,2019
+  Modified by:        Harshita Kajal
+  Modified date:      November 4,2019
   About:  This page is to redner toolbar for the application
   Updates to add functionality for MenuButton and other components
 */
@@ -99,7 +99,19 @@ class ButtonAppBar extends Component {
                   <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
                   <Button component={Link} to="/ListRecipe" color="inherit" className="text-capitalize" >All Recipes</Button>
                 </div>
+
+                
               </div>
+
+              <div className="dropdown">
+
+                <Button className="text-capitalize" color="inherit">My Beers</Button>
+                <div className="dropdown-content">
+                <Button component={Link} to="/addRecipeUser" color="inherit" className="text-capitalize">Make a Beer</Button>
+                <Button component={Link} to="/viewMyRecipes" color="inherit" className="text-capitalize" >View My Recipe</Button>
+                </div>
+              </div>
+
 
               
 
@@ -108,7 +120,7 @@ class ButtonAppBar extends Component {
               </div>
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
-
+              <Button component={Link} to="/whatcanIbrew" color="inherit" className="text-capitalize">What Can I Brew Today</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
               <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
               <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
