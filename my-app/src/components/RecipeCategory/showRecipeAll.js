@@ -58,7 +58,7 @@ export default class recipeList extends Component {
              var recipe =[];
              
              Object.keys(data).forEach(function(key) {
-                 if(key!="_id" && key!="name" && key!="Category"){
+                 if(key!="_id" && key!="name"){
                   recipe.push([
                     key,data[key]
                  ]);
