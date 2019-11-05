@@ -95,12 +95,6 @@ handleSubmit=(event) => {
 }
 
 
-// addValues = (e) => {
-//     this.setState((prevState) => ({
-//       object1: [...prevState.object1, {name:"", quantity:""}],
-//     }));
-//   }
-
 render() {
   //const items = this.state.Hops.map(item => <li>{item}</li> );
     return (
@@ -139,8 +133,8 @@ render() {
         <div>
                <select id="Category" onChange={this.handleChange} value={this.state.value}>
                   <option value="select">Select Recipe Category</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
+                  <option value="1">ABV less than 5%</option>
+                  <option value="2">ABV greater than 5%</option>
                </select>
                <p></p>
                {/* <p>{this.state.value}</p> */}
