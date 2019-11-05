@@ -25,7 +25,9 @@ import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
 
 import BeerStatus from "./components/StatusPage/beerStatus";
-import ListRecipe from "./components/AllRecipes/listRecipeAll"
+import ListRecipe from "./components/AllRecipes/listRecipeAll";
+
+import MyRecipeList from "./components/MyRecipes/viewMyRecipes";
 
 
 export default({ childProps }) =>
@@ -53,5 +55,11 @@ export default({ childProps }) =>
 
             <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
             <AppliedRoute path="/ListRecipe" exact component={ListRecipe} props={childProps} />
+
+            {/* My Recipes */}
+
+            <AppliedRoute path="/addMyRecipe" exact component={BeerStatus} props={childProps} />
+            <AppliedRoute path="/viewMyRecipes" exact component={MyRecipeList} props={childProps} />
+            <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
 
     </Switch>
