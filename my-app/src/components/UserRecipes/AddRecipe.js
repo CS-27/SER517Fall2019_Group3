@@ -13,7 +13,7 @@ import Form from "react-bootstrap/FormGroup";
 import Button from '@material-ui/core/Button';
 
 
-export default class AddRecipe extends Component {
+export default class AddRecipeUser extends Component {
     constructor(props) {
         super(props);
         this.message = ""

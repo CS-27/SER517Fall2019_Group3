@@ -46,8 +46,7 @@ export default class ListRecipe extends Component {
      
    
      deleteRecipe =(name)=>{
-       // console.log("in delRecipe")
-       // console.log(name)
+
        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
          method: 'post',
          headers: {
