@@ -91,6 +91,7 @@ export default class recipeList extends Component {
                 <Card.Body className = "card-body">
                 <Card.Title className="titleCard" >{this.props.name}</Card.Title>
                 <DataTable items={this.state.recipe}></DataTable>
+                <Button id ="btn-color">Add ingredients to shopping list</Button>
                 </Card.Body>
             </Card>
 </Container>

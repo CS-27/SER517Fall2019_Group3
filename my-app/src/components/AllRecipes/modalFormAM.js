@@ -46,6 +46,7 @@ class ModalForm extends Component {
             <RecipeList name={this.props.name}
               toggle={this.toggle}
                />
+
           </ModalBody>
         </Modal>
       </div>
