@@ -129,7 +129,7 @@ export default class ListUser extends Component {
                         this.items[i].map((values)=>{
 
                             names.push([
-                                values.firstName, values.lastName, values.email
+                                values.firstName, values.lastName, values.email, values.userID
                             ]);
 
 
