@@ -173,7 +173,6 @@ def viewUserRecipe(userID, recipeName):
 	else:
 		result = []
 		result.append(False)
-		print 'this 1 called'
 		return json.dumps(result, default=json_util.default)
 
 
