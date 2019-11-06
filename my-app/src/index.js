@@ -14,7 +14,7 @@ import Toolbar from "./components/Toolbar/Toolbar";
 
 
 import AddRecipeUser from "./components/UserRecipes/AddRecipe";
-import ListRecipe from "./components/RecipeCategory/listRecipeCategory"
+import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
 
 import { BrowserRouter as Router } from 'react-router-dom';
 

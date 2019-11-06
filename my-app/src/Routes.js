@@ -28,7 +28,11 @@ import BeerStatus from "./components/StatusPage/beerStatus";
 
 import ListRecipe from "./components/AllRecipes/listRecipeAll"
 import AddRecipeUser from "./components/UserRecipes/AddRecipe"
+
+import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
+
 import MyRecipeList from "./components/MyRecipes/viewMyRecipes";
+
 
 
 
@@ -59,6 +63,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/whatcanIbrew" exact component={WhatCanIBrew} props={childProps} />
             <AppliedRoute path="/ListRecipe" exact component={ListRecipe} props={childProps} />
             <AppliedRoute path="/addRecipeUser" exact component={AddRecipeUser} props={childProps} />
+            <AppliedRoute path="/recipeCategory" exact component={ListRecipeCategory} props={childProps} />
 
             {/* My Recipes */}
 
