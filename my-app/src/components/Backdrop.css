@@ -1,26 +1,18 @@
 body{
   background-image: url(/images/bg1.jpg);
-  height: 100%;
   background-position: center;
-  background-size: cover;
+  background-size: cover;  
+  height: 100%;
  }
 
 
-
 .card-main-one{
-  /* margin-top: 5rem !important; */
-  /* margin-left: 12rem; */
-
-  width: 70rem;
+   width: 70rem;
   height: 20rem;
   align-self: center;
   opacity: .8;
 
 }
-/* 
-.card-main:hover{
-  transform: scale(1.2);
-} */
 
 .card-title{
   font-family: 'Lucida Sans';

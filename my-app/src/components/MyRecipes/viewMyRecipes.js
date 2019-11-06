@@ -1,15 +1,15 @@
 
 import React, { Component } from "react";
 
-import './listRecipe.css';
+import './viewMyRecipes.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button,Form,
     FormGroup,
     FormControl,
     FormLabel, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
-import ListRecipeDatatable from "./listRecipeDatatable";
-export default class ListRecipe extends Component {
+import ListRecipeDatatable from "./myRecipeListDatatable";
+export default class ViewMyRecipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,17 +41,17 @@ export default class ListRecipe extends Component {
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID='+sessionStorage.getItem("username");
+
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    var data = result['All Recipes'];
+                    var data = result['My Recipe List'];
                     var names=[];
 
                     this.loading = false;
-                    this.items = [result['All Recipes']];
+                    this.items = [result['My Recipe List']];
                     
                     console.log(this.items);
                     console.log(data.length);
@@ -123,9 +123,9 @@ export default class ListRecipe extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > All Recipes below</Card.Title>
+         <Card.Title className="titleCard" > My Recipes below</Card.Title>
              <Form onSubmit={this.handleSubmit}>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary" type="submit" >View Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"
@@ -136,7 +136,6 @@ export default class ListRecipe extends Component {
 
              /> :
               <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
-
 
          </Card.Body>
        </Card>

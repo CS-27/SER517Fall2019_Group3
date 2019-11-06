@@ -100,15 +100,19 @@ class ButtonAppBar extends Component {
                   <Button component={Link} to="/ListRecipe" color="inherit" className="text-capitalize" >All Recipes</Button>
                   <Button component={Link} to="/recipeCategory" color="inherit" className="text-capitalize" >Recipes by Category</Button>
                 </div>
+
+                
               </div>
 
               <div className="dropdown">
+
                 <Button className="text-capitalize" color="inherit">My Beers</Button>
                 <div className="dropdown-content">
                 <Button component={Link} to="/addRecipeUser" color="inherit" className="text-capitalize">Make a Beer</Button>
-  
+                <Button component={Link} to="/viewMyRecipes" color="inherit" className="text-capitalize" >View My Recipe</Button>
                 </div>
               </div>
+
 
               
 
