@@ -259,7 +259,9 @@ def addShoppingList():
 	shoppingList = {}
 	for key,value in req_data.items():
 		shoppingList.__setitem__(key,value)
-	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(shoppingList)})
+	userID = shoppingList['userID']
+	del shoppingList['userID']
+	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(userID, shoppingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -318,6 +320,15 @@ def createASL():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+@brewDay_api.route('/movetToShopList', methods = ['POST'])
+def moveToShopList():
+	req_data = request.get_json(force = True)
+	userID = req_data['userID']
+	del req_data['userID']
+	response = jsonify({'Auto ShoppingList' : json.loads(shoppingListFunctions.moveToShoppingList(userID, req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 # # # # user registeration/login/session Functions # # # # 
 

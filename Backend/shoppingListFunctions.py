@@ -17,20 +17,20 @@ def showShoppingList(userID):
 ### if the user will try to add any item in the shop list and it is already present in shop list or auto shop list 
 ### it will not be updated, user has to go to the view shop list and change the quantity.
 
-def addShoppingList(userShopList):
+def addShoppingList(userID, userShopList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
 
 	collection = db.userShoppingList
 	result = False
-	if not collection.find_one({'userID' : userShopList['userID']}):
+	if not collection.find_one({'userID' : userID}):
 		#data = {}
 		#data.update(ingredientList = userIngList)
 		result = collection.insert_one(userShopList).inserted_id
 	else:
 		#update(userIngList)
-		search_query = { "userID": userShopList['userID']}
-		shopListSet = distinctShopListItems(userShopList['userID'],collection)
+		search_query = { "userID": userID}
+		shopListSet = distinctShopListItems(userID,collection)
 		for key,value in userShopList.items():
 			if key != 'userID':
 				if key not in shopListSet:
@@ -148,6 +148,38 @@ def distinctShopListItems(userID,collection):
 	#print newSet
 	return newSet
 
+
+def moveToShoppingList(userID, itemList):
+	#addShoppingList(userID, itemList)
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.shoppingList
+
+	collection = db.userShoppingList
+	result = False
+	#result = collection.find_one({'userID' : userID})
+	search_query = { "userID": userID}
+	#shopListSet = distinctShopListItems(userID,collection)
+	for key,value in itemList.items():
+		new_values = {"$set" : {key:value}}
+		result = collection.update(search_query,new_values,upsert = True)
+
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db_asl = client.shoppingList
+	collection_asl = db_asl.userAutoShopList
+
+	result = collection_asl.find_one({'userID': userID})
+	search_query = { "userID": userID }
+	if result:
+		for key,value in itemList.items():
+			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
+			#print collection.find_one(search_query)
+			updateCollection = collection_asl.update(search_query, {'$unset' : {key:1}})
+			#print updateCollection
+			if not updateCollection['updatedExisting']:
+				break
+				#return False
+		
+	return json.dumps(collection_asl.find_one({'userID' : userID}), default=json_util.default)
 
 
 
