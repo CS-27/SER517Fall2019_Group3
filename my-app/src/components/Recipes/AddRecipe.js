@@ -12,6 +12,7 @@ import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-boo
 import Form from "react-bootstrap/FormGroup";
 import HopsList from "./HopsSchedule";
 import Button from '@material-ui/core/Button';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 export default class AddRecipe extends Component {
@@ -29,7 +30,8 @@ export default class AddRecipe extends Component {
     Hops:[],
     Grains:[],
     Grains2:[],
-    HopsSchedule:[]
+    HopsSchedule:[],
+    Category:""
   };
 
         this.uname=sessionStorage.getItem("username")
@@ -71,6 +73,7 @@ handleSubmit=(event) => {
         body: JSON.stringify({
         name: data.name,
         Directions: data.Directions,
+        Category:data.Category,
         Malt: data.Malt,
         Hops: data.Hops,
         Grains: data.Grains,
@@ -91,12 +94,6 @@ handleSubmit=(event) => {
   event.preventDefault();           
 }
 
-
-// addValues = (e) => {
-//     this.setState((prevState) => ({
-//       object1: [...prevState.object1, {name:"", quantity:""}],
-//     }));
-//   }
 
 render() {
   //const items = this.state.Hops.map(item => <li>{item}</li> );
@@ -133,6 +130,15 @@ render() {
         </FormGroup>
         </Col> 
         </Row>
+        <div>
+               <select id="Category" onChange={this.handleChange} value={this.state.value}>
+                  <option value="select">Select Recipe Category</option>
+                  <option value="1">ABV less than 5%</option>
+                  <option value="2">ABV greater than 5%</option>
+               </select>
+               <p></p>
+               {/* <p>{this.state.value}</p> */}
+           </div>
         <FormGroup controlId="Directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl

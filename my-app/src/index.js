@@ -11,6 +11,11 @@ import IngredientPage from './components/IngredientPage/ingredientPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Toolbar from "./components/Toolbar/Toolbar";
+
+
+import AddRecipeUser from "./components/UserRecipes/AddRecipe";
+import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
+
 import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(

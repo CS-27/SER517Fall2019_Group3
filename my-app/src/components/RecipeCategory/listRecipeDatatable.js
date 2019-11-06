@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
-import ModalForm from './modalFormAM'
+import ModalForm from './modalForm'
 import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable extends Component {
@@ -15,24 +15,6 @@ class ListRecipeDatatable extends Component {
     }
 
   }
-
-    shareItem = (item) => {
-
-    }
-
-  // getRecipe=(item)=>
-  // {
-  //   const names = this.props.names.map(item =>
-  //     {
-  //       return(
-
-  //       )
-  //     })
-  //   // this.props.getRecipe(item);
-  //   // console.log("in rec");
-  //   // console.log(item.toString())
-  // }
-
 
 
   render() { 
@@ -51,9 +33,6 @@ class ListRecipeDatatable extends Component {
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
-            <td>
-                <Button id ="btn2-color" onClick={() => this.shareItem(item) }>Share </Button>
-            </td>
         </tr>
         )
       })
@@ -61,13 +40,7 @@ class ListRecipeDatatable extends Component {
 
     return (
       <Table responsive hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+
         <tbody>
           {names}
         </tbody>

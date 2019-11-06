@@ -8,20 +8,15 @@
 import React, { Component } from "react";
 import DataTable from './datatable';
 import Loader from 'react-loader-spinner';
-import {Redirect} from 'react-router-dom';
-import { withRouter } from 'react-router'
-
 import './showRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import ListRecipeDatatable from "./listRecipeDatatable";
-
 //import ModalForm from './modalForm'
 
-class recipeList extends Component {
+export default class recipeList extends Component {
      constructor(props) {
         super(props);
-        console.log(this.props)
         this.getRecipe = this.getRecipe.bind(this);
         this.message = ""
       
@@ -63,7 +58,7 @@ class recipeList extends Component {
              var recipe =[];
              
              Object.keys(data).forEach(function(key) {
-                 if(key!="_id" && key!="name" && key!="Category"){
+                 if(key!="_id" && key!="name"){
                   recipe.push([
                     key,data[key]
                  ]);
@@ -83,34 +78,7 @@ class recipeList extends Component {
                }
              )
        }
-       addtoShopList=()=>{
-        var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
-        console.log(this.state.recipe)
-          var hops = this.state.recipe[3][1]
-          var userID=sessionStorage.getItem("username")
 
-          fetch(url, {
-            method: 'post',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              
-              hops: hops,
-              userID : userID
-              
-            })
-          })
-            .then(response => {
-              
-              this.props.history.push('/shoppinglist')
-
-
-
-            })
-            
-            .catch(err => console.log(err))
-       }
 
         
          renderList() {
@@ -123,7 +91,6 @@ class recipeList extends Component {
                 <Card.Body className = "card-body">
                 <Card.Title className="titleCard" >{this.props.name}</Card.Title>
                 <DataTable items={this.state.recipe}></DataTable>
-                <Button id ="btn-color" onClick = {this.addtoShopList}>Add ingredients to shopping list</Button>
                 </Card.Body>
             </Card>
 </Container>
@@ -139,7 +106,3 @@ class recipeList extends Component {
             );
         }
     }
-
-    export default withRouter(recipeList);
-
-

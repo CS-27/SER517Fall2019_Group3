@@ -42,7 +42,7 @@ export default class ListRecipe extends Component {
 
     getItems=(event)=> {
         var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+
         fetch(apiUrl)
             .then(res => res.json())
             .then(
@@ -125,7 +125,7 @@ export default class ListRecipe extends Component {
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" > All Recipes below</Card.Title>
              <Form onSubmit={this.handleSubmit}>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary" type="submit" >View Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"
@@ -136,7 +136,6 @@ export default class ListRecipe extends Component {
 
              /> :
               <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
-
 
          </Card.Body>
        </Card>

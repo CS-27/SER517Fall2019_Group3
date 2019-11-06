@@ -1,0 +1,58 @@
+.mainCardOneMain{
+
+    width: 40rem;
+    margin: 0 auto;   
+    opacity: .8;
+    margin-top: 5rem; 
+
+}
+.mainCardOneMain2{
+
+    width: 60%;
+       
+    margin-top: 5rem;  
+    opacity: .8;
+
+}
+.titleCard{
+    font-family: 'Lucida Sans';
+    text-align: center;
+    margin: 2rem;
+}
+
+input[type=text], input[type=password], input[type=email]:focus {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.card-body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
+
+}
+.card-body-2{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
+
+}
+
+#btn-color
+{
+    background-color: #5A3426 !important;
+}
+
+
+

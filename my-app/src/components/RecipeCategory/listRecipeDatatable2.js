@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
-import ModalForm from './modalFormAM'
+import ModalForm2 from './modalForm2'
 import RecipeList from './showRecipeAll'
 
-class ListRecipeDatatable extends Component {
+class ListRecipeDatatable2 extends Component {
 
-  deleteItem = (item) => {
+  deleteItem2 = (item) => {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
      this.props.deleteRecipe(item);
@@ -15,10 +15,6 @@ class ListRecipeDatatable extends Component {
     }
 
   }
-
-    shareItem = (item) => {
-
-    }
 
   // getRecipe=(item)=>
   // {
@@ -36,44 +32,37 @@ class ListRecipeDatatable extends Component {
 
 
   render() { 
-    const names = this.props.names.map(item =>
+    const names2 = this.props.names2.map(item =>
       {
         // console.log(item)
       return (
+        
         
         <tr  >
           <td>{item}</td>
         <td>
 
-        <ModalForm name={item} buttonLabel="view" />
+        <ModalForm2 name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
           <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
+          <Button id ="btn1-color" onClick={() => this.deleteItem2(item) }>Delete </Button>
           </td>
-            <td>
-                <Button id ="btn2-color" onClick={() => this.shareItem(item) }>Share </Button>
-            </td>
-        </tr>
+        </tr>   
         )
       })
       
 
-    return (
-      <Table responsive hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {names}
-        </tbody>
-      </Table>
-    )
+ return (
+   <Table responsive hover>
+        
+
+     <tbody>
+       {names2}
+     </tbody>
+  </Table>
+ )
   }
 }
 
-export default ListRecipeDatatable
+export default ListRecipeDatatable2
