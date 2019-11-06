@@ -190,6 +190,14 @@ export default class ListRecipe extends Component {
         return (
             
             <Container>
+                     <Card  className="cardMainOne">
+    <Card.Body className ="card-body-one">
+        <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
+        <Card.Text >
+        Click on the beer category you wish to view!
+        </Card.Text>
+    </Card.Body>
+</Card>
                 
                 <Col xs={6} md={4}>
                     
@@ -232,7 +240,7 @@ export default class ListRecipe extends Component {
                  width={100}
                  timeout={2000} //2 secs
 
-             />: <ListRecipeDatatable names2={this.state.names2} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>
+             />: <ListRecipeDatatable2 names2={this.state.names2} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable2>
      }
 
               
