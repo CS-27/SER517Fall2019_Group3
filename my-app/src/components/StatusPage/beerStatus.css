@@ -4,7 +4,7 @@ Modified By: Salini Chittineni
 Date modified : Oct 21,2019
 */
 body{
-    background-image: url("/images/background-beer.jpeg");
+    /* background-image: url("/images/background-beer.jpeg"); */
     background-position:unset; 
    
     height: 100%;
