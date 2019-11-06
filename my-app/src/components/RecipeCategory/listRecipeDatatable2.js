@@ -6,7 +6,7 @@ import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable2 extends Component {
 
-  deleteItem = (item) => {
+  deleteItem2 = (item) => {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
      this.props.deleteRecipe(item);
@@ -37,6 +37,7 @@ class ListRecipeDatatable2 extends Component {
         // console.log(item)
       return (
         
+        
         <tr  >
           <td>{item}</td>
         <td>
@@ -45,27 +46,22 @@ class ListRecipeDatatable2 extends Component {
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
           <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
+          <Button id ="btn1-color" onClick={() => this.deleteItem2(item) }>Delete </Button>
           </td>
-        </tr>
+        </tr>   
         )
       })
       
 
-    return (
-      <Table responsive hover>
-        <thead>
-          <tr>
-            {/* <th>Name2</th> */}
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {names2}
-        </tbody>
-      </Table>
-    )
+ return (
+   <Table responsive hover>
+        
+
+     <tbody>
+       {names2}
+     </tbody>
+  </Table>
+ )
   }
 }
 

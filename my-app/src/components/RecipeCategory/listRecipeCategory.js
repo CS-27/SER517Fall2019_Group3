@@ -11,7 +11,7 @@ import Loader from 'react-loader-spinner';
 import ListRecipeDatatable from "./listRecipeDatatable";
 import ListRecipeDatatable2 from "./listRecipeDatatable2";
 
-export default class ListRecipe extends Component {
+export default class ListRecipeCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -165,6 +165,11 @@ export default class ListRecipe extends Component {
         const updatedItems = this.state.names.filter(i => i[0] !== name[0]);
         this.setState({ names: updatedItems })
        }
+
+       deleteItem2 = (name) => {
+        const updatedItems = this.state.names2.filter(i => i[0] !== name[0]);
+        this.setState({ names2: updatedItems })
+       }
      
    
      deleteRecipe =(name)=>{
@@ -229,7 +234,7 @@ export default class ListRecipe extends Component {
        
        
        <Card  className="mainCardOneMain2">
-       <Card.Header>Header</Card.Header>
+       {/* <Card.Header>Header</Card.Header> */}
        
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" > Beers with Alcohol by Volume more than 5%</Card.Title>
@@ -246,7 +251,7 @@ export default class ListRecipe extends Component {
                  width={100}
                  timeout={2000} //2 secs
 
-             />: <ListRecipeDatatable2 names2={this.state.names2} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable2>
+             />: <ListRecipeDatatable2 names2={this.state.names2} deleteItem2={this.deleteItem2} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable2>
      }
 
               

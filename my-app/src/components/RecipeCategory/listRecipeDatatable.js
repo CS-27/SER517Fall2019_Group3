@@ -16,20 +16,6 @@ class ListRecipeDatatable extends Component {
 
   }
 
-  // getRecipe=(item)=>
-  // {
-  //   const names = this.props.names.map(item =>
-  //     {
-  //       return(
-
-  //       )
-  //     })
-  //   // this.props.getRecipe(item);
-  //   // console.log("in rec");
-  //   // console.log(item.toString())
-  // }
-
-
 
   render() { 
     const names = this.props.names.map(item =>
@@ -54,13 +40,7 @@ class ListRecipeDatatable extends Component {
 
     return (
       <Table responsive hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+
         <tbody>
           {names}
         </tbody>
