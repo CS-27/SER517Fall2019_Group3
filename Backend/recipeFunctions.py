@@ -152,7 +152,7 @@ def viewUserRecipe(userID):
 	if userID != 'recipe_info':
 		collection = db[userID]
 		result = list(collection.find({}))
-		print type(result)
+		#print type(result)
 		return json.dumps(result, default=json_util.default)
 	else:
 		result = []
