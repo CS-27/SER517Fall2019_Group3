@@ -44,7 +44,7 @@ class ModalForm extends Component {
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
             <RecipeList name={this.props.name}
-              toggle={this.toggle}
+              toggle={this.toggle} 
                />
 
           </ModalBody>

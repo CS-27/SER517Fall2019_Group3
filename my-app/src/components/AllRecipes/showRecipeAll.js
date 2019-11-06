@@ -8,15 +8,20 @@
 import React, { Component } from "react";
 import DataTable from './datatable';
 import Loader from 'react-loader-spinner';
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router'
+
 import './showRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import ListRecipeDatatable from "./listRecipeDatatable";
+
 //import ModalForm from './modalForm'
 
-export default class recipeList extends Component {
+class recipeList extends Component {
      constructor(props) {
         super(props);
+        console.log(this.props)
         this.getRecipe = this.getRecipe.bind(this);
         this.message = ""
       
@@ -97,8 +102,11 @@ export default class recipeList extends Component {
             })
           })
             .then(response => {
-              //this.props.toggle();
-              //this.props.updateState([this.state.name,this.state.quantity ]);
+              
+              this.props.history.push('/shoppinglist')
+
+
+
             })
             
             .catch(err => console.log(err))
@@ -131,3 +139,7 @@ export default class recipeList extends Component {
             );
         }
     }
+
+    export default withRouter(recipeList);
+
+
