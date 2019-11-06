@@ -41,17 +41,17 @@ export default class ListRecipe extends Component {
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-
+        // var apiUrl = 'http://127.0.0.1:5000/allRecipes';
+            var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    var data = result['All Recipes'];
+                    var data = result['Recipe List'];
                     var names=[];
 
                     this.loading = false;
-                    this.items = [result['All Recipes']];
+                    this.items = [result['Recipe List']];
                     
                     console.log(this.items);
                     console.log(data.length);
@@ -125,6 +125,15 @@ export default class ListRecipe extends Component {
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" > All Recipes below</Card.Title>
              <Form onSubmit={this.handleSubmit}>
+                 <FormGroup controlId="name"  >
+                     <FormLabel>Recipe Name</FormLabel>
+                     <FormControl
+                         autoFocus
+                         type="Text"
+                         value={this.state.name}
+                         onChange={this.handleChange}
+                     />
+                 </FormGroup>
                  <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
              </Form>
              {this.loading ?       <Loader
