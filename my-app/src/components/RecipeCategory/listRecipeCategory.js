@@ -8,6 +8,7 @@ import { Container, Row, Col, Button,Form,
     FormLabel, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 import ListRecipeDatatable from "./listRecipeDatatable";
+import ListRecipeDatatable2 from "./listRecipeDatatable2";
 
 export default class ListRecipe extends Component {
     constructor(props) {
