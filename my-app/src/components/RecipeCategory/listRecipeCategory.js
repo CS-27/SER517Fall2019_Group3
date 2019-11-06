@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button,Form,
     FormGroup,
     FormControl,
-    FormLabel, } from 'react-bootstrap';
+    FormLabel,
+    CardDeck, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 import ListRecipeDatatable from "./listRecipeDatatable";
 import ListRecipeDatatable2 from "./listRecipeDatatable2";
@@ -190,23 +191,25 @@ export default class ListRecipe extends Component {
         return (
             
             <Container>
+                
                      <Card  className="cardMainOne">
-    <Card.Body className ="card-body-one">
+    <Card.Body className ="card-body-2">
         <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
         <Card.Text >
-        Click on the beer category you wish to view!
+        <h4>Click on the beer category you wish to view!</h4>
         </Card.Text>
     </Card.Body>
 </Card>
                 
-                <Col xs={6} md={4}>
-                    
+<CardDeck>
+    
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
+           
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > Recipe Category</Card.Title>
+         <Card.Title className="titleCard" >Beers with Alcohol by Volume less than 5%</Card.Title>
          <Form onSubmit={this.handleSubmit} >
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Category1</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
                  </Form>
              
              {this.loading ?       <Loader
@@ -221,14 +224,17 @@ export default class ListRecipe extends Component {
 
          </Card.Body>
        </Card>
-       </Col>
-       <Col xs={6} md={4}>
        
-       <Card  className="mainCardOneMain">
+       
+       
+       
+       <Card  className="mainCardOneMain2">
+       <Card.Header>Header</Card.Header>
+       
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > Click on the Category you wish to view</Card.Title>
+         <Card.Title className="titleCard" > Beers with Alcohol by Volume more than 5%</Card.Title>
          <Form onSubmit={this.handleSubmit} >
-                 <Button onClick ={this.getItems2} id = "btn-color" variant="primary"  >View Category 2</Button>
+                 <Button onClick ={this.getItems2} id = "btn-color" variant="primary"  >View Beers</Button>
                  
                  </Form>
                  
@@ -246,8 +252,9 @@ export default class ListRecipe extends Component {
               
          </Card.Body>
        </Card>
+       </CardDeck>
        
-       </Col>
+      
        
             </Container>
           
