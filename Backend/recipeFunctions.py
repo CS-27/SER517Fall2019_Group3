@@ -104,6 +104,7 @@ def whatiCanBrewToday(userID):
 	ingredientList = []
 	for key in ingredients:
 		if key!='userID' and key!='_id':
+			print(type(ingredients[key]))
 			ingr = [key,ingredients[key]]
 			ingredientList.append(ingr)
 	flag = False
@@ -114,7 +115,7 @@ def whatiCanBrewToday(userID):
 				hopArr = hop.strip().split()
 				if len(hopArr) == 2:
 					for ingredient in ingredientList:
-						if(hopArr[1].isdigit() and ingredient[1].isdigit):
+						if hopArr[1].isdigit():
 							intHop = int(hopArr[1])
 							intIngr = int( ingredient[1])
 							if hopArr[0] == ingredient[0] and intHop <= intIngr: 

@@ -79,8 +79,29 @@ export default class recipeList extends Component {
              )
        }
        addtoShopList=()=>{
-          console.log(this.state.recipe[2][1][1])
-          var hops = this.state.recipe[2][1]
+        var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
+        console.log(this.state.recipe)
+          var hops = this.state.recipe[3][1]
+          var userID=sessionStorage.getItem("username")
+
+          fetch(url, {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              
+              hops: hops,
+              userID : userID
+              
+            })
+          })
+            .then(response => {
+              //this.props.toggle();
+              //this.props.updateState([this.state.name,this.state.quantity ]);
+            })
+            
+            .catch(err => console.log(err))
        }
 
         
