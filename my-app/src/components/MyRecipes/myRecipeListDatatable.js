@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './myRecipeListDatatable.css'
-import ModalForm from '../ListUser/userModalForm'
+import ModalForm from './userModalForm';
 
 
 class myRecipeListDatatable extends Component {
