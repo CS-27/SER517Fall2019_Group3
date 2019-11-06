@@ -146,18 +146,33 @@ def searchRecipe(recipeRegx):
 	return json.dumps(result, default=json_util.default)
 
 
-def viewUserRecipe(userID):
+def viewUserRecipes(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
+	result = []
 	if userID != 'recipe_info':
-		collection = db[userID]
-		result = list(collection.find({}))
+		if userID in db.list_collection_names():
+			collection = db[userID]
+			result = list(collection.find({}))
 		#print type(result)
 		return json.dumps(result, default=json_util.default)
+
+
+def viewUserRecipe(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+	result = []
+	if userID != 'recipe_info':
+		if userID in db.list_collection_names():
+			collection = db[userID]
+			result = list(collection.find({'name': recipeName}))
+			#print type(result)
+		return json.dumps(result, default=json_util.default)
+
 	else:
 		result = []
 		result.append(False)
+		print 'this 1 called'
 		return json.dumps(result, default=json_util.default)
-
 
 
