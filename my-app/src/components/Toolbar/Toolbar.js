@@ -98,6 +98,7 @@ class ButtonAppBar extends Component {
                   <Button component={Link} to="/showRecipe" color="inherit" className="text-capitalize" >Default Recipes</Button>
                   <Button component={Link} to="/recipeList" color="inherit" className="text-capitalize" >Search Recipe</Button>
                   <Button component={Link} to="/ListRecipe" color="inherit" className="text-capitalize" >All Recipes</Button>
+                  <Button component={Link} to="/recipeCategory" color="inherit" className="text-capitalize" >Recipes by Category</Button>
                 </div>
               </div>
 
