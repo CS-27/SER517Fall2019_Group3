@@ -6,15 +6,15 @@ import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable extends Component {
 
-  deleteItem = (item) => {
-    let confirmDelete = window.confirm('Delete item forever?')
-    if(confirmDelete){
-     this.props.deleteRecipe(item);
-     console.log("in delItem");
-     console.log(item.toString())
-    }
+  // deleteItem = (item) => {
+  //   let confirmDelete = window.confirm('Delete item forever?')
+  //   if(confirmDelete){
+  //    this.props.deleteRecipe(item);
+  //    console.log("in delItem");
+  //    console.log(item.toString())
+  //   }
 
-  }
+  // }
 
 
   render() { 
@@ -30,9 +30,9 @@ class ListRecipeDatatable extends Component {
         <ModalForm name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
-          <td>
+          {/* <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
-          </td>
+          </td> */}
         </tr>
         )
       })

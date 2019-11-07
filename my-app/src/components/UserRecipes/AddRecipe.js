@@ -20,6 +20,7 @@ export default class AddRecipeUser extends Component {
     this.state = {  
     name: "",
     Malt: "",
+    Temp: "",
     Directions: "",
     Hops1:"",
     schedule:"",
@@ -71,6 +72,7 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Malt: data.Malt,
+        Temp: data.Temp,
         Hops: data.Hops,
         Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
@@ -124,8 +126,19 @@ render() {
                         onChange={this.handleChange}
             />
         </FormGroup>
+
         </Col> 
         </Row>
+        <FormGroup controlId="Temp">
+            <FormLabel color="white" >Max Temperature</FormLabel>
+            <FormControl
+                        autoFocus
+                        type="text" 
+                        placeholder="in Celsius"
+                        value={this.state.Temp}
+                        onChange={this.handleChange}
+            />
+        </FormGroup>
         <FormGroup controlId="Directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl

@@ -2,14 +2,16 @@
 import React, { Component } from "react";
 
 import './listRecipe.css';
+import './beerStatus.css'
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button,Form,
     FormGroup,
     FormControl,
     FormLabel, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
-import ListRecipeDatatable from "./listRecipeDatatable";
-export default class ListRecipe extends Component {
+import ListRecipeDatatableStatus from "./listRecipeDatatableStatus";
+import ProgressBar from 'react-bootstrap/ProgressBar'
+export default class ListRecipeStatus extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,12 +19,14 @@ export default class ListRecipe extends Component {
             items: [],
             response: {},
             name:"",
-            names:[]
+            names:[],
+            temp: ""
         }
         this.items = null;
         this.loading = true;
         this.names=null;
         this.name=null;
+        this.temp=null;
 
     }
 
@@ -38,7 +42,19 @@ export default class ListRecipe extends Component {
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
         event.preventDefault();
+        
       }
+
+    handleTemp=()=>{
+       // this.state.temp=temp
+        console.log(this.state.temp)
+    
+    }
+
+    status=(e)=>
+    {
+        console.log("something")
+    }
 
     getItems=(event)=> {
         // var apiUrl = 'http://127.0.0.1:5000/allRecipes';
@@ -63,7 +79,7 @@ export default class ListRecipe extends Component {
                                 this.items[i].map((values)=>{
                                 
                                         names.push([
-                                        values.name
+                                        values.name, values.Temp
                                             ]);
                                         
                                             
@@ -88,32 +104,7 @@ export default class ListRecipe extends Component {
 
     }
 
-    deleteItem = (name) => {
-         const updatedItems = this.state.names.filter(i => i[0] !== name[0]);
-         this.setState({ names: updatedItems })
-        }
-      
-    
-      deleteRecipe =(name)=>{
-        console.log("in delRecipe")
-        console.log(name)
-        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name.toString()
-          })
-          
-        })
-        
-        .then(() => {
-            this.deleteItem(name)
-          })
-          .catch(err => console.log(err))
-
-      }
+   
 
 
     renderList() {
@@ -123,7 +114,7 @@ export default class ListRecipe extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > Type the recipe name or just click below to view all beers</Card.Title>
+         <Card.Title className="titleCard" > Type the recipe name to view status</Card.Title>
              <Form onSubmit={this.handleSubmit}>
                  <FormGroup controlId="name"  >
                      <FormLabel>Recipe Name</FormLabel>
@@ -132,10 +123,10 @@ export default class ListRecipe extends Component {
                          type="Text"
                          value={this.state.name}
                          onChange={this.handleChange}
-                         placeholder="eg. WhiteDogIPA"
+                         placeholder="e.g WhiteDogIPA"
                      />
                  </FormGroup>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >Click to view all Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Temperature</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"
@@ -145,10 +136,57 @@ export default class ListRecipe extends Component {
                  timeout={2000} //2 secs
 
              /> :
-              <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
+              <ListRecipeDatatableStatus temp={this.state.temp} names={this.state.names} status={this.status} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatableStatus>}
 
          </Card.Body>
        </Card>
+
+
+
+       
+       <Card  className="mainCardOneMain">
+         <Card.Body className = "card-body">
+         <Card.Title className="titleCard" > Type the current temperature view status</Card.Title>
+             <Form >
+                 <FormGroup controlId="temp"  >
+                     <FormLabel>Current temperature</FormLabel>
+                     <FormControl
+                         autoFocus
+                         type="Text"
+                         value={this.state.temp}
+                         onChange={this.handleChange}
+                         
+                     />
+                 </FormGroup>
+                 <Button onClick={this.handleTemp} id = "btn-color" variant="primary"  >Submit</Button>
+             </Form>
+             </Card.Body>
+           </Card>
+
+  
+                <div className="status">
+
+            </div>
+            
+            <Card  className="mainCardOne">
+            <Card.Body className ="bodyCardOne">
+
+            <Card.Text className = "titleCardOne">
+            Brewing Status
+            </Card.Text>
+            {/* <ProgressBar animated now={65} label={`65%`}/> */}
+            <br/>
+            <ProgressBar>
+            <ProgressBar variant="success"   now={25} key={1} />
+            <ProgressBar variant="success" now={25} key={2} />
+            <ProgressBar variant="warning" animated striped  now={25} key={3} />
+            <ProgressBar  now={0} key={3} />
+            </ProgressBar>
+            <br/>
+            <p>Day-4: Fermentation</p>
+            </Card.Body>
+            </Card>
+
             </Container>
           
         );
