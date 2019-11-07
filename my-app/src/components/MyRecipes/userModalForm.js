@@ -1,15 +1,17 @@
-import RecipeList from './viewEachRecipe'
+import ListRecipe from './viewEachRecipe'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 //import Modal from 'react-bootstrap/Modal';
 import './userModal.css'
-class ModalForm extends Component {
+class ModalForm2 extends Component {
   constructor(props) {
     super(props)
     this.state = {
       modal: false
     }
+
+    console.log("modal")
    
     console.log(this.props.name)
   }
@@ -43,7 +45,7 @@ class ModalForm extends Component {
         <Modal  isOpen={this.state.modal} toggle={this.toggle} className='custom' size='lg' >
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
-            <RecipeList name={this.props.name}
+            <ListRecipe name={this.props.name}
               toggle={this.toggle}
                />
           </ModalBody>
@@ -53,4 +55,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm
+export default ModalForm2
