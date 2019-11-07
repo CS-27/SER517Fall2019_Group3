@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 
 import './listRecipe.css';
+import './beerStatus.css'
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button,Form,
     FormGroup,
@@ -122,9 +123,10 @@ export default class ListRecipeStatus extends Component {
                          type="Text"
                          value={this.state.name}
                          onChange={this.handleChange}
+                         placeholder="e.g WhiteDogIPA"
                      />
                  </FormGroup>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Details</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Temperature</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"
@@ -170,7 +172,7 @@ export default class ListRecipeStatus extends Component {
             <Card.Body className ="bodyCardOne">
 
             <Card.Text className = "titleCardOne">
-            Breweing Status
+            Brewing Status
             </Card.Text>
             {/* <ProgressBar animated now={65} label={`65%`}/> */}
             <br/>
