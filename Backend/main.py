@@ -324,15 +324,14 @@ def createASL():
 def addIngredientsShoppingList():
 	req_data = request.get_json(force=True)
 	shoppingList = {}
-	shoppingList.__setitem__("userID",req_data["userID"])
-
+	userID = req_data["userID"]
 	for hop in req_data["hops"]:
 		print(hop)
 		hopArr = hop.split(":")
 		name = hopArr[0].strip()
 		quantity = hopArr[1].strip()
 		shoppingList.__setitem__(name,quantity)
-	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(shoppingList)})
+	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(userID, shoppingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
