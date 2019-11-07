@@ -166,7 +166,8 @@ def viewUserRecipe(userID, recipeName):
 	if userID != 'recipe_info':
 		if userID in db.list_collection_names():
 			collection = db[userID]
-			result = list(collection.find({'name': recipeName}))
+			#result = list(collection.find({'name': recipeName}))
+			result = collection.find_one({'name': recipeName})
 			#print type(result)
 		return json.dumps(result, default=json_util.default)
 
