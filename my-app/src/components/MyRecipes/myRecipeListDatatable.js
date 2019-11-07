@@ -12,7 +12,7 @@ class myRecipeListDatatable extends Component {
       modal: false
     }
    
-    console.log(this.props.name)
+    console.log(this.props.names)
   }
 
 
