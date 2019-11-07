@@ -53,7 +53,7 @@ class userListRecipe extends Component {
         console.log(name)
         //console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?recipeName='+name +'&userID='+sessionStorage.getItem("username");
-        // http://127.0.0.1:5000/viewMyRecipe?recipeName=beer1&userID=user1
+     
         
           fetch(apiUrl)
           .then(res => res.json())
@@ -62,7 +62,7 @@ class userListRecipe extends Component {
                 var data =result['Recipe Info'];
              this.loading = false;
              var recipe =[];
-             
+            
              Object.keys(data).forEach(function(key) {
                  if(key!="_id" && key!="name" && key!="Category"){
                   recipe.push([
@@ -80,10 +80,20 @@ class userListRecipe extends Component {
                 console.log(this.recipe[0]);
                },
                (error) => {
-                 this.setState({ error });
+                 //this.setState({ error });
+                 this.message = 'Error in viewing recipes';
                }
-             )
+              )
        }
+
+    //   }).then(res => {
+    //     if(res.status===200)
+    //        this.message = 'Ingredient added successfully'
+    //     console.log(res.status) ;
+    // }).catch(err => console.log(err));
+   
+      
+
        addtoShopList=()=>{
         var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
         console.log(this.state.recipe)
