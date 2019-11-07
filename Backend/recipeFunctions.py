@@ -116,7 +116,7 @@ def whatiCanBrewToday(userID):
 					for ingredient in ingredientList:
 						if hopArr[1].strip().isdigit():
 							intHop = int(hopArr[1].strip())
-							intIngr = int( ingredient[1].strip())
+							intIngr = int( ingredient[1])
 							if hopArr[0] == ingredient[0] and intHop <= intIngr: 
 								flag = True
 								break
