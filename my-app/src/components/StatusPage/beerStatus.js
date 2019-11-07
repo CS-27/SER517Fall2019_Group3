@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './beerStatus.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
@@ -10,8 +10,10 @@ Date added: Oct 16, 2019
 Modified By: Salini Chittineni
 Date modified : Oct 21,2019
 */
-function beerStatus() {
-  return (
+export default class beerStatus extends Component {
+  
+  render() {
+    return (
 
     <div>
 
@@ -43,5 +45,6 @@ function beerStatus() {
     
   );
 }
+}
 
-export default beerStatus;
+
