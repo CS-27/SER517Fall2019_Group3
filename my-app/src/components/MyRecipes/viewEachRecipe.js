@@ -6,16 +6,22 @@
 */
 
 import React, { Component } from "react";
+import DataTable1 from './myRecipeDetailDatatable';
 import Loader from 'react-loader-spinner';
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router'
+
 import './viewEachRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import DataTable from "./myRecipeListDatatable";
 
 
-export default class recipeList extends Component {
+//import ModalForm from './modalForm'
+
+class userListRecipe extends Component {
      constructor(props) {
         super(props);
+        console.log(this.props)
         this.getRecipe = this.getRecipe.bind(this);
         this.message = ""
       
@@ -46,39 +52,24 @@ export default class recipeList extends Component {
         console.log("inside rec")
         console.log(name)
         //console.log(convention)
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
+        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?recipeName='+name +'&userID='+sessionStorage.getItem("username");
+        // http://127.0.0.1:5000/viewMyRecipe?recipeName=beer1&userID=user1
         
-        //catching null responses
-        // fetch(url).then((response) => {
-        //   if (response.ok) {
-        //     return response.json();
-        //   } else {
-        //     throw new Error('Something went wrong');
-        //   }
-        // })
-        // .then((responseJson) => {
-        //   // Do something with the response
-        // })
-        // .catch((error) => {
-        //   console.log(error)
-        // });
-
           fetch(apiUrl)
           .then(res => res.json())
           .then(
             (result) => {
-                var data =result['recipeList'];
+                var data =result['Recipe Info'];
              this.loading = false;
-          
              var recipe =[];
              
              Object.keys(data).forEach(function(key) {
-              if(key!="_id" && key!="name" && key!="Category"){
-               recipe.push([
-                 key,data[key]
-              ]);
-              }               
-         });
+                 if(key!="_id" && key!="name" && key!="Category"){
+                  recipe.push([
+                    key,data[key]
+                 ]);
+                 }               
+            });
            
                  this.setState({
                   recipe: recipe
@@ -93,7 +84,34 @@ export default class recipeList extends Component {
                }
              )
        }
+       addtoShopList=()=>{
+        var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
+        console.log(this.state.recipe)
+          var hops = this.state.recipe[3][1]
+          var userID=sessionStorage.getItem("username")
 
+          fetch(url, {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              
+              hops: hops,
+              userID : userID
+              
+            })
+          })
+            .then(response => {
+              
+              this.props.history.push('/shoppinglist')
+
+
+
+            })
+            
+            .catch(err => console.log(err))
+       }
 
         
          renderList() {
@@ -105,7 +123,8 @@ export default class recipeList extends Component {
                     <Card  className="mainCard">
                 <Card.Body className = "card-body">
                 <Card.Title className="titleCard" >{this.props.name}</Card.Title>
-                <DataTable items={this.state.recipe}></DataTable>
+                <DataTable1 items={this.state.recipe}></DataTable1>
+                <Button id ="btn-color" onClick = {this.addtoShopList}>Add ingredients to shopping list</Button>
                 </Card.Body>
             </Card>
 </Container>
@@ -121,3 +140,7 @@ export default class recipeList extends Component {
             );
         }
     }
+
+    export default withRouter(userListRecipe);
+
+
