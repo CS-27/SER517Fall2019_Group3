@@ -15,6 +15,7 @@ import Toolbar from "./components/Toolbar/Toolbar";
 
 import AddRecipeUser from "./components/UserRecipes/AddRecipe";
 import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
+import ListRecipeStatus from "./components/StatusPage/listRecipeStatus"
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
