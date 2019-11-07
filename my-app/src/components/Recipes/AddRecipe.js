@@ -31,7 +31,8 @@ export default class AddRecipe extends Component {
     Grains:[],
     Grains2:[],
     HopsSchedule:[],
-    Category:""
+    Category:"",
+    Temp: ""
   };
 
         this.uname=sessionStorage.getItem("username")
@@ -74,6 +75,7 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Category:data.Category,
+        Temp: data.Temp,
         Malt: data.Malt,
         Hops: data.Hops,
         Grains: data.Grains,
@@ -123,22 +125,40 @@ render() {
             <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="in gallons"
+                        placeholder="in gallons (e.g: 10)"
                         value={this.state.Malt}
+                        onChange={this.handleChange}
+            />
+        </FormGroup>
+        
+        </Col>
+        <Col>
+           <FormGroup controlId="Temp">
+            <FormLabel color="white" >Max Temperature</FormLabel>
+            <FormControl
+                        autoFocus
+                        type="text" 
+                        placeholder="in Celsius (e.g: 50)"
+                        value={this.state.Temp}
                         onChange={this.handleChange}
             />
         </FormGroup>
         </Col> 
         </Row>
+        
+        
         <div>
                <select id="Category" onChange={this.handleChange} value={this.state.value}>
                   <option value="select">Select Recipe Category</option>
                   <option value="1">ABV less than 5%</option>
                   <option value="2">ABV greater than 5%</option>
+                  <option value="none">none</option>
+                  
                </select>
                <p></p>
                {/* <p>{this.state.value}</p> */}
-           </div>
+         </div>
+               
         <FormGroup controlId="Directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl
@@ -148,13 +168,13 @@ render() {
                         value={this.state.Directions}
                         onChange={this.handleChange}
             />
-            <div>Please Enter comma separated values for below fields: </div>
+            <div><h5>Please Enter comma separated values for below fields: </h5></div>
         <FormGroup controlId="Hops1">
                     <FormLabel color="white" >Add Hops</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="e.g: hop1 qty1, hop2 qty2 .."
+                        placeholder="hop1: qty1, hop2: qty2 (e.g: Chinook: 20, Simcoe: 15)"
                         value={this.state.Hops1} 
                         onChange={this.handleChange}
                     />
