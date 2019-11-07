@@ -123,7 +123,7 @@ export default class ListRecipe extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > All Recipes below</Card.Title>
+         <Card.Title className="titleCard" > Type the recipe name or just click below to view all beers</Card.Title>
              <Form onSubmit={this.handleSubmit}>
                  <FormGroup controlId="name"  >
                      <FormLabel>Recipe Name</FormLabel>
@@ -132,9 +132,10 @@ export default class ListRecipe extends Component {
                          type="Text"
                          value={this.state.name}
                          onChange={this.handleChange}
+                         placeholder="eg. WhiteDogIPA"
                      />
                  </FormGroup>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >Click to view all Beers</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"

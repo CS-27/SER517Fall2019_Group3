@@ -6,31 +6,6 @@ import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable2 extends Component {
 
-  deleteItem2 = (item) => {
-    let confirmDelete = window.confirm('Delete item forever?')
-    if(confirmDelete){
-     this.props.deleteRecipe(item);
-     console.log("in delItem");
-     console.log(item.toString())
-    }
-
-  }
-
-  // getRecipe=(item)=>
-  // {
-  //   const names = this.props.names.map(item =>
-  //     {
-  //       return(
-
-  //       )
-  //     })
-  //   // this.props.getRecipe(item);
-  //   // console.log("in rec");
-  //   // console.log(item.toString())
-  // }
-
-
-
   render() { 
     const names2 = this.props.names2.map(item =>
       {
@@ -45,9 +20,9 @@ class ListRecipeDatatable2 extends Component {
         <ModalForm2 name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
-          <td>
+          {/* <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem2(item) }>Delete </Button>
-          </td>
+          </td> */}
         </tr>   
         )
       })
