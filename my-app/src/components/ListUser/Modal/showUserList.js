@@ -15,7 +15,7 @@ import {Table} from "reactstrap";
 // import ListRecipeDatatable from "./listRecipeDatatable";
 //import ModalForm from './modalForm'
 
-export default class showUser extends Component {
+export default class showUserList extends Component {
     constructor(props) {
         super(props);
         this.getProfile = this.getProfile.bind(this);
@@ -133,7 +133,7 @@ export default class showUser extends Component {
 
             <Container>
                 <span class="iconify"  data-inline="false"></span>
-                <Card  className="mainCardSmall">
+                <Card  className="mainCardOne">
                     <Card.Body className = "card-body">
 
                         <Card.Title className="card-title">Profile</Card.Title>
