@@ -6,115 +6,151 @@
 */
 
 import React, { Component } from "react";
+import DataTable1 from './myRecipeDetailDatatable';
 import Loader from 'react-loader-spinner';
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router'
+
 import './viewEachRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import DataTable2 from "./myRecipeDetailDatatable";
 
 
-export default class ListRecipe extends Component {
-  constructor(props) {
-    super(props);
-    this.getRecipe = this.getRecipe.bind(this);
-    this.message = ""
+//import ModalForm from './modalForm'
 
-    this.state = {
-      error: null,
-      recipe: [],
-      response: {},
-      items: []
-    }
-    this.recipe = null;
-    this.loading = true;
-    this.items = null;
-    this.getRecipe(this.props.name.toString());
-
-
-  }
-
-  handleSubmit = (event) => {
-    var xhr = new XMLHttpRequest()
-    xhr.open('POST', 'http://127.0.0.1:5000/')
-
-    event.preventDefault();
-  }
-
-
-  getRecipe = (name) => {
-    var convention = this.props.value;
-    console.log("inside rec")
-    console.log(name)
-    //console.log(convention)
-    var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?recipeName=' + name + '&userID=user1';
-
-
-
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          var data = result['Recipe Info'];
-          this.loading = false;
-          var recipe = [];
-          console.log("debug")
-          console.log(data);
-          data.forEach(function (key) {
-            if (key != "_id" && key != "name" && key != "Category") {
-              recipe.push(
-                key, data[key]
-              );
-            }
-          });
-
-          console.log("here")
-          console.log(recipe)
-          //  this.state.recipe=recipe
-
-            this.setState({
-              recipe:recipe
-          });
-
-          
-         
-          
-
-
-          // const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
-          // this.recipe = dataArray;
-          // console.log("before")
-          // console.log(this.recipe[0]);
-        },
-        (error) => {
-          this.setState({ error });
+class userListRecipe extends Component {
+     constructor(props) {
+        super(props);
+        console.log(this.props)
+        this.getRecipe = this.getRecipe.bind(this);
+        this.message = ""
+      
+        this.state = {
+          error: null,
+          recipe: [],
+          response: {},
+          items: []
         }
-      )
-  }
+        this.recipe = null;
+        this.loading = true;
+        this.items=null;
+        this.getRecipe(this.props.name.toString());
+
+        
+    }
+
+    handleSubmit=(event)=> {
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'http://127.0.0.1:5000/')
+    
+        event.preventDefault();
+      }
+
+
+       getRecipe=(name)=>{
+        var convention= this.props.value;
+        console.log("inside rec")
+        console.log(name)
+        //console.log(convention)
+        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?recipeName='+name +'&userID='+sessionStorage.getItem("username");
+     
+        
+          fetch(apiUrl)
+          .then(res => res.json())
+          .then(
+            (result) => {
+                var data =result['Recipe Info'];
+             this.loading = false;
+             var recipe =[];
+            
+             Object.keys(data).forEach(function(key) {
+                 if(key!="_id" && key!="name" && key!="Category"){
+                  recipe.push([
+                    key,data[key]
+                 ]);
+                 }               
+            });
+           
+                 this.setState({
+                  recipe: recipe
+                });
+
+                const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
+                this.recipe = dataArray;
+                console.log(this.recipe[0]);
+               },
+               (error) => {
+                 //this.setState({ error });
+                 this.message = 'Error in viewing recipes';
+               }
+              )
+       }
+
+    //   }).then(res => {
+    //     if(res.status===200)
+    //        this.message = 'Ingredient added successfully'
+    //     console.log(res.status) ;
+    // }).catch(err => console.log(err));
+   
+      
+
+       addtoShopList=()=>{
+        var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
+        console.log(this.state.recipe)
+          var hops = this.state.recipe[3][1]
+          var userID=sessionStorage.getItem("username")
+
+          fetch(url, {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              
+              hops: hops,
+              userID : userID
+              
+            })
+          })
+            .then(response => {
+              
+              this.props.history.push('/shoppinglist')
 
 
 
-  renderList() {
-    var convention = this.props.value;
-    return (
+            })
+            
+            .catch(err => console.log(err))
+       }
 
-      <Container>
-        <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-        <Card className="mainCard">
-          <Card.Body className="card-body">
-            <Card.Title className="titleCard" >{this.props.name}</Card.Title>
-            <DataTable2 items={this.state.recipe}></DataTable2>
-          </Card.Body>
-        </Card>
-      </Container>
+        
+         renderList() {
+            var convention= this.props.value;
+            return (
+                
+                <Container>
+                        <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
+                    <Card  className="mainCard">
+                <Card.Body className = "card-body">
+                <Card.Title className="titleCard" >{this.props.name}</Card.Title>
+                <DataTable1 items={this.state.recipe}></DataTable1>
+                <Button id ="btn-color" onClick = {this.addtoShopList}>Add ingredients to shopping list</Button>
+                </Card.Body>
+            </Card>
+</Container>
+                
+            );
+        }
+    
+        render() {
+            return (
+                <div>
+                    { this.renderList()}
+                </div>
+            );
+        }
+    }
 
-    );
-  }
+    export default withRouter(userListRecipe);
 
-  render() {
-    return (
-      <div>
-        {this.renderList()}
-      </div>
-    );
-  }
-}
+

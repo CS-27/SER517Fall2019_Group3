@@ -95,7 +95,7 @@ export default class IngredientPage extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Ingredient</Button>
+                    <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Save</Button>
 
     
             </Form>
