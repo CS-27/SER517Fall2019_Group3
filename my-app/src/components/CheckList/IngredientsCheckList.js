@@ -55,6 +55,7 @@ class IngredientsCheckList extends Component{
             }
         }
         event.preventDefault();
+        this.props.history.push('/ingredientList')
     }
 
     updatelist=(id,row)=>{
