@@ -133,7 +133,7 @@ export default class showUser extends Component {
 
             <Container>
                 <span class="iconify"  data-inline="false"></span>
-                <Card  className="mainCardOne">
+                <Card  className="mainCardSmall">
                     <Card.Body className = "card-body">
 
                         <Card.Title className="card-title">Profile</Card.Title>
