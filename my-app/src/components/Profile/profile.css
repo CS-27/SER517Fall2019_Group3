@@ -5,6 +5,11 @@
     opacity: .8;
 
 }
+.mainCardSmall{
+    width: 40rem;
+    margin: 0 auto;
+    opacity: .8;
+}
 
 .titleCard{
     font-family: 'Lucida Sans';
