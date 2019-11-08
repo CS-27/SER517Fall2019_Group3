@@ -75,7 +75,7 @@ class EquipmentsCheckList extends Component{
                 <span className="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
                 < Card className = "mainCardCheck" >
                     < Card.Body className = "card-body" >
-                        < Card.Title className = "titleCard" > List of ingredients </Card.Title>
+                        < Card.Title className = "titleCard" > List of Equipments </Card.Title>
                         <form onSubmit={this.handleFormSubmit}>
                             <Table items={this.state.lists} updatelist1={this.updatelist}
                             />

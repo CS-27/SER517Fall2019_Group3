@@ -72,6 +72,8 @@ class ButtonAppBar extends Component {
                 <div className="dropdown-content">
                   <Button component={Link} to="/addingredient" color="inherit" className="text-capitalize" >Add Ingredient</Button>
                   <Button component={Link} to="/ingredientList" color="inherit" className="text-capitalize" >Ingredient List</Button>
+                  <Button component={Link} to="/IngredientCheckList" color="inherit" className="text-capitalize" >Ingredient CheckList</Button>
+
                 </div>
               </div>
               <div className="dropdown">
@@ -79,6 +81,8 @@ class ButtonAppBar extends Component {
                 <div className="dropdown-content">
                   <Button component={Link} to="/equipment" color="inherit" className="text-capitalize" >Add Equipment</Button>
                   <Button component={Link} to="/equipmentList" color="inherit" className="text-capitalize" >Equipment List</Button>
+                  <Button component={Link} to="/EquipmentsCheckList" color="inherit" className="text-capitalize" >Equipment CheckList</Button>
+
                 </div>
               </div>
 

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de42a868-b14e-47fa-b713-63d5e6488fe1" name="Default Changelist" comment="Basic signup page updated.">
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ListUser/showUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListUser/showUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Profile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Profile/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/CheckList/EquipmentsCheckList.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/CheckList/EquipmentsCheckList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,11 +42,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/Profile/profile.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="78" column="40" lean-forward="true" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/CheckList/EquipmentsCheckList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="77" column="81" selection-start-line="77" selection-start-column="81" selection-end-line="77" selection-end-column="81" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="63" column="48" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="48" />
+              <folding>
+                <element signature="e#193#219#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/my-app/src/components/InputError.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/PasswordValidator.js" />
         <option value="$PROJECT_DIR$/my-app/src/CreateAccountScreen.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Contact.js" />
@@ -135,7 +170,6 @@
         <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Signup/Signup.js" />
         <option value="$PROJECT_DIR$/my-app/src/index.js" />
-        <option value="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListIngredients/listingredient.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListUser/listUser.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListUser/userProfile.js" />
@@ -154,6 +188,8 @@
         <option value="$PROJECT_DIR$/my-app/src/components/ListUser/Modal/UserListModalForm.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListUser/showUser.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/Profile/profile.css" />
+        <option value="$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/CheckList/EquipmentsCheckList.js" />
       </list>
     </option>
   </component>
@@ -205,6 +241,14 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="CheckList" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SER517Fall2019_Group3" type="462c0819:PsiDirectoryNode" />
+              <item name="my-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="ListUser" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -246,6 +290,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Signin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SER517Fall2019_Group3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SER517Fall2019_Group3" type="462c0819:PsiDirectoryNode" />
+              <item name="my-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Toolbar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -351,7 +403,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97256000" />
+    <option name="totallyTimeSpent" value="97907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -403,13 +455,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Basic signup page updated." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/AppliedRoute.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/Recipes/AddRecipe.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-760">
@@ -454,26 +499,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/datatable.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#288#329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/modalForm.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -767,6 +794,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="48" />
+          <folding>
+            <element signature="e#193#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/Toolbar/Toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="78" column="40" lean-forward="true" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/CheckList/EquipmentsCheckList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="77" column="81" selection-start-line="77" selection-start-column="81" selection-end-line="77" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
