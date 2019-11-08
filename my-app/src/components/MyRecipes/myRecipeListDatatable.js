@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './myRecipeListDatatable.css';
 import ModalForm1 from './userModalForm'
+import UserShareListModalForm from '../ListUser/Modal/UserShareListModalForm'
 
 
 class ListRecipeDatatable extends Component {
@@ -34,6 +35,9 @@ class ListRecipeDatatable extends Component {
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
+            <td>
+                <UserShareListModalForm name={item} buttonLabel="share" />
+            </td>
            
         </tr>
         )
