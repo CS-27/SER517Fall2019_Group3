@@ -111,11 +111,11 @@ def whatiCanBrewToday(userID):
 		if 'Hops' in recipe:
 			hops = recipe["Hops"]
 			for hop in hops:
-				hopArr = hop.strip().split()
+				hopArr = hop.strip().split(':')
 				if len(hopArr) == 2:
 					for ingredient in ingredientList:
-						if(hopArr[1].isdigit() and ingredient[1].isdigit):
-							intHop = int(hopArr[1])
+						if hopArr[1].strip().isdigit():
+							intHop = int(hopArr[1].strip())
 							intIngr = int( ingredient[1])
 							if hopArr[0] == ingredient[0] and intHop <= intIngr: 
 								flag = True
@@ -125,6 +125,7 @@ def whatiCanBrewToday(userID):
 		if(flag):
 			recipeList.append(recipe)
 		flag = False
+		print("end of recipe")
 
 				
 	
@@ -146,18 +147,31 @@ def searchRecipe(recipeRegx):
 	return json.dumps(result, default=json_util.default)
 
 
-def viewUserRecipe(userID):
+def viewUserRecipes(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
+	result = []
 	if userID != 'recipe_info':
-		collection = db[userID]
-		result = list(collection.find({}))
-		print type(result)
-		return json.dumps(result, default=json_util.default)
-	else:
-		result = []
-		result.append(False)
+		if userID in db.list_collection_names():
+			collection = db[userID]
+			result = list(collection.find({}))
+		#print type(result)
 		return json.dumps(result, default=json_util.default)
 
+
+def viewUserRecipe(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+	result = {}
+	if userID != 'recipe_info':
+		if userID in db.list_collection_names():
+			collection = db[userID]
+			#result = list(collection.find({'name': recipeName}))
+			result = collection.find_one({'name': recipeName})
+			#print type(result)
+	return json.dumps(result, default=json_util.default)
+
+	
+		
 
 

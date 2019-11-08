@@ -107,7 +107,16 @@ def recipeSearch():
 @brewDay_api.route('/viewMyRecipes', methods = ['GET'])
 def viewMyRecipes():
 	req_data = request.args.get('userID')
-	response = jsonify({'My Recipe List' : json.loads(recipeFunctions.viewUserRecipe(req_data))})
+	response = jsonify({'My Recipe List' : json.loads(recipeFunctions.viewUserRecipes(req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+@brewDay_api.route('/viewMyRecipe', methods = ['GET'])
+def viewMyRecipe():
+	uID = request.args.get('userID')
+	recipeName = request.args.get('recipeName')
+	response = jsonify({'Recipe Info' : json.loads(recipeFunctions.viewUserRecipe(uID, recipeName))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -250,7 +259,9 @@ def addShoppingList():
 	shoppingList = {}
 	for key,value in req_data.items():
 		shoppingList.__setitem__(key,value)
-	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(shoppingList)})
+	userID = shoppingList['userID']
+	del shoppingList['userID']
+	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(userID, shoppingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -309,6 +320,30 @@ def createASL():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+@brewDay_api.route('/addIngredientsShoppingList', methods = ['POST'])
+def addIngredientsShoppingList():
+	req_data = request.get_json(force=True)
+	shoppingList = {}
+	userID = req_data["userID"]
+	for hop in req_data["hops"]:
+		print(hop)
+		hopArr = hop.split(":")
+		name = hopArr[0].strip()
+		quantity = hopArr[1].strip()
+		shoppingList.__setitem__(name,quantity)
+	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(userID, shoppingList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+@brewDay_api.route('/movetToShopList', methods = ['POST'])
+def moveToShopList():
+	req_data = request.get_json(force = True)
+	userID = req_data['userID']
+	del req_data['userID']
+	response = jsonify({'Auto ShoppingList' : json.loads(shoppingListFunctions.moveToShoppingList(userID, req_data))})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 # # # # user registeration/login/session Functions # # # # 
 

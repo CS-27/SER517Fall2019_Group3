@@ -8,7 +8,7 @@ import { Container, Row, Col, Button,Form,
     FormControl,
     FormLabel, } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
-import ListRecipeDatatable from "./listRecipeDatatable";
+import ListRecipeDatatableStatus from "./listRecipeDatatableStatus";
 export default class ListRecipe extends Component {
     constructor(props) {
         super(props);
@@ -41,17 +41,17 @@ export default class ListRecipe extends Component {
       }
 
     getItems=(event)=> {
-        // var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-            var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
+        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    var data = result['Recipe List'];
+                    var data = result['All Recipes'];
                     var names=[];
 
                     this.loading = false;
-                    this.items = [result['Recipe List']];
+                    this.items = [result['All Recipes']];
                     
                     console.log(this.items);
                     console.log(data.length);
@@ -123,19 +123,9 @@ export default class ListRecipe extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > Type the recipe name or just click below to view all beers</Card.Title>
+         <Card.Title className="titleCard" > All Recipes below</Card.Title>
              <Form onSubmit={this.handleSubmit}>
-                 <FormGroup controlId="name"  >
-                     <FormLabel>Recipe Name</FormLabel>
-                     <FormControl
-                         autoFocus
-                         type="Text"
-                         value={this.state.name}
-                         onChange={this.handleChange}
-                         placeholder="eg. WhiteDogIPA"
-                     />
-                 </FormGroup>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >Click to view all Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary" type="submit" >View Beers</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"
@@ -145,7 +135,8 @@ export default class ListRecipe extends Component {
                  timeout={2000} //2 secs
 
              /> :
-              <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
+              <ListRecipeDatatableStatus names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatableStatus>}
+
 
          </Card.Body>
        </Card>

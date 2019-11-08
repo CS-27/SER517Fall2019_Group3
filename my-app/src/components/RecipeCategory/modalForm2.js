@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 //import Modal from 'react-bootstrap/Modal';
 import './modal.css'
-class ModalForm extends Component {
+class ModalForm2 extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -44,9 +44,8 @@ class ModalForm extends Component {
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
             <RecipeList name={this.props.name}
-              toggle={this.toggle} 
+              toggle={this.toggle}
                />
-
           </ModalBody>
         </Modal>
       </div>
@@ -54,4 +53,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm
+export default ModalForm2

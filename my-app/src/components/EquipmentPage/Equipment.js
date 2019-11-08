@@ -96,7 +96,7 @@ handleChange = event => {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Equipment</Button>
+                    <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Save</Button>
             </Form>
          </Card.Body>
        </Card>

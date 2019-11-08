@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
-import './myRecipeListDatatable.css';
-import ModalForm1 from './userModalForm'
+import './listRecipeDatatable.css'
 
 
-class ListRecipeDatatable extends Component {
+class ListRecipeDatatableStatus extends Component {
 
   deleteItem = (item) => {
     let confirmDelete = window.confirm('Delete item forever?')
@@ -16,25 +15,26 @@ class ListRecipeDatatable extends Component {
 
   }
 
+// compare=(e)=>
+// {
+//   this.props.status(item)
+// }
 
+  
 
   render() { 
     const names = this.props.names.map(item =>
       {
+        //const compare={this.compare(item[1])}
         // console.log(item)
       return (
         
         <tr  >
-          <td>{item}</td>
-        <td>
+          
+          <td>{item[0]}</td>
+            <td>{item[1]}</td>
+          
 
-        <ModalForm1 name={item} buttonLabel="view" />
-          {/* getRecipe={this.getRecipe(item)} */}
-        </td>
-          <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
-          </td>
-           
         </tr>
         )
       })
@@ -45,7 +45,7 @@ class ListRecipeDatatable extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th></th>
+            <th> Temperature </th>
             <th></th>
           </tr>
         </thead>
@@ -57,4 +57,4 @@ class ListRecipeDatatable extends Component {
   }
 }
 
-export default ListRecipeDatatable
+export default ListRecipeDatatableStatus

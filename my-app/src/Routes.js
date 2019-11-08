@@ -24,13 +24,17 @@ import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
 import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
 import WhatCanIBrew from './components/WhatICanBrewToday/whatIcanBrew';
-import BeerStatus from "./components/StatusPage/beerStatus";
+import ListRecipeStatus from "./components/StatusPage/listRecipeStatus";
 
 import ListRecipe from "./components/AllRecipes/listRecipeAll"
 import AddRecipeUser from "./components/UserRecipes/AddRecipe"
+
+import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
+
 import MyRecipeList from "./components/MyRecipes/viewMyRecipes";
 import IngredientsCheckList from './components/CheckList/IngredientsCheckList';
 import EquipmentsCheckList from "./components/CheckList/EquipmentsCheckList";
+
 
 
 export default({ childProps }) =>
@@ -55,21 +59,18 @@ export default({ childProps }) =>
  
             <AppliedRoute path="/userList" exact component={ListUser} props={childProps} />
         <AppliedRoute path="/recipeList" exact component={listRecipe} props={childProps} />
-
-
-
+            <AppliedRoute path="/beerStatus" exact component={ListRecipeStatus} props={childProps} />
         <AppliedRoute path="/EquipmentsCheckList" exact component={EquipmentsCheckList} props={childProps} />
-
         <AppliedRoute path="/IngredientCheckList" exact component={IngredientsCheckList} props={childProps} />
-            <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
             <AppliedRoute path="/whatcanIbrew" exact component={WhatCanIBrew} props={childProps} />
             <AppliedRoute path="/ListRecipe" exact component={ListRecipe} props={childProps} />
             <AppliedRoute path="/addRecipeUser" exact component={AddRecipeUser} props={childProps} />
+            <AppliedRoute path="/recipeCategory" exact component={ListRecipeCategory} props={childProps} />
 
             {/* My Recipes */}
 
-            <AppliedRoute path="/addMyRecipe" exact component={BeerStatus} props={childProps} />
+            {/* <AppliedRoute path="/addMyRecipe" exact component={BeerStatus} props={childProps} /> */}
             <AppliedRoute path="/viewMyRecipes" exact component={MyRecipeList} props={childProps} />
-            <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
+            {/* <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} /> */}
 
     </Switch>
