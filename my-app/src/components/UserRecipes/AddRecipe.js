@@ -119,11 +119,11 @@ render() {
                 </Col>
                 <Col> 
         <FormGroup controlId="Malt">
-            <FormLabel color="white" >Malt</FormLabel>
+            <FormLabel color="white" >Batch Size</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="in lbs"
+                        placeholder="in gallons (e.g: 10)"
                         value={this.state.Malt}
                         onChange={this.handleChange}
             />
@@ -153,7 +153,7 @@ render() {
                   
                </select>
                <p></p>
-               {/* <p>{this.state.value}</p> */}
+               
          </div>
 
         <FormGroup controlId="Directions">
@@ -171,7 +171,7 @@ render() {
                     <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="e.g: hop1 qty1, hop2 qty2 .."
+                        placeholder="hop1: qty1, hop2: qty2 (e.g: Chinook: 20, Simcoe: 15)"
                         value={this.state.Hops1} 
                         onChange={this.handleChange}
                     />
