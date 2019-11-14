@@ -1,6 +1,6 @@
 /*Author: Harshita Kajal
 Date added: Oct 29, 2019
-Date modified : Nov 2, 2019
+Date modified : Nov 13, 2019
 */
 
 import React, {Component} from "react";
@@ -20,7 +20,6 @@ export default class AddRecipeUser extends Component {
     this.state = {  
     name: "",
     Malt: "",
-    Temp: "",
     Directions: "",
     Hops1:"",
     schedule:"",
@@ -28,6 +27,8 @@ export default class AddRecipeUser extends Component {
     Hops:[],
     Grains:[],
     HopsSchedule:[],
+    Category:"",
+    Temp: "",
     userID: sessionStorage.getItem("username")
   };
   this.uname=sessionStorage.getItem("username")
@@ -71,8 +72,9 @@ handleSubmit=(event) => {
         userID: data.userID,  
         name: data.name,
         Directions: data.Directions,
-        Malt: data.Malt,
+        Category:data.Category,
         Temp: data.Temp,
+        Malt: data.Malt,
         Hops: data.Hops,
         Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
@@ -128,17 +130,32 @@ render() {
         </FormGroup>
 
         </Col> 
-        </Row>
-        <FormGroup controlId="Temp">
+
+        <Col>
+           <FormGroup controlId="Temp">
             <FormLabel color="white" >Max Temperature</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
-                        placeholder="in Celsius"
+                        placeholder="in Celsius (e.g: 50)"
                         value={this.state.Temp}
                         onChange={this.handleChange}
             />
         </FormGroup>
+        </Col> 
+        </Row>
+        <div>
+               <select id="Category" onChange={this.handleChange} value={this.state.value}>
+                  <option value="select">Select Recipe Category</option>
+                  <option value="1">ABV less than 5%</option>
+                  <option value="2">ABV greater than 5%</option>
+                  <option value="none">none</option>
+                  
+               </select>
+               <p></p>
+               {/* <p>{this.state.value}</p> */}
+         </div>
+
         <FormGroup controlId="Directions">
             <FormLabel color="white" >Directions</FormLabel>
             <FormControl
