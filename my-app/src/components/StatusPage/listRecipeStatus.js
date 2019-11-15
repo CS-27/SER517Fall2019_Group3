@@ -48,7 +48,7 @@ export default class ListRecipeStatus extends Component {
     handleTemp=()=>{
        // this.state.temp=temp
         console.log(this.state.temp)
-    
+        
     }
 
     status=(e)=>
@@ -183,7 +183,7 @@ export default class ListRecipeStatus extends Component {
             <ProgressBar  now={0} key={3} />
             </ProgressBar>
             <br/>
-            <p>Day-4: Fermentation</p>
+            <p>Cool Wort and add hops</p>
             </Card.Body>
             </Card>
 
