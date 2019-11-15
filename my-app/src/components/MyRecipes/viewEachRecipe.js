@@ -60,6 +60,8 @@ class userListRecipe extends Component {
           .then(
             (result) => {
                 var data =result['Recipe Info'];
+              if(data == null)
+                return;
              this.loading = false;
              var recipe =[];
             
