@@ -65,6 +65,7 @@ export default class IngredientPage extends Component {
        
 
         event.preventDefault();
+        this.props.history.push('/ingredientList')
       }
 
 

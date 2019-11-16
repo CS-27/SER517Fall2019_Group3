@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import './listShopping.css';
 import Card from 'react-bootstrap/Card';
 import DataTable from '../ListIngredients/datatable';
+import AutoShopDatatable from './autoShopDatatable'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 export default class ListShopping extends Component {
@@ -226,9 +227,9 @@ export default class ListShopping extends Component {
                         timeout={3000} //3 secs
 
                         />: 
-                        <DataTable itemType ="shoppinglist"  userID={this.state.userID} items={this.state.autoItems}  
+                        <AutoShopDatatable itemType ="shoppinglist"  userID={this.state.userID} items={this.state.autoItems}
                         updateState={this.updateStateAuto}
-                        deleteItem = {this.deleteAutoItem} deleteIngredient = {this.deleteIngredient}></DataTable>
+                        deleteItem = {this.deleteAutoItem} deleteIngredient = {this.deleteIngredient}></AutoShopDatatable>
                         }
 
 
