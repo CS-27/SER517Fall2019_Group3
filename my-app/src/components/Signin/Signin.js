@@ -25,8 +25,8 @@ export default class Signin extends Component {
             password: "",
             authenticated:"",
             errors: {
-                name: '',
-                quantity: '',
+                email: '',
+                password: '',
               }
             
         };
@@ -50,13 +50,13 @@ export default class Signin extends Component {
         console.log(event.target.id)
         switch (name) {
             case 'email': 
-            errors.name = 
+            errors.email = 
                 value.length == 0
                 ? 'Username is required'
                 : '';
             break;
             case 'password': 
-            errors.quantity = 
+            errors.password = 
             value.length == 0
             ? 'Password  is required'
             : '';
@@ -116,8 +116,8 @@ export default class Signin extends Component {
             <Container>
             <Card  className="cardMainOneThis">
          <Card.Body className = "card-body-oneThis">
-         <p className="error-message">{this.state.errors.name}</p>
-            <p className="error-message">{this.state.errors.quantity}</p>
+         <p className="error-message">{this.state.errors.email}</p>
+            <p className="error-message">{this.state.errors.password}</p>
          <form>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Username</FormLabel>
