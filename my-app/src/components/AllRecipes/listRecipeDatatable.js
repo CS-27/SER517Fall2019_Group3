@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
 import ModalForm from './modalFormAM'
+import UserListModalForm from '../ListUser/Modal/UserListModalForm'
+// import UserListModalForm from './userListModalForm'
+// import UserListModalForm from '../ListUser/Modal/modalFormAM'
+
 import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable extends Component {
@@ -43,16 +47,22 @@ class ListRecipeDatatable extends Component {
         
         <tr  >
           <td>{item}</td>
-        <td>
+
+            <td>
 
         <ModalForm name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
+
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
+            {/*<td>*/}
+                {/*<Button id ="btn2-color" onClick={() => this.shareItem(item) }>Shares </Button>*/}
+            {/*</td>*/}
+
             <td>
-                <Button id ="btn2-color" onClick={() => this.shareItem(item) }>Share </Button>
+                <UserListModalForm name={item} buttonLabel="share" />
             </td>
         </tr>
         )

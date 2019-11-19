@@ -1,43 +1,47 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
-import './myRecipeListDatatable.css'
-import ModalForm from './userModalForm';
+import './myRecipeListDatatable.css';
+import ModalForm1 from './userModalForm'
+import UserShareListModalForm from '../ListUser/Modal/UserShareListModalForm'
 
 
-class myRecipeListDatatable extends Component {
+class ListRecipeDatatable extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      modal: false
+  deleteItem = (item) => {
+    let confirmDelete = window.confirm('Delete item forever?')
+    if(confirmDelete){
+     this.props.deleteRecipe(item);
+     console.log("in delItem");
+     console.log(item.toString())
     }
-   
-    console.log(this.props.name)
+
   }
 
 
+
   render() { 
-    console.log('hgjjgjh')
-    console.log(this)
     const names = this.props.names.map(item =>
       {
-        //console.log(props)
+        // console.log(item)
       return (
         
         <tr  >
           <td>{item}</td>
         <td>
 
-        <ModalForm name={item} buttonLabel="view" />
+        <ModalForm1 name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
         </td>
           <td>
           <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
           </td>
+            <td>
+                <UserShareListModalForm name={item} buttonLabel="share" />
+            </td>
+           
         </tr>
         )
-       })
-      
+      })
       
 
     return (
@@ -57,4 +61,4 @@ class myRecipeListDatatable extends Component {
   }
 }
 
-export default myRecipeListDatatable
+export default ListRecipeDatatable
