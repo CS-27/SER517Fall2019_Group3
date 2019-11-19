@@ -141,7 +141,7 @@ def searchRecipe(recipeRegx):
 
 	collection = db.recipe_info
 	#recipeRegx = recipeRegx.lower()
-	#print recipeRegx
+	#print type(str(recipeRegx))
 	result = list(collection.find({'name': {'$regex': recipeRegx, '$options':'i'}}))
 	#print result
 	return json.dumps(result, default=json_util.default)
