@@ -201,11 +201,12 @@ def itemsShopped(userID, itemList):
 	db = client.ingredient
 
 	collection = db.userIngredient
-
+	search_query = { "userID": userID }
+	result = collection.find_one({'userID': userID})
 	if result:
 		for key,value in itemList.items():
 			new_value = {"$set" : {key:value}}
-			updateCollection = collection.update_one(search_query, new_value, upsert=True)
+			updateCollection = collection.update_one(search_query, new_value, upsert= True)
 			print updateCollection
 
 	# if updateCollection['updatedExisting']:
