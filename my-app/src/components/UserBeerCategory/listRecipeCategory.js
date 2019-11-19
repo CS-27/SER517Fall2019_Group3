@@ -47,18 +47,18 @@ export default class ListRecipeCategory extends Component {
       
 
       getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
+        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID=' + sessionStorage.getItem("username");
 
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    var data = result['All Recipes'];
+                    var data = result['My Recipe List'];
                     var names=[];
                     //var names2=[];
 
                     this.loading = false;
-                    this.items = [result['All Recipes']];
+                    this.items = [result['My Recipe List']];
                     
                     console.log(this.items);
                     console.log(data.length);
@@ -106,18 +106,18 @@ export default class ListRecipeCategory extends Component {
     }
 
     getItems2=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
+        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID=' + sessionStorage.getItem("username");
 
         fetch(apiUrl)
             .then(res => res.json())
             .then(
                 (result) => {
-                    var data = result['All Recipes'];
+                    var data = result['My Recipe List'];
                     //var names=[];
                     var names2=[];
 
                     this.loading = false;
-                    this.items = [result['All Recipes']];
+                    this.items = [result['My Recipe List']];
                     
                     console.log(this.items);
                     console.log(data.length);
