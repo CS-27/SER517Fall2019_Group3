@@ -80,6 +80,12 @@ export default class Signup extends Component {
             ? 'Email  is required'
             : '';
             break;
+            case 'confirmPassword': 
+            errors.confirmPassword = 
+            (this.state.password != value)
+            ? 'Password and confirm password do not match'
+            : '';
+            break;
             default:
             break;
             }
@@ -187,6 +193,9 @@ export default class Signup extends Component {
             <p className="error-message">{this.state.errors.lastname}</p> 
              <p className="error-message">{this.state.errors.userID}</p>
             <p className="error-message">{this.state.errors.password}</p>
+            <p className="error-message">{this.state.errors.email}</p>
+            <p className="error-message">{this.state.errors.confirmPassword}</p>
+
          <form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="firstname" bsSize="large">
                     <FormLabel>First name</FormLabel>
