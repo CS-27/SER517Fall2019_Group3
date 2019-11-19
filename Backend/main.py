@@ -345,6 +345,17 @@ def moveToShopList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+@brewDay_api.route('/updatedList', methods = ['POST'])
+def itemsShopped():
+	req_data = request.get_json(force = True)
+	userID = req_data['userID']
+	del req_data['userID']
+	response = jsonify({'Auto ShoppingList' : shoppingListFunctions.itemsShopped(userID, req_data)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 # # # # user registeration/login/session Functions # # # # 
 
 @brewDay_api.route('/userRegister', methods = ['POST'])
