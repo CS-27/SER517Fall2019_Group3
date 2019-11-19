@@ -27,7 +27,15 @@ export default class Signup extends Component {
             userID:"",
             password: "",
             confirmPassword: "",
-            newUser: null
+            newUser: null,
+            errors: {
+                firstname:'',
+                lastname:'',
+                userID:'',
+                email: '',
+                password: '',
+                confirmPassword:''
+              }
         };
     }
 
@@ -38,6 +46,46 @@ export default class Signup extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+        const  name = event.target.id;
+        const value = event.target.value;
+        let errors = this.state.errors;
+        switch (name) {
+            case 'firstname': 
+            errors.firstname = 
+                value.length == 0
+                ? 'First name is required'
+                : '';
+            break;
+            case 'lastname': 
+            errors.lastname = 
+            value.length == 0
+            ? 'Last name  is required'
+            : '';
+            break;
+            case 'userID': 
+            errors.userID = 
+                value.length == 0
+                ? 'Username is required'
+                : '';
+            break;
+            case 'password': 
+            errors.password = 
+            value.length == 0
+            ? 'Password  is required'
+            : '';
+            break;
+            case 'email': 
+            errors.email = 
+            value.length == 0
+            ? 'Email  is required'
+            : '';
+            break;
+            default:
+            break;
+            }
+            this.setState({errors, [name]: value}, ()=> {
+                console.log(errors)
+            })
     }
 
     // handleSubmit = async event => {
@@ -78,10 +126,7 @@ export default class Signup extends Component {
             alert("User created");
             this.props.history.push('/')
         }).catch(err => console.log(err));
-        // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
-        // then(response=> {
 
-        // console.log(response);
 
 
 
@@ -136,8 +181,12 @@ export default class Signup extends Component {
 
         return (
             <Container>
-            <Card  className="cardMain">
-         <Card.Body>
+            <Card  className="cardMainOneThis">
+         <Card.Body>      
+         <p className="error-message">{this.state.errors.firstname}</p>
+            <p className="error-message">{this.state.errors.lastname}</p> 
+             <p className="error-message">{this.state.errors.userID}</p>
+            <p className="error-message">{this.state.errors.password}</p>
          <form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="firstname" bsSize="large">
                     <FormLabel>First name</FormLabel>

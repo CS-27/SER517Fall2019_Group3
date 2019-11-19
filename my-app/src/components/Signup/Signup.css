@@ -24,6 +24,14 @@
     background-color: white;
 }
 
+.cardMainOneThis{
+    
+    width: 40rem;
+    margin: 0 auto;   
+    opacity: .8;
+
+
+}
 * {box-sizing: border-box}
 
 /* Full-width input fields */
