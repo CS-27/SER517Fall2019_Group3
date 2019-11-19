@@ -92,9 +92,16 @@ this.setState({errors, [name]: value}, ()=> {
 
             }
         }).then(res => {
-            if(res.status=="200")
+            if(res.status=="200"){
+                alert("Equipment added successfully");
+
+            }
+            else
+            alert("Error on adding the equipment");
+
                this.message = 'Equipment added successfully'
             console.log(res.status) ;
+            this.props.history.push('/equipmentList');
        
         }).catch(err => console.log(err));
 

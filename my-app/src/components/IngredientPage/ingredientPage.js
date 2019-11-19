@@ -93,7 +93,9 @@ export default class IngredientPage extends Component {
             }
         }).then(res => {
             if(res.status===200)
-               this.message = 'Ingredient added successfully'
+            alert("Ingredient added successfully");
+            else
+            alert("Error on adding the ingredient");
             console.log(res.status) ;
             this.props.history.push('/ingredientList')
 
