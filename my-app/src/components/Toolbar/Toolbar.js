@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from '../Backdrop';
+import Image from 'react-bootstrap/Image'
 import Signup from '../Signup/Signup';
 import Signin from '../Signin/Signin';
 import Contact from '../Contact';
@@ -58,7 +59,9 @@ class ButtonAppBar extends Component {
             <Toolbar>
 
               <div className="root" >
-                <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
+                <Link to="/">
+                <Image src="/images/logo_brew.png"  color="inherit" className="title" className="text-capitalize"
+                style ={{width: 70, height: 70, marginTop:5, marginBottom: 5 }} /> </Link>
                 <div className="dropdown">
                   <Button className="text-capitalize" color="inherit">Users</Button>
                   <div className="dropdown-content">
