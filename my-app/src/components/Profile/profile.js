@@ -74,7 +74,7 @@ export default class Profile extends Component {
             
             <Container>
                 <span class="iconify"  data-inline="false"></span>
-            <Card  className="mainCardOne">
+            <Card  className="mainCardOneThis">
          <Card.Body className = "card-body">
          
          <Card.Title className="card-title">Profile</Card.Title>
