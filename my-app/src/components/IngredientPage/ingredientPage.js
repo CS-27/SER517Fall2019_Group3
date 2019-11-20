@@ -102,6 +102,7 @@ export default class IngredientPage extends Component {
         }).catch(err => console.log(err));
        
         event.preventDefault();
+        this.props.history.push('/ingredientList')
       }
 
 
