@@ -6,6 +6,8 @@
   Updates to add functionality for MenuButton and other components
 */
 import React, { Component } from 'react';
+import { createBrowserHistory } from "history";
+
 import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppBar from '@material-ui/core/AppBar';
@@ -44,15 +46,18 @@ class ButtonAppBar extends Component {
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
-    this.props.history.push('/signin')
       alert("Logged out");
+      this.props.history.push('/')
+      
 
     }
 
   render() {
+    const customHistory = createBrowserHistory();
+
     return (
       <div>
-        <Router>
+        <Router history={customHistory}>
 
           <AppBar position="static" className="bgColor" >
             <Toolbar>
@@ -127,7 +132,7 @@ class ButtonAppBar extends Component {
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/whatcanIbrew" color="inherit" className="text-capitalize">What Can I Brew Today</Button>
               <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
-              <Button onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
+              <Button component={Link} to="/signin" onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
               <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
 
             </Toolbar>
