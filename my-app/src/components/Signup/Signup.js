@@ -43,6 +43,7 @@ export default class Signup extends Component {
 
 
     handleChange = event => {
+        const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
         this.setState({
             [event.target.id]: event.target.value
         });
@@ -78,7 +79,7 @@ export default class Signup extends Component {
             errors.email = 
             value.length == 0
             ? 'Email  is required'
-            : '';
+            : (emailRegex.test(value))?'':'Email entered is invalid';
             break;
             case 'confirmPassword': 
             errors.confirmPassword = 
