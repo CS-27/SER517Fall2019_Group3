@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import './listShopping.css';
 import Card from 'react-bootstrap/Card';
-import DataTable from '../ListIngredients/datatable';
+import DataTable from './datatable';
 import AutoShopDatatable from './autoShopDatatable'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
@@ -20,9 +20,13 @@ export default class ListShopping extends Component {
         this.items = null;
         this.loading = true;
         this.getItems();
-        if(this.state.userID == null)
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
+        }
 
-        this.state.userID = 'user1';
+        // this.state.userID = 'user1';
 
 
     }
@@ -59,6 +63,30 @@ export default class ListShopping extends Component {
         this.setState({ items: updatedItems })
 
       }
+
+    checkItem = (item) =>{
+
+        if(item[2]==false)
+            item[2]=true;
+        else
+        {
+            item[2]=false;
+        }
+
+        console.log(item);
+        // const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
+        // console.log(item);
+        const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
+        console.log(itemIndex);
+        console.log(item);
+        const newArray = [
+            ...this.state.items.slice(0, itemIndex),
+            item,
+            ...this.state.items.slice(itemIndex + 1)
+        ]
+        console.log(newArray);
+        this.setState({items: newArray})
+    }
 
       deleteIngredient =(item)=>{
         fetch('http://127.0.0.1:5000/deleteShopListItems', {
@@ -123,6 +151,7 @@ export default class ListShopping extends Component {
                         this.loading = false;
                         var items = [];
                         var userID = ""
+                        var checked = false;
                         console.log(data);
                         Object.keys(data).forEach(function (key) {
 
@@ -131,7 +160,7 @@ export default class ListShopping extends Component {
                             }
                             if (key != "userID" && key != "_id") {
                                 items.push([
-                                    key, data[key]
+                                    key, data[key], checked
                                 ]);
                             }
 
@@ -204,6 +233,7 @@ export default class ListShopping extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
                 <Card className="mainCardOne">
                     <Card.Body className="card-body">
+                        <form>
                         <Card.Title className="titleCard">Shopping List </Card.Title>
                         {this.loading ? <Loader
                             type="Circles"
@@ -216,8 +246,13 @@ export default class ListShopping extends Component {
                                         items={this.state.items}
                                         updateState={this.updateState}
                                         deleteItem = {this.deleteItem} 
-                                        deleteIngredient = {this.deleteIngredient}></DataTable>}
+                                        deleteIngredient = {this.deleteIngredient}
+                        checkItem ={this.checkItem}
+                        ></DataTable>}
                         <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
+                            &nbsp;
+                            <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit">Save</Button>
+                        </form>
                         <Card.Title className="titleCard" >Auto-Shopping List </Card.Title>
                         {this.loading ?       <Loader
                         type="Circles"
