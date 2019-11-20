@@ -6,6 +6,7 @@ Date modified : Sept 25, 2019
 
 .ContactClass .body {
   background: radial-gradient(#f8f8, #ffff, #e5e5e5);
+  height: 20rem;
 }
 
 .ContactClass .card {
@@ -14,9 +15,10 @@ Date modified : Sept 25, 2019
   margin-left: 14.05%;
 }
 
-.card-body {
+.card-body2 {
   padding: 3rem 10rem;
   padding-left: 10rem;
+  height: 5rem;
 }
  
 .overflow {

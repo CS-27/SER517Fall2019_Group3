@@ -7,10 +7,10 @@ body{
 
 
 .card-main-one{
-  margin-top: 3%;
+  margin-top: 1%;
   margin-left: 13rem;
   width: 45rem;
- height: 25rem;
+ height: 27rem;
  align-self: center;
  opacity: .8;
 
@@ -26,9 +26,12 @@ body{
 
 .card-body{
  font-family: "Comic Sans MS", cursive, sans-serif;
- text-align: center;
- margin: 1rem;
+ height: 25rem;
  background-color: rgb(255,255,224)
 
+}
 
+.card-main-one .image:hover {
+  transform: scale(1.4);
+  transition: transform 0.6s;
 }
