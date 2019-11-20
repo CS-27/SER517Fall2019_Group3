@@ -16,7 +16,11 @@ export default class ShoppingPage extends Component {
             // isLoading: false,
             name:"",
             quantity:"",
-            userID: sessionStorage.getItem("username")
+            userID: sessionStorage.getItem("username"),
+            errors: {
+                name: '',
+                quantity: '',
+              }
         };
         this.uname=sessionStorage.getItem("username")
         if(this.uname==null)
@@ -31,6 +35,35 @@ export default class ShoppingPage extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+
+        const re = /^-?\d*(\.\d+)?$/;
+        const  name = event.target.id;
+        const value = event.target.value;
+  let errors = this.state.errors;
+  console.log(event.target.id)
+  switch (name) {
+    case 'name': 
+      errors.name = 
+        value.length == 0
+          ? 'Name is required'
+          : '';
+      break;
+    case 'quantity': 
+    errors.quantity = 
+    value.length == 0
+    ? 'Quantity  is required'
+    : '';
+      errors.quantity = 
+        re.test(value)
+          ? ''
+          : 'Quantity must be a number/decimal';
+      break;
+    default:
+      break;
+    }
+    this.setState({errors, [name]: value}, ()=> {
+        console.log(errors)
+    })
     }
 
     handleSubmit=(event)=> {
@@ -53,8 +86,12 @@ export default class ShoppingPage extends Component {
 
             }
         }).then(res => {
-            if(res.status===200)
-                this.message = 'Item added successfully'
+            if(res.status=="200"){
+                alert("Item added to shopping list successfully");
+
+            }
+            else
+                alert("Error on adding the item to the shop list");
             console.log(res.status) ;
             this.props.history.push('/shoppinglist')
         }).catch(err => console.log(err));
@@ -74,11 +111,12 @@ export default class ShoppingPage extends Component {
     renderForm() {
         return (
             <Container>
-                <Card  className="mainCardOne">
-                    <Card.Body className = "card-body">
+                <Card  className="mainCardOneThis">
+                    <Card.Body className = "cardbodyThis">
                         <Card.Title className="titleCard" >Add an Item </Card.Title>
 
-                        <p>{this.message}</p>
+                        <p className="error-message">{this.state.errors.name}</p>
+                        <p className="error-message">{this.state.errors.quantity}</p>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup controlId="name"  >
                                 <FormLabel>Name</FormLabel>

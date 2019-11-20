@@ -24,7 +24,7 @@ import listRecipe from './components/ListRecipes/searchRecipe/listRecipe'
 import Profile from './components/Profile/profile'
 import RecipeHome from './components/ListRecipes/RecipeHome';
 import WhatCanIBrew from './components/WhatICanBrewToday/whatIcanBrew';
-import ListRecipeStatus from "./components/StatusPage/listRecipeStatus";
+import BeerStatus from "./components/StatusPage/beerStatus";
 
 import ListRecipe from "./components/AllRecipes/listRecipeAll"
 import AddRecipeUser from "./components/UserRecipes/AddRecipe"
@@ -59,7 +59,7 @@ export default({ childProps }) =>
  
             <AppliedRoute path="/userList" exact component={ListUser} props={childProps} />
         <AppliedRoute path="/recipeList" exact component={listRecipe} props={childProps} />
-            <AppliedRoute path="/beerStatus" exact component={ListRecipeStatus} props={childProps} />
+            <AppliedRoute path="/beerStatus" exact component={BeerStatus} props={childProps} />
         <AppliedRoute path="/EquipmentsCheckList" exact component={EquipmentsCheckList} props={childProps} />
         <AppliedRoute path="/IngredientCheckList" exact component={IngredientsCheckList} props={childProps} />
             <AppliedRoute path="/whatcanIbrew" exact component={WhatCanIBrew} props={childProps} />

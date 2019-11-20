@@ -246,9 +246,7 @@ export default class ListShopping extends Component {
                                         items={this.state.items}
                                         updateState={this.updateState}
                                         deleteItem = {this.deleteItem} 
-                                        deleteIngredient = {this.deleteIngredient}
-                        checkItem ={this.checkItem}
-                        ></DataTable>}
+                                        deleteIngredient = {this.deleteIngredient}></DataTable>}
                         <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
                             &nbsp;
                             <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit">Save</Button>
