@@ -41,23 +41,43 @@ class ButtonAppBar extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {isLoggedIn : false}
+
   }
+  handleLogin = async event  => {
+    this.setState({isLoggedIn: true});
+
+
     
+
+  }
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
       alert("Logged out");
-      this.props.history.push('/')
+      this.setState({isLoggedIn: false});
+
       
 
     }
 
   render() {
-    const customHistory = createBrowserHistory();
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    let profile;
+    if (!isLoggedIn) {
+      button = <Button component={Link} to="/signin" onClick={this.handleLogin} color="inherit" className="text-capitalize">Login</Button>;
+      profile =  null
+
+    } else {
+      button = <Button component={Link} to="/signin" onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
+      profile = <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
+      ;
+    }
 
     return (
       <div>
-        <Router history={customHistory}>
+        <Router >
 
           <AppBar position="static" className="bgColor" >
             <Toolbar>
@@ -131,10 +151,8 @@ class ButtonAppBar extends Component {
               <Button component={Link} to="/about" color="inherit" className="text-capitalize">About</Button>
               <Button component={Link} to="/contact" color="inherit" className="text-capitalize">Contact Us</Button>
               <Button component={Link} to="/whatcanIbrew" color="inherit" className="text-capitalize">What Can I Brew Today</Button>
-              <Button component={Link} to="/signin" color="inherit" className="text-capitalize">Login</Button>
-              <Button component={Link} to="/signin" onClick={this.handleLogout} color="inherit" className="text-capitalize">Logout</Button>
-              <Button component={Link} to="/profile" color="inherit" className="text-capitalize">Profile</Button>
-
+              {button}
+              {profile}
             </Toolbar>
           </AppBar>
           <Switch>
