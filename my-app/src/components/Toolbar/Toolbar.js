@@ -61,7 +61,7 @@ class ButtonAppBar extends Component {
               <div className="root" >
                 <Link to="/">
                 <Image src="/images/logo_new.png"  color="inherit" className="title" className="text-capitalize"
-                style ={{width: 70, height: 70, marginTop:5, marginBottom: 5 }} /> </Link>
+                style ={{width: 53, height: 65, marginTop:5, marginBottom: 5}} /> </Link>
                 <div className="dropdown">
                   <Button className="text-capitalize" color="inherit">Users</Button>
                   <div className="dropdown-content">

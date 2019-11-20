@@ -43,3 +43,6 @@ Date modified : Sept 25, 2019
   transform: scale(1.6);
   transition: transform 0.6s;
 }
+.Contact{
+  margin-top: 1%;
+}
