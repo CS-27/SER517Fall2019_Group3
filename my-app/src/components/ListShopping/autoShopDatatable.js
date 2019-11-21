@@ -12,12 +12,17 @@ class AutoShopDatatable extends Component {
     }
 
   }
+
+    handleChange = item => (event) => {
+        this.props.checkItemA(item);
+    }
   render() {
     const userID = this.props.userID;
 
     const items = this.props.items.map(item => {
       return (
         <tr  >
+            <td className="checkTd"><input type="checkbox" name="serviceCheck" checked={item[2]} onChange={this.handleChange(item)}/></td>
           <td>{item[0]}</td>
           <td>{item[1]}</td>
           {/*<td>*/}
@@ -30,10 +35,10 @@ class AutoShopDatatable extends Component {
           {/*/!*<ModalFormAddMore itemType={this.props.itemType} userID = {userID} buttonLabel="Add More" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>*!/*/}
 
           {/*</td>*/}
-          <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item)}>Add to ShopList</Button>
-          </td>
-        
+          {/*<td>*/}
+          {/*<Button id ="btn1-color" onClick={() => this.deleteItem(item)}>Add to ShopList</Button>*/}
+          {/*</td>*/}
+
         </tr>
         )
       })
@@ -42,12 +47,13 @@ class AutoShopDatatable extends Component {
       <Table responsive hover>
         <thead>
           <tr>
-            <th>Name</th>
+              <th>Check</th>
+              <th>Name</th>
             <th>Quantity</th>
             {/*<th>Edit</th>*/}
             {/*<th>Add More</th>*/}
             {/*<th>Delete</th>*/}
-              <th>Action</th>
+              {/*<th>Action</th>*/}
           </tr>
         </thead>
         <tbody>
