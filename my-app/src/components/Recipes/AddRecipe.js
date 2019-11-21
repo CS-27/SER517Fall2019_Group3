@@ -32,7 +32,16 @@ export default class AddRecipe extends Component {
     Grains2:[],
     HopsSchedule:[],
     Category:"",
-    Temp: ""
+    Temp: "",
+    errors: {
+        name:'',
+        Malt:'',
+        Directions:'',
+        Hops1: '',
+        schedule: '',
+        grain:'',
+        Temp:''
+      }
   };
 
         this.uname=sessionStorage.getItem("username")
@@ -50,6 +59,59 @@ handleChange = event => {
   this.setState({
       [event.target.id]: event.target.value,
   });
+  const  name = event.target.id;
+        const value = event.target.value;
+        let errors = this.state.errors;
+        switch (name) {
+            case 'Malt': 
+            errors.Malt = 
+                value.length == 0
+                ? 'Malt is required'
+                : '';
+            break;
+            case 'name': 
+            errors.name = 
+            value.length == 0
+            ? 'Name  is required'
+            : '';
+            break;
+            case 'Directions': 
+            errors.Directions = 
+                value.length == 0
+                ? 'Directions is required'
+                : '';
+            break;
+            case 'Hops1': 
+            errors.Hops1 = 
+            value.length == 0
+            ? 'Hops1  is required'
+            : '';
+            break;
+            case 'schedule': 
+            errors.schedule = 
+            value.length == 0
+            ? 'Schedule  is required'
+            : '';
+            break;
+            case 'grain': 
+            errors.grain = 
+            value.length == 0
+            ? 'Grain  is required'
+            : '';
+            break;
+            case 'Temp': 
+            errors.Temp = 
+            value.length == 0
+            ? 'Temp  is required'
+            : '';
+            break;
+            default:
+            break;
+            }
+            this.setState({errors, [name]: value}, ()=> {
+                console.log(errors)
+            })
+    
 }
 
 
@@ -104,7 +166,14 @@ render() {
             <Card  className="cardMain">
          <Card.Body>
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
-         <p>{this.message}</p>
+         <p className="error-message">{this.state.errors.name}</p>
+            <p className="error-message">{this.state.errors.Malt}</p> 
+             <p className="error-message">{this.state.errors.Directions}</p>
+            <p className="error-message">{this.state.errors.grain}</p>
+            <p className="error-message">{this.state.errors.schedule}</p>
+            <p className="error-message">{this.state.errors.Hops1}</p>
+            <p className="error-message">{this.state.errors.Temp}</p>
+
       <Form >
           <Row>
           <Col>
