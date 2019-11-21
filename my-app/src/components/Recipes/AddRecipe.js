@@ -164,7 +164,7 @@ render() {
     return (
         <Container>
             <Card  className="cardMain">
-         <Card.Body>
+         <Card.Body className="cardbodyRecipe" >
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
          <p className="error-message">{this.state.errors.name}</p>
             <p className="error-message">{this.state.errors.Malt}</p> 
