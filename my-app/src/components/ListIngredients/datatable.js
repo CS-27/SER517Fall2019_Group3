@@ -3,6 +3,7 @@ import { Table, Button } from 'reactstrap';
 import './datatable.css'
 import ModalFormAddMore from './modalFormAddMore'
 import ModalForm from './modalForm'
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 class DataTable extends Component {
 
   deleteItem = (item) => {
@@ -18,20 +19,26 @@ class DataTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr  >
-          <td>{item[0]}</td>
-          <td>{item[1]}</td>
+          {/*<td>{item[0]}</td>*/}
           <td>
           
-              <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel="Edit" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
+              <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel={item[0]} item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
 
           
           </td>
-          <td>
+            {/*<td>{item[1]}</td>*/}
+            <td>
+
+                <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel={item[1]} item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
+
+
+            </td>
+            <td>
           <ModalFormAddMore itemType={this.props.itemType} userID = {userID} buttonLabel="Add More" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
 
           </td>
           <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item)}>Del</Button>
+          <DeleteRoundedIcon onClick={() => this.deleteItem(item)}>Del</DeleteRoundedIcon>
           </td>
         
         </tr>
@@ -44,7 +51,7 @@ class DataTable extends Component {
           <tr>
             <th>Name</th>
             <th>Quantity</th>
-            <th>Edit</th>
+            {/*<th>Edit</th>*/}
             <th>Add More</th>
             <th>Delete</th>
         
