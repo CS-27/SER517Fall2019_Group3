@@ -23,6 +23,7 @@ export default class ListRecipe extends Component {
         this.loading = true;
         this.names=null;
         this.name=null;
+        this.getItems();
 
     }
 
@@ -135,7 +136,7 @@ export default class ListRecipe extends Component {
                          placeholder="eg. WhiteDogIPA"
                      />
                  </FormGroup>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >Click to view all Beers</Button>
+                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >Search</Button>
              </Form>
              {this.loading ?       <Loader
                  type="Circles"

@@ -1,9 +1,9 @@
-import AddEditForm from './addEditForm'
+import AddMoreForm from './addMoreForm'
 
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody,Label } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 import './datatable.css'
-class ModalForm extends Component {
+class ModalFormAddMore extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,14 +25,14 @@ class ModalForm extends Component {
       let button = ''
       let title = ''
 
-      // if(label === 'Edit'){
-        button = <Label
-                  // id ="btn-color"
+      if(label === 'Add More'){
+        button = <Button
+                  id ="btn-color"
                   onClick={this.toggle}
                   >{label}
-                </Label>
-        title = 'Edit'
-      // }
+                </Button>
+        title = 'Add More'
+      } 
 
 
       return (
@@ -41,7 +41,7 @@ class ModalForm extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle} close={closeBtn}>{title}</ModalHeader>
           <ModalBody>
-          <AddEditForm
+            <AddMoreForm
             itemType = {this.props.itemType}
               userID = {this.props.userID}
               addItemToState={this.props.addItemToState}
@@ -55,4 +55,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm
+export default ModalFormAddMore
