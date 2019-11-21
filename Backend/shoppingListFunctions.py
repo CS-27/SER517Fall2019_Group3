@@ -207,7 +207,7 @@ def itemsShopped(userID, itemList):
 		for key,value in itemList.items():
 			new_value = {"$set" : {key:value}}
 			updateCollection = collection.update_one(search_query, new_value, upsert= True)
-			print updateCollection
+#			print updateCollection
 
 	# if updateCollection['updatedExisting']:
 	return True
