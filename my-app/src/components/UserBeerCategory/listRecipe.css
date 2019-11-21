@@ -1,17 +1,19 @@
-/*Author:  Rishab Mantri
-  Initial Creation:  September 21, 2019
-  Last Modified:  Rishab Mantri
-  Modified date:  October 10,2019
-*/
-.cardMainOneThis{
-    
-    width: 40rem;
+.mainCardOneMain{
+
+    width: 60%;
     margin: 0 auto;   
     opacity: .8;
-
+    margin-top: 5rem; 
 
 }
+.mainCardOneMain2{
 
+    width: 60%;
+       
+    margin-top: 5rem;  
+    opacity: .8;
+
+}
 .titleCard{
     font-family: 'Lucida Sans';
     text-align: center;
@@ -32,11 +34,18 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     outline: none;
 }
 
-.card-body-oneThis{
+.card-body{
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;
-    background-color: rgb(255,255,224)
+    background-color: rgb(255,255,224)   
+
+}
+.card-body-2{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 1rem;
+    background-color: rgb(255,255,224)   
 
 }
 
@@ -44,3 +53,6 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 {
     background-color: #5A3426 !important;
 }
+
+
+
