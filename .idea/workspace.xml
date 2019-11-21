@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de42a868-b14e-47fa-b713-63d5e6488fe1" name="Default Changelist" comment="Basic signup page updated.">
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,13 +17,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4084">
-              <caret line="285" column="9" selection-start-line="285" selection-start-column="9" selection-end-line="285" selection-end-column="9" />
+            <state relative-caret-position="157">
+              <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
               <folding>
                 <element signature="e#1#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,13 +65,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+            <state relative-caret-position="580">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/addEditForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-923">
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -178,9 +203,9 @@
         <option value="$PROJECT_DIR$/my-app/src/components/ListRecipes/searchRecipe/listRecipe.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListIngredients/modalForm.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListIngredients/datatable.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js" />
-        <option value="$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js" />
       </list>
     </option>
   </component>
@@ -255,16 +280,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/my-app/src" />
+      <recent name="$PROJECT_DIR$/my-app/src/components/Signup" />
+      <recent name="$PROJECT_DIR$/my-app/src/components" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/my-app/src/components/ListShopping" />
       <recent name="$PROJECT_DIR$/my-app/src/components/AllRecipes" />
       <recent name="$PROJECT_DIR$/my-app/src/components/ListUser/Modal" />
       <recent name="$PROJECT_DIR$/my-app/src/components/ListUser" />
-      <recent name="$PROJECT_DIR$/my-app/src/components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/my-app/src" />
-      <recent name="$PROJECT_DIR$/my-app/src/components/Signup" />
       <recent name="$PROJECT_DIR$/my-app/src/components" />
     </key>
   </component>
@@ -348,18 +373,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117440000" />
+    <option name="totallyTimeSpent" value="118447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23987292" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23987292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -617,15 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/addEditForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -719,42 +735,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/datatable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/datatable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-455">
           <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4084">
-          <caret line="285" column="9" selection-start-line="285" selection-start-column="9" selection-end-line="285" selection-end-column="9" />
-          <folding>
-            <element signature="e#1#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -781,10 +767,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/modalForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+        <state relative-caret-position="580">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/addEditForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-923">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListIngredients/datatable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/autoShopDatatable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/ListShopping/listShopping.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -80,13 +80,13 @@ export default class ListShopping extends Component {
         console.log(item);
         // const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
         // console.log(item);
-        const itemIndex = this.state.autoItems.findIndex(data => data[0] === item[0])
+        const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
         console.log(itemIndex);
         console.log(item);
         const newArray = [
-            ...this.state.autoItems.slice(0, itemIndex),
+            ...this.state.items.slice(0, itemIndex),
             item,
-            ...this.state.autoItems.slice(itemIndex + 1)
+            ...this.state.items.slice(itemIndex + 1)
         ]
         console.log(newArray);
         this.setState({autoItems: newArray})
@@ -104,16 +104,16 @@ export default class ListShopping extends Component {
         console.log(item);
         // const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
         // console.log(item);
-        const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
+        const itemIndex = this.state.autoItems.findIndex(data => data[0] === item[0])
         console.log(itemIndex);
         console.log(item);
         const newArray = [
-            ...this.state.items.slice(0, itemIndex),
+            ...this.state.autoItems.slice(0, itemIndex),
             item,
-            ...this.state.items.slice(itemIndex + 1)
+            ...this.state.autoItems.slice(itemIndex + 1)
         ]
         console.log(newArray);
-        this.setState({items: newArray})
+        this.setState({autoItems: newArray})
     }
 
     deleteIngredient =(item)=>{
@@ -281,6 +281,7 @@ export default class ListShopping extends Component {
                             &nbsp;
                             <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit">Save</Button>
                         </form>
+
                         <form>
 
                         <Card.Title className="titleCard" >Auto-Shopping List </Card.Title>
