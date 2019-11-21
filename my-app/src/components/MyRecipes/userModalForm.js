@@ -1,5 +1,5 @@
 import ListRecipe from './viewEachRecipe'
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 //import Modal from 'react-bootstrap/Modal';
@@ -29,13 +29,18 @@ class ModalForm2 extends Component {
       let button = ''
       let title = ''
 
+      // if(label === 'view'){
+      //   button = <Button
+      //             onClick={this.toggle}
+      //             >{label}
+      //           </Button>
+      //   title = 'Recipe View'
+      // } 
+
       if(label === 'view'){
-        button = <Button
-                  onClick={this.toggle}
-                  >{label}
-                </Button>
-        title = 'Recipe View'
-      } 
+        button=   <VisibilityIcon onClick={this.toggle}/>
+   title = 'Recipe View' 
+ } 
 
 
       return (
