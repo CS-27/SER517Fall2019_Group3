@@ -5,7 +5,7 @@ Date modified : Sept 30, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import RecipeDetails from "./RecipeDetails";
+//import RecipeDetails from "./RecipeDetails";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
@@ -26,13 +26,12 @@ export default class AddRecipe extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    grain:"",
+    // grain:"",
     Hops:[],
-    Grains:[],
-    Grains2:[],
+    // Grains:[],
+    // Grains2:[],
     HopsSchedule:[],
     Category:"",
-    Temp: "",
     errors: {
         name:'',
         Malt:'',
@@ -121,7 +120,7 @@ handleSubmit=(event) => {
   // console.log(hopsArray)
 
     this.state.Hops= hopsArray
-    this.state.Grains= this.state.grain.split(',')
+    // this.state.Grains= this.state.grain.split(',')
 
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule= sArray 
@@ -137,10 +136,9 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Category:data.Category,
-        Temp: data.Temp,
         Malt: data.Malt,
         Hops: data.Hops,
-        Grains: data.Grains,
+        // Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
           }),
         headers: {
@@ -201,18 +199,7 @@ render() {
         </FormGroup>
         
         </Col>
-        <Col>
-           <FormGroup controlId="Temp">
-            <FormLabel color="white" >Max Temperature</FormLabel>
-            <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="in Celsius (e.g: 50)"
-                        value={this.state.Temp}
-                        onChange={this.handleChange}
-            />
-        </FormGroup>
-        </Col> 
+        
         </Row>
         
         
@@ -239,7 +226,7 @@ render() {
             />
             <div><h5>Please Enter comma separated values for below fields: </h5></div>
         <FormGroup controlId="Hops1">
-                    <FormLabel color="white" >Add Hops</FormLabel>
+                    <FormLabel color="white" >Add Hops and Grains</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
@@ -259,7 +246,7 @@ render() {
                     />
                 </FormGroup>
         
-            <FormGroup controlId="grain">
+            {/* <FormGroup controlId="grain">
                     <FormLabel color="white" >Grains/Malt</FormLabel>
                     <FormControl
                         autoFocus
@@ -269,7 +256,7 @@ render() {
                         onChange={this.handleChange}
                         
                     />
-                </FormGroup>
+                </FormGroup> */}
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>

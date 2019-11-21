@@ -121,6 +121,29 @@ def viewMyRecipe():
 	return response
 
 
+@brewDay_api.route('/brewingBeer', methods = ['POST'])
+def brewingBeer():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key, value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe addition status' : recipeFunctions.brewBeer(userID, recipeList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+@brewDay_api.route('/brewBeerUpdate', methods = ['POST'])
+def brewBeerUpdate():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key, value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe addition status' : recipeFunctions.brewBeerUpdate(userID, recipeList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
 
 # # # # Equipment Functions # # # # 
 
@@ -348,6 +371,17 @@ def moveToShopList():
 	response = jsonify({'Auto ShoppingList' : json.loads(shoppingListFunctions.moveToShoppingList(userID, req_data))})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
+
+
+@brewDay_api.route('/updatedList', methods = ['POST'])
+def itemsShopped():
+	req_data = request.get_json(force = True)
+	userID = req_data['userID']
+	del req_data['userID']
+	response = jsonify({'Auto ShoppingList' : shoppingListFunctions.itemsShopped(userID, req_data)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
 
 # # # # user registeration/login/session Functions # # # # 
 

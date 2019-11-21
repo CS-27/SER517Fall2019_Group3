@@ -26,7 +26,7 @@ body{
 
 .card-body{
  font-family: "Comic Sans MS", cursive, sans-serif;
- height: 25rem;
+ height: auto;
  background-color: rgb(255,255,224)
 
 }

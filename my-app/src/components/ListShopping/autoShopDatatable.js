@@ -13,7 +13,7 @@ class AutoShopDatatable extends Component {
 
   }
 
-    handleChange = item => (event) => {
+    handleChangeA = item => (event) => {
         this.props.checkItemA(item);
     }
   render() {
@@ -22,7 +22,7 @@ class AutoShopDatatable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr  >
-            <td className="checkTd"><input type="checkbox" name="serviceCheck" checked={item[2]} onChange={this.handleChange(item)}/></td>
+            <td className="checkTd"><input type="checkbox" name="serviceCheck" checked={item[2]} onChange={this.handleChangeA(item)}/></td>
           <td>{item[0]}</td>
           <td>{item[1]}</td>
           {/*<td>*/}
