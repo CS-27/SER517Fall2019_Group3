@@ -11,12 +11,12 @@
     background-color: #5A3426 !important;
 }
 
-.cardMain{
+.cardMainIngr{
 
     width: 40rem;
     margin: 0 auto;   
     opacity: 0.9;
-    height:100%
+    height:auto;
 
 }
 

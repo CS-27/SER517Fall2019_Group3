@@ -320,8 +320,8 @@ export default class ListShopping extends Component {
 
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-                <Card className="mainCardOne">
-                    <Card.Body className="card-body">
+                <Card className="mainCardOneshop">
+                    <Card.Body className="cardbodyshop">
                         <form>
                         <Card.Title className="titleCard">Shopping List </Card.Title>
                         {this.loading ? <Loader

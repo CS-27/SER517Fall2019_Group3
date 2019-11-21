@@ -134,7 +134,7 @@ export default class ListIngredient extends Component {
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="cardMain">
+            <Card  className="cardMainIngr">
          <Card.Body className = "cardbodyIngr">
          <Card.Title className="titleCard" >List of ingredients</Card.Title>
          {this.loading ?       <Loader
