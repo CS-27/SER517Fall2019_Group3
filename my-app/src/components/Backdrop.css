@@ -1,33 +1,37 @@
 body{
-   background-image: url(/images/blur-bg1.jpg);
-  background-position: center;
-  background-size: cover;  
-  height: 100%;
- }
+  background-image: url(/images/blur-bg1.jpg);
+ background-position: center;
+ background-size: cover;  
+ height: 100%;
+}
 
 
 .card-main-one{
-   width: 70rem;
-  height: 20rem;
-  align-self: center;
-  opacity: .8;
+  margin-top: 1%;
+  margin-left: 13rem;
+  width: 45rem;
+ height: 27rem;
+ align-self: center;
+ opacity: .8;
 
 }
 
 
 .card-title{
-  font-family: 'Lucida Sans';
-  text-align: center;
-  margin: 1rem;
+ font-family: 'Lucida Sans';
+ text-align: center;
+ margin: 1rem;
 
 }
 
 .card-body{
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  text-align: center;
-  margin: 1rem;
-  background-color: rgb(255,255,224)
+ font-family: "Comic Sans MS", cursive, sans-serif;
+ height: 25rem;
+ background-color: rgb(255,255,224)
 
-  
+}
 
+.card-main-one .image:hover {
+  transform: scale(1.4);
+  transition: transform 0.6s;
 }

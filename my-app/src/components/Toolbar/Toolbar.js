@@ -1,7 +1,7 @@
 /*Author:             Salini Chittineni
   Initial Creation:   September 5, 2019
   Modified by:        Harshita Kajal
-  Modified date:      November 4,2019
+  Modified date:      November 18,2019
   About:  This page is to redner toolbar for the application
   Updates to add functionality for MenuButton and other components
 */
@@ -16,6 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from '../Backdrop';
+import Image from 'react-bootstrap/Image'
 import Signup from '../Signup/Signup';
 import Signin from '../Signin/Signin';
 import Contact from '../Contact';
@@ -83,7 +84,9 @@ class ButtonAppBar extends Component {
             <Toolbar>
 
               <div className="root" >
-                <Button component={Link} to="/" color="inherit" className="title" className="text-capitalize">BrewDay</Button>
+                <Link to="/">
+                <Image src="/images/logo_new.png"  color="inherit" className="title" className="text-capitalize"
+                style ={{width: 53, height: 65, marginTop:5, marginBottom: 5}} /> </Link>
                 <div className="dropdown">
                   <Button className="text-capitalize" color="inherit">Users</Button>
                   <div className="dropdown-content">
