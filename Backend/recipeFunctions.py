@@ -196,7 +196,7 @@ def brewBeer(userID, recipeData):
 		
 		### recipeName, beerStatus, startTime, lastUpdate, timesBrewed 
 	else:
-		collection = db.userID
+		collection = db[userID]
 		result1 = collection.find_one({'recipeName':recipeData['recipeName']})
 		if result1:
 			timesBrewed = result1['timesBrewed'] + 1

@@ -3,8 +3,9 @@ import { Table, Button } from 'reactstrap';
 import ModalFormRecipe from './ModalFormRecipe';
 class DataTableRecipe extends Component {
 
-    handleSubmit=(event)=> {
+    handleSubmit =(event)=> {
         // this.props.history.push('/equipment')
+
     }
   
   render() {
@@ -21,7 +22,7 @@ class DataTableRecipe extends Component {
           
           </td>
         <td>
-            <Button onClick = {this.handleSubmit}  id = "btn-color">Start Brew</Button>
+            <Button onClick = {this.handleSubmit(item.name)}  id = "btn-color">Start Brew</Button>
           </td>
 
 

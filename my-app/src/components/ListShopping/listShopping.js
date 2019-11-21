@@ -81,6 +81,37 @@ export default class ListShopping extends Component {
         // this.props.history.push('/ingredientList')
     }
 
+    handleSubmitB = event => {
+
+        var data = this.state.items;
+        console.log(data);
+        for(let i=0;i<this.state.items.length;i++) {
+            if (data[i][2] == true) {
+                fetch('http://127.0.0.1:5000/updatedList', {
+                    method: 'POST',
+                    mode: 'cors',
+                    body: JSON.stringify({
+                        userID: sessionStorage.getItem("username"),
+                        [data[i][0]] : data[i][1]
+                        // [data.name] : data.quantity
+
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+
+                    }
+                }).then(res => {
+                    if (res.status === 200)
+                        this.message = 'Ingredient added successfully'
+                    console.log(res.status);
+                }).catch(err => console.log(err));
+            }
+        }
+        event.preventDefault();
+        // this.props.history.push('/ingredientList')
+    }
 
 
     deleteAutoItem = (item) => {
@@ -118,7 +149,7 @@ export default class ListShopping extends Component {
             ...this.state.items.slice(itemIndex + 1)
         ]
         console.log(newArray);
-        this.setState({autoItems: newArray})
+        this.setState({items: newArray})
     }
 
     checkItemA = (item) =>{
@@ -308,7 +339,7 @@ export default class ListShopping extends Component {
                         checkItem={this.checkItem}></DataTable>}
                         <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
                             &nbsp;
-                            <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit">Save</Button>
+                            <Button onClick = {this.handleSubmitB}  id = "btn-color" type="submit">Save</Button>
                         </form>
 
                         <form>
