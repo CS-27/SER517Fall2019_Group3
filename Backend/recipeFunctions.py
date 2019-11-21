@@ -171,6 +171,57 @@ def viewUserRecipe(userID, recipeName):
 			#print type(result)
 	return json.dumps(result, default=json_util.default)
 
+
+def brewBeer(userID, recipeData):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/brewingStatus?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.brewingStatus
+	result = {}
+	timesBrewed = 0
+	if userID not in db.list_collection_names():
+		print "here"
+		collection = db[userID]
+		#search_query = recipeData['recipeName']
+		timesBrewed = timesBrewed + 1
+		recipeData.__setitem__("timesBrewed", timesBrewed)
+		lastModified = recipeData['startTime']
+		recipeData.__setitem__("lastModified", lastModified)
+		recipeData.__setitem__("beerStatus", 1)
+		result = collection.insert_one(recipeData)
+		#print result
+		if result:
+			return True
+		
+		
+		### recipeName, beerStatus, startTime, lastUpdate, timesBrewed 
+	else:
+		collection = db.userID
+		result = collection.find_one({'recipeName':recipeData['recipeName']})
+		if result:
+			timesBrewed = timesBrewed + 1
+			recipeData.__setitem__("timesBrewed", timesBrewed)
+			lastModified = recipeData['startTime']
+			recipeData.__setitem__("lastModified", lastModified)
+			recipeData.__setitem__("beerStatus", 1)
+			#result = collection.insert_one(recipeData)
+			search_query = { 'recipeName':recipeData['recipeName'] }
+			del recipeData['recipeName']
+			for key,values in recipeData.items():
+				new_values = {"$set" : {key:value}}
+				result = collection.update(search_query,new_values,upsert = True)
+			if result:
+				return True
+		else:
+			timesBrewed = timesBrewed + 1
+			recipeData.__setitem__("timesBrewed", timesBrewed)
+			lastModified = recipeData['startTime']
+			recipeData.__setitem__("lastModified", lastModified)
+			recipeData.__setitem__("beerStatus", 1)
+			result = collection.insert_one(recipeData)
+
+
+
+
+
 	
 		
 
