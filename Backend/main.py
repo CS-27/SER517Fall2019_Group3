@@ -261,9 +261,13 @@ def addShoppingList():
 		shoppingList.__setitem__(key,value)
 	userID = shoppingList['userID']
 	del shoppingList['userID']
-	response = jsonify({'Shopping List Status': shoppingListFunctions.addShoppingList(userID, shoppingList)})
+	addshoplistStatus = shoppingListFunctions.addShoppingList(userID, shoppingList)
+	response = jsonify({'Shopping List Status':addshoplistStatus })
 	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response
+	if addshoplistStatus:
+		return response
+	else:
+		return response,201
 
 
 @brewDay_api.route('/showShoppingList', methods = ['GET'])
