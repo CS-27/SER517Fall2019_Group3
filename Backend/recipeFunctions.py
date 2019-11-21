@@ -244,13 +244,6 @@ def brewBeerUpdate(userID, updateData):
 		return False
 
 
-def brewBeerInfo(userID, recipeName):
-	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/brewingStatus?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
-	db = client.brewingStatus
-	collection = db[userID]
-	result = list(collection.find_one({'recipeName': updateData['recipeName']}))
-	return json.dumps(result, default=json_util.default)
-
 	
 		
 

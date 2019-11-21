@@ -145,14 +145,6 @@ def brewBeerUpdate():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
-@brewDay_api.route('/brewBeerInfo', methods = ['GET'])
-def brewBeerUpdate():
-	uID = request.args.get('userID')
-	recipeName = request.args.get('recipeName')
-	response = jsonify({'Recipe addition status' : json.loads(recipeFunctions.brewBeerInfo(uID, recipeName))})
-	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response
-
 # # # # Equipment Functions # # # # 
 
 
