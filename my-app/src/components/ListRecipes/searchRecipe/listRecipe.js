@@ -20,7 +20,7 @@ export default class ListRecipe extends Component {
         }
         this.items = null;
         this.loading = true;
-
+        // this.handleSubmit();
 
 
     }

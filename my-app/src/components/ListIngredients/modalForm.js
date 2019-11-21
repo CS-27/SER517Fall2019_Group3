@@ -1,7 +1,7 @@
 import AddEditForm from './addEditForm'
 
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody,Label } from 'reactstrap'
 import './datatable.css'
 class ModalForm extends Component {
   constructor(props) {
@@ -25,14 +25,14 @@ class ModalForm extends Component {
       let button = ''
       let title = ''
 
-      if(label === 'Edit'){
-        button = <Button
-                  id ="btn-color"
+      // if(label === 'Edit'){
+        button = <Label
+                  // id ="btn-color"
                   onClick={this.toggle}
                   >{label}
-                </Button>
+                </Label>
         title = 'Edit'
-      } 
+      // }
 
 
       return (

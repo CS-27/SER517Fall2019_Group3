@@ -3,6 +3,29 @@ import { Table, Button } from 'reactstrap';
 import ModalFormRecipe from './ModalFormRecipe';
 class DataTableRecipe extends Component {
 
+    handleSubmit = id => (event) => {
+        var dt = new Date();
+        fetch('http://127.0.0.1:5000/brewingBeer', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                userID: sessionStorage.getItem("username"),
+                recipeName:id,
+                beerStatus:"1",
+                startTime:dt,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+
+            }
+        }).then(res => {
+            if (res.status === 200)
+                this.message = 'Brewing started successfully'
+            console.log(res.status);
+        }).catch(err => console.log(err));
+    }
   
   render() {
     const userID = this.props.userID;
@@ -17,9 +40,12 @@ class DataTableRecipe extends Component {
 
           
           </td>
-        
-        
-        </tr>
+        <td>
+            <Button onClick = {this.handleSubmit(item.name)}  id = "btn-color">Start Brew</Button>
+          </td>
+
+
+    </tr>
         )
       })
 
