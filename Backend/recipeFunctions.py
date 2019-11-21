@@ -195,8 +195,8 @@ def brewBeer(userID, recipeData):
 		### recipeName, beerStatus, startTime, lastUpdate, timesBrewed 
 	else:
 		collection = db.userID
-		result = collection.find_one({'recipeName':recipeData['recipeName']})
-		if result:
+		result1 = collection.find_one({'recipeName':recipeData['recipeName']})
+		if result1:
 			timesBrewed = timesBrewed + 1
 			recipeData.__setitem__("timesBrewed", timesBrewed)
 			lastModified = recipeData['startTime']
@@ -210,6 +210,8 @@ def brewBeer(userID, recipeData):
 				result = collection.update(search_query,new_values,upsert = True)
 			if result:
 				return True
+			else:
+				return False
 		else:
 			timesBrewed = timesBrewed + 1
 			recipeData.__setitem__("timesBrewed", timesBrewed)
@@ -217,6 +219,11 @@ def brewBeer(userID, recipeData):
 			recipeData.__setitem__("lastModified", lastModified)
 			recipeData.__setitem__("beerStatus", 1)
 			result = collection.insert_one(recipeData)
+			if result:
+				return True
+			else:
+				return False
+
 
 
 
