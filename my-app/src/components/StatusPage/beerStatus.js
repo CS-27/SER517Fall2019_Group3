@@ -20,7 +20,7 @@ export default class beerStatus extends Component {
         step:1,
         text:"first step",
         percent: 25,
-        status: 2,
+        status: 0,
         statusColor: "success",
         animated:"",
         label:"",
@@ -35,7 +35,7 @@ export default class beerStatus extends Component {
         statusColor: "warning",
         animated:"true",
         label:"50%",
-        hours:72
+        hours:48
         
 
       },
@@ -43,19 +43,19 @@ export default class beerStatus extends Component {
         step:3,
         text:"third step",
         percent: 25,
-        status: 0,
+        status: 2,
         statusColor: "danger",
         animated:"",
         label:"",
-        hours:144
+        hours:72
 
       }
 
     ]
   }
   refresh=()=>{
-   // alert("j")
-    let hoursPassed = 75;
+   
+    let hoursPassed = 75; //lastupdate - getdate()
     let inprogressSet = false;
     for(let i=0; i<this.beerStatuses.length; i++){
       let e = this.beerStatuses[i]
@@ -113,13 +113,10 @@ export default class beerStatus extends Component {
             </Card.Text>
             {/* <ProgressBar animated now={65} label={`65%`}/> */}
             <br/>
-           <button onClick={this.refresh}>Refresh</button>
+           <button onClick={this.refresh}>Update</button>
             <ProgressBar>
             {items2}
-            {/* <ProgressBar variant="success"   now={25} key={1} />
-            <ProgressBar variant="success" now={25} key={2} />
-            <ProgressBar variant="warning" animated striped  now={25} key={3} />
-            <ProgressBar  now={0} key={3} /> */}
+           
             </ProgressBar>
             <br/>
             <p>Cool Wort and add hops</p>
