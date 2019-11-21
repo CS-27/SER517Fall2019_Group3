@@ -178,7 +178,7 @@ def brewBeer(userID, recipeData):
 	result = {}
 	timesBrewed = 0
 	if userID not in db.list_collection_names():
-		print "here"
+		#print "here"
 		collection = db[userID]
 		#search_query = recipeData['recipeName']
 		timesBrewed = timesBrewed + 1
@@ -190,6 +190,8 @@ def brewBeer(userID, recipeData):
 		#print result
 		if result:
 			return True
+		else: 
+			return False
 		
 		
 		### recipeName, beerStatus, startTime, lastUpdate, timesBrewed 
@@ -197,7 +199,7 @@ def brewBeer(userID, recipeData):
 		collection = db.userID
 		result1 = collection.find_one({'recipeName':recipeData['recipeName']})
 		if result1:
-			timesBrewed = timesBrewed + 1
+			timesBrewed = result1['timesBrewed'] + 1
 			recipeData.__setitem__("timesBrewed", timesBrewed)
 			lastModified = recipeData['startTime']
 			recipeData.__setitem__("lastModified", lastModified)
@@ -226,7 +228,20 @@ def brewBeer(userID, recipeData):
 
 
 
-
+def brewBeerUpdate(userID, updateData):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/brewingStatus?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.brewingStatus
+	collection = db[userID]
+	result = collection.find_one({'recipeName': updateData['recipeName']})
+	search_query = {'recipeName': updateData['recipeName']}
+	if result:
+		new_status = {"$set" : {'beerStatus':result['beerStatus'] + 1}}
+		collection.update(search_query,new_status,upsert = True)
+		new_time = {"$set" : {'lastModified':updateData['lastModified']}}
+		collection.update(search_query,new_time,upsert = True)
+		return True
+	else:
+		return False
 
 
 	
