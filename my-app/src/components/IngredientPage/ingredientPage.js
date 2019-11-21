@@ -13,6 +13,7 @@ import axios from "axios";
 
 import { Container, Row, Col } from 'react-bootstrap';
 export default class IngredientPage extends Component {
+    
     constructor(props) {
         super(props);
         this.message = ""
@@ -20,7 +21,11 @@ export default class IngredientPage extends Component {
             // isLoading: false,
             name:"",
             quantity:"",
-            userID: sessionStorage.getItem("username")
+            userID: sessionStorage.getItem("username"),
+            errors: {
+                name: '',
+                quantity: '',
+              }
         };
 
         this.uname=sessionStorage.getItem("username")
@@ -36,7 +41,36 @@ export default class IngredientPage extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+        // const re = /^[0-9\b]+$/;
+        const re = /^-?\d*(\.\d+)?$/;
+        const  name = event.target.id;
+        const value = event.target.value;
+  let errors = this.state.errors;
+  console.log(event.target.id)
+  switch (name) {
+    case 'name': 
+      errors.name = 
+        value.length == 0
+          ? 'Name is required'
+          : '';
+      break;
+    case 'quantity': 
+    errors.quantity = 
+    value.length == 0
+    ? 'Quantity  is required'
+    : '';
+      errors.quantity = 
+        re.test(value)
+          ? ''
+          : 'Quantity must be a number/decimal';
+      break;
+    default:
+      break;
     }
+    this.setState({errors, [name]: value}, ()=> {
+        console.log(errors)
+    })
+}
 
     handleSubmit=(event)=> {
         var data = this.state;
@@ -59,23 +93,29 @@ export default class IngredientPage extends Component {
             }
         }).then(res => {
             if(res.status===200)
-               this.message = 'Ingredient added successfully'
+            alert("Ingredient added successfully");
+            else
+            alert("Error on adding the ingredient");
             console.log(res.status) ;
+            this.props.history.push('/ingredientList')
+
         }).catch(err => console.log(err));
        
-
         event.preventDefault();
+        this.props.history.push('/ingredientList')
       }
 
 
     renderForm() {
         return (
             <Container>
-            <Card  className="mainCardOne">
-         <Card.Body className = "card-body">
+            <Card  className="mainCardOneCard">
+         <Card.Body className = "cardbodyOne">
          <Card.Title className="titleCard" >Add an ingredient </Card.Title>
 
-            <p>{this.message}</p>
+            <p className="error-message">{this.state.errors.name}</p>
+            <p className="error-message">{this.state.errors.quantity}</p>
+
          <Form onSubmit={this.handleSubmit}>
                 <FormGroup controlId="name"  >
                     <FormLabel>Name</FormLabel>
@@ -87,7 +127,7 @@ export default class IngredientPage extends Component {
                     />
                 </FormGroup>
                     <FormGroup controlId="quantity">
-                        <FormLabel>Quantity</FormLabel>
+                        <FormLabel>Quantity(in OZ)</FormLabel>
                         <FormControl
                             autoFocus
                             type="Text"

@@ -24,6 +24,11 @@ export default class Signin extends Component {
             email: "",
             password: "",
             authenticated:"",
+            errors: {
+                email: '',
+                password: '',
+              }
+            
         };
     }
 
@@ -39,6 +44,29 @@ export default class Signin extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+        const  name = event.target.id;
+        const value = event.target.value;
+        let errors = this.state.errors;
+        console.log(event.target.id)
+        switch (name) {
+            case 'email': 
+            errors.email = 
+                value.length == 0
+                ? 'Username is required'
+                : '';
+            break;
+            case 'password': 
+            errors.password = 
+            value.length == 0
+            ? 'Password  is required'
+            : '';
+            break;
+            default:
+            break;
+            }
+            this.setState({errors, [name]: value}, ()=> {
+                console.log(errors)
+            })
     }
 
     handleSubmit = event => {
@@ -86,8 +114,10 @@ export default class Signin extends Component {
     render() {
         return (
             <Container>
-            <Card  className="cardMainOne">
-         <Card.Body className = "card-body-one">
+            <Card  className="cardMainOneThis">
+         <Card.Body className = "card-body-oneThis">
+         <p className="error-message">{this.state.errors.email}</p>
+            <p className="error-message">{this.state.errors.password}</p>
          <form>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Username</FormLabel>
