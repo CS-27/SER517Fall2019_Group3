@@ -5,7 +5,7 @@ Date modified : Sept 30, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import RecipeDetails from "./RecipeDetails";
+//import RecipeDetails from "./RecipeDetails";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
@@ -26,13 +26,21 @@ export default class AddRecipe extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    grain:"",
+    // grain:"",
     Hops:[],
-    Grains:[],
-    Grains2:[],
+    // Grains:[],
+    // Grains2:[],
     HopsSchedule:[],
     Category:"",
-    Temp: ""
+    errors: {
+        name:'',
+        Malt:'',
+        Directions:'',
+        Hops1: '',
+        schedule: '',
+        grain:'',
+        Temp:''
+      }
   };
 
         this.uname=sessionStorage.getItem("username")
@@ -50,6 +58,59 @@ handleChange = event => {
   this.setState({
       [event.target.id]: event.target.value,
   });
+  const  name = event.target.id;
+        const value = event.target.value;
+        let errors = this.state.errors;
+        switch (name) {
+            case 'Malt': 
+            errors.Malt = 
+                value.length == 0
+                ? 'Malt is required'
+                : '';
+            break;
+            case 'name': 
+            errors.name = 
+            value.length == 0
+            ? 'Name  is required'
+            : '';
+            break;
+            case 'Directions': 
+            errors.Directions = 
+                value.length == 0
+                ? 'Directions is required'
+                : '';
+            break;
+            case 'Hops1': 
+            errors.Hops1 = 
+            value.length == 0
+            ? 'Hops1  is required'
+            : '';
+            break;
+            case 'schedule': 
+            errors.schedule = 
+            value.length == 0
+            ? 'Schedule  is required'
+            : '';
+            break;
+            case 'grain': 
+            errors.grain = 
+            value.length == 0
+            ? 'Grain  is required'
+            : '';
+            break;
+            case 'Temp': 
+            errors.Temp = 
+            value.length == 0
+            ? 'Temp  is required'
+            : '';
+            break;
+            default:
+            break;
+            }
+            this.setState({errors, [name]: value}, ()=> {
+                console.log(errors)
+            })
+    
 }
 
 
@@ -59,7 +120,7 @@ handleSubmit=(event) => {
   // console.log(hopsArray)
 
     this.state.Hops= hopsArray
-    this.state.Grains= this.state.grain.split(',')
+    // this.state.Grains= this.state.grain.split(',')
 
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule= sArray 
@@ -75,10 +136,9 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Category:data.Category,
-        Temp: data.Temp,
         Malt: data.Malt,
         Hops: data.Hops,
-        Grains: data.Grains,
+        // Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
           }),
         headers: {
@@ -102,9 +162,16 @@ render() {
     return (
         <Container>
             <Card  className="cardMain">
-         <Card.Body>
+         <Card.Body className="cardbodyRecipe" >
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
-         <p>{this.message}</p>
+         <p className="error-message">{this.state.errors.name}</p>
+            <p className="error-message">{this.state.errors.Malt}</p> 
+             <p className="error-message">{this.state.errors.Directions}</p>
+            <p className="error-message">{this.state.errors.grain}</p>
+            <p className="error-message">{this.state.errors.schedule}</p>
+            <p className="error-message">{this.state.errors.Hops1}</p>
+            <p className="error-message">{this.state.errors.Temp}</p>
+
       <Form >
           <Row>
           <Col>
@@ -132,18 +199,7 @@ render() {
         </FormGroup>
         
         </Col>
-        <Col>
-           <FormGroup controlId="Temp">
-            <FormLabel color="white" >Max Temperature</FormLabel>
-            <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="in Celsius (e.g: 50)"
-                        value={this.state.Temp}
-                        onChange={this.handleChange}
-            />
-        </FormGroup>
-        </Col> 
+        
         </Row>
         
         
@@ -170,7 +226,7 @@ render() {
             />
             <div><h5>Please Enter comma separated values for below fields: </h5></div>
         <FormGroup controlId="Hops1">
-                    <FormLabel color="white" >Add Hops</FormLabel>
+                    <FormLabel color="white" >Add Hops and Grains</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
@@ -190,7 +246,7 @@ render() {
                     />
                 </FormGroup>
         
-            <FormGroup controlId="grain">
+            {/* <FormGroup controlId="grain">
                     <FormLabel color="white" >Grains/Malt</FormLabel>
                     <FormControl
                         autoFocus
@@ -200,7 +256,7 @@ render() {
                         onChange={this.handleChange}
                         
                     />
-                </FormGroup>
+                </FormGroup> */}
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>
