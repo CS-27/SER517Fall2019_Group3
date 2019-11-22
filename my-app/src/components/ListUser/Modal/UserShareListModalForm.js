@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import {Button, Modal, ModalHeader, ModalBody, Table} from 'reactstrap'
 // import RecipeList from "../AllRecipes/modalFormAM";
 import UserListShare from "../listUserShare";
+import ShareIcon from '@material-ui/icons/Share';
 // import {Container} from "react-bootstrap";
 // import DataTable from './userListDatatable';
 // import Loader from 'react-loader-spinner';
@@ -31,11 +32,18 @@ class UserShareListModalForm extends Component {
         let button = ''
         let title = ''
 
+        // if(label === 'share'){
+        //     button = <Button
+        //         onClick={this.toggle}
+        //     >{label}
+        //     </Button>
+        //     title = 'Brewer List'
+        // }
+
         if(label === 'share'){
-            button = <Button
+            button = <ShareIcon
                 onClick={this.toggle}
-            >{label}
-            </Button>
+            />
             title = 'Brewer List'
         }
 
