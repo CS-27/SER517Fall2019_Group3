@@ -21,6 +21,8 @@ class UserListShareDatatable extends Component {
             // userID: sessionStorage.getItem("username")
 
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.nextAPI = this.nextAPI.bind(this);
         console.log(this.props.beername);
     }
     viewItem = (item) => {
@@ -126,9 +128,9 @@ class UserListShareDatatable extends Component {
         // .then(this.nextAPI();)
     }
 
-    nextAPI(name) {
+    nextAPI = (name) => {
         // console.log("add" + this.props.beername);
-        // if (this.props.beername != "") {
+        if (this.state.name != "") {
             fetch('http://127.0.0.1:5000/myRecipes', {
                 method: 'POST',
                 mode: 'cors',
@@ -137,8 +139,8 @@ class UserListShareDatatable extends Component {
                             userID: name,
                             name: this.state.name,
                             Directions: this.state.Directions,
-                        Category: this.state.Category,
-                        Malt: this.state.Malt,
+                            Category: this.state.Category,
+                            Malt: this.state.Malt,
                             Hops: this.state.Hops,
                             // Grains: this.state.Grains,
                             HopsSchedule: this.state.HopsSchedule
@@ -157,7 +159,8 @@ class UserListShareDatatable extends Component {
                 }
                 console.log(res.status);
             }).catch(err => console.log(err));
-        // }
+            // }
+        }
     }
     redirectToTarget = () => {
         this.props.history.push('/signin')
