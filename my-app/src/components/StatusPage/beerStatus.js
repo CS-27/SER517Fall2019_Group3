@@ -18,7 +18,7 @@ export default class beerStatus extends Component {
 
       {
         step:1,
-        text:"first step",
+        text:"Add yeast; ready for fermentation",
         percent: 25,
         status: 2,
         statusColor: "success",
@@ -29,19 +29,19 @@ export default class beerStatus extends Component {
       },
       {
         step:2,
-        text:"second step",
+        text:"Fermentation Complete;Increase temperature to 62F",
         percent: 50,
         status: 1,
         statusColor: "warning",
         animated:"true",
         label:"50%",
-        hours:72
+        hours:336
         
 
       },
       {
         step:3,
-        text:"third step",
+        text:"Ready to Lager",
         percent: 25,
         status: 0,
         statusColor: "danger",
@@ -109,11 +109,11 @@ export default class beerStatus extends Component {
             <Card.Body className ="bodyCardOne">
 
             <Card.Text className = "titleCardOne">
-            Brewing Status
+            Brewing Status for 
             </Card.Text>
             {/* <ProgressBar animated now={65} label={`65%`}/> */}
             <br/>
-           <button onClick={this.refresh}>Refresh</button>
+           <button onClick={this.refresh}>Update</button>
             <ProgressBar>
             {items2}
             {/* <ProgressBar variant="success"   now={25} key={1} />
@@ -122,7 +122,6 @@ export default class beerStatus extends Component {
             <ProgressBar  now={0} key={3} /> */}
             </ProgressBar>
             <br/>
-            <p>Cool Wort and add hops</p>
             </Card.Body>
             </Card>
 
