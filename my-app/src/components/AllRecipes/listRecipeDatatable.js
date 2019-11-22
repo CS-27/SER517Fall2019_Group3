@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
 import ModalForm from './modalFormAM'
-import UserListModalForm from '../ListUser/Modal/UserListModalForm'
+
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 // import UserListModalForm from './userListModalForm'
 // import UserListModalForm from '../ListUser/Modal/modalFormAM'
 
@@ -24,19 +25,6 @@ class ListRecipeDatatable extends Component {
 
     }
 
-  // getRecipe=(item)=>
-  // {
-  //   const names = this.props.names.map(item =>
-  //     {
-  //       return(
-
-  //       )
-  //     })
-  //   // this.props.getRecipe(item);
-  //   // console.log("in rec");
-  //   // console.log(item.toString())
-  // }
-
 
 
   render() { 
@@ -55,15 +43,12 @@ class ListRecipeDatatable extends Component {
         </td>
 
           <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem(item) }>Delete </Button>
+          <DeleteRoundedIcon onClick={() => this.deleteItem(item) }/>
           </td>
             {/*<td>*/}
                 {/*<Button id ="btn2-color" onClick={() => this.shareItem(item) }>Shares </Button>*/}
             {/*</td>*/}
 
-            <td>
-                <UserListModalForm name={item} buttonLabel="share" />
-            </td>
         </tr>
         )
       })
@@ -74,8 +59,9 @@ class ListRecipeDatatable extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th></th>
-            <th></th>
+            <th>View</th>
+            <th>Delete</th>
+            
           </tr>
         </thead>
         <tbody>

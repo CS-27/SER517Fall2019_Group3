@@ -17,8 +17,15 @@ export default class ListRecipe extends Component {
             items: [],
             response: {},
             name:"",
-            names:[]
+            names:[],
+            userID: sessionStorage.getItem("username")
+        };
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
         }
+        
         this.items = null;
         this.loading = true;
         this.names=null;
@@ -124,7 +131,7 @@ export default class ListRecipe extends Component {
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="mainCardOneMain">
          <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > Type the recipe name or just click below to view all beers</Card.Title>
+         <Card.Title className="titleCard" > Type the recipe name or view from the list</Card.Title>
              <Form onSubmit={this.handleSubmit}>
                  <FormGroup controlId="name"  >
                      <FormLabel>Recipe Name</FormLabel>

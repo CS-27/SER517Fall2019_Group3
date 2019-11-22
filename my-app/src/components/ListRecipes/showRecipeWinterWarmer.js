@@ -69,7 +69,7 @@ export default class recipeList extends Component {
               if(key=="name"){
                 name = data[key];
               }
-              if(key!="_id" && key!="name"){
+              if(key!="_id" && key!="name" && key!="Category"){
                recipe.push([
                  key,data[key]
               ]);

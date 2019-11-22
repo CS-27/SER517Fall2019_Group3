@@ -159,45 +159,14 @@ export default class ListRecipeCategory extends Component {
 
     }
 
-    
-
-    //   deleteItem = (name) => {
-    //     const updatedItems = this.state.names.filter(i => i[0] !== name[0]);
-    //     this.setState({ names: updatedItems })
-    //    }
-
-    //    deleteItem2 = (name) => {
-    //     const updatedItems = this.state.names2.filter(i => i[0] !== name[0]);
-    //     this.setState({ names2: updatedItems })
-    //    }
-     
    
-    //  deleteRecipe =(name)=>{
-
-    //    fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-    //      method: 'post',
-    //      headers: {
-    //        'Content-Type': 'application/json'
-    //      },
-    //      body: JSON.stringify({
-    //        name: name.toString()
-    //      })
-         
-    //    })
-       
-    //    .then(() => {
-    //        this.deleteItem(name)
-    //      })
-    //      .catch(err => console.log(err))
-
-    //  }
 
      renderList() {
         return (
             
             <Container>
                 
-                     <Card  className="cardMainOne">
+                     <Card  className="cardMainOne1">
     <Card.Body className ="card-body-2">
         <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
         <Card.Text >

@@ -19,7 +19,13 @@ export default class ViewMyRecipe extends Component {
             items: [],
             response: {},
             name: "",
-            names: []
+            names: [],
+            userID: sessionStorage.getItem("username")
+        };
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
         }
         this.items = null;
         this.loading = true;
@@ -126,7 +132,7 @@ export default class ViewMyRecipe extends Component {
                     <Card.Body className="card-body">
                         <Card.Title className="titleCard" > My Recipes below</Card.Title>
                         <Form onSubmit={this.handleSubmit}>
-                            <Button onClick={this.getItems} id="btn-color" variant="primary"  >View Beers</Button>
+                            <Button onClick={this.getItems} id="btn-color" variant="primary"  > View all Beers</Button>
                         </Form>
                         {this.loading ? <Loader
                             type="Circles"

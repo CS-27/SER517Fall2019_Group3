@@ -6,11 +6,18 @@
     margin-top: 5rem; 
 
 }
+
+.cardMainOne1{
+    
+    height: 10rem;
+    align-self: center;
+    opacity: .8;
+}
 .mainCardOneMain2{
 
     width: 60%;
        
-    margin-top: 5rem;  
+    margin-top: 4rem;  
     opacity: .8;
 
 }
