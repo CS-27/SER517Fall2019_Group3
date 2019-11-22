@@ -58,9 +58,9 @@ export default class IngredientPage extends Component {
     errors.quantity = 
     value.length == 0
     ? 'Quantity  is required'
-    : '';
-      errors.quantity = 
-        re.test(value)
+    : 
+      (errors.quantity = 
+        re.test(value))
           ? ''
           : 'Quantity must be a number/decimal';
       break;
