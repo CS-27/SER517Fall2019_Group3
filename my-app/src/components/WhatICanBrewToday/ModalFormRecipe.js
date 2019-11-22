@@ -37,8 +37,12 @@ for (var key in this.props.item.Grains) {
   arrGrains.push(arrKeys)
 }
 
-      const listHops =  arrHops.map((link) =>
-      <li >{link[0]} - {link[1]}</li> 
+      const listHops =  arrHops.map((link) =>{
+      if(link.length>2)
+      return <li >{link[0]} {link[1]}  {link[2]}</li> 
+      else
+      return <li >{link[0]}  {link[1]}</li> 
+      }
   );
   const listGrains =  arrGrains.map((link) =>
   <li >{link[0]} - {link[1]}</li> 
@@ -78,14 +82,14 @@ for (var key in this.props.item.Grains) {
        { this.props.item.Malt}
       </td>
     </tr>
-    <tr>
+    {/* <tr>
         <td>Grains</td>
       <td>
         <ul>
             {listGrains}
         </ul>
       </td>
-    </tr>
+    </tr> */}
     <tr>
         <td>Hops</td>
       <td>
