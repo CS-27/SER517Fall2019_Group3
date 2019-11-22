@@ -99,7 +99,7 @@ export default class beerStatus extends Component {
                 status: 1,
                 statusColor: "warning",
                 animated:"true",
-                label:"50%",
+                label:"25%",
                 hours:24
               },
               {
@@ -134,7 +134,31 @@ export default class beerStatus extends Component {
 // //      this.beerStatuses[e];
 //     });
 //   }
+
+
+// beerInfor = (name) => {
+//   console.log("in beerInfor")
+//   console.log(name)
+//   fetch('http://127.0.0.1:5000/brewingBeer', {
+//       method: 'post',
+//       headers: {
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//           name: name.toString()
+//       })
+
+//   })
+
+//       .then(() => {
+//           this.beerInfor(name)
+//       })
+//       .catch(err => console.log(err))
+
+// }
+
   refresh=()=>{
+
     this.status += 1;
     let len = this.beerStatuses.length
     if(this.status > len){
