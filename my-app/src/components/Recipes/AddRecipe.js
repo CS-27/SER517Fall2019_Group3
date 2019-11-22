@@ -22,7 +22,7 @@ export default class AddRecipe extends Component {
     this.state = {  
     // object1: [{name:"", quantity:""}],
     name: "",
-    Malt: "",
+    BatchSize: "",
     Directions: "",
     Hops1:"",
     schedule:"",
@@ -34,7 +34,7 @@ export default class AddRecipe extends Component {
     Category:"",
     errors: {
         name:'',
-        Malt:'',
+        BatchSize:'',
         Directions:'',
         Hops1: '',
         schedule: '',
@@ -62,10 +62,10 @@ handleChange = event => {
         const value = event.target.value;
         let errors = this.state.errors;
         switch (name) {
-            case 'Malt': 
-            errors.Malt = 
+            case 'BatchSize': 
+            errors.BatchSize = 
                 value.length == 0
-                ? 'Malt is required'
+                ? 'BatchSize is required'
                 : '';
             break;
             case 'name': 
@@ -136,7 +136,7 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Category:data.Category,
-        Malt: data.Malt,
+        BatchSize: data.BatchSize,
         Hops: data.Hops,
         // Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
@@ -165,7 +165,7 @@ render() {
          <Card.Body className="cardbodyRecipe" >
          <Card.Title className="titleCard" >Make your beer!</Card.Title>
          <p className="error-message">{this.state.errors.name}</p>
-            <p className="error-message">{this.state.errors.Malt}</p> 
+            <p className="error-message">{this.state.errors.BatchSize}</p> 
              <p className="error-message">{this.state.errors.Directions}</p>
             <p className="error-message">{this.state.errors.grain}</p>
             <p className="error-message">{this.state.errors.schedule}</p>
@@ -187,13 +187,13 @@ render() {
                 </FormGroup>
                 </Col>
                 <Col> 
-        <FormGroup controlId="Malt">
+        <FormGroup controlId="BatchSize">
             <FormLabel color="white" >Batch Size</FormLabel>
             <FormControl
                         autoFocus
                         type="text" 
                         placeholder="in gallons (e.g: 10)"
-                        value={this.state.Malt}
+                        value={this.state.BatchSize}
                         onChange={this.handleChange}
             />
         </FormGroup>
@@ -247,7 +247,7 @@ render() {
                 </FormGroup>
         
             {/* <FormGroup controlId="grain">
-                    <FormLabel color="white" >Grains/Malt</FormLabel>
+                    <FormLabel color="white" >Grains/BatchSize</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 

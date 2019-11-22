@@ -19,7 +19,13 @@ export default class ViewMyRecipe extends Component {
             items: [],
             response: {},
             name: "",
-            names: []
+            names: [],
+            userID: sessionStorage.getItem("username")
+        };
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
         }
         this.items = null;
         this.loading = true;
