@@ -18,12 +18,11 @@ body{
 }
 
 
-.cardMainOne{
-    width: 50rem;
+.cardMainOne1{
+    
     height: 10rem;
     align-self: center;
     opacity: .8;
-
 }
 
 .card-image{

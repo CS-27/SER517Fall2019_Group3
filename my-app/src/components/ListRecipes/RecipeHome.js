@@ -30,82 +30,7 @@ export default class RecipeHome extends Component {
     });
   }
 
-  // deleteItemAM = () => {
-  //   let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
-  //   if(confirmDelete){
-  //    this.deleteIngredientAM();
-  //   }
-  // }
-
-  // deleteItemWW = () => {
-  //   let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
-  //   if(confirmDelete){
-  //    this.deleteIngredientWW();
-  //   }
-  // }
-
-  // deleteItemWD = () => {
-  //   let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
-  //   if(confirmDelete){
-  //    this.deleteIngredientWD();
-  //   }
-  // }
-
-  // deleteItemSP = () => {
-  //   let confirmDelete = window.confirm('Recipe will be deleted from the Database?')
-  //   if(confirmDelete){
-  //    this.deleteIngredientSP();
-  //   }
-  // }
-
-  // deleteIngredientWW =()=>{
-  //   fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: "WinterWarmer"
-  //     })
-  //   })
-  // }
-
-  // deleteIngredientAM =()=>{
-  //   fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: "AmericanPaleAle"
-  //     })
-  //   })
-  // }
-
-  // deleteIngredientSP =()=>{
-  //   fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: "SmashPaleAle"
-  //     })
-  //   })
-  // }
-
-
-  // deleteIngredientWD =()=>{
-  //   fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: "WhiteDogIPA"
-  //     })
-  //   })
-  // }
+  
 
 
   render(){
@@ -117,7 +42,7 @@ export default class RecipeHome extends Component {
         Recipe
       </div>
      <Container>
-     <Card  className="cardMainOne">
+     <Card  className="cardMainOne1">
   <Card.Body className ="card-body-one">
     <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
     <Card.Text >
