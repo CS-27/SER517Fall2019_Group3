@@ -61,12 +61,13 @@ handleChange = event => {
   const  name = event.target.id;
         const value = event.target.value;
         let errors = this.state.errors;
+        const re = /^-?\d*(\.\d+)?$/;
         switch (name) {
             case 'Malt': 
             errors.Malt = 
                 value.length == 0
                 ? 'Malt is required'
-                : '';
+                :re.test(value)?'':'Batch size must be a number/decimal';
             break;
             case 'name': 
             errors.name = 
@@ -96,12 +97,6 @@ handleChange = event => {
             errors.grain = 
             value.length == 0
             ? 'Grain  is required'
-            : '';
-            break;
-            case 'Temp': 
-            errors.Temp = 
-            value.length == 0
-            ? 'Temp  is required'
             : '';
             break;
             default:
