@@ -85,8 +85,9 @@ class recipeList extends Component {
        }
        addtoShopList=()=>{
         var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
-        console.log(this.state.recipe)
-          var hops = this.state.recipe[3][1]
+       
+          var hops = this.state.recipe[1][1]
+          console.log(hops)
           var userID=sessionStorage.getItem("username")
 
           fetch(url, {
