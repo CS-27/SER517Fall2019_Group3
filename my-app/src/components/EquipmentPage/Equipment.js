@@ -112,8 +112,8 @@ this.setState({errors, [name]: value}, ()=> {
     renderForm() {
         return (
             <Container>
-            <Card  className="mainCardOneThis">
-         <Card.Body className ="cardbodyThis">
+            <Card  className="mainCardOneThisEq">
+         <Card.Body className ="cardbodyThisEq">
          <Card.Title className="titleCard" >Add equipment</Card.Title>
          <p className="error-message">{this.state.errors.name}</p>
             <p className="error-message">{this.state.errors.quantity}</p>
