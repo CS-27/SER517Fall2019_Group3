@@ -121,7 +121,7 @@ export default class ViewMyRecipe extends Component {
             .catch(err => console.log(err))
 
     }
-
+ 
 
     renderList() {
         return (

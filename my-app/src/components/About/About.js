@@ -19,7 +19,7 @@ function About() {
         ABOUT
       </div>
      <Container>
-     <Card  className="cardMainOne">
+     <Card  className="cardMainOneThis">
   <Card.Body className ="card-body-one">
     <Card.Title className="card-title">Brew More! Worry Less!</Card.Title>
     <Card.Text >

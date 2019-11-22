@@ -61,12 +61,13 @@ handleChange = event => {
   const  name = event.target.id;
         const value = event.target.value;
         let errors = this.state.errors;
+        const re = /^-?\d*(\.\d+)?$/;
         switch (name) {
             case 'BatchSize': 
             errors.BatchSize = 
                 value.length == 0
-                ? 'BatchSize is required'
-                : '';
+                ? 'Batch Size is required'
+                :re.test(value)?'':'Batch size must be a number/decimal';
             break;
             case 'name': 
             errors.name = 
@@ -83,7 +84,7 @@ handleChange = event => {
             case 'Hops1': 
             errors.Hops1 = 
             value.length == 0
-            ? 'Hops1  is required'
+            ? 'Hops  is required'
             : '';
             break;
             case 'schedule': 
@@ -96,12 +97,6 @@ handleChange = event => {
             errors.grain = 
             value.length == 0
             ? 'Grain  is required'
-            : '';
-            break;
-            case 'Temp': 
-            errors.Temp = 
-            value.length == 0
-            ? 'Temp  is required'
             : '';
             break;
             default:
