@@ -103,7 +103,11 @@ class recipeList extends Component {
             })
           })
             .then(response => {
-              
+              console.log(response.status)
+              if(response.status == 200)
+                alert("Added item to shop list")
+              else
+              alert("Item already in  shop list")
               this.props.history.push('/shoppinglist')
 
 
