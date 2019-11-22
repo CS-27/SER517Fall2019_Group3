@@ -25,19 +25,6 @@ class ListRecipeDatatable extends Component {
 
     }
 
-  // getRecipe=(item)=>
-  // {
-  //   const names = this.props.names.map(item =>
-  //     {
-  //       return(
-
-  //       )
-  //     })
-  //   // this.props.getRecipe(item);
-  //   // console.log("in rec");
-  //   // console.log(item.toString())
-  // }
-
 
 
   render() { 
@@ -75,8 +62,9 @@ class ListRecipeDatatable extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th></th>
-            <th></th>
+            <th>View</th>
+            <th>Delete</th>
+            <th>Share</th>
           </tr>
         </thead>
         <tbody>

@@ -126,7 +126,7 @@ export default class ViewMyRecipe extends Component {
                     <Card.Body className="card-body">
                         <Card.Title className="titleCard" > My Recipes below</Card.Title>
                         <Form onSubmit={this.handleSubmit}>
-                            <Button onClick={this.getItems} id="btn-color" variant="primary"  >View Beers</Button>
+                            <Button onClick={this.getItems} id="btn-color" variant="primary"  > View all Beers</Button>
                         </Form>
                         {this.loading ? <Loader
                             type="Circles"
