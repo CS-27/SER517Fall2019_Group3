@@ -78,10 +78,13 @@ def myRecipes():
 	for key, value in req_data.items():
 		recipeList.__setitem__(key,value)
 	userID = recipeList['userID']
+	name = recipeList['name']
 	del recipeList['userID']
-	response = jsonify({'Recipe addition status' : recipeFunctions.createUserRecipes(userID, recipeList)})
-	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response
+	if name != "":
+	    response = jsonify({'Recipe addition status' : recipeFunctions.createUserRecipes(userID, recipeList)})
+	    response.headers.add('Access-Control-Allow-Origin', '*')
+	    return response
+	return false
 
 @brewDay_api.route('/whatCanIBrewToday', methods = ['POST','GET'])
 def whatCanIBrewToday():

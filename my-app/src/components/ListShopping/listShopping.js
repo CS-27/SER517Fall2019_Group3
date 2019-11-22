@@ -78,7 +78,9 @@ export default class ListShopping extends Component {
             }
         }
         event.preventDefault();
+        // this.props.history.push('/shoppinglist')
         // this.props.history.push('/ingredientList')
+        window.location.reload();
     }
 
     handleSubmitB = event => {
@@ -110,7 +112,7 @@ export default class ListShopping extends Component {
             }
         }
         event.preventDefault();
-        // this.props.history.push('/ingredientList')
+        window.location.reload();
     }
 
 

@@ -2,6 +2,7 @@ import AddMoreForm from './addMoreForm'
 
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import './datatable.css'
 class ModalFormAddMore extends Component {
   constructor(props) {
@@ -26,11 +27,11 @@ class ModalFormAddMore extends Component {
       let title = ''
 
       if(label === 'Add More'){
-        button = <Button
-                  id ="btn-color"
+        button = <AddCircleOutlineIcon
+                  
                   onClick={this.toggle}
                   >{label}
-                </Button>
+                </AddCircleOutlineIcon>
         title = 'Add More'
       } 
 

@@ -58,7 +58,7 @@ case 'quantity':
 errors.quantity = 
 value.length == 0
 ? 'Quantity  is required'
-: '';
+: 
   errors.quantity = 
     re.test(value)
       ? ''
