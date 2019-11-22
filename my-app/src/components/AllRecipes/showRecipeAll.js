@@ -85,8 +85,9 @@ class recipeList extends Component {
        }
        addtoShopList=()=>{
         var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
-        console.log(this.state.recipe)
-          var hops = this.state.recipe[3][1]
+       
+          var hops = this.state.recipe[1][1]
+          console.log(hops)
           var userID=sessionStorage.getItem("username")
 
           fetch(url, {
@@ -102,7 +103,11 @@ class recipeList extends Component {
             })
           })
             .then(response => {
-              
+              console.log(response.status)
+              if(response.status == 200)
+                alert("Added item to shop list")
+              else
+              alert("Item already in  shop list")
               this.props.history.push('/shoppinglist')
 
 
