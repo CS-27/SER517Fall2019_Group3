@@ -30,6 +30,7 @@ import ListRecipe from "./components/AllRecipes/listRecipeAll"
 import AddRecipeUser from "./components/UserRecipes/AddRecipe"
 
 import ListRecipeCategory from "./components/RecipeCategory/listRecipeCategory"
+import ListRecipeCategoryUser from "./components/UserBeerCategory/listRecipeCategoryUser"
 
 import MyRecipeList from "./components/MyRecipes/viewMyRecipes";
 import IngredientsCheckList from './components/CheckList/IngredientsCheckList';
@@ -66,6 +67,7 @@ export default({ childProps }) =>
             <AppliedRoute path="/ListRecipe" exact component={ListRecipe} props={childProps} />
             <AppliedRoute path="/addRecipeUser" exact component={AddRecipeUser} props={childProps} />
             <AppliedRoute path="/recipeCategory" exact component={ListRecipeCategory} props={childProps} />
+            <AppliedRoute path="/recipeCategoryBrewer" exact component={ListRecipeCategoryUser} props={childProps} />
 
             {/* My Recipes */}
 

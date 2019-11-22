@@ -11,7 +11,7 @@ import Loader from 'react-loader-spinner';
 import ListRecipeDatatable from "./listRecipeDatatable";
 import ListRecipeDatatable2 from "./listRecipeDatatable2";
 
-export default class ListRecipeCategory extends Component {
+export default class ListRecipeCategoryUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
