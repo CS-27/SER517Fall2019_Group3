@@ -23,12 +23,11 @@ export default class AddRecipeUser extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    grain:"",
+    // grain:"",
     Hops:[],
-    Grains:[],
+    // Grains:[],
     HopsSchedule:[],
     Category:"",
-    Temp: "",
     userID: sessionStorage.getItem("username")
   };
   this.uname=sessionStorage.getItem("username")
@@ -54,8 +53,8 @@ handleSubmit=(event) => {
   const hopsArray = this.state.Hops1.split(',');
   this.state.Hops=hopsArray
 
-    const grainArray = this.state.grain.split(',');
-    this.state.Grains= grainArray
+    // const grainArray = this.state.grain.split(',');
+    // this.state.Grains= grainArray
   
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule=sArray
@@ -73,10 +72,9 @@ handleSubmit=(event) => {
         name: data.name,
         Directions: data.Directions,
         Category:data.Category,
-        Temp: data.Temp,
         Malt: data.Malt,
         Hops: data.Hops,
-        Grains: data.Grains,
+        // Grains: data.Grains,
         HopsSchedule: data.HopsSchedule    
           }),
         headers: {
@@ -131,18 +129,7 @@ render() {
 
         </Col> 
 
-        <Col>
-           <FormGroup controlId="Temp">
-            <FormLabel color="white" >Max Temperature</FormLabel>
-            <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="in Celsius (e.g: 50)"
-                        value={this.state.Temp}
-                        onChange={this.handleChange}
-            />
-        </FormGroup>
-        </Col> 
+     
         </Row>
         <div>
                <select id="Category" onChange={this.handleChange} value={this.state.value}>
@@ -167,7 +154,7 @@ render() {
             />
             <div>Please Enter comma separated values for below fields: </div>
         <FormGroup controlId="Hops1">
-                    <FormLabel color="white" >Add Hops</FormLabel>
+                    <FormLabel color="white" >Add Hops and Grains</FormLabel>
                     <FormControl
                         autoFocus
                         type="text" 
@@ -187,7 +174,7 @@ render() {
                     />
                 </FormGroup>
         
-            <FormGroup controlId="grain">
+            {/* <FormGroup controlId="grain">
                     <FormLabel color="white" >All Grain</FormLabel>
                     <FormControl
                         autoFocus
@@ -196,7 +183,7 @@ render() {
                         value={this.state.grain} 
                         onChange={this.handleChange}
                     />
-                </FormGroup>
+                </FormGroup> */}
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>

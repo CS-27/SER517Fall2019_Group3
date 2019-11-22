@@ -23,6 +23,7 @@ def addShoppingList(userID, userShopList):
 
 	collection = db.userShoppingList
 	result = False
+	currShoplist = showShoppingList(userID)
 	if not collection.find_one({'userID' : userID}):
 		#data = {}
 		#data.update(ingredientList = userIngList)
@@ -33,7 +34,7 @@ def addShoppingList(userID, userShopList):
 		shopListSet = distinctShopListItems(userID,collection)
 		for key,value in userShopList.items():
 			if key != 'userID':
-				if key not in shopListSet:
+				if key not in shopListSet and key not in currShoplist:
 					new_values = {"$set" : {key:value}}
 					result = collection.update(search_query,new_values,upsert = True)
 	if result:
@@ -207,7 +208,7 @@ def itemsShopped(userID, itemList):
 		for key,value in itemList.items():
 			new_value = {"$set" : {key:value}}
 			updateCollection = collection.update_one(search_query, new_value, upsert= True)
-			print updateCollection
+#			print updateCollection
 
 	# if updateCollection['updatedExisting']:
 	return True

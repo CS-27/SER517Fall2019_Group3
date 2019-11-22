@@ -1,4 +1,4 @@
-.mainCardOneThis{
+.mainCardOneshop{
 
     width: 40rem;
     margin: 0 auto;   
@@ -26,12 +26,12 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     outline: none;
 }
 
-.cardbodyThis{
+.cardbodyshop{
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     margin: 1rem;
-    background-color: rgb(255,255,224)   
-
+    background-color: rgb(255,255,224) ;  
+    height:auto;
 }
 
 #btn-color
