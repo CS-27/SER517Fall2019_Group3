@@ -114,8 +114,8 @@ export default class Signin extends Component {
     render() {
         return (
             <Container>
-            <Card  className="cardMainOneThis">
-         <Card.Body className = "card-body-oneThis">
+            <Card  className="cardMainOneSign">
+         <Card.Body className = "card-body-oneThisSign">
          <p className="error-message">{this.state.errors.email}</p>
             <p className="error-message">{this.state.errors.password}</p>
          <form>

@@ -127,8 +127,8 @@ export default class equipmentList extends Component {
                 
                 <Container>
                     <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-                <Card  className="mainCardOneThis">
-             <Card.Body className = "cardbodyThis">
+                <Card  className="mainCardOneThisEq">
+             <Card.Body className = "cardbodyThisEq">
              <Card.Title className="titleCard" >List of Equipment</Card.Title>
              {this.loading ?       <Loader
              type="Circles"
