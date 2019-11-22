@@ -9,7 +9,7 @@ class UserListShareDatatable extends Component {
         this.state = {
             name: "",
             Malt: "",
-            Temp: "",
+            Category: "",
             Directions: "",
             Hops1: "",
             schedule: "",
@@ -30,7 +30,7 @@ class UserListShareDatatable extends Component {
 
         // var convention= this.props.items;
         // console.log(convention)
-        // console.log(name)
+        console.log(name)
         //console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?userID='+sessionStorage.getItem("username")+'&&recipeName='+this.props.beername;
         var data;
@@ -45,10 +45,10 @@ class UserListShareDatatable extends Component {
                     var recipe =[];
                     this.setState({name: data.name,
                         Directions: data.Directions,
+                        Category:data.Category,
                         Malt: data.Malt,
-                        Temp: data.Temp,
                         Hops: data.Hops,
-                        Grains: data.Grains,
+                        // Grains: data.Grains,
                         HopsSchedule: data.HopsSchedule},this.nextAPI(name));
                     // console.log(data)
                     // Object.keys(data).forEach(function(key) {
@@ -126,39 +126,43 @@ class UserListShareDatatable extends Component {
         // .then(this.nextAPI();)
     }
 
-    nextAPI(name)
-    {
-        fetch('http://127.0.0.1:5000/myRecipes', {
-            method: 'POST',
-            mode: 'cors',
-            body:
-                JSON.stringify({
-                        userID: name,
-                        name: this.state.name,
-                        Directions: this.state.Directions,
+    nextAPI(name) {
+        // console.log("add" + this.props.beername);
+        // if (this.props.beername != "") {
+            fetch('http://127.0.0.1:5000/myRecipes', {
+                method: 'POST',
+                mode: 'cors',
+                body:
+                    JSON.stringify({
+                            userID: name,
+                            name: this.state.name,
+                            Directions: this.state.Directions,
+                        Category: this.state.Category,
                         Malt: this.state.Malt,
-                        Temp: this.state.Temp,
-                        Hops: this.state.Hops,
-                        Grains: this.state.Grains,
-                        HopsSchedule: this.state.HopsSchedule
-                    }
-                ),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
-                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+                            Hops: this.state.Hops,
+                            // Grains: this.state.Grains,
+                            HopsSchedule: this.state.HopsSchedule
+                        }
+                    ),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
-            }
-        }).then(res => {
-            if(res.status===200)
-                this.message = 'Recipe added successfully'
-            console.log(res.status) ;
-        }).catch(err => console.log(err));
+                }
+            }).then(res => {
+                if (res.status === 200) {
+                    this.message = 'Recipe added successfully'
+                    alert("Recipe shared");
+                }
+                console.log(res.status);
+            }).catch(err => console.log(err));
+        // }
     }
-
     redirectToTarget = () => {
         this.props.history.push('/signin')
     }
+
 
   render() {
     const userID = this.props.userID;

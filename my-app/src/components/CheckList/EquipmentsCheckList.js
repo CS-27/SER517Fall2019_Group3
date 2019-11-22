@@ -48,13 +48,15 @@ class EquipmentsCheckList extends Component{
 
                     }
                 }).then(res => {
-                    if (res.status === 200)
+                    if (res.status === 200) {
                         this.message = 'Equipment added successfully'
-                    console.log(res.status);
+                        console.log(res.status);
+                        this.props.history.push('/equipmentList')
+                    }
                 }).catch(err => console.log(err));
             }
         }
-        this.props.history.push('/equipmentList')
+
         event.preventDefault();
     }
 

@@ -48,14 +48,15 @@ class IngredientsCheckList extends Component{
 
                     }
                 }).then(res => {
-                    if (res.status === 200)
+                    if (res.status === 200) {
                         this.message = 'Ingredient added successfully'
-                    console.log(res.status);
+                        console.log(res.status);
+                        this.props.history.push('/ingredientList');
+                    }
                 }).catch(err => console.log(err));
             }
         }
         event.preventDefault();
-        // this.props.history.push('/ingredientList')
     }
 
     updatelist=(id,row)=>{

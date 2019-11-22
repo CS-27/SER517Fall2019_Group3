@@ -23,7 +23,7 @@ export default class ListUserShare extends Component {
         this.loading = true;
         this.names=null;
         this.name=null;
-
+        this.getItems();
         console.log(this.props.beername);
 
 

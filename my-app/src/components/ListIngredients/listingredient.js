@@ -17,7 +17,6 @@ export default class ListIngredient extends Component {
       ingredients: [],
       response: {}
     }
-
         this.uname=sessionStorage.getItem("username")
         if(this.uname==null)
         {
@@ -25,13 +24,16 @@ export default class ListIngredient extends Component {
         }
     this.ingredients = null;
     this.loading = true;
+    console.log("constructor");
+    this.getIngredients=this.getIngredients.bind(this);
     this.getIngredients();
-    
-
-
-
         
     }
+
+    // componentWillMount(){
+    //     console.log("component did mount");
+    //     // this.getIngredients();
+    // }
 
  
 
@@ -39,7 +41,9 @@ export default class ListIngredient extends Component {
         this.props.history.push('/addingredient')
       }
 
-      getIngredients=()=>{
+
+      getIngredients(){
+        console.log("fetch")
           var user= sessionStorage.getItem("username");
           if(user==null)
           {
@@ -130,8 +134,8 @@ export default class ListIngredient extends Component {
       }
 
     renderList() {
+        console.log("render");
         return (
-            
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
             <Card  className="cardMainIngr">
@@ -159,6 +163,8 @@ export default class ListIngredient extends Component {
     }
 
     render() {
+        // this.getIngredients();
+
         return (
             <div>
                 { this.renderList()}
