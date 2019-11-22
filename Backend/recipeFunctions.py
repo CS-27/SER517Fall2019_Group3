@@ -78,7 +78,7 @@ def userRecipeIngredients(userID, recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
 
-	collection = db[userID]
+	collection = db.recipe_info
 
 	result = collection.find_one({'name': recipeName})
 	if result['name']: 
@@ -303,20 +303,20 @@ def removeBrewBeerIngredients(userID, recipeName):
 				new_value = {"$set" : {key:int(result[key])-value}}
 				updateCollection = collection.update(search_query, new_value, upsert=True)
 
-	recipeIngredientsGrains = {}
-	for i in recipeIngredients['Grains']:
-		arr = i.split(':')
-		#print arr
-		recipeIngredientsGrains.__setitem__(arr[0],int(arr[1]))
+	# recipeIngredientsGrains = {}
+	# for i in recipeIngredients['Grains']:
+	# 	arr = i.split(':')
+	# 	#print arr
+	# 	recipeIngredientsGrains.__setitem__(arr[0],int(arr[1]))
 
-	if result:
-		for key,value in recipeIngredientsGrains.items():
-			# new_value = {"$set" : {key:int(value)+int(result[key])}}
-			if (int(result[key])-value) == 0:
-				updateCollection = collection.update(search_query, {'$unset' : {key:1}})
-			else:
-				new_value = {"$set" : {key:int(result[key])-value}}
-				updateCollection = collection.update(search_query, new_value, upsert=True)
+	# if result:
+	# 	for key,value in recipeIngredientsGrains.items():
+	# 		# new_value = {"$set" : {key:int(value)+int(result[key])}}
+	# 		if (int(result[key])-value) == 0:
+	# 			updateCollection = collection.update(search_query, {'$unset' : {key:1}})
+	# 		else:
+	# 			new_value = {"$set" : {key:int(result[key])-value}}
+	# 			updateCollection = collection.update(search_query, new_value, upsert=True)
 
 
 
