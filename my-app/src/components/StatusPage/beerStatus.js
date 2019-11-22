@@ -3,7 +3,9 @@ import './beerStatus.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from 'react-bootstrap/ProgressBar';
+//import DataTableRecipe from '../WhatICanBrewToday/DataTableRecipe';
+
 
 /*Author: Salini Chittineni
 Date added: Oct 16, 2019
@@ -13,50 +15,150 @@ Date modified : Oct 21,2019
 export default class beerStatus extends Component {
   constructor(props) {
     super(props);
-    
-    this.beerStatuses = [
+    let date1 = new Date(); date1 = date1.setDate(date1.getDate()-1)
+    let date2 = new Date(); date2 = date2.setDate(date2.getDate()-1)
+    this.currentBeers = [
+      {"recipeName": "WhiteDogIPA", "beerStatus": "2", "lastModified": date1},
+      {"recipeName": "WinterWarmer-2", "beerStatus": "1", "lastModified": date2}
+    ];
 
-      {
-        step:1,
-        text:"Add yeast; ready for fermentation",
-        percent: 25,
-        status: 0,
-        statusColor: "success",
-        animated:"",
-        label:"",
-        hours:24
+    this.beerStatuses_new = {
+      "WhiteDogIPA": [
+            {
+              step:1,
+              text:"Add yeast; ready for fermentation",
+              percent: 25,
+              status: 1,
+              statusColor: "success",
+              animated:"",
+              label:"",
+              hours:24
+            },
+            {
+              step:2,
+              text:"Fermentation Complete; Increase temperature to 62F",
+              percent: 50,
+              status: 2,
+              statusColor: "warning",
+              animated:"true",
+              label:"50%",
+              hours:336
+            },
+            {
+              step:3,
+              text:"Ready to Lager",
+              percent: 25,
+              status: 3,
+              statusColor: "danger",
+              animated:"",
+              label:"",
+              hours:72
+            }
 
-      },
-      {
-        step:2,
-        text:"Fermentation Complete;Increase temperature to 62F",
-        percent: 50,
-        status: 1,
-        statusColor: "warning",
-        animated:"true",
-        label:"50%",
-        hours:336
+          ],
+          "WinterWarmer-2": [
+            {
+              step:1,
+              text:"Add yeast; ready for fermentation",
+              percent: 25,
+              status: 1,
+              statusColor: "success",
+              animated:"",
+              label:"",
+              hours:24
+            },
+            {
+              step:2,
+              text:"Fermentation Complete;Increase temperature to 62F",
+              percent: 50,
+              status: 2,
+              statusColor: "warning",
+              animated:"true",
+              label:"50%",
+              hours:336
+            },
+            {
+              step:3,
+              text:"Ready to Lager",
+              percent: 25,
+              status: 3,
+              statusColor: "danger",
+              animated:"",
+              label:"",
+              hours:72
+            }
 
-        
-
-      },
-      {
-        step:3,
-        text:"Ready to Lager",
-        percent: 25,
-        status: 2,
-        statusColor: "danger",
-        animated:"",
-        label:"",
-        hours:72
-
+          ]
       }
 
-    ]
+      this.beerStatuses =  [
+              {
+                step:1,
+                text:"Add yeast; ready for fermentation",
+                percent: 25,
+                status: 1,
+                statusColor: "warning",
+                animated:"true",
+                label:"50%",
+                hours:24
+              },
+              {
+                step:2,
+                text:"Fermentation Complete;Increase temperature to 62F",
+                percent: 50,
+                status: 2,
+                statusColor: "danger",
+                animated:"",
+                label:"",
+                hours:336
+              },
+              {
+                step:3,
+                text:"Ready to Lager",
+                percent: 25,
+                status: 3,
+                statusColor: "danger",
+                animated:"",
+                label:"",
+                hours:72
+              }
+  
+            ]
+        this.status = 1;
+
   }
+
+//   processBeers = (currentBeers) => {
+//     currentBeers.forEach(e => {
+//       let hoursPassed = Math.abs(new Date() - e.lastModified)/36e5
+// //      this.beerStatuses[e];
+//     });
+//   }
   refresh=()=>{
-   
-    let hoursPassed = 75; //lastupdate - getdate()
+    this.status += 1;
+    let len = this.beerStatuses.length
+    if(this.status > len){
+      alert(this.beerStatuses[len-1].text)
+    }
+    for(let i=0; i<len; i++){
+      let e = this.beerStatuses[i]
+      if(e.status < this.status){
+        e.animated = ""
+        e.label = ""
+        e.statusColor = "success"
+      }else if (e.status == this.status){
+        e.animated = "true"
+        e.label = e.percent+"%"
+        e.statusColor = "warning"
+        alert(this.beerStatuses[i-1].text)
+      }else{
+        e.animated = ""
+        e.label = ""
+        e.statusColor = "danger"
+      }
+    }
+
+    /*let hoursPassed = 75; //lastupdate - getdate()
     let inprogressSet = false;
     for(let i=0; i<this.beerStatuses.length; i++){
       let e = this.beerStatuses[i]
@@ -80,7 +182,7 @@ export default class beerStatus extends Component {
         e.statusColor = "danger"
       }
 
-    }
+    }*/
     this.setState({
       beerStatuses:this.beerStatuses
     })
@@ -93,7 +195,7 @@ export default class beerStatus extends Component {
     const items2 = this.beerStatuses.map(item => {
       return (
         
-        <ProgressBar animated={item.animated} variant={item.statusColor} now={item.percent} key={item.key} label={item.label} />
+       <ProgressBar animated={item.animated} variant={item.statusColor} now={item.percent} key={item.key} label={item.label} />
 
         )
       })
@@ -110,7 +212,7 @@ export default class beerStatus extends Component {
             <Card.Body className ="bodyCardOne">
 
             <Card.Text className = "titleCardOne">
-            Brewing Status for 
+            Brewing Status
             </Card.Text>
             {/* <ProgressBar animated now={65} label={`65%`}/> */}
             <br/>
