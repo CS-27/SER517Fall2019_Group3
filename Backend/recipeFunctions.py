@@ -74,6 +74,28 @@ def recipeIngredients(recipeName):
 
 	return json.dumps(result, default=json_util.default)
 
+def userRecipeIngredients(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+
+	collection = db[userID]
+
+	result = collection.find_one({'name': recipeName})
+	if result['name']: 
+		del result['name']
+	if result['_id']: 
+		del result['_id']
+	if 'HopsSchedule' not in result: 
+		pass
+	else:
+		del result['HopsSchedule']
+	if 'Directions' not in result: 
+		pass
+	else:
+		del result['Directions']
+
+	return json.dumps(result, default=json_util.default)
+
 
 def allRecipes():
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -107,7 +129,9 @@ def whatiCanBrewToday(userID):
 			ingr = [key,ingredients[key]]
 			ingredientList.append(ingr)
 	flag = False
+	print(ingredients)
 	for recipe in recipes:
+		print(recipe)
 		if 'Hops' in recipe:
 			hops = recipe["Hops"]
 			for hop in hops:
@@ -115,9 +139,9 @@ def whatiCanBrewToday(userID):
 				if len(hopArr) == 2:
 					for ingredient in ingredientList:
 						if hopArr[1].strip().isdigit():
-							intHop = int(hopArr[1].strip())
-							intIngr = int( ingredient[1])
-							if hopArr[0] == ingredient[0] and intHop <= intIngr: 
+							floatHop = float(hopArr[1].strip())
+							floatIngr = float( ingredient[1])
+							if hopArr[0] == ingredient[0] and floatHop <= floatIngr: 
 								flag = True
 								break
 							else:
@@ -188,7 +212,9 @@ def brewBeer(userID, recipeData):
 		recipeData.__setitem__("beerStatus", 1)
 		result = collection.insert_one(recipeData)
 		#print result
+		
 		if result:
+			removeBrewBeerIngredients(userID, recipeData['recipeName'])
 			return True
 		else: 
 			return False
@@ -206,11 +232,13 @@ def brewBeer(userID, recipeData):
 			recipeData.__setitem__("beerStatus", 1)
 			#result = collection.insert_one(recipeData)
 			search_query = { 'recipeName':recipeData['recipeName'] }
+			recipeName = recipeData['recipeName']
 			del recipeData['recipeName']
-			for key,values in recipeData.items():
+			for key,value in recipeData.items():
 				new_values = {"$set" : {key:value}}
 				result = collection.update(search_query,new_values,upsert = True)
 			if result:
+				removeBrewBeerIngredients(userID, recipeName)
 				return True
 			else:
 				return False
@@ -222,6 +250,7 @@ def brewBeer(userID, recipeData):
 			recipeData.__setitem__("beerStatus", 1)
 			result = collection.insert_one(recipeData)
 			if result:
+				removeBrewBeerIngredients(userID, recipeName)
 				return True
 			else:
 				return False
@@ -244,7 +273,54 @@ def brewBeerUpdate(userID, updateData):
 		return False
 
 
-	
-		
+def removeBrewBeerIngredients(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+
+	collection = db[userID]
+	#user ingredients
+	#ingredients = json.loads(ingredientFunctions.showIngredient(userID))
+	recipeIngredients = json.loads(userRecipeIngredients(userID,recipeName))
+
+	recipeIngredientsHops = {}
+	for i in recipeIngredients['Hops']:
+		arr = i.split(':')
+		#print arr
+		recipeIngredientsHops.__setitem__(arr[0],int(arr[1]))
+
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.ingredient
+
+	collection = db.userIngredient
+
+	result = collection.find_one({'userID': userID})
+	#search_query = { "userID": userIngList['userID'] }
+	search_query = { "userID": userID }
+	if result:
+		for key,value in recipeIngredientsHops.items():
+			# new_value = {"$set" : {key:int(value)+int(result[key])}}
+			if (int(result[key])-value) == 0:
+				updateCollection = collection.update(search_query, {'$unset' : {key:1}})
+			else:
+				new_value = {"$set" : {key:int(result[key])-value}}
+				updateCollection = collection.update(search_query, new_value, upsert=True)
+
+	recipeIngredientsGrains = {}
+	for i in recipeIngredients['Grains']:
+		arr = i.split(':')
+		#print arr
+		recipeIngredientsGrains.__setitem__(arr[0],int(arr[1]))
+
+	if result:
+		for key,value in recipeIngredientsGrains.items():
+			# new_value = {"$set" : {key:int(value)+int(result[key])}}
+			if (int(result[key])-value) == 0:
+				updateCollection = collection.update(search_query, {'$unset' : {key:1}})
+			else:
+				new_value = {"$set" : {key:int(result[key])-value}}
+				updateCollection = collection.update(search_query, new_value, upsert=True)
+
+
+
 
 

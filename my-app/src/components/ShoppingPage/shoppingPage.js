@@ -40,7 +40,6 @@ export default class ShoppingPage extends Component {
         const  name = event.target.id;
         const value = event.target.value;
   let errors = this.state.errors;
-  console.log(event.target.id)
   switch (name) {
     case 'name': 
       errors.name = 
@@ -62,13 +61,11 @@ export default class ShoppingPage extends Component {
       break;
     }
     this.setState({errors, [name]: value}, ()=> {
-        console.log(errors)
     })
     }
 
     handleSubmit=(event)=> {
         var data = this.state;
-        console.log(data);
 
 
         fetch('http://127.0.0.1:5000/addShoppingList', {
@@ -86,13 +83,14 @@ export default class ShoppingPage extends Component {
 
             }
         }).then(res => {
+            console.log("here") ;
+
             if(res.status=="200"){
                 alert("Item added to shopping list successfully");
 
             }
             else
-                alert("Error on adding the item to the shop list");
-            console.log(res.status) ;
+                alert("Item already exists in shop list. Go there and edit");
             this.props.history.push('/shoppinglist')
         }).catch(err => console.log(err));
         // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
