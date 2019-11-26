@@ -33,7 +33,6 @@ export default class ListRecipe extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -59,13 +58,11 @@ export default class ListRecipe extends Component {
                     
             for(var i=0;i<this.items.length;i++)
             {
-
                                 this.items[i].map((values)=>{
                                 
                                         names.push([
                                         values.name
-                                            ]);
-                                        
+                                            ]);              
                                             
                                 })
                                 
@@ -76,10 +73,6 @@ export default class ListRecipe extends Component {
                         items: this.items,
                         names: names
                     });
-
-                    //console.log(names);
-
-
                     },
                 (error) => {
                     this.setState({error});

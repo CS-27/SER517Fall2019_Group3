@@ -16,7 +16,6 @@ import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import ListRecipeDatatable from "./listRecipeDatatable";
 
-//import ModalForm from './modalForm'
 
 class recipeList extends Component {
      constructor(props) {
@@ -51,7 +50,6 @@ class recipeList extends Component {
         var convention= this.props.value;
         console.log("inside rec")
         console.log(name)
-        //console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
         
           fetch(apiUrl)
@@ -109,8 +107,6 @@ class recipeList extends Component {
               else
               alert("Item already in  shop list")
               this.props.history.push('/shoppinglist')
-
-
 
             })
             
