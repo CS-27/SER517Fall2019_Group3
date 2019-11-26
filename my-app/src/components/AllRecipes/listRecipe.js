@@ -1,3 +1,9 @@
+/*
+  Author: Harshita Kajal
+  Date Created:   Oct 16, 2019
+  About:  View the recipe details.
+  Date Updated: ...
+*/
 
 import React, { Component } from "react";
 
