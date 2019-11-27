@@ -95,20 +95,8 @@ export default class Signup extends Component {
             })
     }
 
-    // handleSubmit = async event => {
-    //     event.preventDefault();
-    //
-    //     this.setState({ isLoading: true });
-    //
-    //     this.setState({ newUser: "test" });
-    //
-    //     this.setState({ isLoading: false });
-    // }
-
     handleSubmit=(event)=> {
         var data = this.state;
-        console.log(data);
-
 
         fetch('http://127.0.0.1:5000/userRegister', {
             method: 'POST',
@@ -129,14 +117,9 @@ export default class Signup extends Component {
         }).then(res => {
             if(res.status===200)
                 this.message = 'User added successfully'
-            // console.log(res.status) ;
             alert("User created");
             this.props.history.push('/')
         }).catch(err => console.log(err));
-
-
-
-
 
         event.preventDefault();
     }
@@ -148,44 +131,8 @@ export default class Signup extends Component {
         this.setState({ isLoading: true });
     }
 
-    // renderConfirmationForm() {
-    //     return (
-    //         <form onSubmit={this.handleConfirmationSubmit}>
-    //             <FormGroup controlId="confirmationCode" bsSize="large">
-    //                 <FormLabel>Confirmation Code</FormLabel>
-    //                 <FormControl
-    //                     autoFocus
-    //                     type="tel"
-    //                     value={this.state.confirmationCode}
-    //                     onChange={this.handleChange}
-    //                 />
-    //                 {/*<HelpBlock>Please check your email for the code.</HelpBlock>*/}
-    //             </FormGroup>
-    //             <LoaderButton
-    //                 block
-    //                 bsSize="large"
-    //                 disabled={!this.validateConfirmationForm()}
-    //                 type="submit"
-    //                 isLoading={this.state.isLoading}
-    //                 text="Verify"
-    //                 loadingText="Verifying…"
-    //             />
-    //         </form>
-    //     );
-    // }
 
     renderForm() {
-        // function validateForm(){}
-        // {
-        //     return this.state.email.length > 0 &&
-        //         this.state.firstname.length > 0 &&
-        //         this.state.userID.length > 0 &&
-        //         this.state.lastname.length > 0 &&
-        //         this.state.password.length > 0 &&
-        //         this.state.password === this.state.confirmPassword;
-        //
-        // }
-
         return (
             <Container>
             <Card  className="cardMainOneThis">
@@ -258,10 +205,6 @@ export default class Signup extends Component {
             </Container>
         );
 
-        // function validateForm(){
-        //     // return this.state.firstname.length > 0
-        //     // return true;
-        // }
     }
 
     render() {

@@ -47,7 +47,6 @@ export default class Signin extends Component {
         const  name = event.target.id;
         const value = event.target.value;
         let errors = this.state.errors;
-        console.log(event.target.id)
         switch (name) {
             case 'email': 
             errors.email = 
@@ -65,24 +64,19 @@ export default class Signin extends Component {
             break;
             }
             this.setState({errors, [name]: value}, ()=> {
-                console.log(errors)
             })
     }
 
     handleSubmit = event => {
         event.preventDefault();
         this.setState({ isLoading: true });
-        // this.props.history.push('/')
         var apiBaseUrl = "http://localhost:5000";
         axios.get(apiBaseUrl+"/userCheckLogin?"+"userID="+ this.state.email+ "&password="+ this.state.password)
             .then(response => {
-                console.log(response);
                 if(response.data.Status == "True"){
-
                     console.log("Login successfull");
                     alert("Logged in");
                     sessionStorage.setItem('username',this.state.email);
-                    console.log(sessionStorage.getItem("username"));
                     this.props.history.push('/')
 
                 }
