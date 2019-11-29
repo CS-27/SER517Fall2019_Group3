@@ -1,6 +1,11 @@
 
 
-
+/*
+  Author: Harshita Kajal
+  Date Created:   Oct 16, 2019
+  About:  Pop up form for recipe details.
+  Date Updated: Nov 28, 2019
+*/
 import RecipeList from './showRecipeAll'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import React, { Component } from 'react';

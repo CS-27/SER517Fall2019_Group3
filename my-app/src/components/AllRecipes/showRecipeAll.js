@@ -7,8 +7,6 @@
 
 import React, { Component } from "react";
 import DataTable from './datatable';
-import Loader from 'react-loader-spinner';
-import {Redirect} from 'react-router-dom';
 import { withRouter } from 'react-router'
 
 import './showRecipe.css';

@@ -65,10 +65,9 @@ export default class ListRecipe extends Component {
                                             ]);              
                                             
                                 })
-                                
+    
             }
                     
-
                     this.setState({
                         items: this.items,
                         names: names
