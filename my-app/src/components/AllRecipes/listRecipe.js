@@ -1,8 +1,8 @@
 /*
   Author: Harshita Kajal
   Date Created:   Oct 16, 2019
-  About:  View the recipe details.
-  Date Updated: ...
+  About:  Listing all available recipes.
+  Date Updated: Nov 28, 2019
 */
 
 import React, { Component } from "react";
@@ -39,7 +39,6 @@ export default class ListRecipe extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -48,7 +47,7 @@ export default class ListRecipe extends Component {
 
     getItems=(event)=> {
         var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+        
         fetch(apiUrl)
             .then(res => res.json())
             .then(
@@ -65,13 +64,11 @@ export default class ListRecipe extends Component {
                     
             for(var i=0;i<this.items.length;i++)
             {
-
                                 this.items[i].map((values)=>{
                                 
                                         names.push([
                                         values.name
-                                            ]);
-                                        
+                                            ]);   
                                             
                                 })
                                 
