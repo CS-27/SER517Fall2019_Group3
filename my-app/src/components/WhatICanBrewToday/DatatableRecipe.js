@@ -3,6 +3,24 @@ import { Table, Button } from 'reactstrap';
 import ModalFormRecipe from './ModalFormRecipe';
 class DataTableRecipe extends Component {
 
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     error: null,
+        //     items: [],
+        //     response: {},
+        //     name:"",
+        //     names:[],
+        //     userID: sessionStorage.getItem("username")
+        // };
+        // this.uname=sessionStorage.getItem("username")
+        // if(this.uname==null)
+        // {
+        //     this.props.history.push('/signin')
+        // }
+
+    }
+
     handleSubmit = id => (event) => {
         var dt = new Date();
         fetch('http://127.0.0.1:5000/brewingBeer', {
@@ -21,9 +39,11 @@ class DataTableRecipe extends Component {
 
             }
         }).then(res => {
-            if (res.status === 200)
+            if (res.status === 200) {
                 this.message = 'Brewing started successfully'
-            console.log(res.status);
+                this.props.history.push('/beerStatus')
+                console.log(res.status);
+            }
         }).catch(err => console.log(err));
     }
   
