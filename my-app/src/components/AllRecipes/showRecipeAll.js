@@ -77,17 +77,14 @@ class recipeList extends Component {
        }
        addtoShopList=()=>{
         var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
-       
           var hops = this.state.recipe[1][1]
           var userID=sessionStorage.getItem("username")
-
           fetch(url, {
             method: 'post',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              
               hops: hops,
               userID : userID
               
@@ -99,11 +96,7 @@ class recipeList extends Component {
               else
               alert("Item already in  shop list")
               this.props.history.push('/shoppinglist')
-
-
-
             })
-            
             .catch(err => console.log(err))
        }
 
@@ -111,7 +104,6 @@ class recipeList extends Component {
          renderList() {
             var convention= this.props.value;
             return (
-                
                 <Container>
                     <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
                     <Card  className="mainCard">
