@@ -33,16 +33,13 @@ export default class ListRecipe extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-
         event.preventDefault();
       }
 
     getItems=(event)=> {
         var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-
         fetch(apiUrl)
             .then(res => res.json())
             .then(
@@ -61,12 +58,9 @@ export default class ListRecipe extends Component {
             {
 
                                 this.items[i].map((values)=>{
-                                
                                         names.push([
                                         values.name
                                             ]);
-                                        
-                                            
                                 })
                                 
             }
@@ -76,16 +70,11 @@ export default class ListRecipe extends Component {
                         items: this.items,
                         names: names
                     });
-
-                    //console.log(names);
-
-
-                    },
+            },
                 (error) => {
                     this.setState({error});
                 }
             )
-
     }
 
     deleteItem = (name) => {
@@ -96,7 +85,6 @@ export default class ListRecipe extends Component {
     
       deleteRecipe =(name)=>{
         console.log("in delRecipe")
-        console.log(name)
         fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
           method: 'post',
           headers: {
@@ -121,24 +109,23 @@ export default class ListRecipe extends Component {
             
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-            <Card  className="mainCardOneMain">
-         <Card.Body className = "card-body">
-         <Card.Title className="titleCard" > All Recipes below</Card.Title>
-             <Form onSubmit={this.handleSubmit}>
-                 <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
-             </Form>
-             {this.loading ?       <Loader
-                 type="Circles"
-                 color="#00BFFF"
-                 height={100}
-                 width={100}
-                 timeout={2000} //2 secs
+                <Card  className="mainCardOneMain">
+                         <Card.Body className = "card-body">
+                         <Card.Title className="titleCard" > All Recipes below</Card.Title>
+                         <Form onSubmit={this.handleSubmit}>
+                             <Button onClick ={this.getItems} id = "btn-color" variant="primary"  >View Beers</Button>
+                         </Form>
+                         {this.loading ?       <Loader
+                             type="Circles"
+                             color="#00BFFF"
+                             height={100}
+                             width={100}
+                             timeout={2000} //2 secs
 
-             /> :
-              <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
-
-         </Card.Body>
-       </Card>
+                         /> :
+                          <ListRecipeDatatable names={this.state.names} deleteItem={this.deleteItem} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable>}
+                         </Card.Body>
+                </Card>
             </Container>
           
         );

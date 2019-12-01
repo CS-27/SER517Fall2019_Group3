@@ -2,8 +2,8 @@ import RecipeList from './showRecipeAll'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
+
 class ModalForm extends Component {
   constructor(props) {
     super(props)
@@ -23,17 +23,8 @@ class ModalForm extends Component {
   render() {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
       const label = this.props.buttonLabel
-
       let button = ''
       let title = ''
-
-      // if(label === 'view'){
-      //   button = <Button
-      //             onClick={this.toggle}
-      //             >{label}
-      //           </Button>
-      //   title = 'Recipe View'
-      // } 
 
       if(label === 'view'){
              button=   <VisibilityIcon onClick={this.toggle}/>
@@ -50,7 +41,6 @@ class ModalForm extends Component {
             <RecipeList name={this.props.name}
               toggle={this.toggle} 
                />
-
           </ModalBody>
         </Modal>
       </div>

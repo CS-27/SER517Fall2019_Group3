@@ -7,16 +7,11 @@
 
 import React, { Component } from "react";
 import DataTable from './datatable';
-import Loader from 'react-loader-spinner';
-import {Redirect} from 'react-router-dom';
 import { withRouter } from 'react-router'
 
 import './showRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import ListRecipeDatatable from "./listRecipeDatatable";
-
-//import ModalForm from './modalForm'
 
 class recipeList extends Component {
      constructor(props) {
@@ -50,8 +45,6 @@ class recipeList extends Component {
        getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
-        console.log(name)
-        //console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
         
           fetch(apiUrl)
@@ -76,7 +69,6 @@ class recipeList extends Component {
 
                 const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
                 this.recipe = dataArray;
-                console.log(this.recipe[0]);
                },
                (error) => {
                  this.setState({ error });
@@ -87,7 +79,6 @@ class recipeList extends Component {
         var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
        
           var hops = this.state.recipe[1][1]
-          console.log(hops)
           var userID=sessionStorage.getItem("username")
 
           fetch(url, {
@@ -103,7 +94,6 @@ class recipeList extends Component {
             })
           })
             .then(response => {
-              console.log(response.status)
               if(response.status == 200)
                 alert("Added item to shop list")
               else
@@ -123,7 +113,7 @@ class recipeList extends Component {
             return (
                 
                 <Container>
-                        <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
+                    <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
                     <Card  className="mainCard">
                 <Card.Body className = "card-body">
                 <Card.Title className="titleCard" >{this.props.name}</Card.Title>

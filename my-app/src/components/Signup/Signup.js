@@ -10,10 +10,8 @@ import {
     FormControl,
     FormLabel
 } from "react-bootstrap";
-// import LoaderButton from "./LoaderButton";
 import './Signup.css';
 import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image'
 import { Container, Row, Col,Button } from 'react-bootstrap';
 export default class Signup extends Component {
     constructor(props) {
