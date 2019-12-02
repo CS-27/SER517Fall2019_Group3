@@ -3,6 +3,8 @@ import pymongo
 from flask import jsonify
 from bson import json_util
 
+
+# Checks if the username and password provided are correct or not for login
 def userCheck(userID, password):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/users?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.users
@@ -30,6 +32,7 @@ def userCheck(userID, password):
 	result = collection.find_one({'Name' : name})
 	return json.dumps(result, default=json_util.default)"""
 
+# Register a user in the application
 def userRegister(userInfo):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/users?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.users
@@ -42,6 +45,7 @@ def userRegister(userInfo):
 	return True
 
 
+# Returns the information for any brewer registered in the application
 def userProfile(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/users?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.users
@@ -57,6 +61,7 @@ def userProfile(userID):
 		return "User Does not exists"
 
 
+# Search for any registered brewer based on the regex provided.
 def searchUser(userRegx):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/users?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.users
