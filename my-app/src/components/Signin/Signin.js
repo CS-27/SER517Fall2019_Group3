@@ -130,7 +130,7 @@ export default class Signin extends Component {
                         type="password"
                     />
                 </FormGroup>
-             <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Login</Button>
+             <Button disabled={this.state.errors.email== 'Username is required'} onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Login</Button>
              <br>
              </br>
              <a href="http://localhost:3000/signup">Register here</a>
