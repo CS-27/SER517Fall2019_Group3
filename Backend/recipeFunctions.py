@@ -5,6 +5,7 @@ from bson import json_util
 import ingredientFunctions
 import re
 
+# adds a recipe to the default table(recipe_info) available to every brewer
 def addRecipe(recipe):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -23,7 +24,7 @@ def addRecipe(recipe):
 	else:
 		return 'Already Inserted'
 
-
+# Return the recipe information provided by app coordinator
 def showRecipeByName(name):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -35,7 +36,7 @@ def showRecipeByName(name):
 	return json.dumps(result, default=json_util.default)
 
 
-
+# Deletes the recipe provided by app coordinator
 def deleteRecipeAdmin(recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -52,6 +53,7 @@ def deleteRecipeAdmin(recipeName):
 		return False
 
 
+# Returns the list of ingredients needed to brew any default recipe.
 def recipeIngredients(recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -74,6 +76,8 @@ def recipeIngredients(recipeName):
 
 	return json.dumps(result, default=json_util.default)
 
+
+# Returns the list of ingredients needed to brew any particular user created recipe.
 def userRecipeIngredients(userID, recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -97,6 +101,7 @@ def userRecipeIngredients(userID, recipeName):
 	return json.dumps(result, default=json_util.default)
 
 
+# Returns the list of all recipes provided by the app corodinator. Not specific to any user
 def allRecipes():
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -108,6 +113,7 @@ def allRecipes():
 	return json.dumps(result, default=json_util.default)
 
 
+# Creates a user specific recipe
 def createUserRecipes(userID, recipeInfo):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -119,6 +125,8 @@ def createUserRecipes(userID, recipeInfo):
 	else:
 		return False
 
+
+# Return the list of recipes the user can brew based on the ingredients brewer has.
 def whatiCanBrewToday(userID):
 	recipes  = json.loads(allRecipes())
 	recipeList =[]
@@ -158,7 +166,7 @@ def whatiCanBrewToday(userID):
 	return json.dumps(output, default=json_util.default)
 	
 
-
+# Search a recipe using regular expression
 def searchRecipe(recipeRegx):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -182,7 +190,7 @@ def viewUserRecipes(userID):
 		#print type(result)
 		return json.dumps(result, default=json_util.default)
 
-
+# Returns user specific created, modified or brewed recipes
 def viewUserRecipe(userID, recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe
@@ -195,7 +203,12 @@ def viewUserRecipe(userID, recipeName):
 			#print type(result)
 	return json.dumps(result, default=json_util.default)
 
-
+# Enter the particular beer in the brewing beer database
+# adds the following attributes
+# 1. timesBrewed
+# 2. lastModified
+# 3. beerStatus(default 1)
+# 4. recipeName
 def brewBeer(userID, recipeData):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/brewingStatus?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.brewingStatus
@@ -256,7 +269,8 @@ def brewBeer(userID, recipeData):
 				return False
 
 
-
+# updates the brewing status of the brewing beer( from status 1->2, 2->3)
+# changes the beerStatus and lastModified attribute of the brewing beer
 def brewBeerUpdate(userID, updateData):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/brewingStatus?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.brewingStatus
@@ -273,6 +287,8 @@ def brewBeerUpdate(userID, updateData):
 		return False
 
 
+
+# removes the ingrdients from user's inventory(Ingredient list) once the user start brewing any beer
 def removeBrewBeerIngredients(userID, recipeName):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.recipe

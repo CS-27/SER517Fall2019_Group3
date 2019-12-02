@@ -4,6 +4,7 @@ from flask import jsonify
 from bson import json_util
 
 
+# Returns the shopping list of any particular user
 def showShoppingList(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
@@ -13,10 +14,9 @@ def showShoppingList(userID):
 	result = collection.find_one({'userID' : userID})
 	return json.dumps(result, default=json_util.default)
 
-# # # #There will be uniques items combining shop list and auto shop list # # # #
-### if the user will try to add any item in the shop list and it is already present in shop list or auto shop list 
-### it will not be updated, user has to go to the view shop list and change the quantity.
-
+# There will be uniques items combining shop list and auto shop list
+# if the user will try to add any item in the shop list and it is already present in shop list or auto shop list 
+# it will not be updated, user has to go to the view shop list and change the quantity.
 def addShoppingList(userID, userShopList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
@@ -42,7 +42,7 @@ def addShoppingList(userID, userShopList):
 	else:
 		return False
 
-
+# Overides the quantity of any particular item present in the shopping list
 def updateShoppingList(userID, shopList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
@@ -60,6 +60,8 @@ def updateShoppingList(userID, shopList):
 	else:
 		return False
 
+
+# Adds the new quantity to the quatity of the item previously in the shopping list
 def addMoreShoppingList(userID, shopList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
@@ -78,6 +80,7 @@ def addMoreShoppingList(userID, shopList):
 		return False
 
 
+# Deletes the item from the shopping list
 def deleteShoppingListItems(userID, shopList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
@@ -98,10 +101,9 @@ def deleteShoppingListItems(userID, shopList):
 	return False
 
 
-# # # # Auto Shop List functions # # # #
+# Auto Shop List functions
 
-# # # Only the items not in shop list will be added. # # #
-
+# Only the items not in shop list will be added.
 def createAutoShopList(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.ingredient
@@ -134,7 +136,7 @@ def createAutoShopList(userID):
 	return json.dumps(collection_asl.find_one({'userID' : userID}), default=json_util.default)
 
 
-
+# Removes the repeated elements from the shopping and autoshopping list
 def distinctShopListItems(userID,collection):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db_asl = client.shoppingList
@@ -150,6 +152,7 @@ def distinctShopListItems(userID,collection):
 	return newSet
 
 
+# Moves an item from the autoshopping list to shopping list
 def moveToShoppingList(userID, itemList):
 	#addShoppingList(userID, itemList)
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -183,7 +186,8 @@ def moveToShoppingList(userID, itemList):
 	return json.dumps(collection_asl.find_one({'userID' : userID}), default=json_util.default)
 
 
-
+# Moves the items shopped to the ingredient list with the respective quantity shopped
+# Removes the item from the shopping list
 def itemsShopped(userID, itemList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList

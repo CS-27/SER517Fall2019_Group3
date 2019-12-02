@@ -18,6 +18,7 @@ def indexPage():
 
 # # # # Recipe Functions # # # # 
 
+# Return the recipe information provided by app coordinator
 @brewDay_api.route('/showRecipe', methods = ['GET'])
 def showRecipe():
 	recipeName = request.args.get('recipeName')
@@ -33,6 +34,7 @@ def addRecipeInfo():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response"""
 
+# adds a recipe to the default table(recipe_info) available to every brewer
 @brewDay_api.route('/addRecipe', methods = ['POST'])
 def addRecipeInfo():
     req_data = request.get_json(force=True)
@@ -45,6 +47,7 @@ def addRecipeInfo():
     return response
 
 
+# Deletes the recipe provided by app coordinator
 @brewDay_api.route('/deleteRecipeAdmin', methods = ['POST'])
 def deleteRecipeAdmin():
 	req_data = request.get_json(force = True)
@@ -57,6 +60,7 @@ def deleteRecipeAdmin():
 	return response
 
 
+# Returns the list of ingredients needed to brew any default recipe.
 @brewDay_api.route('/showRecipeIngredients', methods = ['GET'])
 def showRecipeingredients():
 	recipeName = request.args.get('recipeName')
@@ -65,12 +69,14 @@ def showRecipeingredients():
 	return response
 
 
+# Return the list of recipes the user can brew based on the ingredients brewer has.
 @brewDay_api.route('/allRecipes', methods = ['GET'])
 def showAllRecipes():
 	response = jsonify({'All Recipes' : json.loads(recipeFunctions.allRecipes())})
 	return response
 
 
+# Creates a user specific recipe
 @brewDay_api.route('/myRecipes', methods = ['POST'])
 def myRecipes():
 	req_data = request.get_json(force = True)
@@ -86,6 +92,8 @@ def myRecipes():
 	    return response
 	return false
 
+
+# Return the list of recipes the user can brew based on the ingredients brewer has.
 @brewDay_api.route('/whatCanIBrewToday', methods = ['POST','GET'])
 def whatCanIBrewToday():
 	req_data = request.get_json(force = True)
@@ -99,6 +107,7 @@ def whatCanIBrewToday():
 	return response
 
 
+# Search a recipe using regular expression
 @brewDay_api.route('/recipeSearch', methods = ['GET'])
 def recipeSearch():
 	req_data = request.args.get('recipeName')
@@ -115,6 +124,7 @@ def viewMyRecipes():
 	return response
 
 
+# Returns user specific created, modified or brewed recipes
 @brewDay_api.route('/viewMyRecipe', methods = ['GET'])
 def viewMyRecipe():
 	uID = request.args.get('userID')
@@ -124,6 +134,7 @@ def viewMyRecipe():
 	return response
 
 
+# Enter the particular beer in the brewing beer database
 @brewDay_api.route('/brewingBeer', methods = ['POST'])
 def brewingBeer():
 	req_data = request.get_json(force = True)
@@ -136,6 +147,9 @@ def brewingBeer():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+# updates the brewing status of the brewing beer( from status 1->2, 2->3)
+# changes the beerStatus and lastModified attribute of the brewing beer
 @brewDay_api.route('/brewBeerUpdate', methods = ['POST'])
 def brewBeerUpdate():
 	req_data = request.get_json(force = True)
@@ -151,7 +165,7 @@ def brewBeerUpdate():
 # # # # Equipment Functions # # # # 
 
 
-
+# Function return the equipments of the particular user
 @brewDay_api.route('/showEquipment', methods = ['GET'])
 def showEquiment():
 	userID = request.args.get('userID')
@@ -160,6 +174,7 @@ def showEquiment():
 	return response
 
 
+# adds the equipments to particular userID
 @brewDay_api.route('/addEquipment', methods = ['POST'])
 def addEquipment():
 	req_data = request.get_json(force=True)
@@ -171,6 +186,7 @@ def addEquipment():
 	return response
 
 
+# overrides the equipment quantity to the new value
 @brewDay_api.route('/updateEquipment', methods = ['POST'])
 def updateEquipment():
 	req_data = request.get_json(force = True)
@@ -184,6 +200,8 @@ def updateEquipment():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+#  adds up with the previous quantity present.
 @brewDay_api.route('/addMoreEquipment', methods = ['POST'])
 def addMoreEquipment():
 	req_data = request.get_json(force = True)
@@ -296,6 +314,7 @@ def addShoppingList():
 		return response,201
 
 
+# Returns the shopping list of any particular user
 @brewDay_api.route('/showShoppingList', methods = ['GET'])
 def showShoppingList():
 	userID = request.args.get('userID')
@@ -304,6 +323,7 @@ def showShoppingList():
 	return response
 
 
+# Overides the quantity of any particular item present in the shopping list
 @brewDay_api.route('/updateShoppingList', methods = ['POST'])
 def updateShopList():
 	req_data = request.get_json(force = True)
@@ -317,6 +337,8 @@ def updateShopList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+# Adds the new quantity to the quatity of the item previously in the shopping list
 @brewDay_api.route('/addMoreShoppingList', methods = ['POST'])
 def addMoreShopList():
 	req_data = request.get_json(force = True)
@@ -330,6 +352,7 @@ def addMoreShopList():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+# Deletes the item from the shopping list
 @brewDay_api.route('/deleteShopListItems', methods = ['POST'])
 def deleteShopListItems():
 	req_data = request.get_json(force = True)
@@ -342,7 +365,8 @@ def deleteShopListItems():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
-
+# Creates an autoshopping list for items less than particular quantity
+# Only the items not in shop list will be added.
 @brewDay_api.route('/createAutoShopList', methods= ['GET'])
 def createASL():
 	userID = request.args.get('userID')
@@ -350,6 +374,10 @@ def createASL():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
+
+# There will be uniques items combining shop list and auto shop list
+# if the user will try to add any item in the shop list and it is already present in shop list or auto shop list 
+# it will not be updated, user has to go to the view shop list and change the quantity.
 @brewDay_api.route('/addIngredientsShoppingList', methods = ['POST'])
 def addIngredientsShoppingList():
 	req_data = request.get_json(force=True)
@@ -372,6 +400,7 @@ def addIngredientsShoppingList():
 	return response
 
 
+# Moves an item from the autoshopping list to shopping list
 @brewDay_api.route('/movetToShopList', methods = ['POST'])
 def moveToShopList():
 	req_data = request.get_json(force = True)
@@ -382,6 +411,8 @@ def moveToShopList():
 	return response
 
 
+# Moves the items shopped to the ingredient list with the respective quantity shopped
+# Removes the item from the shopping list
 @brewDay_api.route('/updatedList', methods = ['POST'])
 def itemsShopped():
 	req_data = request.get_json(force = True)
@@ -394,6 +425,7 @@ def itemsShopped():
 
 # # # # user registeration/login/session Functions # # # # 
 
+# Register a user in the application
 @brewDay_api.route('/userRegister', methods = ['POST'])
 def userRegister():
 	req_data = request.get_json(force=True)
@@ -404,7 +436,7 @@ def userRegister():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
-
+# Checks if the username and password provided are correct or not for login
 @brewDay_api.route('/userCheckLogin', methods = ['GET'])
 def checkUserLogin():
 	userID = request.args.get('userID')
@@ -412,7 +444,7 @@ def checkUserLogin():
 	response = jsonify({'Status' : userLoginFunctions.userCheck(userID,password)})
 	return response
 
-
+# Returns the information for any brewer registered in the application
 @brewDay_api.route('/userProfile', methods = ['POST'])
 def userProfile():
 	req_data= request.get_json(force = True)
@@ -421,7 +453,7 @@ def userProfile():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
-
+# Search for any registered brewer based on the regex provided.
 @brewDay_api.route('/userSearch', methods = ['GET'])
 def userSearch():
 	req_data = request.args.get('user')
