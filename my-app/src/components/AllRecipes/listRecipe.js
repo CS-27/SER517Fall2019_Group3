@@ -80,8 +80,6 @@ export default class ListRecipe extends Component {
                         names: names
                     });
 
-                    //console.log(names);
-
 
                     },
                 (error) => {

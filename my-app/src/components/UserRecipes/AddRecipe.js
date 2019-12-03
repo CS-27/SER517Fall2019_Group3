@@ -1,6 +1,6 @@
 /*Author: Harshita Kajal
 Date added: Oct 29, 2019
-Date modified : Nov 13, 2019
+Date modified : Dec 2, 2019
 */
 
 import React, {Component} from "react";
@@ -23,9 +23,7 @@ export default class AddRecipeUser extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    // grain:"",
     Hops:[],
-    // Grains:[],
     HopsSchedule:[],
     Category:"",
     userID: sessionStorage.getItem("username")
@@ -49,21 +47,15 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
-  //var try=this.state;
   const hopsArray = this.state.Hops1.split(',');
   this.state.Hops=hopsArray
 
-    // const grainArray = this.state.grain.split(',');
-    // this.state.Grains= grainArray
-  
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule=sArray
 
     console.log(this.state);
     var data = this.state;
-    //console.log(data);
-  
-    
+   
     fetch('http://127.0.0.1:5000/myRecipes', {
         method: 'POST',
         mode: 'cors',
@@ -92,9 +84,8 @@ handleSubmit=(event) => {
 }
 
 
-
 render() {
-  //const items = this.state.Hops.map(item => <li>{item}</li> );
+
     return (
         <Container>
             <Card  className="cardMain">
@@ -173,17 +164,6 @@ render() {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-        
-            {/* <FormGroup controlId="grain">
-                    <FormLabel color="white" >All Grain</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="grain1 qty1, grain2 qty2.."
-                        value={this.state.grain} 
-                        onChange={this.handleChange}
-                    />
-                </FormGroup> */}
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>
