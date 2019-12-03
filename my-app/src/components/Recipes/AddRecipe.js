@@ -253,7 +253,11 @@ render() {
                     />
                 </FormGroup> */}
         </FormGroup>
-        <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
+    
+        <Button disabled ={this.state.errors.name!='' || 
+    this.state.errors.Temp !=''|| this.state.errors.BatchSize !=''
+    || this.state.errors.Directions!='' || this.state.errors.Hops1!=''
+    ||this.state.errors.schedule!='' ||this.state.errors.grain !=''  } onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>
       </Card.Body>
       </Card>
