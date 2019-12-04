@@ -195,7 +195,10 @@ export default class Signup extends Component {
                         type="password"
                     />
                 </FormGroup>
-             <Button onClick ={this.handleSubmit} id = "btn-color"  variant="primary" type="submit" >Sign up</Button>
+             <Button disabled = {this.state.errors.email!='' 
+            || this.state.errors.firstname !='' ||
+            this.state.errors.lastname !='' || this.state.errors.password!=''
+            || this.state.errors.userID != '' || this.state.errors.confirmPassword!=''} onClick ={this.handleSubmit} id = "btn-color"  variant="primary" type="submit" >Sign up</Button>
 
             </form>
          </Card.Body>

@@ -3,7 +3,7 @@ import pymongo
 from flask import jsonify
 from bson import json_util
 
-
+# Function return the equipments of the particular user
 def showEquipment(userID):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/equipment?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.equipment
@@ -13,6 +13,8 @@ def showEquipment(userID):
 	result = collection.find_one({'userID' : userID})
 	return json.dumps(result, default=json_util.default)
 
+
+# adds the equipments to particular userID
 def addEquipment(userEquipList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/equipment?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.equipment
@@ -36,6 +38,8 @@ def addEquipment(userEquipList):
 	else:
 		return False
 
+
+# overrides the equipment quantity to the new value
 def updateEquipmentQuantity(userID, equipList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/equipment?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.equipment
@@ -53,6 +57,8 @@ def updateEquipmentQuantity(userID, equipList):
 	else:
 		return False
 
+
+#  adds up with the previous quantity present.
 def addMoreEquipmentQuantity(userID, equipList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/equipment?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.equipment
@@ -69,6 +75,8 @@ def addMoreEquipmentQuantity(userID, equipList):
 		return True
 	else:
 		return False
+
+
 
 def deleteEquipment(userID, equipList):
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
