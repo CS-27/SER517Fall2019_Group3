@@ -41,10 +41,8 @@ export default class ListRecipeCategoryUser extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-
         event.preventDefault();
       }
 
@@ -64,10 +62,6 @@ export default class ListRecipeCategoryUser extends Component {
                     this.loading = false;
                     this.items = [result['My Recipe List']];
                     
-                    console.log(this.items);
-                    console.log(data.length);
-
-                    
             for(var i=0;i<this.items.length;i++)
             {
 
@@ -78,14 +72,6 @@ export default class ListRecipeCategoryUser extends Component {
                                         values.name
                                             ]);
                                         }
-                                        // if (values.Category=="2") {
-                                
-                                        //     names2.push([
-                                        //     values.name
-                                        //         ]);
-                                        //     }
-
-                                        
                                             
                                 })
                                 
@@ -95,11 +81,7 @@ export default class ListRecipeCategoryUser extends Component {
                     this.setState({
                         items: this.items,
                         names: names
-                        //names2:names2
                     });
-
-                    //console.log(names);
-
 
                     },
                 (error) => {
@@ -117,16 +99,11 @@ export default class ListRecipeCategoryUser extends Component {
             .then(
                 (result) => {
                     var data = result['My Recipe List'];
-                    //var names=[];
                     var names2=[];
 
                     this.loading = false;
                     this.items = [result['My Recipe List']];
-                    
-                    console.log(this.items);
-                    console.log(data.length);
 
-                    
             for(var i=0;i<this.items.length;i++)
             {
 
@@ -148,12 +125,8 @@ export default class ListRecipeCategoryUser extends Component {
 
                     this.setState({
                         items: this.items,
-                        // names: names,
                         names2:names2
                     });
-
-                    //console.log(names);
-
 
                     },
                 (error) => {
@@ -206,8 +179,6 @@ export default class ListRecipeCategoryUser extends Component {
        
        
        <Card  className="mainCardOneMain2">
-       {/* <Card.Header>Header</Card.Header> */}
-       
          <Card.Body className = "card-body">
          <Card.Title className="titleCard" > Beers with Alcohol by Volume more than 5%</Card.Title>
          <Form onSubmit={this.handleSubmit} >
@@ -226,11 +197,9 @@ export default class ListRecipeCategoryUser extends Component {
              />: <ListRecipeDatatable2 names2={this.state.names2} deleteItem2={this.deleteItem2} deleteRecipe={this.deleteRecipe} ></ListRecipeDatatable2>
      }
 
-              
          </Card.Body>
        </Card>
        </CardDeck>
-       
             </Container>
           
         );

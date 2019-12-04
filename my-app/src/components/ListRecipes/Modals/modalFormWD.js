@@ -2,7 +2,6 @@ import RecipeList from '../showRecipeWhiteDog'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 class ModalFormWD extends Component {
   constructor(props) {

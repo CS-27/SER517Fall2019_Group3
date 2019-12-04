@@ -23,15 +23,12 @@ class ListRecipeDatatable extends Component {
   render() { 
     const names = this.props.names.map(item =>
       {
-        // console.log(item)
-      return (
+        return (
         
         <tr  >
           <td>{item}</td>
         <td>
-
         <ModalForm1 name={item} buttonLabel="view" />
-          {/* getRecipe={this.getRecipe(item)} */}
         </td>
           <td>
           <DeleteRoundedIcon onClick={() => this.deleteItem(item) }/>

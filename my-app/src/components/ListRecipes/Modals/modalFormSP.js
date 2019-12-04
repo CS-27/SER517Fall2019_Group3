@@ -2,7 +2,6 @@ import RecipeList from '../showRecipeSmash'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 class ModalFormSP extends Component {
   constructor(props) {

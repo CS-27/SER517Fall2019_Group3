@@ -2,7 +2,6 @@ import RecipeList from '../showRecipeAmerican'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 class ModalForm extends Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class ModalForm extends Component {
       modal: false
     }
   }
-
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal

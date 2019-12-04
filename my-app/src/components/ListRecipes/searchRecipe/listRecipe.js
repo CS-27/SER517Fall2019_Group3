@@ -32,10 +32,8 @@ export default class ListRecipe extends Component {
     }
 
     handleSubmit=(event)=> {
-        console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-
         event.preventDefault();
       }
 
@@ -46,7 +44,6 @@ export default class ListRecipe extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    // console.log(result['Auto ShoppingList']);
                     var data = result['recipeList'];
 
                     this.loading = false;
@@ -59,7 +56,6 @@ export default class ListRecipe extends Component {
                     this.setState({
                         items: this.items
                     });
-
 
                     },
                 (error) => {

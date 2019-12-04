@@ -30,7 +30,6 @@ export default class ListItem extends Component{
 
 
     updatepropss() {
-        console.log(this.state)
         this.props.updatelist(this.props.value.id, this.state)
     }
 

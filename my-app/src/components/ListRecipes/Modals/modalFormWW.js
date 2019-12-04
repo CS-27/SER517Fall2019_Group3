@@ -2,8 +2,6 @@ import RecipeList from '../showRecipeWinterWarmer'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import DataTable from './datatable';
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 class ModalFormWW extends Component {
   constructor(props) {

@@ -41,15 +41,12 @@ export default class ListRecipe extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-
         event.preventDefault();
       }
 
     getItems=(event)=> {
-        // var apiUrl = 'http://127.0.0.1:5000/allRecipes';
             var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
@@ -60,10 +57,6 @@ export default class ListRecipe extends Component {
 
                     this.loading = false;
                     this.items = [result['Recipe List']];
-                    
-                    console.log(this.items);
-                    console.log(data.length);
-
                     
             for(var i=0;i<this.items.length;i++)
             {
@@ -85,9 +78,6 @@ export default class ListRecipe extends Component {
                         names: names
                     });
 
-                    //console.log(names);
-
-
                     },
                 (error) => {
                     this.setState({error});
@@ -103,8 +93,6 @@ export default class ListRecipe extends Component {
       
     
       deleteRecipe =(name)=>{
-        console.log("in delRecipe")
-        console.log(name)
         fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
           method: 'post',
           headers: {

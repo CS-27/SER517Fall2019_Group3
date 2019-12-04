@@ -5,14 +5,10 @@ Date modified : Sept 30, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-//import RecipeDetails from "./RecipeDetails";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
-import HopsList from "./HopsSchedule";
 import Button from '@material-ui/core/Button';
-import Dropdown from 'react-bootstrap/Dropdown'
 
 
 export default class AddRecipe extends Component {
@@ -20,16 +16,12 @@ export default class AddRecipe extends Component {
         super(props);
         this.message = ""
     this.state = {  
-    // object1: [{name:"", quantity:""}],
     name: "",
     BatchSize: "",
     Directions: "",
     Hops1:"",
     schedule:"",
-    // grain:"",
     Hops:[],
-    // Grains:[],
-    // Grains2:[],
     HopsSchedule:[],
     Category:"",
     errors: {
@@ -111,19 +103,11 @@ handleChange = event => {
 
 handleSubmit=(event) => {
   const hopsArray = this.state.Hops1.split(',');
-  // console.log("hopsarray")
-  // console.log(hopsArray)
-
     this.state.Hops= hopsArray
-    // this.state.Grains= this.state.grain.split(',')
-
     const sArray = this.state.schedule.split(',');
-    this.state.HopsSchedule= sArray 
-
-    console.log(this.state);
+    this.state.HopsSchedule= sArray
     var data = this.state;
-  
-    
+
     fetch('http://127.0.0.1:5000/addRecipe', {
         method: 'POST',
         mode: 'cors',
@@ -145,15 +129,12 @@ handleSubmit=(event) => {
     }).then(res => {
         if(res.status===200)
            this.message = 'Recipe added successfully'
-        console.log(res.status) ;
-        // this.props.history.push('/')
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
 
 
 render() {
-  //const items = this.state.Hops.map(item => <li>{item}</li> );
     return (
         <Container>
             <Card  className="cardMain">
@@ -192,22 +173,16 @@ render() {
                         onChange={this.handleChange}
             />
         </FormGroup>
-        
         </Col>
-        
         </Row>
-        
-        
         <div>
                <select id="Category" onChange={this.handleChange} value={this.state.value}>
                   <option value="select">Select Recipe Category</option>
                   <option value="1">ABV less than 5%</option>
                   <option value="2">ABV greater than 5%</option>
                   <option value="none">none</option>
-                  
                </select>
                <p></p>
-               {/* <p>{this.state.value}</p> */}
          </div>
                
         <FormGroup controlId="Directions">
@@ -240,18 +215,6 @@ render() {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-        
-            {/* <FormGroup controlId="grain">
-                    <FormLabel color="white" >Grains/BatchSize</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="grain1 qty1, grain2 qty2.."
-                        value={this.state.grain} 
-                        onChange={this.handleChange}
-                        
-                    />
-                </FormGroup> */}
         </FormGroup>
     
         <Button disabled ={this.state.errors.name!='' || 

@@ -20,23 +20,14 @@ class DataTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr  >
-          {/*<td>{item[0]}</td>*/}
           <td>
-          
               <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel={item[0]} item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
-
-          
-          </td>
-            {/*<td>{item[1]}</td>*/}
+            </td>
             <td>
-
                 <ModalForm itemType={this.props.itemType} userID = {userID} buttonLabel={item[1]} item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
-
-
             </td>
             <td>
           <ModalFormAddMore itemType={this.props.itemType} userID = {userID} buttonLabel="Add More" item={item} updateState={this.props.updateState} deleteItem ={this.props.deleteItem}/>
-
           </td>
           <td>
           <DeleteRoundedIcon onClick={() => this.deleteItem(item)}>Del</DeleteRoundedIcon>
@@ -52,7 +43,6 @@ class DataTable extends Component {
           <tr>
             <th>Name</th>
             <th>Quantity</th>
-            {/*<th>Edit</th>*/}
             <th>Add More</th>
             <th>Delete</th>
         
