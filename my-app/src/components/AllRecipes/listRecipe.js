@@ -34,13 +34,13 @@ export default class ListRecipe extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
 event.preventDefault();
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/allRecipes';
-        // var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+        var apiUrl = 'https://backendbeer.herokuapp.com/allRecipes';
+        // var apiUrl = 'https://backendbeer.herokuapp.com/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
             .then(
@@ -89,7 +89,7 @@ event.preventDefault();
     
       deleteRecipe =(name)=>{
         console.log("in delRecipe")
-        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+        fetch('https://backendbeer.herokuapp.com/deleteRecipeAdmin', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'

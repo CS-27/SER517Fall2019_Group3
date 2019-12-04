@@ -35,7 +35,7 @@ class recipeList extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
         event.preventDefault();
       }
 
@@ -43,7 +43,7 @@ class recipeList extends Component {
        getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
+        var apiUrl = 'https://backendbeer.herokuapp.com/showRecipe?recipeName='+name
         
           fetch(apiUrl)
           .then(res => res.json())
@@ -74,7 +74,7 @@ class recipeList extends Component {
              )
        }
        addtoShopList=()=>{
-        var url = 'http://127.0.0.1:5000/addIngredientsShoppingList';
+        var url = 'https://backendbeer.herokuapp.com/addIngredientsShoppingList';
           var hops = this.state.recipe[1][1]
           var userID=sessionStorage.getItem("username")
           fetch(url, {

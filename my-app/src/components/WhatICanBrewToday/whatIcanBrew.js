@@ -44,7 +44,7 @@ export default class WhatICanBrew extends Component {
               this.props.history.push('/signin')
           }
           else {
-              var apiUrl = 'http://127.0.0.1:5000/whatCanIBrewToday'
+              var apiUrl = 'https://backendbeer.herokuapp.com/whatCanIBrewToday'
 
               fetch(apiUrl, {
                 method: 'post',

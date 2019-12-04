@@ -96,7 +96,7 @@ export default class Signup extends Component {
     handleSubmit=(event)=> {
         var data = this.state;
 
-        fetch('http://127.0.0.1:5000/userRegister', {
+        fetch('https://backendbeer.herokuapp.com/userRegister', {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -108,7 +108,7 @@ export default class Signup extends Component {
             }),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
             }

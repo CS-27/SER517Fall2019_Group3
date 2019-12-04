@@ -43,13 +43,13 @@ export default class ViewMyRecipe extends Component {
 
     handleSubmit = (event) => {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
 
         event.preventDefault();
     }
 
     getItems = (event) => {
-        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID=' + sessionStorage.getItem("username");
+        var apiUrl = 'https://backendbeer.herokuapp.com/viewMyRecipes?userID=' + sessionStorage.getItem("username");
 
         fetch(apiUrl)
             .then(res => res.json())
@@ -98,7 +98,7 @@ export default class ViewMyRecipe extends Component {
 
     deleteRecipe = (name) => {
         console.log("in delRecipe")
-        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+        fetch('https://backendbeer.herokuapp.com/deleteRecipeAdmin', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'

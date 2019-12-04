@@ -57,7 +57,7 @@ handleSubmit=(event) => {
     this.state.HopsSchedule=sArray
 
     var data = this.state;
-    fetch('http://127.0.0.1:5000/myRecipes', {
+    fetch('https://backendbeer.herokuapp.com/myRecipes', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({
@@ -72,7 +72,7 @@ handleSubmit=(event) => {
           }),
         headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+            'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
             'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
   
         }

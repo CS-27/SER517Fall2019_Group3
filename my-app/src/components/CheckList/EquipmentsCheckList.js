@@ -26,7 +26,7 @@ class EquipmentsCheckList extends Component{
         var data = this.state.lists;
         for(let i=0;i<this.state.lists.length;i++) {
             if (data[i].checked == true) {
-                fetch('http://127.0.0.1:5000/addEquipment', {
+                fetch('https://backendbeer.herokuapp.com/addEquipment', {
                     method: 'POST',
                     mode: 'cors',
                     body: JSON.stringify({
@@ -35,7 +35,7 @@ class EquipmentsCheckList extends Component{
                     }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                        'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
                     }

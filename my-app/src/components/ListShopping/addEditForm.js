@@ -21,16 +21,16 @@ class AddEditForm extends React.Component {
     var itemType = this.props.itemType;
     var url = "";
     if(itemType === "ingredient"){
-      url = 'http://127.0.0.1:5000/updateIngredient';
+      url = 'https://backendbeer.herokuapp.com/updateIngredient';
     }
 
     if(itemType === "equipment"){
-      url = 'http://127.0.0.1:5000/updateEquipment';
+      url = 'https://backendbeer.herokuapp.com/updateEquipment';
     }
 
     if(itemType === "shoppinglist"){
       
-      url = 'http://127.0.0.1:5000/updateShoppingList';
+      url = 'https://backendbeer.herokuapp.com/updateShoppingList';
     }
     e.preventDefault()
     fetch(url, {

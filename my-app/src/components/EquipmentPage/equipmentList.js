@@ -54,7 +54,7 @@ export default class equipmentList extends Component {
       }
 
       deleteIngredient =(item)=>{
-        fetch('http://127.0.0.1:5000/deleteEquipment', {
+        fetch('https://backendbeer.herokuapp.com/deleteEquipment', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ export default class equipmentList extends Component {
              this.props.history.push('/signin')
          }
          else {
-             var apiUrl = 'http://127.0.0.1:5000/showEquipment?userID='+user
+             var apiUrl = 'https://backendbeer.herokuapp.com/showEquipment?userID='+user
 
              fetch(apiUrl)
                  .then(res => res.json())

@@ -42,18 +42,17 @@ export default class ListShopping extends Component {
         var data = this.state.autoItems;
         for(let i=0;i<this.state.autoItems.length;i++) {
             if (data[i][2] == true) {
-                fetch('http://127.0.0.1:5000/movetToShopList', {
+                fetch('https://backendbeer.herokuapp.com/movetToShopList', {
                     method: 'POST',
                     mode: 'cors',
                     body: JSON.stringify({
                         userID: sessionStorage.getItem("username"),
                         [data[i][0]] : data[i][1]
-                        // [data.name] : data.quantity
 
                     }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                        'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
                     }
@@ -64,8 +63,6 @@ export default class ListShopping extends Component {
             }
         }
         event.preventDefault();
-        // this.props.history.push('/shoppinglist')
-        // this.props.history.push('/ingredientList')
         window.location.reload();
     }
 
@@ -74,18 +71,17 @@ export default class ListShopping extends Component {
         var data = this.state.items;
         for(let i=0;i<this.state.items.length;i++) {
             if (data[i][2] == true) {
-                fetch('http://127.0.0.1:5000/updatedList', {
+                fetch('https://backendbeer.herokuapp.com/updatedList', {
                     method: 'POST',
                     mode: 'cors',
                     body: JSON.stringify({
                         userID: sessionStorage.getItem("username"),
                         [data[i][0]] : data[i][1]
-                        // [data.name] : data.quantity
 
                     }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                        'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
                     }
@@ -148,7 +144,7 @@ export default class ListShopping extends Component {
     }
 
     deleteIngredient =(item)=>{
-        fetch('http://127.0.0.1:5000/deleteShopListItems', {
+        fetch('https://backendbeer.herokuapp.com/deleteShopListItems', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'
@@ -194,7 +190,7 @@ export default class ListShopping extends Component {
         if (uname == null) {
             this.props.history.push('/signin')
         } else {
-            var apiUrl = 'http://127.0.0.1:5000/showShoppingList?userID=' + sessionStorage.getItem("username")
+            var apiUrl = 'https://backendbeer.herokuapp.com/showShoppingList?userID=' + sessionStorage.getItem("username")
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(
@@ -232,7 +228,7 @@ export default class ListShopping extends Component {
                     }
                 )
 
-            var apiUrl = 'http://127.0.0.1:5000/createAutoShopList?userID=' + sessionStorage.getItem("username")
+            var apiUrl = 'https://backendbeer.herokuapp.com/createAutoShopList?userID=' + sessionStorage.getItem("username")
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(

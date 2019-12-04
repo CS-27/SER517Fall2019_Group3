@@ -32,14 +32,14 @@ export default class recipeList extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
     
         event.preventDefault();
       }
 
        getRecipe=()=>{
         var convention= this.props.value;
-        var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=AmericanPaleAle'
+        var apiUrl = 'https://backendbeer.herokuapp.com/showRecipe?recipeName=AmericanPaleAle'
         
           fetch(apiUrl)
           .then(res => res.json())

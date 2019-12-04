@@ -9,7 +9,7 @@ class DataTableRecipe extends Component {
 
     handleSubmit = id => (event) => {
         var dt = new Date();
-        fetch('http://127.0.0.1:5000/brewingBeer', {
+        fetch('https://backendbeer.herokuapp.com/brewingBeer', {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -20,7 +20,7 @@ class DataTableRecipe extends Component {
             }),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
             }

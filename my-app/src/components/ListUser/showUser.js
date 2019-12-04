@@ -35,7 +35,7 @@ export default class showUser extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
         event.preventDefault();
     }
 
@@ -43,7 +43,7 @@ export default class showUser extends Component {
     getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
-        var apiUrl = 'http://127.0.0.1:5000/userProfile'
+        var apiUrl = 'https://backendbeer.herokuapp.com/userProfile'
 
         fetch(apiUrl)
             .then(res => res.json())
@@ -76,7 +76,7 @@ export default class showUser extends Component {
 
     getProfile=(userid)=>{
 
-            var apiUrl = 'http://127.0.0.1:5000/userProfile'
+            var apiUrl = 'https://backendbeer.herokuapp.com/userProfile'
             fetch(apiUrl, {
                 method: 'post',
                 headers: {

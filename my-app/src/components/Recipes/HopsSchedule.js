@@ -37,7 +37,7 @@ handleChange = event => {
 
 handleSubmit=(event) => {
   var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://127.0.0.1:5000/')
+  xhr.open('POST', 'https://backendbeer.herokuapp.com/')
   event.preventDefault();           
 }
 

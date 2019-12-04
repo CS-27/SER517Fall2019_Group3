@@ -42,14 +42,14 @@ export default class ListRecipeCategoryUser extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
         event.preventDefault();
       }
 
       
 
       getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID=' + sessionStorage.getItem("username");
+        var apiUrl = 'https://backendbeer.herokuapp.com/viewMyRecipes?userID=' + sessionStorage.getItem("username");
 
         fetch(apiUrl)
             .then(res => res.json())
@@ -92,7 +92,7 @@ export default class ListRecipeCategoryUser extends Component {
     }
 
     getItems2=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipes?userID=' + sessionStorage.getItem("username");
+        var apiUrl = 'https://backendbeer.herokuapp.com/viewMyRecipes?userID=' + sessionStorage.getItem("username");
 
         fetch(apiUrl)
             .then(res => res.json())

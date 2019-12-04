@@ -25,16 +25,16 @@ class AddMoreForm extends React.Component {
     var itemType = this.props.itemType;
     var url = "";
     if(itemType === "ingredient"){
-      url = 'http://127.0.0.1:5000/addMoreIngredient';
+      url = 'https://backendbeer.herokuapp.com/addMoreIngredient';
     }
 
     if(itemType === "equipment"){
-      url = 'http://127.0.0.1:5000/addMoreEquipment';
+      url = 'https://backendbeer.herokuapp.com/addMoreEquipment';
     }
 
     if(itemType === "shoppinglist"){
       
-      url = 'http://127.0.0.1:5000/addMoreShoppingList';
+      url = 'https://backendbeer.herokuapp.com/addMoreShoppingList';
     }
     e.preventDefault()
     fetch(url, {

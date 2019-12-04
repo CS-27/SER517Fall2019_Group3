@@ -36,7 +36,7 @@ export default class Profile extends Component {
             this.props.history.push('/signin')
         }
         else{
-          var apiUrl = 'http://127.0.0.1:5000/userProfile'
+          var apiUrl = 'https://backendbeer.herokuapp.com/userProfile'
           fetch(apiUrl, {
               method: 'post',
               headers: {

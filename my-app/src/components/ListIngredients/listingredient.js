@@ -41,7 +41,7 @@ export default class ListIngredient extends Component {
               this.props.history.push('/signin')
           }
           else {
-              var apiUrl = 'http://127.0.0.1:5000/showIngredient?userID=' + user
+              var apiUrl = 'https://backendbeer.herokuapp.com/showIngredient?userID=' + user
 
               fetch(apiUrl)
                   .then(res => res.json())
@@ -102,7 +102,7 @@ export default class ListIngredient extends Component {
       }
 
       deleteIngredient =(item)=>{
-        fetch('http://127.0.0.1:5000/deleteIngredient', {
+        fetch('https://backendbeer.herokuapp.com/deleteIngredient', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'

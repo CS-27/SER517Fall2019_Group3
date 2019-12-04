@@ -71,7 +71,7 @@ export default class IngredientPage extends Component {
 
     handleSubmit=(event)=> {
         var data = this.state;
-        fetch('http://127.0.0.1:5000/addIngredient', {
+        fetch('https://backendbeer.herokuapp.com/addIngredient', {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
@@ -81,7 +81,7 @@ export default class IngredientPage extends Component {
               }),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
             }

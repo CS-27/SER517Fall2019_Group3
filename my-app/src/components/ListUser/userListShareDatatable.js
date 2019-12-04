@@ -29,7 +29,7 @@ class UserListShareDatatable extends Component {
 
     handleSubmit = (name) => (event) => {
 
-        var apiUrl = 'http://127.0.0.1:5000/viewMyRecipe?userID='+sessionStorage.getItem("username")+'&&recipeName='+this.props.beername;
+        var apiUrl = 'https://backendbeer.herokuapp.com/viewMyRecipe?userID='+sessionStorage.getItem("username")+'&&recipeName='+this.props.beername;
         var data;
 
         fetch(apiUrl)
@@ -56,7 +56,7 @@ class UserListShareDatatable extends Component {
 
     nextAPI = (name) => {
         if (this.state.name != "") {
-            fetch('http://127.0.0.1:5000/myRecipes', {
+            fetch('https://backendbeer.herokuapp.com/myRecipes', {
                 method: 'POST',
                 mode: 'cors',
                 body:
@@ -73,7 +73,7 @@ class UserListShareDatatable extends Component {
                     ),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                    'Access-Control-Allow-Origin': 'https://backendbeer.herokuapp.com',
                     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 
                 }

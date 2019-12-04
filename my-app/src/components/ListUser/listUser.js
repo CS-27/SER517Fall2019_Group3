@@ -36,13 +36,13 @@ export default class ListUser extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
 
         event.preventDefault();
       }
 
     getItems=(event)=> {
-        var apiUrl = 'http://127.0.0.1:5000/userSearch?user='
+        var apiUrl = 'https://backendbeer.herokuapp.com/userSearch?user='
 
         fetch(apiUrl+this.state.name)
             .then(res => res.json())

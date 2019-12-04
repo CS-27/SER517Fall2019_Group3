@@ -38,7 +38,7 @@ export default class ListRecipeStatus extends Component {
 
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'http://127.0.0.1:5000/')
+        xhr.open('POST', 'https://backendbeer.herokuapp.com/')
 
         event.preventDefault();
         
@@ -52,7 +52,7 @@ export default class ListRecipeStatus extends Component {
     }
 
     getItems=(event)=> {
-            var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
+            var apiUrl = 'https://backendbeer.herokuapp.com/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
             .then(
