@@ -10,8 +10,6 @@ class ModalForm extends Component {
     this.state = {
       modal: false
     }
-   
-    console.log(this.props.name)
   }
 
   toggle = () => {

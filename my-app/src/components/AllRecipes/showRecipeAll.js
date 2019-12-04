@@ -16,7 +16,6 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 class recipeList extends Component {
      constructor(props) {
         super(props);
-        console.log(this.props)
         this.getRecipe = this.getRecipe.bind(this);
         this.message = ""
       
@@ -37,7 +36,6 @@ class recipeList extends Component {
     handleSubmit=(event)=> {
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
-    
         event.preventDefault();
       }
 

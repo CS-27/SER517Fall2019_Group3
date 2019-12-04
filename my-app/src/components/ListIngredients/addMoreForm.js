@@ -36,8 +36,6 @@ class AddMoreForm extends React.Component {
       
       url = 'http://127.0.0.1:5000/addMoreShoppingList';
     }
-    console.log(url)
-    
     e.preventDefault()
     fetch(url, {
       method: 'post',
@@ -56,7 +54,6 @@ class AddMoreForm extends React.Component {
         var i1 = parseInt(this.state.quantity,10);
         var i2 = parseInt(this.props.item[1]);
         var c= i1+i2;
-        console.log(i1+i2);
         this.props.updateState([this.state.name,c]);
       })
       
@@ -66,12 +63,10 @@ class AddMoreForm extends React.Component {
   componentDidMount(){
     // if item exists, populate the state with proper data
     if(this.props.item){
-      console.log(this.props.item)
       const name = this.props.item[0];
       const quantity = this.props.item[1];
       const q ='';
       this.currItem = {[name]:quantity};
-      console.log(this.currItem)
       this.setState({ name,q })
 
       

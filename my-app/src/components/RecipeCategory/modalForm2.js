@@ -2,7 +2,6 @@ import RecipeList from './showRecipeAll'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-//import Modal from 'react-bootstrap/Modal';
 import './modal.css'
 class ModalForm2 extends Component {
   constructor(props) {
@@ -10,8 +9,7 @@ class ModalForm2 extends Component {
     this.state = {
       modal: false
     }
-   
-    console.log(this.props.name)
+
   }
 
   toggle = () => {

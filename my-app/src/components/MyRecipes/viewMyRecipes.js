@@ -42,7 +42,6 @@ export default class ViewMyRecipe extends Component {
     }
 
     handleSubmit = (event) => {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -61,11 +60,6 @@ export default class ViewMyRecipe extends Component {
 
                     this.loading = false;
                     this.items = [result['My Recipe List']];
-
-                    console.log(this.items);
-                    console.log(data.length);
-
-
                     for (var i = 0; i < this.items.length; i++) {
 
                         this.items[i].map((values) => {
@@ -104,7 +98,6 @@ export default class ViewMyRecipe extends Component {
 
     deleteRecipe = (name) => {
         console.log("in delRecipe")
-        console.log(name)
         fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
             method: 'post',
             headers: {

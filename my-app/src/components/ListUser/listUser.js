@@ -23,7 +23,6 @@ export default class ListUser extends Component {
         this.loading = true;
         this.names=null;
         this.name="";
-        // this.getItems=this.getItems.bind();
         this.getItems();
 
 
@@ -36,7 +35,6 @@ export default class ListUser extends Component {
     }
 
     handleSubmit=(event)=> {
-        // console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -55,11 +53,6 @@ export default class ListUser extends Component {
 
                     this.loading = false;
                     this.items = [result['User Details']];
-
-                    console.log(this.items);
-                    console.log(data.length);
-
-
                     for(var i=0;i<this.items.length;i++)
                     {
 

@@ -49,11 +49,6 @@ export default class ListRecipe extends Component {
 
                     this.loading = false;
                     this.items = [result['All Recipes']];
-                    
-                    console.log(this.items);
-                    console.log(data.length);
-
-                    
             for(var i=0;i<this.items.length;i++)
             {
 

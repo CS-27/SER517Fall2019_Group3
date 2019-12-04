@@ -7,8 +7,6 @@
 
 import React, { Component } from "react";
 import DataTable1 from './myRecipeDetailDatatable';
-import Loader from 'react-loader-spinner';
-import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router'
 
 import './viewEachRecipe.css';
@@ -16,7 +14,6 @@ import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 
-//import ModalForm from './modalForm'
 
 class userListRecipe extends Component {
   constructor(props) {

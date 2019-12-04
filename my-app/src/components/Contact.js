@@ -9,9 +9,6 @@ Date modified : Sept 22, 2019
   import img1 from "./email.jpg";
   import img2 from "./Call.png";
   import img3 from "./Maps.png";
- import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import showMap from './showMap';
-
 
  function Contact() {
       return (

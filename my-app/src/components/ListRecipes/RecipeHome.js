@@ -3,17 +3,10 @@ import './RecipeHome.css';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';
-import RecipeList from './showRecipeAmerican';
-import Button from '@material-ui/core/Button';
 import ModalForm from './Modals/modalFormAM';
 import ModalFormWD from './Modals/modalFormWD';
 import ModalFormWW from './Modals/modalFormWW';
-import showRecipeWinterWarmer from './showRecipeWinterWarmer';
-
-
-import CardDeck from 'react-bootstrap/CardDeck';
 import ModalFormSP from './Modals/modalFormSP';
-
 export default class RecipeHome extends Component {
 
   constructor(props) {
@@ -29,9 +22,6 @@ export default class RecipeHome extends Component {
       showComponent: true,
     });
   }
-
-  
-
 
   render(){
   return (
@@ -70,7 +60,6 @@ export default class RecipeHome extends Component {
         <Image className='card-image2' src="/images/winterWarmer.jpeg" thumbnail/>
         <Card.Title>Winter Warmer</Card.Title>
         <ModalFormWW buttonLabel="view" />
-        {/* <Button id = "btn" type="submit" onClick={this.deleteItemWW} >Delete</Button> */}
       </Card.Body>
     </Card>
   </Col>
@@ -83,8 +72,7 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/whitedogIPA.jpg" thumbnail/>
         <Card.Title>White Dog IPA</Card.Title>
         <ModalFormWD buttonLabel="view" />
-        {/* <Button id = "btn" variant="primary" type="submit" onClick={this.deleteItemWD}>Delete</Button> */}
-      </Card.Body>
+        </Card.Body>
     </Card>
   </Col>
   
@@ -94,7 +82,6 @@ export default class RecipeHome extends Component {
         <Image  className='card-image2' src="/images/smashPaleAle.png" thumbnail/>
         <Card.Title>Smash Pale Ale</Card.Title>
         <ModalFormSP buttonLabel="view" />
-        {/* <Button id = "btn" variant="primary" type="submit" onClick={this.deleteItemSP}>Delete</Button> */}
       </Card.Body>
     </Card>
   </Col>

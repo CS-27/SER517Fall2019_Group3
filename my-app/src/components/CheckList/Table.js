@@ -6,14 +6,11 @@ export default class Table extends Component{
     constructor(props) {
         super(props);
         console.log(props);
-        // this.getInitialState();
-        // console.log(list)
         this.state =
             {totale: 0, checked: false
             }
         this.updatelist = this.updatelist.bind(this)
     }
-
 
     render(){
         return(

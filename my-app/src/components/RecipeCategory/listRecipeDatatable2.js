@@ -9,8 +9,7 @@ class ListRecipeDatatable2 extends Component {
   render() { 
     const names2 = this.props.names2.map(item =>
       {
-        // console.log(item)
-      return (
+        return (
         
         
         <tr  >
@@ -18,12 +17,8 @@ class ListRecipeDatatable2 extends Component {
         <td>
 
         <ModalForm2 name={item} buttonLabel="view" />
-          {/* getRecipe={this.getRecipe(item)} */}
         </td>
-          {/* <td>
-          <Button id ="btn1-color" onClick={() => this.deleteItem2(item) }>Delete </Button>
-          </td> */}
-        </tr>   
+        </tr>
         )
       })
       
