@@ -79,7 +79,7 @@ python-dateutil==1.5
 python-nmap==0.1.4
 pytz==2013.7
 redis==2.10.6
-requests==2.19.1
+requests==2.20.0
 scipy==0.13.0b1
 six==1.11.0
 urllib3==1.23
