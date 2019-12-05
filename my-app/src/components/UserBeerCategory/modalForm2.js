@@ -1,3 +1,10 @@
+/*Author: Harshita Kajal
+Date added: Nov 10, 2019
+Date modified : Dec 5, 2019
+Description: Display form for beer categories
+
+*/
+
 import RecipeList from './showRecipeAll'
 
 import React, { Component } from 'react';

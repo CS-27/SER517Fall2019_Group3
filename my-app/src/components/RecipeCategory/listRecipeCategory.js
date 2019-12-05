@@ -29,6 +29,11 @@ export default class ListRecipeCategory extends Component {
             names:[],
             names2:[]
         }
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
+        }
         this.items = null;
         this.loading = true;
         this.names=null;
