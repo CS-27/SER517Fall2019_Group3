@@ -203,6 +203,23 @@ def viewUserRecipe(userID, recipeName):
 			#print type(result)
 	return json.dumps(result, default=json_util.default)
 
+
+def deleteRecipeUser(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+	if userID in db.list_collection_names():
+		collection = db[userID]
+		result = collection.find_one({'name': recipeName['name']})
+		#print result
+		search_query = { "name": recipeName['name'] }
+		if result:
+			delRecipe = collection.delete_one(search_query)
+			return True
+		else:
+			return False
+	else:
+		return False
+
 # Enter the particular beer in the brewing beer database
 # adds the following attributes
 # 1. timesBrewed

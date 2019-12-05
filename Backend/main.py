@@ -60,6 +60,19 @@ def deleteRecipeAdmin():
 	return response
 
 
+@brewDay_api.route('/deleteRecipe', methods = ['POST'])
+def deleteRecipeUser():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key,value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe delete status' : recipeFunctions.deleteRecipeUser(userID,recipeList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
 # Returns the list of ingredients needed to brew any default recipe.
 @brewDay_api.route('/showRecipeIngredients', methods = ['GET'])
 def showRecipeingredients():
