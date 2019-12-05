@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Contact from './components/Contact';
-import showMap from './components/showMap';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import HopsList from './components/Recipes/HopsSchedule';
