@@ -1,3 +1,10 @@
+/*Author: Harshita Kajal
+Date added: Oct 27, 2019
+Date modified : Dec 5, 2019
+Description: Categorizing recipes based on alcohol by volume
+
+*/
+
 import React, { Component } from "react";
 
 import './listRecipe.css';

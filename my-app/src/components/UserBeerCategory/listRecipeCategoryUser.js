@@ -1,6 +1,8 @@
 /*Author: Harshita Kajal
 Date added: Nov 10, 2019
-Date modified : Nov 21, 2019
+Date modified : Dec 5, 2019
+Description: Categorizing user beers based on alcohol by volume
+
 */
 
 import React, { Component } from "react";
