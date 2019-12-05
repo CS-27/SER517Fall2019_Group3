@@ -65,22 +65,14 @@ event.preventDefault();
                                 
                                         names.push([
                                         values.name
-                                            ]);   
-                                            
-                                })
-                                
+                                            ]);                          
+                                })                  
             }
-                    
-
                     this.setState({
                         items: this.items,
                         names: names
                     });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
                     },
                 (error) => {
                     this.setState({error});

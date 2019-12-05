@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './datatable.css'
-<<<<<<< HEAD
 
 class DataTable extends Component {
-=======
-class DataTable extends Component {
-
->>>>>>> master
 
   render() {
 

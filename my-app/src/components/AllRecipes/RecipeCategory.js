@@ -54,12 +54,8 @@ export default class ListRecipe extends Component {
                                 this.items[i].map((values)=>{
                                         names.push([
                                         values.name
-<<<<<<< HEAD
                                             ]);              
                                             
-=======
-                                            ]);
->>>>>>> master
                                 })
     
             }
@@ -68,11 +64,7 @@ export default class ListRecipe extends Component {
                         items: this.items,
                         names: names
                     });
-<<<<<<< HEAD
                     },
-=======
-            },
->>>>>>> master
                 (error) => {
                     this.setState({error});
                 }

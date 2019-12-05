@@ -12,11 +12,8 @@ import { withRouter } from 'react-router'
 import './showRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-<<<<<<< HEAD
 import ListRecipeDatatable from "./listRecipeDatatable";
 
-=======
->>>>>>> master
 
 class recipeList extends Component {
      constructor(props) {
@@ -48,10 +45,7 @@ class recipeList extends Component {
        getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
-<<<<<<< HEAD
         console.log(name)
-=======
->>>>>>> master
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
         
           fetch(apiUrl)
@@ -103,10 +97,6 @@ class recipeList extends Component {
               else
               alert("Item already in  shop list")
               this.props.history.push('/shoppinglist')
-<<<<<<< HEAD
-
-=======
->>>>>>> master
             })
             .catch(err => console.log(err))
        }

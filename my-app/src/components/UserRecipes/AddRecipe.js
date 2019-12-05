@@ -53,10 +53,6 @@ handleSubmit=(event) => {
     this.state.HopsSchedule=sArray
 
     var data = this.state;
-<<<<<<< HEAD
-   
-=======
->>>>>>> master
     fetch('http://127.0.0.1:5000/myRecipes', {
         method: 'POST',
         mode: 'cors',
@@ -85,10 +81,6 @@ handleSubmit=(event) => {
 
 
 render() {
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     return (
         <Container>
             <Card  className="cardMain">

@@ -3,10 +3,7 @@ import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
 import ModalForm from './modalFormAM'
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-<<<<<<< HEAD
 import RecipeList from './showRecipeAll'
-=======
->>>>>>> master
 
 class ListRecipeDatatable extends Component {
 
@@ -33,24 +30,11 @@ class ListRecipeDatatable extends Component {
         <tr  >
             <td>{item}</td>
             <td>
-<<<<<<< HEAD
-
-        <ModalForm name={item} buttonLabel="view" />
-          {/* getRecipe={this.getRecipe(item)} */}
-        </td>
-
-          <td>
-          <DeleteRoundedIcon onClick={() => this.deleteItem(item) }/>
-          </td>
-
-
-=======
                 <ModalForm name={item} buttonLabel="view" />
             </td>
             <td>
                 <DeleteRoundedIcon onClick={() => this.deleteItem(item) }/>
             </td>
->>>>>>> master
         </tr>
         )
       })
