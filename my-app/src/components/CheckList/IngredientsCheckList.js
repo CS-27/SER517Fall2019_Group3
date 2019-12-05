@@ -15,8 +15,6 @@ class IngredientsCheckList extends Component{
 
     constructor(props) {
         super(props);
-        // this.getInitialState();
-        // console.log(list)
         this.state = {
             counter1: 5,
             lists: servizi
@@ -26,12 +24,8 @@ class IngredientsCheckList extends Component{
 
     handleFormSubmit=(event)=> {
         var data = this.state.lists;
-        console.log(data);
-        console.log("log");
         for(let i=0;i<this.state.lists.length;i++) {
             if (data[i].checked == true) {
-                console.log([data[i].name] +"  "+ data[i].costo)
-
                 fetch('http://127.0.0.1:5000/addIngredient', {
                     method: 'POST',
                     mode: 'cors',
@@ -50,7 +44,6 @@ class IngredientsCheckList extends Component{
                 }).then(res => {
                     if (res.status === 200) {
                         this.message = 'Ingredient added successfully'
-                        console.log(res.status);
                         this.props.history.push('/ingredientList');
                     }
                 }).catch(err => console.log(err));

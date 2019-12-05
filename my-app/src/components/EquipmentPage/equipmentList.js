@@ -39,20 +39,15 @@ export default class equipmentList extends Component {
       updateState = (item) => {
         
         const itemIndex = this.state.equipment.findIndex(data => data[0] === item[0])
-        console.log(itemIndex);
-        console.log(item);
- 
         const newArray = [
           ...this.state.equipment.slice(0, itemIndex),
           item,
           ...this.state.equipment.slice(itemIndex + 1)
         ]
-        console.log(newArray);
         this.setState({ equipment: newArray })
       }
 
       deleteItem = (item) => {
-        console.log(item);
         const updatedItems = this.state.equipment.filter(i => i[0] !== item[0]);
         this.setState({ equipment: updatedItems })
 
@@ -112,8 +107,7 @@ export default class equipmentList extends Component {
 
                          const dataArray = Object.keys(this.state.equipment).map(i => this.state.equipment[i])
                          this.equipment = dataArray;
-                         console.log(this.equipment[0]);
-                     },
+                         },
                      (error) => {
                          this.setState({error});
                      }

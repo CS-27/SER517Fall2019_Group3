@@ -22,13 +22,11 @@ class ModalFormAddMore extends Component {
       const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
       const userID = this.props.userID
       const label = this.props.buttonLabel
-
       let button = ''
       let title = ''
 
       if(label === 'Add More'){
         button = <AddCircleOutlineIcon
-                  
                   onClick={this.toggle}
                   >{label}
                 </AddCircleOutlineIcon>

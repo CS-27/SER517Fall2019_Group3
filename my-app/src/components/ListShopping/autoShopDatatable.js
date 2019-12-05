@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import './autoShopDatatable.css'
-// import ModalFormAddMore from './modalFormAddMore'
-// import ModalForm from './modalForm'
 class AutoShopDatatable extends Component {
 
   deleteItem = (item) => {

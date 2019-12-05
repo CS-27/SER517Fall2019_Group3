@@ -25,14 +25,12 @@ class ModalForm extends Component {
       let button = ''
       let title = ''
 
-      // if(label === 'Edit'){
         button = <Label
                   // id ="btn-color"
                   onClick={this.toggle}
                   >{label}
                 </Label>
         title = 'Edit'
-      // }
 
 
       return (

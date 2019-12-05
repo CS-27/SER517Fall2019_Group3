@@ -13,7 +13,6 @@ import {
     Button
 } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
-import { Redirect } from 'react-router-dom';
 import './Signin.css';
 import axios from "axios";
 export default class Signin extends Component {

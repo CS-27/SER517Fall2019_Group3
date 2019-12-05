@@ -5,7 +5,6 @@ Date modified : Nov 13, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
@@ -23,9 +22,7 @@ export default class AddRecipeUser extends Component {
     Directions: "",
     Hops1:"",
     schedule:"",
-    // grain:"",
     Hops:[],
-    // Grains:[],
     HopsSchedule:[],
     Category:"",
     userID: sessionStorage.getItem("username")
@@ -59,11 +56,7 @@ handleSubmit=(event) => {
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule=sArray
 
-    console.log(this.state);
     var data = this.state;
-    //console.log(data);
-  
-    
     fetch('http://127.0.0.1:5000/myRecipes', {
         method: 'POST',
         mode: 'cors',
@@ -86,7 +79,6 @@ handleSubmit=(event) => {
     }).then(res => {
         if(res.status===200)
            this.message = 'Recipe added successfully'
-        console.log(res.status) ;
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
@@ -94,7 +86,6 @@ handleSubmit=(event) => {
 
 
 render() {
-  //const items = this.state.Hops.map(item => <li>{item}</li> );
     return (
         <Container>
             <Card  className="cardMain">

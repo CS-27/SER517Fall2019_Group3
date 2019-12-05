@@ -6,37 +6,14 @@
   Updates to add functionality for MenuButton and other components
 */
 import React, { Component } from 'react';
-import { createBrowserHistory } from "history";
-
 import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
-import Backdrop from '../Backdrop';
 import Image from 'react-bootstrap/Image'
-import Signup from '../Signup/Signup';
-import Signin from '../Signin/Signin';
-import Contact from '../Contact';
-import About from '../About/About';
-import Equipment from '../EquipmentPage/Equipment';
-import equipmentList from '../EquipmentPage/equipmentList';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-
 import './Toolbar.css';
-import IngredientPage from '../IngredientPage/ingredientPage';
-import ListIngredient from '../ListIngredients/listingredient';
 import Routes from "../../Routes"
-import { useState } from "react";
-import AddRecipe from '../Recipes/AddRecipe';
-import RecipeHome from '../ListRecipes/RecipeHome';
 
 class ButtonAppBar extends Component {
 

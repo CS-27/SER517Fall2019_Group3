@@ -9,24 +9,13 @@ class ListRecipeDatatableStatus extends Component {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
      this.props.deleteRecipe(item);
-     console.log("in delItem");
-     console.log(item.toString())
     }
 
   }
 
-// compare=(e)=>
-// {
-//   this.props.status(item)
-// }
-
-  
-
   render() { 
     const names = this.props.names.map(item =>
       {
-        //const compare={this.compare(item[1])}
-        // console.log(item)
       return (
         
         <tr  >

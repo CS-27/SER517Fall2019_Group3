@@ -6,14 +6,11 @@
 */
 
 import React, { Component } from "react";
-import DataTable from './userListDatatable';
 import Loader from 'react-loader-spinner';
 import './showUser.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import {Table} from "reactstrap";
-// import ListRecipeDatatable from "./listRecipeDatatable";
-//import ModalForm from './modalForm'
 
 export default class showUserList extends Component {
     constructor(props) {
@@ -47,8 +44,6 @@ export default class showUserList extends Component {
     getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
-        console.log(name)
-        //console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/userProfile'
 
         fetch(apiUrl)
@@ -73,7 +68,6 @@ export default class showUserList extends Component {
 
                     const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
                     this.recipe = dataArray;
-                    console.log(this.recipe[0]);
                 },
                 (error) => {
                     this.setState({ error });
@@ -99,10 +93,7 @@ export default class showUserList extends Component {
                 .then(res => {
                     this.loading = false;
                     var person =res['User Details'];
-                    console.log(person.email)
                     this.setState({user:person})
-                    console.log(this.state.user)
-                    console.log(this.state.user.lastName)
                 });
 
 
@@ -111,23 +102,6 @@ export default class showUserList extends Component {
         }
 
 
-
-    // renderList() {
-    //     var convention= this.props.value;
-    //     return (
-    //
-    //         <Container>
-    //             <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
-    //             <Card  className="mainCard">
-    //                 <Card.Body className = "card-body">
-    //                     <Card.Title className="titleCard" >{this.props.name}</Card.Title>
-    //                     <DataTable items={this.state.recipe}></DataTable>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Container>
-    //
-    //     );
-    // }
     renderList() {
         return (
 
@@ -188,11 +162,3 @@ export default class showUserList extends Component {
     }
 }
 
-    // render() {
-    //     return (
-    //         <div>
-    //             { this.renderList()}
-    //         </div>
-    //     );
-    // }
-// }

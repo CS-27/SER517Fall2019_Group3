@@ -18,7 +18,6 @@ export default class IngredientPage extends Component {
         super(props);
         this.message = ""
         this.state = {
-            // isLoading: false,
             name:"",
             quantity:"",
             userID: sessionStorage.getItem("username"),
@@ -41,12 +40,10 @@ export default class IngredientPage extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
-        // const re = /^[0-9\b]+$/;
         const re = /^-?\d*(\.\d+)?$/;
         const  name = event.target.id;
         const value = event.target.value;
   let errors = this.state.errors;
-  console.log(event.target.id)
   switch (name) {
     case 'name': 
       errors.name = 
@@ -74,9 +71,6 @@ export default class IngredientPage extends Component {
 
     handleSubmit=(event)=> {
         var data = this.state;
-        console.log(data);
-      
-        
         fetch('http://127.0.0.1:5000/addIngredient', {
             method: 'POST',
             mode: 'cors',
@@ -96,7 +90,6 @@ export default class IngredientPage extends Component {
             alert("Ingredient added successfully");
             else
             alert("Error on adding the ingredient");
-            console.log(res.status) ;
             this.props.history.push('/ingredientList')
 
         }).catch(err => console.log(err));

@@ -52,23 +52,11 @@ export default class Profile extends Component {
               .then(res => {
                   this.loading = false;
                   var person =res['User Details'];
-                  console.log(person.email)
                   this.setState({user:person})
-                  console.log(this.state.user)
-                  
               });
-
-
-
-
         }
-    
-
-
-        
       }
 
- 
     renderList() {
         return (
             
