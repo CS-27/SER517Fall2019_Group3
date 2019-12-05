@@ -98,7 +98,7 @@ export default class ViewMyRecipe extends Component {
 
     deleteRecipe = (name) => {
         console.log("in delRecipe")
-        fetch('http://127.0.0.1:5000/deleteRecipeAdmin', {
+        fetch('http://127.0.0.1:5000/deleteRecipe', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
