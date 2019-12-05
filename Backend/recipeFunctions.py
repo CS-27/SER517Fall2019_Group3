@@ -11,9 +11,6 @@ def addRecipe(recipe):
 	db = client.recipe
 
 	collection = db.recipe_info
-	#data = {}
-
-	#recipe['name'] = ''.join(e for e in recipe['name'] if e.isalnum())
 	if not collection.find_one({'name':recipe['name']}):
 		recipe['name'] = recipe['name'].lower()
 		result = collection.insert(recipe)
@@ -32,7 +29,6 @@ def showRecipeByName(name):
 	collection = db.recipe_info
 
 	result = collection.find_one({'name' : name})
-	#print result
 	return json.dumps(result, default=json_util.default)
 
 
@@ -44,7 +40,6 @@ def deleteRecipeAdmin(recipeName):
 	collection = db.recipe_info
 
 	result = collection.find_one({'name': recipeName['name']})
-	#print result
 	search_query = { "name": recipeName['name'] }
 	if result:
 		delRecipe = collection.delete_one(search_query)
@@ -108,7 +103,6 @@ def allRecipes():
 
 	collection = db.recipe_info
 	result = list(collection.find({}))
-	# print result
 
 	return json.dumps(result, default=json_util.default)
 
@@ -162,7 +156,6 @@ def whatiCanBrewToday(userID):
 				
 	
 	output = recipeList
-	#print(output)
 	return json.dumps(output, default=json_util.default)
 	
 
@@ -172,10 +165,7 @@ def searchRecipe(recipeRegx):
 	db = client.recipe
 
 	collection = db.recipe_info
-	#recipeRegx = recipeRegx.lower()
-	#print type(str(recipeRegx))
 	result = list(collection.find({'name': {'$regex': recipeRegx, '$options':'i'}}))
-	#print result
 	return json.dumps(result, default=json_util.default)
 
 
@@ -187,7 +177,6 @@ def viewUserRecipes(userID):
 		if userID in db.list_collection_names():
 			collection = db[userID]
 			result = list(collection.find({}))
-		#print type(result)
 		return json.dumps(result, default=json_util.default)
 
 # Returns user specific created, modified or brewed recipes
@@ -198,10 +187,24 @@ def viewUserRecipe(userID, recipeName):
 	if userID != 'recipe_info':
 		if userID in db.list_collection_names():
 			collection = db[userID]
-			#result = list(collection.find({'name': recipeName}))
 			result = collection.find_one({'name': recipeName})
-			#print type(result)
 	return json.dumps(result, default=json_util.default)
+
+
+def deleteRecipeUser(userID, recipeName):
+	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
+	db = client.recipe
+	if userID in db.list_collection_names():
+		collection = db[userID]
+		result = collection.find_one({'name': recipeName['name']})
+		search_query = { "name": recipeName['name'] }
+		if result:
+			delRecipe = collection.delete_one(search_query)
+			return True
+		else:
+			return False
+	else:
+		return False
 
 # Enter the particular beer in the brewing beer database
 # adds the following attributes
@@ -215,16 +218,13 @@ def brewBeer(userID, recipeData):
 	result = {}
 	timesBrewed = 0
 	if userID not in db.list_collection_names():
-		#print "here"
 		collection = db[userID]
-		#search_query = recipeData['recipeName']
 		timesBrewed = timesBrewed + 1
 		recipeData.__setitem__("timesBrewed", timesBrewed)
 		lastModified = recipeData['startTime']
 		recipeData.__setitem__("lastModified", lastModified)
 		recipeData.__setitem__("beerStatus", 1)
 		result = collection.insert_one(recipeData)
-		#print result
 		
 		if result:
 			removeBrewBeerIngredients(userID, recipeData['recipeName'])
@@ -243,7 +243,6 @@ def brewBeer(userID, recipeData):
 			lastModified = recipeData['startTime']
 			recipeData.__setitem__("lastModified", lastModified)
 			recipeData.__setitem__("beerStatus", 1)
-			#result = collection.insert_one(recipeData)
 			search_query = { 'recipeName':recipeData['recipeName'] }
 			recipeName = recipeData['recipeName']
 			del recipeData['recipeName']
@@ -294,14 +293,11 @@ def removeBrewBeerIngredients(userID, recipeName):
 	db = client.recipe
 
 	collection = db[userID]
-	#user ingredients
-	#ingredients = json.loads(ingredientFunctions.showIngredient(userID))
 	recipeIngredients = json.loads(userRecipeIngredients(userID,recipeName))
 
 	recipeIngredientsHops = {}
 	for i in recipeIngredients['Hops']:
 		arr = i.split(':')
-		#print arr
 		recipeIngredientsHops.__setitem__(arr[0],int(arr[1]))
 
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -310,7 +306,6 @@ def removeBrewBeerIngredients(userID, recipeName):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID': userID})
-	#search_query = { "userID": userIngList['userID'] }
 	search_query = { "userID": userID }
 	if result:
 		for key,value in recipeIngredientsHops.items():

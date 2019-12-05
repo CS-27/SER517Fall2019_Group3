@@ -27,13 +27,6 @@ def showRecipe():
 	return response
 
 
-"""@brewDay_api.route('/addRecipe', methods = ['POST'])
-def addRecipeInfo():
-	recipeInfo = request.args.get('recipeInfo')
-	response = jsonify({'recipeAdditionStatus' : json.loads(recipeFunctions.addRecipe(recipeInfo))})
-	response.headers.add('Access-Control-Allow-Origin', '*')
-	return response"""
-
 # adds a recipe to the default table(recipe_info) available to every brewer
 @brewDay_api.route('/addRecipe', methods = ['POST'])
 def addRecipeInfo():
@@ -41,7 +34,6 @@ def addRecipeInfo():
     recipeList = {}
     for key,value in req_data.items():
     	recipeList.__setitem__(key,value)
-    #print(ingList)
     response = jsonify({'Recipe Status': recipeFunctions.addRecipe(recipeList)})
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
@@ -54,8 +46,20 @@ def deleteRecipeAdmin():
 	recipeList = {}
 	for key,value in req_data.items():
 		recipeList.__setitem__(key,value)
-	#del recipeList['userID']
 	response = jsonify({'Recipe delete status' : recipeFunctions.deleteRecipeAdmin(recipeList)})
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response
+
+
+@brewDay_api.route('/deleteRecipe', methods = ['POST'])
+def deleteRecipeUser():
+	req_data = request.get_json(force = True)
+	recipeList = {}
+	for key,value in req_data.items():
+		recipeList.__setitem__(key,value)
+	userID = recipeList['userID']
+	del recipeList['userID']
+	response = jsonify({'Recipe delete status' : recipeFunctions.deleteRecipeUser(userID,recipeList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
 
@@ -191,7 +195,6 @@ def addEquipment():
 def updateEquipment():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -206,7 +209,6 @@ def updateEquipment():
 def addMoreEquipment():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -220,7 +222,6 @@ def addMoreEquipment():
 def deleteEquipment():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -244,7 +245,6 @@ def showIngredient():
 def updateIngredient():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -258,7 +258,6 @@ def updateIngredient():
 def addMoreIngredient():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -272,7 +271,6 @@ def addMoreIngredient():
 def deleteIngredient():
 	req_data = request.get_json(force = True)
 	ingList = {}
-	#print req_data
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
 	userID = ingList['userID']
@@ -288,7 +286,6 @@ def addIngredient():
 	ingList = {}
 	for key,value in req_data.items():
 		ingList.__setitem__(key,value)
-	#print(ingList)
 	response = jsonify({'Ingredients Status': ingredientFunctions.addIngredient(ingList)})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
@@ -328,7 +325,6 @@ def showShoppingList():
 def updateShopList():
 	req_data = request.get_json(force = True)
 	shopList = {}
-	#print req_data
 	for key,value in req_data.items():
 		shopList.__setitem__(key,value)
 	userID = shopList['userID']
@@ -343,7 +339,6 @@ def updateShopList():
 def addMoreShopList():
 	req_data = request.get_json(force = True)
 	shopList = {}
-	#print req_data
 	for key,value in req_data.items():
 		shopList.__setitem__(key,value)
 	userID = shopList['userID']

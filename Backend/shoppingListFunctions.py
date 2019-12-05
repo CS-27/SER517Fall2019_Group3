@@ -25,11 +25,8 @@ def addShoppingList(userID, userShopList):
 	result = False
 	currShoplist = showShoppingList(userID)
 	if not collection.find_one({'userID' : userID}):
-		#data = {}
-		#data.update(ingredientList = userIngList)
 		result = collection.insert_one(userShopList).inserted_id
 	else:
-		#update(userIngList)
 		search_query = { "userID": userID}
 		shopListSet = distinctShopListItems(userID,collection)
 		for key,value in userShopList.items():
@@ -50,7 +47,6 @@ def updateShoppingList(userID, shopList):
 	collection = db.userShoppingList
 
 	result = collection.find_one({'userID': userID})
-	#search_query = { "userID": userIngList['userID'] }
 	search_query = { "userID": userID }
 	if result:
 		for key,value in shopList.items():
@@ -69,7 +65,6 @@ def addMoreShoppingList(userID, shopList):
 	collection = db.userShoppingList
 
 	result = collection.find_one({'userID': userID})
-	#search_query = { "userID": userIngList['userID'] }
 	search_query = { "userID": userID }
 	if result:
 		for key,value in shopList.items():
@@ -92,9 +87,7 @@ def deleteShoppingListItems(userID, shopList):
 	if result:
 		for key,value in shopList.items():
 			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
-			#print collection.find_one(search_query)
 			updateCollection = collection.update(search_query, {'$unset' : {key:1}})
-			#print updateCollection
 			if not updateCollection['updatedExisting']:
 				return False
 		return True
@@ -120,13 +113,11 @@ def createAutoShopList(userID):
 	for key,value in result.items():
 		if int(value) < 2:
 			dic.__setitem__(key,value)
-	#print dic
 	result_asl = collection_asl.find_one({'userID': userID})
 	if not result_asl:
 		dic.__setitem__('userID',userID)
 		updateCollection = collection_asl.insert_one(dic).inserted_id
 	else:
-		#search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
 		search_query = { "userID": userID }
 		for key,value in dic.items():
 			if key not in distinctShopListItems(userID, client.shoppingList.userShoppingList):
@@ -148,21 +139,17 @@ def distinctShopListItems(userID,collection):
 	newSet.update(result_asl.keys())
 	newSet.remove('_id')
 	newSet.remove('userID')
-	#print newSet
 	return newSet
 
 
 # Moves an item from the autoshopping list to shopping list
 def moveToShoppingList(userID, itemList):
-	#addShoppingList(userID, itemList)
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/shoppingList?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
 	db = client.shoppingList
 
 	collection = db.userShoppingList
 	result = False
-	#result = collection.find_one({'userID' : userID})
 	search_query = { "userID": userID}
-	#shopListSet = distinctShopListItems(userID,collection)
 	for key,value in itemList.items():
 		new_values = {"$set" : {key:value}}
 		result = collection.update(search_query,new_values,upsert = True)
@@ -176,12 +163,9 @@ def moveToShoppingList(userID, itemList):
 	if result:
 		for key,value in itemList.items():
 			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
-			#print collection.find_one(search_query)
 			updateCollection = collection_asl.update(search_query, {'$unset' : {key:1}})
-			#print updateCollection
 			if not updateCollection['updatedExisting']:
 				break
-				#return False
 		
 	return json.dumps(collection_asl.find_one({'userID' : userID}), default=json_util.default)
 
@@ -199,7 +183,6 @@ def itemsShopped(userID, itemList):
 	if result:
 		for key,value in itemList.items():
 			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
-			#print collection.find_one(search_query)
 			updateCollection = collection.update(search_query, {'$unset' : {key:1}})
 
 	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/ingredient?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -212,11 +195,7 @@ def itemsShopped(userID, itemList):
 		for key,value in itemList.items():
 			new_value = {"$set" : {key:value}}
 			updateCollection = collection.update_one(search_query, new_value, upsert= True)
-#			print updateCollection
 
-	# if updateCollection['updatedExisting']:
 	return True
-	# else:
-	# 	return False
 
 

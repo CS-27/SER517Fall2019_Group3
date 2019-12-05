@@ -10,27 +10,11 @@ def userCheck(userID, password):
 	db = client.users
 
 	collection = db.userInfo
-	#data = {}
-
-	#recipe['Name'] = ''.join(e for e in recipe['Name'] if e.isalnum())
-	#data.update(recipe_name = recipe)
-	#result = collection.insert(recipe).inserted_id
 	result = collection.find_one({'userID' : userID, 'password' : password})
-	#print result
 	if result:
 		return 'True'
 	else:
 		return 'False'
-
-
-"""def showRecipeByName(name):
-	client = pymongo.MongoClient("mongodb://test1:project2019@gettingstarted-shard-00-00-2kb0f.mongodb.net:27017,gettingstarted-shard-00-01-2kb0f.mongodb.net:27017,gettingstarted-shard-00-02-2kb0f.mongodb.net:27017/recipe?ssl=true&replicaSet=GettingStarted-shard-0&authSource=admin&retryWrites=true&w=majority")
-	db = client.recipe
-
-	collection = db.recipe_info
-
-	result = collection.find_one({'Name' : name})
-	return json.dumps(result, default=json_util.default)"""
 
 # Register a user in the application
 def userRegister(userInfo):
@@ -51,9 +35,7 @@ def userProfile(userID):
 	db = client.users
 
 	collection = db.userInfo
-	#dic = json.dumps(collection.find_one({'userID' : userID}), default= json_util.default)
 	dic = collection.find_one({'userID' : userID})
-	#print type(dic)
 	if dic: 
 		del dic['password']
 		return json.dumps(dic, default= json_util.default)
@@ -67,11 +49,7 @@ def searchUser(userRegx):
 	db = client.users
 
 	collection = db.userInfo
-	#userRegx = userRegx.lower()
-	#print userRegx
-	#db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } )
 	result = list(collection.find({'$or' : [{'firstName': {'$regex': userRegx, '$options':'i'}},{'lastName':{'$regex': userRegx,'$options':'i'}}]}))
-	#print result
 	return json.dumps(result, default=json_util.default)
 
 
