@@ -104,6 +104,7 @@ export default class ViewMyRecipe extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                userID: sessionStorage.getItem("username"),
                 name: name.toString()
             })
 
