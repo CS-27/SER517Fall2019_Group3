@@ -30,20 +30,11 @@ export default class ListIngredient extends Component {
         
     }
 
-    // componentWillMount(){
-    //     console.log("component did mount");
-    //     // this.getIngredients();
-    // }
-
- 
-
     handleSubmit=(event)=> {
         this.props.history.push('/addingredient')
       }
 
-
       getIngredients(){
-        console.log("fetch")
           var user= sessionStorage.getItem("username");
           if(user==null)
           {
@@ -58,7 +49,6 @@ export default class ListIngredient extends Component {
                       (result) => {
 
                           var data = result['IngredientList'];
-                            console.log(data);
                           if (data==null)
                               return;
                           this.loading = false;
@@ -97,20 +87,15 @@ export default class ListIngredient extends Component {
       updateState = (item) => {
         
         const itemIndex = this.state.ingredients.findIndex(data => data[0] === item[0])
-        console.log(itemIndex);
-        console.log(item);
- 
         const newArray = [
           ...this.state.ingredients.slice(0, itemIndex),
           item,
           ...this.state.ingredients.slice(itemIndex + 1)
         ]
-        console.log(newArray);
         this.setState({ ingredients: newArray })
       }
 
       deleteItem = (item) => {
-        console.log(item);
         const updatedItems = this.state.ingredients.filter(i => i[0] !== item[0]);
         this.setState({ ingredients: updatedItems })
 
@@ -134,7 +119,6 @@ export default class ListIngredient extends Component {
       }
 
     renderList() {
-        console.log("render");
         return (
             <Container>
                 <span class="iconify" data-icon="mdi-bottle-wine" data-inline="false"></span>
@@ -150,9 +134,6 @@ export default class ListIngredient extends Component {
 
       />: <DataTable itemType="ingredient" userID ={this.state.userID} items={this.state.ingredients} updateState={this.updateState} deleteItem = {this.deleteItem} deleteIngredient = {this.deleteIngredient}></DataTable>}
              <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Add Item</Button>
-
-
-      
          </Card.Body>
        </Card>
             </Container>
@@ -163,8 +144,6 @@ export default class ListIngredient extends Component {
     }
 
     render() {
-        // this.getIngredients();
-
         return (
             <div>
                 { this.renderList()}

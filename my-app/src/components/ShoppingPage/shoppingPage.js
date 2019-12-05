@@ -13,7 +13,6 @@ export default class ShoppingPage extends Component {
         super(props);
         this.message = ""
         this.state = {
-            // isLoading: false,
             name:"",
             quantity:"",
             userID: sessionStorage.getItem("username"),
@@ -83,8 +82,6 @@ export default class ShoppingPage extends Component {
 
             }
         }).then(res => {
-            console.log("here") ;
-
             if(res.status=="200"){
                 alert("Item added to shopping list successfully");
 
@@ -93,14 +90,6 @@ export default class ShoppingPage extends Component {
                 alert("Item already exists in shop list. Go there and edit");
             this.props.history.push('/shoppinglist')
         }).catch(err => console.log(err));
-        // axios.post('http://127.0.0.1:5000/addIngredient', this.state).
-        // then(response=> {
-
-        // console.log(response);
-
-
-
-
         event.preventDefault();
     }
 
@@ -134,7 +123,8 @@ export default class ShoppingPage extends Component {
                                     onChange={this.handleChange}
                                 />
                             </FormGroup>
-                            <Button onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Item</Button>
+                            <Button disabled={this.state.errors.name!='' 
+                || this.state.errors.quantity!=''} onClick ={this.handleSubmit} id = "btn-color" variant="primary" type="submit" >Add Item</Button>
 
 
                         </Form>

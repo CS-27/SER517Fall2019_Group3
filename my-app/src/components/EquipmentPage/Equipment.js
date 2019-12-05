@@ -13,7 +13,6 @@ import {
 import Card from 'react-bootstrap/Card';
 import './Equipment.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
 export default class Equipment extends Component {
     
     constructor(props) {
@@ -46,7 +45,6 @@ handleChange = event => {
     const  name = event.target.id;
     const value = event.target.value;
 let errors = this.state.errors;
-console.log(event.target.id)
 switch (name) {
 case 'name': 
   errors.name = 
@@ -74,9 +72,7 @@ this.setState({errors, [name]: value}, ()=> {
 
         handleSubmit=(event) => {
             var data = this.state;
-        console.log(data);
-      
-        
+
         fetch('http://127.0.0.1:5000/addEquipment', {
             method: 'POST',
             mode: 'cors',
@@ -100,7 +96,6 @@ this.setState({errors, [name]: value}, ()=> {
             alert("Error on adding the equipment");
 
                this.message = 'Equipment added successfully'
-            console.log(res.status) ;
             this.props.history.push('/equipmentList');
        
         }).catch(err => console.log(err));
@@ -137,7 +132,8 @@ this.setState({errors, [name]: value}, ()=> {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Save</Button>
+                    <Button disabled={this.state.errors.name!='' 
+                || this.state.errors.quantity!=''} onClick = {this.handleSubmit}  id = "btn-color" type="submit" >Save</Button>
             </Form>
          </Card.Body>
        </Card>

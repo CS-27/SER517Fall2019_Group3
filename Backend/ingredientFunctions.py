@@ -11,8 +11,6 @@ def showIngredient(userID):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID' : userID})
-	#print result
-	#print (json.dumps(result, default=json_util.default))
 	return json.dumps(result, default=json_util.default)
 
 def addIngredient(userIngList):
@@ -23,11 +21,8 @@ def addIngredient(userIngList):
 	collection = db.userIngredient
 	
 	if not collection.find_one({'userID' : userIngList['userID']}):
-		#data = {}
-		#data.update(ingredientList = userIngList)
 		result = collection.insert_one(userIngList).inserted_id
 	else:
-		#update(userIngList)
 		search_query = { "userID": userIngList['userID'] }
 
 		for key,value in userIngList.items():
@@ -46,11 +41,9 @@ def updateIngredientQuantity(userID, ingList):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID': userID})
-	#search_query = { "userID": userIngList['userID'] }
 	search_query = { "userID": userID }
 	if result:
 		for key,value in ingList.items():
-			# new_value = {"$set" : {key:int(value)+int(result[key])}}
 			new_value = {"$set" : {key:str(int(value))}}
 			updateCollection = collection.update(search_query, new_value, upsert=True)
 		return True
@@ -64,7 +57,6 @@ def addMoreIngredientQuantity(userID, ingList):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID': userID})
-	#search_query = { "userID": userIngList['userID'] }
 	search_query = { "userID": userID }
 	if result:
 		for key,value in ingList.items():
@@ -82,14 +74,11 @@ def deleteIngredient(userID, ingList):
 	collection = db.userIngredient
 
 	result = collection.find_one({'userID': userID})
-	#print result
 	search_query = { "userID": userID }
 	if result:
 		for key,value in ingList.items():
 			search_query = {"$and": [{"userID": userID}, {key: {'$exists':True}}]}
-			#print collection.find_one(search_query)
 			updateCollection = collection.update(search_query, {'$unset' : {key:1}})
-			#print updateCollection['updatedExisting']
 			if not updateCollection['updatedExisting']:
 				return False
 			

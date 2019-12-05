@@ -39,21 +39,8 @@ export default class recipeList extends Component {
         event.preventDefault();
       }
 
-      // deleteItem = (item) => {
-      //   console.log(item);
-      //   const updatedItems = this.state.recipe.filter(i => i[0] !== item[0]);
-      //   this.setState({ recipe: updatedItems })
-
-      // }
-
-
-     
-
-
-
        getRecipe=()=>{
         var convention= this.props.value;
-        console.log(convention)
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName=WinterWarmer'
         
           fetch(apiUrl)
@@ -83,8 +70,7 @@ export default class recipeList extends Component {
 
                 const dataArray = Object.keys(this.state.recipe).map(i => this.state.recipe[i])
                 this.recipe = dataArray;
-                console.log(this.recipe[0]);
-               },
+                },
                (error) => {
                  this.setState({ error });
                }

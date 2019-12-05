@@ -24,9 +24,6 @@ export default class ListUserShare extends Component {
         this.names=null;
         this.name=null;
         this.getItems();
-        console.log(this.props.beername);
-
-
 
     }
 
@@ -37,7 +34,6 @@ export default class ListUserShare extends Component {
     }
 
     handleSubmit=(event)=> {
-        // console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -48,83 +44,13 @@ export default class ListUserShare extends Component {
         var apiUrl = 'http://127.0.0.1:5000/userSearch?user='
 
         fetch(apiUrl+this.state.name)
-        //     // {
-        //     // method: 'POST',
-        //     //     mode: 'cors',
-        //     //     body: JSON.stringify({
-        //     //     userID: this.state.name,
-        //     // }),
-        //     //     headers: {
-        //     //     'Content-Type': 'application/json',
-        //     //         'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
-        //     //         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-        //     //
-        //     // }
-        // // }
-        // )
-        //     .then(res => res.json())
-        //     .then(
-        //         (result) => {
-        //             var data = result['User Details'];
-        //             // console.log(data);
-        //
-        //             this.loading = false;
-        //             this.items = [result['User Details']];
-        //             var names=[];
-        //             var users = [];
-        //
-        //             console.log(this.items);
-        //             console.log(data.length);
-        //
-        //             // Object.keys(data).forEach(function (key) {
-        //             //     users.push()
-        //             // });
-        //
-        //
-        //             for(var i=0;i<this.items.length;i++)
-        //             {
-        //
-        //                 this.items[i].map((values)=>{
-        //
-        //                     names.push([
-        //                         values.firstName
-        //                     ]);
-        //
-        //
-        //                 })
-        //
-        //             }
-        //
-        //
-        //             this.setState({
-        //                 items: this.items,
-        //                 names: names
-        //             });
-        //
-        //             // this.setState({
-        //             //     items: this.items
-        //             // });
-        //
-        //
-        //
-        //             },
-        //         (error) => {
-        //             this.setState({error});
-        //         }
-        //     )
             .then(res => res.json())
             .then(
                 (result) => {
                     var data = result['User Details'];
                     var names=[];
-
                     this.loading = false;
                     this.items = [result['User Details']];
-
-                    console.log(this.items);
-                    console.log(data.length);
-
-
                     for(var i=0;i<this.items.length;i++)
                     {
 
@@ -144,19 +70,12 @@ export default class ListUserShare extends Component {
                         items: this.items,
                         names: names
                     });
-
-                    //console.log(names);
-
-
                 },
                 (error) => {
                     this.setState({error});
                 }
             )
-
-
     }
-
 
     renderList() {
         return (

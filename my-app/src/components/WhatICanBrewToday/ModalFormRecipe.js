@@ -28,7 +28,6 @@ for (var key in this.props.item.Hops) {
   var arrKeys = this.props.item.Hops[key].trim().split(" ");
     arrHops.push(arrKeys)
 }
-console.log(arrHops)
 
 var arrGrains = [];
       

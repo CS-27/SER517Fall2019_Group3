@@ -5,7 +5,6 @@ Date modified : Dec 2, 2019
 
 import React, {Component} from "react";
 import Card from 'react-bootstrap/Card';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "./AddRecipe.css";
 import {Container, FormLabel, FormControl, FormGroup, Col, Row } from "react-bootstrap"
 import Form from "react-bootstrap/FormGroup";
@@ -53,9 +52,11 @@ handleSubmit=(event) => {
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule=sArray
 
-    console.log(this.state);
     var data = this.state;
+<<<<<<< HEAD
    
+=======
+>>>>>>> master
     fetch('http://127.0.0.1:5000/myRecipes', {
         method: 'POST',
         mode: 'cors',
@@ -78,14 +79,16 @@ handleSubmit=(event) => {
     }).then(res => {
         if(res.status===200)
            this.message = 'Recipe added successfully'
-        console.log(res.status) ;
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
 
 
 render() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     return (
         <Container>
             <Card  className="cardMain">

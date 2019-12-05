@@ -9,8 +9,7 @@ class ListRecipeDatatable2 extends Component {
   render() { 
     const names2 = this.props.names2.map(item =>
       {
-        // console.log(item)
-      return (
+       return (
         
         
         <tr  >

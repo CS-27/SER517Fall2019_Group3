@@ -25,10 +25,6 @@ export default class ListShopping extends Component {
         {
             this.props.history.push('/signin')
         }
-
-        // this.state.userID = 'user1';
-
-
     }
 
     handleChange = event => {
@@ -37,14 +33,6 @@ export default class ListShopping extends Component {
         });
     }
 
-    // handleSubmit = (event) => {
-    //     console.log(this.state);
-    //     var xhr = new XMLHttpRequest()
-    //     xhr.open('POST', 'http://127.0.0.1:5000/')
-    //
-    //     event.preventDefault();
-    // }
-
     handleSubmit = event => {
         this.props.history.push('/addShoppingItem')
     }
@@ -52,7 +40,6 @@ export default class ListShopping extends Component {
     handleSubmitA = event => {
 
         var data = this.state.autoItems;
-        console.log(data);
         for(let i=0;i<this.state.autoItems.length;i++) {
             if (data[i][2] == true) {
                 fetch('http://127.0.0.1:5000/movetToShopList', {
@@ -73,7 +60,6 @@ export default class ListShopping extends Component {
                 }).then(res => {
                     if (res.status === 200)
                         this.message = 'Ingredient added successfully'
-                    console.log(res.status);
                 }).catch(err => console.log(err));
             }
         }
@@ -86,7 +72,6 @@ export default class ListShopping extends Component {
     handleSubmitB = event => {
 
         var data = this.state.items;
-        console.log(data);
         for(let i=0;i<this.state.items.length;i++) {
             if (data[i][2] == true) {
                 fetch('http://127.0.0.1:5000/updatedList', {
@@ -107,7 +92,6 @@ export default class ListShopping extends Component {
                 }).then(res => {
                     if (res.status === 200)
                         this.message = 'Ingredient added successfully'
-                    console.log(res.status);
                 }).catch(err => console.log(err));
             }
         }
@@ -117,14 +101,12 @@ export default class ListShopping extends Component {
 
 
     deleteAutoItem = (item) => {
-        console.log(item);
         const updatedItems = this.state.autoItems.filter(i => i[0] !== item[0]);
         this.setState({ autoItems: updatedItems })
 
       }
 
       deleteItem = (item) => {
-        console.log(item);
         const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
         this.setState({ items: updatedItems })
 
@@ -138,19 +120,12 @@ export default class ListShopping extends Component {
         {
             item[2]=false;
         }
-
-        console.log(item);
-        // const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
-        // console.log(item);
         const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
-        console.log(itemIndex);
-        console.log(item);
         const newArray = [
             ...this.state.items.slice(0, itemIndex),
             item,
             ...this.state.items.slice(itemIndex + 1)
         ]
-        console.log(newArray);
         this.setState({items: newArray})
     }
 
@@ -163,18 +138,12 @@ export default class ListShopping extends Component {
             item[2]=false;
         }
 
-        console.log(item);
-        // const updatedItems = this.state.items.filter(i => i[0] !== item[0]);
-        // console.log(item);
         const itemIndex = this.state.autoItems.findIndex(data => data[0] === item[0])
-        console.log(itemIndex);
-        console.log(item);
         const newArray = [
             ...this.state.autoItems.slice(0, itemIndex),
             item,
             ...this.state.autoItems.slice(itemIndex + 1)
         ]
-        console.log(newArray);
         this.setState({autoItems: newArray})
     }
 
@@ -198,15 +167,11 @@ export default class ListShopping extends Component {
     updateState = (item) => {
 
         const itemIndex = this.state.items.findIndex(data => data[0] === item[0])
-        console.log(itemIndex);
-        console.log(item);
-
         const newArray = [
             ...this.state.items.slice(0, itemIndex),
             item,
             ...this.state.items.slice(itemIndex + 1)
         ]
-        console.log(newArray);
         this.setState({items: newArray})
     }
 
@@ -234,7 +199,6 @@ export default class ListShopping extends Component {
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        console.log(result['ShoppingList']);
                         var data = result['ShoppingList'];
                         if (data==null)
                             return;
@@ -242,7 +206,6 @@ export default class ListShopping extends Component {
                         var items = [];
                         var userID = ""
                         var checked = false;
-                        console.log(data);
                         Object.keys(data).forEach(function (key) {
 
                             if (key == "userID") {
@@ -255,7 +218,6 @@ export default class ListShopping extends Component {
                             }
 
                         });
-
                         this.setState({
                             userID: userID,
                             items: items
@@ -264,7 +226,6 @@ export default class ListShopping extends Component {
 
                         const ingrarray = Object.keys(this.state.items).map(i => this.state.items[i])
                         this.items = ingrarray;
-                        console.log(this.items[0]);
                     },
                     (error) => {
                         this.setState({error});
@@ -276,7 +237,6 @@ export default class ListShopping extends Component {
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        console.log(result['Auto ShoppingList']);
                         var data = result['Auto ShoppingList'];
                         if (data==null)
                             return;
@@ -305,7 +265,6 @@ export default class ListShopping extends Component {
 
                         const ingrarray = Object.keys(this.state.autoItems).map(i => this.state.autoItems[i])
                         this.autoItems = ingrarray;
-                        // console.log(this.items[0]);
                     },
                     (error) => {
                         this.setState({error});

@@ -37,7 +37,6 @@ export default class ListRecipeStatus extends Component {
     }
 
     handleSubmit=(event)=> {
-        //console.log(this.state);
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'http://127.0.0.1:5000/')
 
@@ -46,18 +45,13 @@ export default class ListRecipeStatus extends Component {
       }
 
     handleTemp=()=>{
-       // this.state.temp=temp
-        console.log(this.state.temp)
-        
     }
 
     status=(e)=>
     {
-        console.log("something")
     }
 
     getItems=(event)=> {
-        // var apiUrl = 'http://127.0.0.1:5000/allRecipes';
             var apiUrl = 'http://localhost:5000/recipeSearch?recipeName='+this.state.name;
         fetch(apiUrl)
             .then(res => res.json())
@@ -65,24 +59,15 @@ export default class ListRecipeStatus extends Component {
                 (result) => {
                     var data = result['Recipe List'];
                     var names=[];
-
                     this.loading = false;
                     this.items = [result['Recipe List']];
                     
-                    console.log(this.items);
-                    console.log(data.length);
-
-                    
             for(var i=0;i<this.items.length;i++)
             {
-
                                 this.items[i].map((values)=>{
-                                
                                         names.push([
                                         values.name, values.Temp
                                             ]);
-                                        
-                                            
                                 })
                                 
             }
@@ -93,9 +78,6 @@ export default class ListRecipeStatus extends Component {
                         names: names
                     });
 
-                    //console.log(names);
-
-
                     },
                 (error) => {
                     this.setState({error});
@@ -103,9 +85,6 @@ export default class ListRecipeStatus extends Component {
             )
 
     }
-
-   
-
 
     renderList() {
         return (

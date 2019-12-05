@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-//import DataTableRecipe from '../WhatICanBrewToday/DataTableRecipe';
-
 
 /*Author: Salini Chittineni
 Date added: Oct 16, 2019
@@ -128,35 +126,6 @@ export default class beerStatus extends Component {
 
   }
 
-//   processBeers = (currentBeers) => {
-//     currentBeers.forEach(e => {
-//       let hoursPassed = Math.abs(new Date() - e.lastModified)/36e5
-// //      this.beerStatuses[e];
-//     });
-//   }
-
-
-// beerInfor = (name) => {
-//   console.log("in beerInfor")
-//   console.log(name)
-//   fetch('http://127.0.0.1:5000/brewingBeer', {
-//       method: 'post',
-//       headers: {
-//           'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//           name: name.toString()
-//       })
-
-//   })
-
-//       .then(() => {
-//           this.beerInfor(name)
-//       })
-//       .catch(err => console.log(err))
-
-// }
-
   refresh=()=>{
 
     this.status += 1;
@@ -182,31 +151,6 @@ export default class beerStatus extends Component {
       }
     }
 
-    /*let hoursPassed = 75; //lastupdate - getdate()
-    let inprogressSet = false;
-    for(let i=0; i<this.beerStatuses.length; i++){
-      let e = this.beerStatuses[i]
-      if(e.hours <= hoursPassed){
-        e.animated = ""
-        e.label = ""
-        e.statusColor = "success"
-      } 
-
-      else if(e.hours >= hoursPassed && !inprogressSet){
-        e.animated = "true"
-        e.label = e.percent+"%"
-        e.statusColor = "warning"
-        inprogressSet = true
-
-        alert(e.text)
-
-      }else{
-        e.animated = ""
-        e.label = ""
-        e.statusColor = "danger"
-      }
-
-    }*/
     this.setState({
       beerStatuses:this.beerStatuses
     })

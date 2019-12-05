@@ -11,7 +11,6 @@ Description: Displaying Brew Day contact details
   import img2 from "./Call.png";
   import img3 from "./Maps.png";
 
-
  function Contact() {
       return (
       <div className= 'Contact'>

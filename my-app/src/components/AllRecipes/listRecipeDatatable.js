@@ -3,7 +3,10 @@ import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
 import ModalForm from './modalFormAM'
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+<<<<<<< HEAD
 import RecipeList from './showRecipeAll'
+=======
+>>>>>>> master
 
 class ListRecipeDatatable extends Component {
 
@@ -26,13 +29,11 @@ class ListRecipeDatatable extends Component {
   render() { 
     const names = this.props.names.map(item =>
       {
-        // console.log(item)
-      return (
-        
+        return (
         <tr  >
-          <td>{item}</td>
-
+            <td>{item}</td>
             <td>
+<<<<<<< HEAD
 
         <ModalForm name={item} buttonLabel="view" />
           {/* getRecipe={this.getRecipe(item)} */}
@@ -43,10 +44,16 @@ class ListRecipeDatatable extends Component {
           </td>
 
 
+=======
+                <ModalForm name={item} buttonLabel="view" />
+            </td>
+            <td>
+                <DeleteRoundedIcon onClick={() => this.deleteItem(item) }/>
+            </td>
+>>>>>>> master
         </tr>
         )
       })
-      
 
     return (
       <Table responsive hover>
@@ -55,7 +62,6 @@ class ListRecipeDatatable extends Component {
             <th>Name</th>
             <th>View</th>
             <th>Delete</th>
-            
           </tr>
         </thead>
         <tbody>
