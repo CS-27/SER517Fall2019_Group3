@@ -1,6 +1,6 @@
 /*Author: Harshita Kajal
 Date added: Oct 29, 2019
-Date modified : Nov 13, 2019
+Date modified : Dec 2, 2019
 */
 
 import React, {Component} from "react";
@@ -46,13 +46,9 @@ handleChange = event => {
 
 
 handleSubmit=(event) => {
-  //var try=this.state;
   const hopsArray = this.state.Hops1.split(',');
   this.state.Hops=hopsArray
 
-    // const grainArray = this.state.grain.split(',');
-    // this.state.Grains= grainArray
-  
     const sArray = this.state.schedule.split(',');
     this.state.HopsSchedule=sArray
 
@@ -82,7 +78,6 @@ handleSubmit=(event) => {
     }).catch(err => console.log(err));
   event.preventDefault();           
 }
-
 
 
 render() {
@@ -164,17 +159,6 @@ render() {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-        
-            {/* <FormGroup controlId="grain">
-                    <FormLabel color="white" >All Grain</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="text" 
-                        placeholder="grain1 qty1, grain2 qty2.."
-                        value={this.state.grain} 
-                        onChange={this.handleChange}
-                    />
-                </FormGroup> */}
         </FormGroup>
         <Button onClick = {this.handleSubmit} id="button" type="submit"> Submit </Button>
       </Form>

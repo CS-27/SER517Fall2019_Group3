@@ -51,21 +51,20 @@ export default class ListRecipe extends Component {
                     this.items = [result['All Recipes']];
             for(var i=0;i<this.items.length;i++)
             {
-
                                 this.items[i].map((values)=>{
                                         names.push([
                                         values.name
-                                            ]);
+                                            ]);              
+                                            
                                 })
-                                
+    
             }
                     
-
                     this.setState({
                         items: this.items,
                         names: names
                     });
-            },
+                    },
                 (error) => {
                     this.setState({error});
                 }

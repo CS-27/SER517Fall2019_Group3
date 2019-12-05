@@ -1,7 +1,16 @@
+/*Author: Harshita Kajal
+Date added: Oct 27, 2019
+Date modified : Dec 5, 2019
+Description: Display form for beer categories
+
+*/
+
+
 import RecipeList from './showRecipeAll'
 
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import './modal.css'
 class ModalForm2 extends Component {
   constructor(props) {
@@ -26,13 +35,9 @@ class ModalForm2 extends Component {
       let title = ''
 
       if(label === 'view'){
-        button = <Button
-                  onClick={this.toggle}
-                  >{label}
-                </Button>
-        title = 'Recipe View'
-      } 
-
+        button=   <VisibilityIcon onClick={this.toggle}/>
+   title = 'Recipe View' 
+ } 
 
       return (
       <div>

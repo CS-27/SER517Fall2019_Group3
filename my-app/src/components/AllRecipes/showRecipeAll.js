@@ -2,7 +2,7 @@
   Author: Harshita Kajal
   Date Created:   Oct 16, 2019
   About:  View the recipe details.
-  Date Updated: ...
+  Date Updated: Nov 28, 2019
 */
 
 import React, { Component } from "react";
@@ -12,6 +12,8 @@ import { withRouter } from 'react-router'
 import './showRecipe.css';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import ListRecipeDatatable from "./listRecipeDatatable";
+
 
 class recipeList extends Component {
      constructor(props) {
@@ -43,6 +45,7 @@ class recipeList extends Component {
        getRecipe=(name)=>{
         var convention= this.props.value;
         console.log("inside rec")
+        console.log(name)
         var apiUrl = 'http://127.0.0.1:5000/showRecipe?recipeName='+name
         
           fetch(apiUrl)

@@ -1,4 +1,11 @@
 
+/*
+  Author: Harshita Kajal
+  Date Created:   Oct 16, 2019
+  About:  List all recipes.
+  Date Updated: Nov 25, 2019
+*/
+
 import React, { Component } from "react";
 
 import './listRecipe.css';
