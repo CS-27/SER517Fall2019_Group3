@@ -19,16 +19,34 @@ class ButtonAppBar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn : false}
+    var isLogged = false;
+    console.log(sessionStorage.getItem("username"))
+    if(sessionStorage.getItem("username") == null)
+    isLogged = false;
+    else
+    isLogged = true;
+       
+    this.state = {isLoggedIn : isLogged}
 
   }
-  handleLogin = async event  => {
-    this.setState({isLoggedIn: true});
+  componentWillReceiveProps=()=> {
+    var isLogged = false;
+    console.log(sessionStorage.getItem("username"))
+    if(sessionStorage.getItem("username") == null)
+    isLogged = false;
+    else
+    isLogged = true;
+    this.setState({isLoggedIn : isLogged});
+    console.log("here")
+  
+}
+  // handleLogin = async event  => {
+  //   this.setState({isLoggedIn: true});
 
 
     
 
-  }
+  // }
   handleLogout = async event  => {
       sessionStorage.removeItem("username");
       console.log(sessionStorage.getItem("username"));
