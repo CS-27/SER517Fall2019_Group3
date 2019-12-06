@@ -1,6 +1,7 @@
 /*Author: Harshita Kajal
 Date added: Sep 17, 2019
 Date modified : Sept 22, 2019
+Description: Displaying Brew Day contact details
 */
 
   import React, {Component} from "react";

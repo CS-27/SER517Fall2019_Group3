@@ -3,6 +3,7 @@ import { Table, Button } from 'reactstrap';
 import './listRecipeDatatable.css'
 import ModalForm from './modalFormAM'
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import RecipeList from './showRecipeAll'
 
 class ListRecipeDatatable extends Component {
 

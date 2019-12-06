@@ -1,3 +1,10 @@
+/*Author: Harshita Kajal
+Date added: Oct 27, 2019
+Date modified : Dec 5, 2019
+Description: Categorizing recipes based on alcohol by volume
+
+*/
+
 import React, { Component } from "react";
 
 import './listRecipe.css';
@@ -21,6 +28,11 @@ export default class ListRecipeCategory extends Component {
             name:"",
             names:[],
             names2:[]
+        }
+        this.uname=sessionStorage.getItem("username")
+        if(this.uname==null)
+        {
+            this.props.history.push('/signin')
         }
         this.items = null;
         this.loading = true;

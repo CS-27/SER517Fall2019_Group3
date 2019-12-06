@@ -76,7 +76,9 @@ export default class Signin extends Component {
                     console.log("Login successfull");
                     alert("Logged in");
                     sessionStorage.setItem('username',this.state.email);
-                    this.props.history.push('/')
+                    this.props.history.push('/');
+                    window.location.reload();
+
 
                 }
                 else if(response.data.Status == "False"){
