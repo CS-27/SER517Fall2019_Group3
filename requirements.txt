@@ -83,7 +83,7 @@ redis==2.10.6
 requests==2.19.1
 scipy==0.13.0b1
 six==1.11.0
-urllib3==1.23
+urllib3==1.26.5
 vboxapi==1.0
 Werkzeug==0.14.1
 xattr==0.6.4
